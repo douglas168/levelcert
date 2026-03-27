@@ -25,6 +25,9 @@ npm-debug.log*
 # Sensitive docs — never commit
 USER-INTAKE.md
 
+# Local planning notes — not for repo
+services-needed.md
+
 # Supabase CLI temp files
 supabase/.temp/
 .vercel
