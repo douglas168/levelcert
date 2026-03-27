@@ -28,3 +28,21 @@ USER-INTAKE.md
 # Supabase CLI temp files
 supabase/.temp/
 .vercel
+
+# Binary / research materials — track text, not blobs
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.ico
+*.mp4
+*.mov
+*.mp3
+*.wav
+*.zip
+*.pptx
+*.docx
+*.xlsx
