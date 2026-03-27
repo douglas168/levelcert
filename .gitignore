@@ -30,6 +30,7 @@ supabase/.temp/
 .vercel
 
 # Binary / research materials — track text, not blobs
+# Exception: web/public/ assets are needed for the website
 *.pdf
 *.png
 *.jpg
@@ -46,3 +47,4 @@ supabase/.temp/
 *.pptx
 *.docx
 *.xlsx
+!web/public/**
