@@ -2,12 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseAdmin() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY!);
+}
 
 export async function POST(req: NextRequest) {
   const { email, lang } = await req.json();
@@ -17,6 +21,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Insert into Supabase
+  const supabase = getSupabaseAdmin();
   const { error } = await supabase
     .from("waitlist")
     .insert({ email: email.toLowerCase().trim(), lang: lang ?? "en" });
@@ -30,6 +35,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Send confirmation email via Resend
+  const resend = getResend();
   const isZh = lang === "zh";
   await resend.emails.send({
     from: "GoCertNow <hello@gocertnow.com>",
