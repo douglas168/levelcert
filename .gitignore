@@ -28,6 +28,10 @@ USER-INTAKE.md
 # Local planning notes — not for repo
 milestones/services-needed.md
 
+# Claude Code — local settings only; commands/ and skills/ are project config
+.claude/settings.local.json
+.claude/skills/**/__pycache__/
+
 # Supabase CLI temp files
 supabase/.temp/
 .vercel
