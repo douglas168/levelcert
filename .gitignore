@@ -26,7 +26,7 @@ npm-debug.log*
 USER-INTAKE.md
 
 # Local planning notes — not for repo
-services-needed.md
+milestones/services-needed.md
 
 # Supabase CLI temp files
 supabase/.temp/
