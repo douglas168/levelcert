@@ -66,7 +66,7 @@ export default function Home() {
         style={{ background: "var(--surface)", borderBottom: "1px solid var(--border)" }}
       >
         <div className="text-xl font-extrabold tracking-tight" style={{ color: "var(--text-primary)", letterSpacing: "-0.02em" }}>
-          Go<span style={{ color: "var(--accent)" }}>Cert</span>Now
+          Level<span style={{ color: "var(--accent)" }}>Cert</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="flex rounded-lg overflow-hidden text-xs font-semibold" style={{ border: "1px solid var(--border)" }}>
