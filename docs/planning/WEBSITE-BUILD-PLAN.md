@@ -71,9 +71,16 @@
 **Pages:**
 - `/` — Landing page (hero, course list, pricing, social proof)
 - `/courses/[slug]` — Course detail (syllabus, preview video, buy button)
-- `/learn/[slug]/[lesson]` — Lesson player (Bunny.net embed, progress bar, next/prev)
+- `/learn/[slug]/[lesson]` — Lesson player (text + diagrams + audio, progress bar, next/prev)
 - `/dashboard` — User's purchased courses + progress + access expiry
 - `/login` — Clerk auth (Google + email)
+
+**Content structure:**
+- **Micro-lessons:** One testable concept per lesson, 5–9 minutes of reading/video each
+- **Splitting rule:** If a concept needs >9 min to explain, break it into independently testable sub-concepts
+- **Exam traceability:** Each mock exam question maps back to a specific micro-lesson, enabling the weakness radar to point students to the exact lesson they need to review
+- **Format:** Text + diagrams + audio narration (scannable, reviewable — exam prep students review 5–10× before the exam)
+- **See:** `docs/planning/RPG-LITE-SCOPE.md` for full micro-lesson rationale and RPG gamification layer
 
 **Core features:**
 - Stripe checkout → grant access on payment success
