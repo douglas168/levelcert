@@ -40,6 +40,30 @@ For each major concept section, use this order:
 → Quick Check with answer directly below
 ```
 
+When a section contains similar methods, comparison tables, formulas, or English technical terms, prefer this more explicit reading-first version:
+
+```text
+先懂一句話
+→ Everyday Analogy
+→ 先問自己一個問題
+→ 技術說法
+→ 流程 / 選擇流程
+→ 一步一步例子
+→ 比較表這樣讀
+→ 記憶方式
+→ Exam Rule
+→ Quick Check with answer directly below
+```
+
+Use this explanation style:
+
+- Start with the mental shortcut before the formal definition.
+- Pair key Chinese terms with English terms, for example `分位數（Quantile）`.
+- Use concrete analogies such as `全班排名`, `排名位置`, and `百分等級（percentile rank）` when explaining ranking, quantiles, or distribution transforms.
+- For comparison sections, make the table a decision helper instead of a memorization table.
+- Before a comparison table, add a compact hook such as `Log Transform = 壓縮很大的數字`.
+- For numeric examples, show the missing intermediate steps before the final result.
+
 Use this section pattern:
 
 ````md

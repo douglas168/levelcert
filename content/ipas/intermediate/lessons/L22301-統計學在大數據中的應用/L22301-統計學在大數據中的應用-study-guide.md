@@ -15,8 +15,10 @@
 考前使用方式：
 
 1. 先背第 1 節流程圖。
-2. 每讀完一節，立刻做該節 Quick Check。
-3. 考前最後複習第 8 節 Exam Decision Trees、第 9 節 Trap Clinic、第 10 節 Practice Questions。
+2. 每個核心概念先讀 `先懂一句話` 和 `Everyday Analogy`，再看技術說法。
+3. 遇到比較表時，先看表前的「先問自己一個問題」和「比較表這樣讀」。
+4. 每讀完一節，立刻做該節 Quick Check。
+5. 考前最後複習第 8 節 Exam Decision Trees、第 9 節 Trap Clinic、第 10 節 Practice Questions。
 
 ---
 
@@ -24,13 +26,25 @@
 
 ### 先懂一句話
 
-統計學在大數據前處理中的重點，是把原始數值資料整理成「可比較、可分析、可進模型」的形式。
+```text
+本課核心 = 看資料症狀，選正確的數值前處理方法
+```
 
 本課主要分成兩條路：資料量級不一致時做`縮放（Scaling）`，資料分佈太偏或太怪時做`分佈轉換（Distribution Transform）`。
 
 ### Everyday Analogy
 
 想像你要比較班上同學的身高、零用錢、通勤時間。如果每個欄位的單位和範圍都差很多，直接比較會很亂；資料轉換就像先把大家換成同一套可比較的刻度。
+
+### 先問自己一個問題
+
+```text
+題目是在問「數字尺度」，還是「資料形狀」？
+```
+
+### 技術說法
+
+統計學在大數據前處理中的重點，是把原始數值資料整理成「可比較、可分析、可進模型」的形式。
 
 ### 在整體流程中的位置
 
@@ -43,6 +57,8 @@
 ```
 
 ### Key Concepts
+
+比較表這樣讀：
 
 | 題目問的是 | 想到 |
 |---|---|
@@ -82,13 +98,33 @@
 
 ### 先懂一句話
 
-`縮放（Scaling）`是在不改變資料順序的前提下，把數值換到比較好比較的尺度。
+```text
+縮放（Scaling）= 不改變排名，只把數字換成比較公平的刻度
+```
 
-三個高頻方法要分清楚：`MinMaxScaler` 看最小最大值，`StandardScaler` 看平均與標準差，`RobustScaler` 看中位數與 IQR。
+三個高頻方法要分清楚：
+
+```text
+Min-Max Normalization = 看最小值與最大值
+Standardization / z-score = 看離平均數多遠
+Robust Scaling = 看中位數與 IQR，比較不怕異常值
+```
 
 ### Everyday Analogy
 
 你在比三間餐廳：價格是 100 到 3000 元，評分是 1 到 5 星，等待時間是 0 到 60 分鐘。Scaling 就像把不同單位先換成可比較的分數，否則價格欄位會因為數字大而壓過其他欄位。
+
+### 先問自己一個問題
+
+```text
+我只是想讓不同欄位比較公平，還是想改變資料分佈形狀？
+```
+
+如果只是欄位尺度不公平，先想 `Scaling`。如果題目在講右偏、長尾、怪分佈，才往 `Distribution Transform` 想。
+
+### 技術說法
+
+`縮放（Scaling）`會改變數值的刻度，但通常不改變資料的大小順序。原本最大的人通常還是最大，最小的人通常還是最小。
 
 ### 在整體流程中的位置
 
@@ -103,22 +139,42 @@
 
 #### 2.1 Min-Max Normalization
 
-`最小最大正規化（Min-Max Normalization）`常把資料壓到 `[0,1]`。
+先懂一句話：
+
+```text
+最小最大正規化（Min-Max Normalization）= 看一個數在最小值到最大值之間的位置
+```
+
+Everyday Analogy：
+
+像把全班成績換成 0 到 100 的相對位置。最低分變 0，最高分變 1，中間的人依照位置落在 0 到 1 之間。
+
+技術說法：
+
+`MinMaxScaler` 常把資料壓到 `[0,1]`。
 
 ```text
 x' = (x - x_min) / (x_max - x_min)
 ```
 
-例子：
+一步一步例子：
 
 ```text
 原始資料：[2, 5, 8]
 x = 5
+
+Step 1：找最小值與最大值
+x_min = 2
+x_max = 8
+
+Step 2：套公式
 x' = (5 - 2) / (8 - 2) = 0.5
+
+Step 3：整組轉換後
 轉換後：[0, 0.5, 1]
 ```
 
-適用：
+比較表這樣讀：
 
 | 題目狀況 | 是否適合 Min-Max |
 |---|---|
@@ -134,9 +190,27 @@ Min-Max：0, 0.03, 0.06, 1
 正常值會被擠在 0 附近
 ```
 
+記憶方式：
+
+```text
+Min-Max = 固定範圍，但很怕極端最大值 / 最小值
+```
+
 #### 2.2 Standardization / z-score
 
-`標準化（Standardization）`會把資料轉成平均數為 0、標準差為 1。
+先懂一句話：
+
+```text
+標準化（Standardization）/ z-score = 看一個數離平均數幾個標準差
+```
+
+Everyday Analogy：
+
+像老師不只看你考 85 分，而是看你比全班平均高多少。如果全班平均 70 分、大家分數很集中，85 分就很突出；如果全班分數很分散，85 分可能只是稍微高一點。
+
+技術說法：
+
+`StandardScaler` 會把訓練資料轉成平均數為 0、標準差為 1。
 
 > 精確度補充：`StandardScaler` 對**訓練資料**做 `fit_transform` 後，輸出結果是**精確的** mean=0, std=1（到機器精度）。對測試集或新資料套用同一個 scaler 時，因為使用的是訓練集學到的參數，結果才是**近似的** mean≈0, std≈1。
 
@@ -146,17 +220,21 @@ z = (x - μ) / σ
 
 其中 `μ` 是平均數，`σ` 是標準差。
 
-例子：
+一步一步例子：
 
 ```text
 原始資料：[20, 30, 40]
+
+Step 1：找平均數與標準差
 平均數 μ = 30
 標準差 σ ≈ 8.165
+
+Step 2：計算 x = 40 的 z-score
 x = 40
 z = (40 - 30) / 8.165 ≈ 1.225
 ```
 
-重點：
+比較表這樣讀：
 
 | 常考敘述 | 正確觀念 |
 |---|---|
@@ -164,34 +242,70 @@ z = (40 - 30) / 8.165 ≈ 1.225
 | 輸出一定在 `[0,1]` | 錯，StandardScaler 沒有固定範圍 |
 | PCA 前常需要處理尺度 | 常想到 StandardScaler |
 
+記憶方式：
+
+```text
+Standardization = 平均 0、標準差 1；不是固定到 [0,1]
+```
+
 #### 2.3 Robust Scaling
 
-`穩健縮放（Robust Scaling）`用`中位數（Median）`和`四分位距（Interquartile Range, IQR）`，所以比較不怕異常值。
+先懂一句話：
+
+```text
+穩健縮放（Robust Scaling）= 用中位數與 IQR 當尺，比較不被極端值影響
+```
+
+Everyday Analogy：
+
+如果班上有一個超級富有的學生，平均零用錢會被他拉高。這時看「中位數」比較公平，因為中位數代表中間位置，不會被一個極端值拖走。
+
+技術說法：
+
+`RobustScaler` 用`中位數（Median）`和`四分位距（Interquartile Range, IQR）`，所以比 `StandardScaler` 或 `MinMaxScaler` 更不怕異常值。
 
 ```text
 x' = (x - median) / IQR
 IQR = Q3 - Q1
 ```
 
-例子：
+一步一步例子：
 
 ```text
 資料：[80, 90, 100, 110, 500]
+
+Step 1：找中位數與四分位距
 median = 100
 Q1 = 90
 Q3 = 110
 IQR = 20
+
+Step 2：計算 x = 110
 x = 110
 x' = (110 - 100) / 20 = 0.5
 ```
 
+記憶方式：
+
+```text
+Robust = median + IQR = 異常值很多時優先想到
+```
+
 #### 2.4 三種 Scaling 快速比較
 
-| 方法 | sklearn 類別 | 核心公式 / 參數 | 輸出範圍 | 怕不怕異常值 | 考題關鍵字 |
-|---|---|---|---|---|---|
-| Min-Max | `MinMaxScaler` | `(x-min)/(max-min)` | 常見 `[0,1]` | 很怕 | 固定範圍、0 到 1 |
-| Standardization | `StandardScaler` | `(x-μ)/σ` | 無固定範圍 | 怕 | 平均 0、標準差 1、z-score |
-| Robust Scaling | `RobustScaler` | `(x-median)/IQR` | 無固定範圍 | 較不怕 | 異常值、outliers、IQR |
+先問自己一個問題：
+
+```text
+題目要固定範圍、平均標準差，還是抗異常值？
+```
+
+比較表這樣讀：
+
+| 方法 | 先用白話記 | sklearn 類別 | 核心公式 / 參數 | 輸出範圍 | 怕不怕異常值 | 考題關鍵字 |
+|---|---|---|---|---|---|---|
+| Min-Max | 固定到一段範圍 | `MinMaxScaler` | `(x-min)/(max-min)` | 常見 `[0,1]` | 很怕 | 固定範圍、0 到 1 |
+| Standardization | 看離平均幾個標準差 | `StandardScaler` | `(x-μ)/σ` | 無固定範圍 | 怕 | 平均 0、標準差 1、z-score |
+| Robust Scaling | 用中位數和 IQR 當尺 | `RobustScaler` | `(x-median)/IQR` | 無固定範圍 | 較不怕 | 異常值、outliers、IQR |
 
 ### Exam Rule
 
@@ -214,13 +328,27 @@ x' = (110 - 100) / 20 = 0.5
 
 ### 先懂一句話
 
-`分佈轉換（Distribution Transform）`處理的不是單純量級，而是資料形狀。
+```text
+分佈轉換（Distribution Transform）= 修資料形狀，不只是修數字大小
+```
 
 當資料右偏、長尾、跨度很大，或分佈非常不規則時，分佈轉換能讓資料更容易觀察與分析。
 
 ### Everyday Analogy
 
 粉絲數或收入常常是少數人超大、多數人較小。直接看原始數字會被少數超大值吸走注意力；做分佈轉換就像把音量太大的地方壓小，讓整體更容易聽出差異。
+
+### 先問自己一個問題
+
+```text
+我的問題是「欄位尺度不公平」，還是「資料分佈形狀太歪」？
+```
+
+如果題目說右偏、長尾、少數超大值、想變 normal / uniform，就往 `Distribution Transform` 想。
+
+### 技術說法
+
+`分佈轉換（Distribution Transform）`會改變資料的分佈形狀。它比 scaling 更積極，可能壓縮大值、調整偏態，或把資料映到指定分佈。
 
 ### 在整體流程中的位置
 
@@ -236,7 +364,19 @@ x' = (110 - 100) / 20 = 0.5
 
 #### 3.1 Log Transform
 
-`對數轉換（Log Transform）`常用來壓縮右偏資料的大值。
+先懂一句話：
+
+```text
+對數轉換（Log Transform）= 把很大的數字壓小，常用於右偏 / 長尾資料
+```
+
+Everyday Analogy：
+
+像把音量太大的麥克風調小。原本 1、10、100、1000 差距很誇張，做 log 後仍保留大小順序，但大值不會那麼壓倒其他資料。
+
+技術說法：
+
+`Log Transform` 常用來壓縮右偏資料的大值。
 
 ```text
 x' = ln(x)
@@ -248,28 +388,50 @@ x' = ln(x)
 log1p(x) = ln(x + 1)
 ```
 
-例子：
+一步一步例子：
 
 ```text
 原始資料：[1, 10, 100, 1000]
+
+Step 1：對每個值取自然對數 ln(x)
 ln(1) = 0
 ln(10) ≈ 2.303
 ln(100) ≈ 4.605
 ln(1000) ≈ 6.908
+
+Step 2：看差距
+原本每次差 10 倍
+轉換後差距被壓縮成比較平滑的間距
 ```
 
-原本每次差 10 倍，轉換後差距被壓縮。
+比較表這樣讀：
 
-注意：
+| 題目狀況 | 正確判斷 | 考試記法 |
+|---|---|---|
+| `x > 0` 且右偏 | 可用 `ln(x)` | 正值右偏可 log |
+| 有 0 | 可考慮 `log1p(x)` | `ln(0)` 不存在 |
+| 有負值 | 不能直接用 `ln(x)` | log 不能直接吃負值 |
+| `log1p(x)` | 是 `ln(x+1)`，不是 `ln(x)+1` | `p` 想成 plus inside |
 
-| 題目狀況 | 正確判斷 |
-|---|---|
-| `x > 0` 且右偏 | 可用 `ln(x)` |
-| 有 0 | 可考慮 `log1p(x)` |
-| 有負值 | 不能直接用 `ln(x)` |
-| `log1p(x)` | 是 `ln(x+1)`，不是 `ln(x)+1` |
+記憶方式：
+
+```text
+Log Transform = 壓縮大值；log1p(x) = ln(x+1)
+```
 
 #### 3.2 Box-Cox Transform
+
+先懂一句話：
+
+```text
+Box-Cox Transform = 正值資料的彈性版 log / power transform
+```
+
+Everyday Analogy：
+
+如果 log 像固定的一段音量壓縮器，Box-Cox 像可以調旋鈕的壓縮器。旋鈕就是 `λ`，資料會幫你估比較合適的轉換強度。
+
+技術說法：
 
 `Box-Cox 轉換（Box-Cox Transform）`是`冪次轉換（Power Transform）`的一種，常用在右偏且全為正值的資料。
 
@@ -278,7 +440,7 @@ x'(λ) = (x^λ - 1) / λ, λ ≠ 0
 x'(0) = ln(x)
 ```
 
-重點：
+比較表這樣讀：
 
 | 條件 / 參數 | 意義 |
 |---|---|
@@ -287,11 +449,18 @@ x'(0) = ln(x)
 | `λ = 1` | 線性偏移，分佈形狀大致不變 |
 | `λ` | 通常由資料估計，不是手動亂猜 |
 
-例子：
+一步一步例子：
 
 ```text
 x = 9, λ = 0.5
+
+Step 1：代入公式
 x'(0.5) = (9^0.5 - 1) / 0.5
+
+Step 2：先算 9^0.5
+9^0.5 = 3
+
+Step 3：完成計算
         = (3 - 1) / 0.5
         = 4
 ```
@@ -308,7 +477,25 @@ X_test_bc = pt.transform(X_test_positive)
 
 提醒：`PowerTransformer()` 常見預設是 `method="yeo-johnson"`；若題目要 Box-Cox，要看是否明確指定 `method="box-cox"`。
 
+記憶方式：
+
+```text
+Box-Cox = positive only；λ = 0 時就是 log
+```
+
 #### 3.3 Yeo-Johnson Transform
+
+先懂一句話：
+
+```text
+Yeo-Johnson Transform = 可處理 0 與負值的 power transform
+```
+
+Everyday Analogy：
+
+Box-Cox 像只收正分數的規則；Yeo-Johnson 像比較寬鬆的規則，遇到 0 或負值也還能處理。
+
+技術說法：
 
 `Yeo-Johnson` 也是 `PowerTransformer` 支援的冪次轉換。它可以處理 0 與負值。
 
@@ -319,27 +506,70 @@ X_test_bc = pt.transform(X_test_positive)
 | Box-Cox | 要求 `x > 0` |
 | Yeo-Johnson | 可處理 0 與負值 |
 
+記憶方式：
+
+```text
+題目說 power transform + 含 0 或負值 → 不要選 Box-Cox，想到 Yeo-Johnson
+```
+
 #### 3.4 Quantile Transform
 
-`分位數轉換（Quantile Transform）`用排序與分位數，把資料映到目標分佈，例如 uniform 或 normal。
+先懂一句話：
+
+```text
+分位數（Quantile）= 排名位置 / 百分等級
+分位數轉換（Quantile Transform）= 先看排名，再把排名換成指定分佈
+```
+
+先不要想公式。把 `分位數（Quantile）`想成「這個數值在全班排名的位置」。重點不是原本數字有多大，而是它排在第幾名、比多少比例的資料還大。
+
+Everyday Analogy：
+
+像老師不直接看原始分數，而是先看百分等級（percentile rank）。
+
+```text
+90 分 → 可能是前 10%
+70 分 → 可能是中間 50%
+```
+
+所以分位數轉換不是問「90 比 70 多 20 分」，而是問「90 在班上排多前面、70 在班上排哪裡」。
+
+技術說法：
+
+`分位數轉換（Quantile Transform）`會先把資料排序，改成「排名位置 / 百分等級」，再把這些位置重新對應到目標分佈（target distribution），例如 `uniform` 或 `normal`。
+
+流程：
 
 ```text
 原始資料
 → 排序
-→ 找每個值的分位位置
+→ 找每個值的分位位置（排名比例）
 → 映到 output_distribution="uniform" 或 "normal"
 ```
 
-例子：
+一步一步例子：
 
 ```text
 資料：[10, 20, 30, 100]
-大致分位：
-10  → 0.00
-20  → 0.33
-30  → 0.67
-100 → 1.00
+
+Step 1：排序後位置
+10  → 排第 1 / 4 → 最低位置 → 0.00
+20  → 排第 2 / 4 → 約 1/3 位置 → 0.33
+30  → 排第 3 / 4 → 約 2/3 位置 → 0.67
+100 → 排第 4 / 4 → 最高位置 → 1.00
+
+Step 2：把原始數值改成排名位置
+[10, 20, 30, 100]
+→ [0.00, 0.33, 0.67, 1.00]
 ```
+
+記憶方式：
+
+```text
+Quantile Transform 重點不是「縮放數字」，而是「改看排名」。
+```
+
+所以 `100` 雖然比 `30` 大很多，但轉換後只代表它是最高排名，不會保留原本 `100 - 30 = 70` 的距離。
 
 `sklearn` 常見寫法：
 
@@ -355,21 +585,78 @@ X_train_qt = qt.fit_transform(X_train)
 X_test_qt = qt.transform(X_test)
 ```
 
-風險：`QuantileTransformer` 是非線性轉換，可能扭曲原本的線性關係。
+Exam Rule：
+
+```text
+題目看到分佈很怪、想把資料轉成 uniform / normal → 想 QuantileTransformer
+題目強調保留原本數值距離或線性關係 → 小心 QuantileTransformer
+```
+
+風險：`QuantileTransformer` 是非線性轉換（nonlinear transform），可能扭曲原本的線性關係。
 
 #### 3.5 三種分佈轉換比較
 
-| 方法 | 適合情境 | 條件 | 優點 | 風險 |
+先懂一句話：
+
+```text
+Log Transform = 壓縮很大的數字
+Box-Cox Transform = 對正值資料做更彈性的 log 類轉換
+Quantile Transform = 不看原始距離，改看排名 / 百分等級
+```
+
+Everyday Analogy：
+
+想像老師在處理一班學生的成績或收入資料：
+
+```text
+Log Transform
+→ 分數差距太誇張，先把特別大的差距壓小
+
+Box-Cox Transform
+→ 老師知道資料都是正數，想找一種比 log 更彈性的壓縮方式
+
+Quantile Transform
+→ 老師不看原始分數差多少，只看每個人在班上的百分等級（percentile rank）
+```
+
+先問自己一個問題：
+
+```text
+我現在想修的是「數值差距太大」，還是「整個分佈形狀很怪」？
+```
+
+比較表這樣讀：
+
+| 方法 | 先用白話記 | 適合情境 | 條件 | 風險 |
 |---|---|---|---|---|
-| Log Transform | 右偏、倍率差距大 | `ln(x)` 需 `x > 0`；有 0 可用 `log1p` | 簡單、常見 | 不能直接處理負值 |
-| Box-Cox | 右偏正值，想更彈性 | 必須 `x > 0` | `λ` 可由資料估計 | 不是萬用答案 |
-| QuantileTransformer | 分佈很怪、想映到 uniform / normal | 數值資料 | 強力調整分佈 | 非線性，可能扭曲線性關係 |
+| Log Transform | 把很大的差距壓小 | 右偏、長尾、倍率差距大，例如金額、流量、次數 | `ln(x)` 需 `x > 0`；有 0 可用 `log1p(x)` | 不能直接處理負值 |
+| Box-Cox Transform | 正值資料的彈性版 log | 右偏且全部大於 0，題目提 power transform 或 `λ` | 必須 `x > 0` | 不是萬用答案；遇到 0 或負值不適合 |
+| Quantile Transform | 改看排名 / 百分等級 | 分佈很怪，想映到 `uniform` 或 `normal` | 數值資料 | 非線性，可能扭曲原本線性關係 |
+
+選擇流程：
+
+```text
+資料右偏、長尾、倍率差距大？
+→ 先想 Log Transform
+
+資料包含 0，但還是想做類似 log 的壓縮？
+→ 想 log1p(x) = ln(x + 1)
+
+資料全部 > 0，而且題目提 power transform / λ？
+→ 想 Box-Cox Transform
+
+資料分佈很怪，題目想轉成 uniform / normal？
+→ 想 Quantile Transform / QuantileTransformer
+
+題目強調保留原本數值距離或線性關係？
+→ 小心 Quantile Transform，因為它會改看排名
+```
 
 ### Exam Rule
 
 ```text
 右偏、長尾、金額、流量、次數 → Log Transform
-右偏且全部大於 0，題目提 power transform / λ → Box-Cox
+右偏且全部大於 0，題目提 power transform / λ → Box-Cox Transform
 Box-Cox 的 λ = 0 → log transform
 分佈很怪，想映到 uniform / normal → QuantileTransformer
 資料包含 0 又想做類 log 壓縮 → log1p(x)
@@ -383,11 +670,31 @@ Box-Cox 的 λ = 0 → log transform
 
 ---
 
-## 3.6 大數據抽樣技術 🔥🔥
+### 3.6 大數據抽樣技術 🔥🔥
 
-大數據統計常需依賴抽樣而非全量計算，抽樣方法的選擇影響統計推論的可靠性。
+### 先懂一句話
 
-#### 大數據抽樣技術
+```text
+大數據抽樣（Sampling）= 資料太大不能全看時，抽一部分但盡量保持代表性
+```
+
+### Everyday Analogy
+
+像試喝一大鍋湯，不會把整鍋喝完才判斷味道，而是取一小匙。但這一小匙要攪拌均勻後再取，才比較能代表整鍋湯。
+
+### 先問自己一個問題
+
+```text
+資料是一般靜態資料、類別不平衡，還是資料流？
+```
+
+### 技術說法
+
+大數據統計常需依賴抽樣而非全量計算，抽樣方法的選擇會影響統計推論的可靠性。
+
+### Key Concepts
+
+比較表這樣讀：
 
 | 技術 | 說明 | 使用場景 |
 |---|---|---|
@@ -395,11 +702,19 @@ Box-Cox 的 λ = 0 → log transform
 | 分層抽樣 (Stratified Sampling) | 按類別比例抽取，確保各類別都有代表 | 類別不平衡資料 |
 | 蓄水池抽樣 (Reservoir Sampling) | 在資料流中不知總量的情況下均勻抽樣 | 串流大數據、無法一次讀入記憶體 |
 
+### Exam Rule
+
 ```text
 題目問「資料太大無法全部讀入記憶體，如何抽樣」→ 蓄水池抽樣
 題目問「類別不平衡，抽樣時每類都要有代表」→ 分層抽樣
 題目問「最基本的隨機抽樣、每筆機率相等」→ 簡單隨機抽樣
 ```
+
+### Quick Check
+
+題目：資料是串流進來的，總筆數一開始不知道，但想維持均勻抽樣，應想到哪個方法？
+
+答案：`蓄水池抽樣（Reservoir Sampling）`。因為它適合資料流與未知總量的抽樣情境。
 
 ---
 
@@ -407,13 +722,27 @@ Box-Cox 的 λ = 0 → log transform
 
 ### 先懂一句話
 
-考試真正想測的是：你能不能先看資料問題，再選方法。
+```text
+Data Diagnostics = 先看資料症狀，再選前處理方法
+```
 
-不要一看到 transformation 就固定選 Box-Cox；要先判斷題目在問「範圍、尺度、異常值、右偏，還是怪分佈」。
+考試真正想測的是：你能不能先看資料問題，再選方法。不要一看到 transformation 就固定選 Box-Cox；要先判斷題目在問「範圍、尺度、異常值、右偏，還是怪分佈」。
 
 ### Everyday Analogy
 
 這像看病：發燒、咳嗽、胃痛不會吃同一種藥。資料前處理也是一樣，先看症狀，再選工具。
+
+### 先問自己一個問題
+
+```text
+題目描述的是哪一種資料症狀？
+```
+
+先抓症狀，再看限制條件。不要先背工具名。
+
+### 技術說法
+
+`資料診斷（Data Diagnostics）`不是一個單一 sklearn 類別，而是一個判斷流程：看資料特徵，選 scaling、distribution transform 或 sampling 方法。
 
 ### 在整體流程中的位置
 
@@ -426,24 +755,51 @@ Box-Cox 的 λ = 0 → log transform
 
 ### Key Concepts
 
-| 資料症狀 | 代表問題 | 優先想到 |
-|---|---|---|
-| 欄位單位差很多 | 尺度不一致 | StandardScaler |
-| 後續系統要求 `[0,1]` | 固定範圍 | MinMaxScaler |
-| 少數極端值很大 | 異常值 | RobustScaler |
-| 大多數小、少數超大 | 右偏 / 長尾 | Log Transform |
-| 右偏、全部正值、想估轉換強度 | 冪次轉換 | Box-Cox |
-| 分佈多峰、很不規則 | 分佈形狀很怪 | QuantileTransformer |
+比較表這樣讀：
+
+| 資料症狀 | 代表問題 | 優先想到 | 白話記法 |
+|---|---|---|---|
+| 欄位單位差很多 | 尺度不一致 | StandardScaler | 先統一尺度 |
+| 後續系統要求 `[0,1]` | 固定範圍 | MinMaxScaler | 壓到指定範圍 |
+| 少數極端值很大 | 異常值 | RobustScaler | 用 median / IQR 抗極端值 |
+| 大多數小、少數超大 | 右偏 / 長尾 | Log Transform | 壓縮大值 |
+| 右偏、全部正值、想估轉換強度 | 冪次轉換 | Box-Cox | 正值資料彈性版 log |
+| 分佈多峰、很不規則 | 分佈形狀很怪 | QuantileTransformer | 改看排名 / 百分等級 |
 
 常見情境：
 
-| 情境 | 輸入特徵 | 常見答案 |
-|---|---|---|
-| 薪資、房價、流量 | 正值、右偏、少數超大 | Log / Box-Cox |
-| 感測器數值要送進只收 `[0,1]` 的系統 | 需要固定範圍 | MinMaxScaler |
-| 消費金額混入豪客極端值 | outliers 明顯 | RobustScaler |
-| 年收入、登入次數、停留秒數一起分析 | 量級差異大 | StandardScaler |
-| 想把資料映成 normal | 目標分佈指定 | QuantileTransformer |
+| 情境 | 輸入特徵 | 常見答案 | 判斷關鍵 |
+|---|---|---|---|
+| 薪資、房價、流量 | 正值、右偏、少數超大 | Log / Box-Cox | 長尾與大值 |
+| 感測器數值要送進只收 `[0,1]` 的系統 | 需要固定範圍 | MinMaxScaler | 題目指定範圍 |
+| 消費金額混入豪客極端值 | outliers 明顯 | RobustScaler | 異常值 |
+| 年收入、登入次數、停留秒數一起分析 | 量級差異大 | StandardScaler | 多欄位尺度不一 |
+| 想把資料映成 normal | 目標分佈指定 | QuantileTransformer | uniform / normal |
+
+選擇流程：
+
+```text
+題目指定 [0,1]？
+→ MinMaxScaler
+
+題目說平均 0、標準差 1、z-score？
+→ StandardScaler
+
+題目說 outliers、異常值、robust？
+→ RobustScaler
+
+題目說右偏、長尾、金額、流量？
+→ Log / Box-Cox
+
+題目說映到 uniform / normal、分佈很怪？
+→ QuantileTransformer
+```
+
+記憶方式：
+
+```text
+範圍看 MinMax；平均標準差看 Standard；異常值看 Robust；形狀太歪看分佈轉換
+```
 
 ### Exam Rule
 
@@ -467,13 +823,25 @@ Box-Cox 的 λ = 0 → log transform
 
 ### 先懂一句話
 
-`sklearn.preprocessing` 的考點通常不是背程式，而是看懂「這段程式正在學什麼參數、套用什麼轉換」。
+```text
+sklearn.preprocessing API = 訓練集學規則，測試集只套規則
+```
 
 最重要的 API 觀念是：訓練集用 `fit` 學規則，測試集只用 `transform` 套規則。
 
 ### Everyday Analogy
 
 想像你用去年的全公司薪資訂出高、中、低標準，再拿今年新人的薪資來套同一把尺。你不能每來一批新人就重新訂標準，否則不同批次就不能公平比較。
+
+### 先問自己一個問題
+
+```text
+這行程式是在「學規則」，還是只是「套已經學好的規則」？
+```
+
+### 技術說法
+
+`fit()` 會從資料估參數；`transform()` 會使用已估好的參數轉換資料；`fit_transform()` 是先 `fit` 再 `transform`。
 
 ### 在整體流程中的位置
 
@@ -488,21 +856,31 @@ X_train
 
 #### 5.1 fit、transform、fit_transform
 
-| API | 做什麼 | 考試翻譯 |
-|---|---|---|
-| `fit(X_train)` | 從訓練資料學參數 | 學規則 |
-| `transform(X)` | 用已學參數轉換資料 | 套規則 |
-| `fit_transform(X_train)` | 先 `fit` 再 `transform` | 訓練集常用 |
+比較表這樣讀：
+
+| API | 做什麼 | 考試翻譯 | 常用在哪裡 |
+|---|---|---|---|
+| `fit(X_train)` | 從訓練資料學參數 | 學規則 | 訓練集 |
+| `transform(X)` | 用已學參數轉換資料 | 套規則 | 訓練集或測試集 |
+| `fit_transform(X_train)` | 先 `fit` 再 `transform` | 學完立刻套 | 訓練集常用 |
 
 不同工具會學到不同參數：
 
-| 工具 | `fit` 學到什麼 |
-|---|---|
-| `StandardScaler` | mean、variance / scale |
-| `MinMaxScaler` | min、max |
-| `RobustScaler` | median、IQR |
-| `QuantileTransformer` | 分位數 / ECDF |
-| `PowerTransformer` | lambda 等轉換參數 |
+| 工具 | `fit` 學到什麼 | 白話記法 |
+|---|---|---|
+| `StandardScaler` | mean、variance / scale | 學平均與標準差 |
+| `MinMaxScaler` | min、max | 學最小與最大 |
+| `RobustScaler` | median、IQR | 學中位數與四分位距 |
+| `QuantileTransformer` | 分位數 / ECDF | 學排名位置 / 百分等級 |
+| `PowerTransformer` | lambda 等轉換參數 | 學 power transform 強度 |
+
+記憶方式：
+
+```text
+fit = 學尺
+transform = 用尺量
+fit_transform = 先做一把尺，再立刻量
+```
 
 #### 5.2 常見程式碼
 
@@ -546,6 +924,16 @@ X_train_qt = qt.fit_transform(X_train)
 X_test_qt = qt.transform(X_test)
 ```
 
+程式碼這樣讀：
+
+```text
+X_train_* = scaler.fit_transform(X_train)
+→ 用訓練集學參數，並轉換訓練集
+
+X_test_* = scaler.transform(X_test)
+→ 測試集只套用訓練集學到的參數
+```
+
 ### Exam Rule
 
 ```text
@@ -568,13 +956,27 @@ fit_transform → 先學再套
 
 ### 先懂一句話
 
-情境題要先抓「題目要求的輸出或資料症狀」，再選方法。
+```text
+Scenario Selection = 先抓題目要求，再選工具
+```
 
 本課不是問哪個方法最潮，而是問哪個方法最符合題目條件。
 
 ### Everyday Analogy
 
 你買工具前會先看要修什麼：要量長度拿尺，要鎖螺絲拿螺絲起子，要剪紙拿剪刀。資料轉換也是先看任務需求，再拿對工具。
+
+### 先問自己一個問題
+
+```text
+題目要求的輸出是什麼？限制條件是什麼？
+```
+
+先看輸出，再看限制條件，最後才選工具。
+
+### 技術說法
+
+情境選擇題通常把答案藏在關鍵字裡，例如 `[0,1]`、`mean=0`、`outliers`、`right-skewed`、`lambda`、`uniform / normal`、`fit_transform`。
 
 ### 在整體流程中的位置
 
@@ -587,15 +989,36 @@ fit_transform → 先學再套
 
 ### Key Concepts
 
-| 任務 / 場景 | 輸入 | 輸出 | 常見答案 |
-|---|---|---|---|
-| 固定數值範圍 | 數值欄位 | `[0,1]` 或指定範圍 | `MinMaxScaler` |
-| 統一量級 | 多個不同單位欄位 | 平均 0、標準差 1 | `StandardScaler` |
-| 降低異常值影響 | 有 outliers 的數值欄位 | 以 median / IQR 縮放 | `RobustScaler` |
-| 壓縮右偏長尾 | 正值、右偏資料 | 大值被壓縮 | `Log Transform` |
-| 彈性修正右偏正值分佈 | `x > 0` | Box-Cox 轉換後資料 | `PowerTransformer(method="box-cox")` |
-| 映到指定分佈 | 任意數值分佈 | uniform 或 normal | `QuantileTransformer` |
-| 套用同一組前處理規則 | train / test 資料 | 一致尺度 | train `fit_transform`、test `transform` |
+比較表這樣讀：
+
+| 任務 / 場景 | 輸入 | 目標輸出 | 常見答案 | 判斷關鍵 |
+|---|---|---|---|---|
+| 固定數值範圍 | 數值欄位 | `[0,1]` 或指定範圍 | `MinMaxScaler` | fixed range |
+| 統一量級 | 多個不同單位欄位 | 平均 0、標準差 1 | `StandardScaler` | z-score / mean std |
+| 降低異常值影響 | 有 outliers 的數值欄位 | 以 median / IQR 縮放 | `RobustScaler` | robust / IQR |
+| 壓縮右偏長尾 | 正值、右偏資料 | 大值被壓縮 | `Log Transform` | right-skewed / long tail |
+| 彈性修正右偏正值分佈 | `x > 0` | Box-Cox 轉換後資料 | `PowerTransformer(method="box-cox")` | power transform / λ |
+| 映到指定分佈 | 任意數值分佈 | uniform 或 normal | `QuantileTransformer` | output_distribution |
+| 套用同一組前處理規則 | train / test 資料 | 一致尺度 | train `fit_transform`、test `transform` | avoid refit |
+
+選擇流程：
+
+```text
+先看輸出形式
+→ 固定範圍？平均標準差？分位數？分佈形狀？
+
+再看限制條件
+→ 是否有 0？是否有負值？是否有異常值？是否右偏？
+
+最後選工具
+→ MinMax / Standard / Robust / Log / Box-Cox / Quantile
+```
+
+記憶方式：
+
+```text
+先需求，後限制，最後工具
+```
 
 ### Exam Rule
 
@@ -617,13 +1040,27 @@ fit_transform → 先學再套
 
 ### 先懂一句話
 
-很多題目不是考單一定義，而是考你能不能分清容易混淆的兩個名詞。
+```text
+High-Frequency Comparisons = 考你分辨相似名詞，不是只背定義
+```
 
 最重要的三組比較是：Standardization vs Normalization、Scaling vs Distribution Transform、Log vs Box-Cox vs Quantile。
 
 ### Everyday Analogy
 
 這像考駕照時分辨相似路標。每個標誌看起來都跟交通有關，但真正考點是你能不能看到細節後做出正確反應。
+
+### 先問自己一個問題
+
+```text
+這兩個名詞差在哪一個判斷點？
+```
+
+不要只背名字，要背「分界線」。
+
+### 技術說法
+
+比較題常把錯誤選項寫得很像正確答案，例如把 `Standardization` 說成 `[0,1]`，或把 `QuantileTransformer` 說成線性縮放。
 
 ### 在整體流程中的位置
 
@@ -636,6 +1073,13 @@ fit_transform → 先學再套
 ### Key Concepts
 
 #### 7.1 Standardization vs Normalization
+
+先懂一句話：
+
+```text
+Standardization = 看離平均幾個標準差
+Normalization / Min-Max = 看在最小到最大之間的位置
+```
 
 | 概念 | Standardization | Normalization / Min-Max |
 |---|---|---|
@@ -653,6 +1097,13 @@ fit_transform → 先學再套
 
 #### 7.2 Scaling vs Distribution Transform
 
+先懂一句話：
+
+```text
+Scaling = 修尺度
+Distribution Transform = 修形狀
+```
+
 | 概念 | 解決什麼 | 例子 |
 |---|---|---|
 | Scaling | 數值尺度、範圍、量級 | MinMax、Standard、Robust |
@@ -667,11 +1118,21 @@ fit_transform → 先學再套
 
 #### 7.3 Log vs Box-Cox vs Quantile
 
-| 概念 | 一句話記法 |
-|---|---|
-| Log | 右偏用 log，含 0 想 `log1p` |
-| Box-Cox | 正值可 Box，`λ=0` 變 log |
-| Quantile | 怪形用 Quantile，但小心非線性 |
+先懂一句話：
+
+```text
+Log = 壓縮大值
+Box-Cox = 正值資料的彈性版 log
+Quantile = 改看排名 / 百分等級
+```
+
+比較表這樣讀：
+
+| 概念 | 一句話記法 | 常見陷阱 |
+|---|---|---|
+| Log | 右偏用 log，含 0 想 `log1p` | `log1p(x)` 不是 `log(x)+1` |
+| Box-Cox | 正值可 Box，`λ=0` 變 log | 不能直接處理 0 或負值 |
+| Quantile | 怪形用 Quantile，但小心非線性 | 不是線性縮放，可能扭曲線性關係 |
 
 ### Exam Rule
 

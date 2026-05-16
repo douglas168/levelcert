@@ -203,7 +203,7 @@ pandas 3.0 出現 fillna(method='ffill') → 錯，改 df.ffill()
 
 ### Everyday Analogy
 
-像活動報名表同一個人重複送出兩次。紙本表你可以一次整理完；但如果報名一直即時進來，你需要訂一個規則：「只追蹤最近 2 小時的重複紀錄」。
+像演唱會入口檢查票券。每張票都有 ticket ID，第一次看到 `A123` 就放行並記錄；如果又看到 `A123`，就判斷是重複票。問題是：如果入口永遠不關，工作人員要不要永遠記住所有票號？Watermark 就像宣布「晚上 9 點後不再接受 7 點場的遲到票」，舊票號可以清掉。沒有 watermark → 記錄本越來越厚；有 watermark → 舊 ID 可以過期清理。
 
 ### 在整體流程中的位置
 
@@ -232,14 +232,28 @@ df.drop_duplicates(subset=['order_id'], keep=False)
 
 #### Spark 批次與 Delta Lake
 
+Apache Spark 是大數據運算引擎，負責「讀資料、清理、轉換、去重、寫出」。Delta Lake 是資料湖上的可靠資料表格式，負責讓資料湖支援像資料庫一樣的 `MERGE`、`UPDATE`、`DELETE`、schema 檢查與交易一致性。
+
 ```python
+# Spark DataFrame 批次去重
 df.dropDuplicates(['order_id'])
 
 # Delta Lake MERGE 前，source 要先去重
 deduped_source = source_df.dropDuplicates(['order_id'])
 ```
 
-如果 `MERGE INTO` 的 source 有重複 key，同一個 target 可能被多筆 source 同時匹配，造成非確定性更新。所以考試看到 MERGE source 重複，先想到「先去重」。
+`MERGE INTO` 會用 source 資料去匹配 target 資料。如果 source 有重複 key，同一個 target 可能同時被多筆 source 匹配：
+
+```text
+source:
+order_id = A123, status = shipped
+order_id = A123, status = canceled
+
+target:
+order_id = A123
+```
+
+這時 target 的 `A123` 到底要被更新成 `shipped` 還是 `canceled`？結果不明確，就會造成非確定性更新。所以考試看到 `MERGE source` 有重複 key，先想到：「source 先去重」。
 
 #### Spark Structured Streaming
 
@@ -420,8 +434,8 @@ Schema 是資料的欄位名稱、型別與結構。Schema Drift 是上游資料
 | 策略 | 說明 | 適用場景 |
 |---|---|---|
 | Schema Registry | 集中管理 schema 版本並比對 | Kafka / Confluent |
-| CDC | 監控資料庫變更 log | 資料庫來源 |
-| dbt tests | 執行前驗證欄位與型別 | ELT / Data Warehouse |
+| CDC（Change Data Capture，異動資料擷取） | 監控資料庫變更 log | 資料庫來源 |
+| dbt tests（data build tool tests，資料建置工具測試） | 執行前驗證欄位與型別 | ELT / Data Warehouse |
 | Schema-on-Read | 讀取時才解析 | Data Lake / Parquet |
 | Flexible Schema | 允許新增欄位不破壞流程 | 半結構化 JSON |
 

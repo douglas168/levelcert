@@ -1,465 +1,723 @@
-# L21102 電腦視覺技術與應用 — Study Guide v2
+# L21102 電腦視覺技術與應用 - Study Guide
 
-> 一句話定位：你不是來學「什麼是電腦視覺」，你是來學 **CNN 怎麼蓋、偵測和分割差在哪、怎麼用 IoU 和 mAP 打分數**。這三件事抓穩，科目一的 CV 題 2～3 題基本都是你的。
+> 一句話定位：這章不是只背「什麼是電腦視覺」，而是要會判斷 **CNN 怎麼抽特徵、分類/偵測/分割差在哪、YOLO/Faster R-CNN 怎麼選、IoU/mAP 怎麼評估**。
 
 ---
 
 ## 0. How to Use This Guide
 
-**建議閱讀順序：**
+這份 guide 用閱讀優先的方式整理。每個核心主題都照這個順序讀：
 
-1. 先讀 **Section 1**（大全圖），建立整體骨架
-2. 按順序讀 **Sections 2–7**，每節後做 Quick Check
-3. 讀 **Section 8** 決策樹，練習「看到關鍵字直接選答案」
-4. 讀 **Section 9** 陷阱診所，掃一遍你最可能答錯的題型
-5. 做 **Section 10** 練習題，驗收
-6. 考前 3 分鐘唸 **Final Oral Recall**
+```text
+先懂一句話
+→ Everyday Analogy
+→ 先問自己一個問題
+→ 技術說法
+→ 流程 / 選擇流程
+→ 一步一步例子（有計算或流程時）
+→ 比較表這樣讀
+→ 記憶方式
+→ Exam Rule
+→ Quick Check（答案直接放下面）
+```
 
-**火力標記說明：**
+讀的時候不要先背表格，先問兩件事：
 
-| 標記 | 意思 |
-|---|---|
-| 🔥 | 需要知道 |
-| 🔥🔥 | 常考，要能解釋差異 |
-| 🔥🔥🔥 | 高頻必背，要能做情境判斷 |
+1. 題目要模型輸出什麼？一個 label、bbox、每個像素，還是每個個體的 mask？
+2. 題目重視什麼？即時速度、最高精度、像素邊界，還是同類物件分開？
 
 ---
 
 ## 1. Big Picture / Core Pipeline
 
-### 電腦視覺的三層骨架
+### 先懂一句話
+
+電腦視覺（Computer Vision, CV）的考點可以分成三層：**底層 CNN 元件負責看懂圖片特徵，任務類型決定輸出格式，評估指標判斷模型做得好不好**。
+
+### Everyday Analogy
+
+想像你在檢查一張超市貨架照片：
+
+- 先看局部特徵：瓶蓋、包裝邊緣、文字紋理，這像 CNN 在抽特徵。
+- 再決定任務：只問「這張圖有飲料嗎」是分類；要框出每瓶飲料是偵測；要描出每瓶輪廓是分割。
+- 最後評分：框有沒有框準，輪廓有沒有貼齊，這就是 IoU、mAP、mIoU 的角色。
+
+### 先問自己一個問題
+
+題目是在問「模型內部怎麼看圖」，還是在問「輸出結果長什麼樣」？
+
+- 問內部：想 CNN、卷積、ReLU、BN、Pooling、ResNet。
+- 問輸出：想分類、偵測、語意分割、實例分割、全景分割。
+- 問評分：想 Top-1、IoU、mAP、mIoU。
+
+### 技術說法
 
 ```text
 原始影像 (Raw Image)
   │
   ▼
-CNN 底層元件
-  ├─ 卷積層 (Convolutional Layer) — 抽特徵
-  ├─ 激活函數 (Activation Function, ReLU) — 加入非線性
-  ├─ 池化層 (Pooling Layer) — 縮小尺寸 + 平移不變性
-  ├─ 殘差連接 (Skip Connection, ResNet) — 解決深層退化
-  └─ 全連接層 (Fully Connected Layer) — 做最後分類
+CNN Backbone
+  ├─ 卷積層 (Convolutional Layer) - 抽局部特徵
+  ├─ 批次正規化 (Batch Normalization, BN) - 穩定訓練
+  ├─ 激活函數 (Activation Function, ReLU) - 加入非線性
+  ├─ 池化層 (Pooling Layer) - 縮小特徵圖 + 平移不變性
+  ├─ 殘差連接 (Skip Connection, ResNet) - 解決退化問題
+  └─ 全連接層 (Fully Connected Layer, FC) - 做最後分類
   │
   ▼
 任務選擇 (Task Selection)
-  ├─ 影像分類 (Classification) → 輸出：單一 label
-  ├─ 物件偵測 (Object Detection) → 輸出：bbox + 類別 + 信心
-  ├─ 語意分割 (Semantic Segmentation) → 輸出：每像素類別
-  └─ 實例分割 (Instance Segmentation) → 輸出：每像素類別 + 個體 ID
+  ├─ 影像分類 (Image Classification) → 單一 label
+  ├─ 物件偵測 (Object Detection) → bbox + 類別 + 信心
+  ├─ 語意分割 (Semantic Segmentation) → 每像素類別
+  ├─ 實例分割 (Instance Segmentation) → 每像素類別 + 個體 ID
+  └─ 全景分割 (Panoptic Segmentation) → stuff + things 全部標
   │
   ▼
 評估指標 (Evaluation Metrics)
-  ├─ 分類任務 → Top-1 / Top-5 accuracy
-  ├─ 偵測任務 → IoU → Precision / Recall → AP → mAP
-  └─ 分割任務 → mIoU (語意) / mAP-mask (實例)
+  ├─ 分類 → Top-1 / Top-5 accuracy
+  ├─ 偵測 → IoU → Precision / Recall → AP → mAP
+  └─ 分割 → mIoU / mAP-mask / PQ
 ```
 
-### 題目快速對照表
+### 流程 / 選擇流程
 
-| 題目問的是 | 想到 |
-|---|---|
-| 即時偵測 / 毫秒級 / 邊際裝置 | YOLO（單階段偵測器）|
-| 最高精度 / 醫療影像 / 離線分析 | Faster R-CNN（兩階段偵測器）|
-| 每個像素都要標類別 / 腫瘤輪廓 | 語意分割 (U-Net / DeepLab) |
-| 同類要分個體 / 每人獨立 mask | 實例分割 (Mask R-CNN) |
-| 降維度 / 平移不變性 / 縮小特徵圖 | 池化層 (Pooling) |
-| 網路很深卻訓不起來 / 退化問題 | ResNet skip connection |
-| 交集比聯集 / 預測框重疊度 | IoU |
-| 10 個門檻平均 / COCO 嚴格評測 | mAP@0.5:0.95 |
+```text
+看到圖片任務
+│
+├─ 只要整張圖一個答案？→ Image Classification → ResNet
+├─ 要框出物件位置？→ Object Detection
+│    ├─ 即時 / 高 FPS → YOLO
+│    └─ 高精度 / 不計速度 → Faster R-CNN
+└─ 要每個像素都有答案？→ Segmentation
+     ├─ 同類不分個體 → Semantic Segmentation → U-Net / DeepLab
+     ├─ 同類要分個體 → Instance Segmentation → Mask R-CNN
+     └─ 背景 stuff 也要全標 → Panoptic Segmentation → Panoptic FPN
+```
+
+### 比較表這樣讀
+
+這張表不是背名詞，而是用「輸出格式」判斷答案。
+
+| 題目線索 | 你要想到 | 常見架構 / 指標 |
+|---|---|---|
+| 整張圖一個類別 | 影像分類 (Classification) | ResNet / Top-1 accuracy |
+| bbox、方框、位置 + 類別 | 物件偵測 (Object Detection) | YOLO、Faster R-CNN / mAP |
+| 每個像素標類別、不分個體 | 語意分割 (Semantic Segmentation) | U-Net、DeepLab / mIoU |
+| 每個像素標類別、同類也要分開 | 實例分割 (Instance Segmentation) | Mask R-CNN / mAP-mask |
+| 天空、路面、行人、車全部逐像素標 | 全景分割 (Panoptic Segmentation) | Panoptic FPN / PQ |
+
+### 記憶方式
+
+```text
+一張標 = 分類
+有框 = 偵測
+每個像素 = 分割
+每個像素 + 分個體 = 實例分割
+stuff + things 全部標 = 全景分割
+```
+
+### Exam Rule
+
+```text
+題目問 CNN 元件 → 先分辨卷積 / ReLU / BN / Pooling / FC / ResNet
+題目問任務 → 先看輸出格式
+題目問速度 vs 精度 → YOLO 快，Faster R-CNN 傳統高精度
+題目問偵測評估 → IoU、AP、mAP
+題目問分割評估 → mIoU 或 mask mAP，不要混成分類 accuracy
+```
+
+### Quick Check
+
+題目說「模型要框出影像中的每一台車，並標出車型與信心分數」，這是分類、偵測，還是分割？
+
+答案：物件偵測（Object Detection）。因為輸出是 `bbox + 類別 + 信心分數`，不是整張圖一個 label，也不是每個像素的 mask。
 
 ---
 
-## 2. CNN 底層元件 🔥🔥🔥
+## 2. CNN 底層元件
 
 ### 先懂一句話
 
-CNN（Convolutional Neural Network，卷積神經網路）用「小視窗在圖上滑動」的方式抽特徵，解決了傳統全連接網路遇到影像時的兩大問題：**參數爆炸** 和 **對位置敏感**。
+CNN（Convolutional Neural Network，卷積神經網路）用「小視窗掃圖片」來抽局部特徵，避免把整張影像攤平成全連接網路造成**參數爆炸**與**位置太敏感**。
 
 ### Everyday Analogy
 
-想像你在翻一疊貓咪照片。你不需要每張從頭到尾逐格檢查——眼睛只要掃到「尖耳朵 + 鬍鬚形狀」的局部特徵，就知道那是貓。CNN 的卷積核做的正是同一件事：用同一個小型偵測器（kernel）掃過整張圖，不管貓在左邊還是右邊都能認出來。
+你認貓不會把照片每個像素都重新背一遍，而是掃到「耳朵、鬍鬚、眼睛形狀」就能判斷。卷積核（kernel/filter）就像小型特徵偵測器，在圖片上滑動，看到相似局部特徵就會有反應。
 
-### 在整體流程中的位置
+### 先問自己一個問題
+
+為什麼影像不用一般全連接網路（Fully Connected Network）直接處理？
+
+因為影像很大。`224 x 224 x 3 = 150,528` 個輸入，如果接 1,000 個神經元，就需要約 1.5 億個權重，而且貓往右移幾個像素，權重關係就變了。
+
+### 技術說法
+
+CNN 的基本 block 常見寫法是：
 
 ```text
-原始影像 → [卷積層 → ReLU → 池化層] × N 層 → 全連接層 → 分類結果
-              ↑ 這一節的主角
+Conv → BN → ReLU → Pool
 ```
 
-### Key Concepts
-
-**為什麼不用全連接網路 (Fully Connected Network) 處理影像？**
-
-| 問題 | 說明 |
-|---|---|
-| 參數爆炸 | 224×224×3 的彩色圖攤平 = 150,528 個輸入，接 1,000 個神經元就需要 1.5 億個權重 |
-| 對位置敏感 | 貓移到右邊 3 像素，整組權重要重學；但貓還是貓 |
-
-**CNN 五大建構元件：**
-
-| 元件 | 職責 | 口訣 |
-|---|---|---|
-| 卷積層 (Conv Layer) | 抽取局部特徵（邊緣、紋理、形狀） | 找特徵 |
-| 激活函數 (ReLU) | 引入非線性，讓網路能學複雜模式 | 加彎度 |
-| **批次正規化 (Batch Normalization, BN)** | 正規化每層輸出，加速訓練、緩解梯度問題 | 穩訓練 |
-| 池化層 (Pooling Layer) | 縮小特徵圖尺寸、提升平移不變性 | 縮維度 |
-| 全連接層 (FC Layer) | 根據抽到的特徵做最後分類決策 | 說答案 |
-
-**Batch Normalization（批次正規化）：**
-
-在每層卷積輸出後，對 mini-batch 中的每個特徵做正規化（mean=0, std=1），再經可學習的 γ/β 參數做縮放與平移。
-
-三大作用：
-1. **加速訓練**：允許更大學習率，收斂更快
-2. **緩解梯度消失 / 爆炸**：這是現代深層網路（包含 ResNet）能訓練深到 50–152 層的關鍵之一
-3. **輕微正則化效果**：mini-batch 統計量帶入隨機性，類似 Dropout 的輕微效果
-
-> 現代 CNN 的實際前向順序通常是 **Conv → BN → ReLU → Pool**（而非教科書的 Conv → ReLU → Pool）。ResNet、EfficientNet 等主流架構均使用 BN。
-
-**卷積輸出尺寸公式（必背）：**
+在簡化教科書題目中，也常看到：
 
 ```text
-O = ⌊(W − F + 2P) / S⌋ + 1
+Conv → ReLU → Pool
+```
+
+各元件職責：
+
+| 元件 | 中文重點 | 技術作用 | 考試口訣 |
+|---|---|---|---|
+| 卷積層 (Convolutional Layer) | 找局部特徵 | kernel 滑過圖片，抽邊緣、紋理、形狀 | 卷積抽特徵 |
+| 批次正規化 (Batch Normalization, BN) | 穩定訓練 | 對 mini-batch 特徵正規化，再用可學參數縮放平移 | BN 穩訓練 |
+| 激活函數 (Activation Function, ReLU) | 加非線性 | `max(0, x)`，讓模型能學複雜模式 | ReLU 加彎度 |
+| 池化層 (Pooling Layer) | 縮小尺寸 | 降低特徵圖大小，提升平移不變性 | Pooling 縮維度 |
+| 全連接層 (Fully Connected Layer, FC) | 做最後判斷 | 根據高階特徵輸出類別分數 | FC 說答案 |
+
+Batch Normalization（批次正規化）的三個考點：
+
+1. 加速訓練，允許較大的學習率。
+2. 緩解梯度消失 / 爆炸，讓深層網路更穩。
+3. mini-batch 統計量帶來輕微正則化效果。
+
+### 流程 / 選擇流程
+
+```text
+輸入圖片
+  │
+  ├─ Conv：用 kernel 找邊緣 / 紋理 / 局部形狀
+  ├─ BN：把每層輸出調穩，訓練比較順
+  ├─ ReLU：加入非線性，負值歸零
+  ├─ Pool：縮小特徵圖，保留重要訊號
+  └─ FC / Softmax：輸出分類機率
+```
+
+### 一步一步例子
+
+卷積輸出尺寸公式必背：
+
+```text
+O = floor((W - F + 2P) / S) + 1
 
 W = 輸入邊長
-F = kernel 大小（filter size）
-P = padding 填補圈數
-S = stride 步長
-⌊ ⌋ = floor 向下取整（PyTorch / TensorFlow 預設）
+F = kernel / filter size
+P = padding
+S = stride
 ```
 
-**實戰算例（ResNet-50 第一層）：**
+例題：輸入 `224 x 224`，kernel `7 x 7`，stride `2`，padding `3`。
 
 ```text
-輸入 224×224，kernel 7×7，stride 2，padding 3，64 個 filter
-O = ⌊(224 − 7 + 2×3) / 2⌋ + 1
-  = ⌊223 / 2⌋ + 1
+O = floor((224 - 7 + 2 x 3) / 2) + 1
+  = floor((224 - 7 + 6) / 2) + 1
+  = floor(223 / 2) + 1
   = 111 + 1
   = 112
 
-輸出尺寸：112 × 112 × 64
+若有 64 個 filters，輸出是 112 x 112 x 64。
 ```
 
-**池化層種類：**
+池化例子：
 
-| 種類 | 運算 | 用途 |
+```text
+2 x 2 Max Pooling 視窗：
+
+[1, 3]
+[2, 8]
+
+輸出 = 8
+```
+
+最大池化保留最強訊號；平均池化取平均；全域平均池化（Global Average Pooling, GAP）常用在 ResNet 最後，把整張特徵圖壓成每個 channel 一個值。
+
+### 比較表這樣讀
+
+讀這張表時只看「這層在回答什麼問題」。
+
+| 問題 | 對應元件 | 不要誤選 |
 |---|---|---|
-| 最大池化 (Max Pooling) | 取視窗最大值 | 保留銳利邊緣特徵，最常用 |
-| 平均池化 (Average Pooling) | 取視窗平均值 | 平滑輸出，減少噪音 |
-| 全域平均池化 (GAP) | 整張特徵圖壓成一個數 | ResNet 最後 conv 後接分類層 |
+| 圖中有哪些局部特徵？ | 卷積層 (Conv) | 不是 Pooling |
+| 要讓網路學非線性模式？ | ReLU | 不是 FC |
+| 要讓深層訓練穩定？ | BN | 不是單靠 Pooling |
+| 要縮小特徵圖、提升平移不變性？ | 池化層 (Pooling) | 不是抽新特徵 |
+| 要輸出最終類別分數？ | 全連接層 (FC) | 不是 Conv 本身 |
 
-> 陷阱提示：池化層的作用是「縮小尺寸 + 平移不變性」，**不是**抽取新特徵。抽特徵是卷積層的事。
+### 記憶方式
+
+```text
+Conv 找特徵
+BN 穩訓練
+ReLU 加非線性
+Pool 縮尺寸
+FC 說答案
+```
 
 ### Exam Rule
 
 ```text
-影像參數爆炸 / 位置不變性需求 → CNN（用卷積取代全連接）
-「每次跳幾格」→ stride（步長）
-「邊緣補零保尺寸」→ padding (same padding)
-「縮小特徵圖」→ 池化層（Max / Average Pooling）
-「池化目的」→ 降維 + 平移不變性（不是抽特徵）
-卷積輸出尺寸 → O = ⌊(W − F + 2P) / S⌋ + 1
+影像參數爆炸 / 位置不變性需求 → CNN
+抽局部特徵 / 邊緣 / 紋理 → 卷積層
+每次跳幾格 → stride
+邊緣補零保尺寸 → padding
+縮小特徵圖 / 平移不變性 → Pooling
+Pooling 不是抽特徵，抽特徵是 Conv
+卷積輸出尺寸 → O = floor((W - F + 2P) / S) + 1
 ```
 
 ### Quick Check
 
-池化層最主要的目的是什麼？
+池化層（Pooling Layer）最主要的目的，是抽取更多特徵嗎？
 
-答案：縮小特徵圖尺寸、保留關鍵訊號、提升平移不變性。池化層**不是**用來抽取更多特徵，那是卷積層的工作。
+答案：不是。池化層主要是縮小特徵圖、保留關鍵訊號、提升平移不變性；抽取局部特徵是卷積層的工作。
 
 ---
 
-## 3. ResNet 殘差連接 🔥🔥
+## 3. ResNet 殘差連接
 
 ### 先懂一句話
 
-ResNet 在網路裡加了一條「捷徑」（skip connection），讓深層網路的梯度有高速公路可以反傳，解決了「網路越深、訓練誤差越大」的退化問題 (degradation problem)。
+ResNet 用殘差連接（skip connection / shortcut connection）讓輸入 `x` 可以直接繞過幾層後加回輸出，核心是解決**網路越深、訓練誤差反而變大**的退化問題（degradation problem）。
 
 ### Everyday Analogy
 
-你用 LINE 傳訊息給阿嬤，中間要經過 10 個親戚轉達。殘差連接就像多拉一條「把原話直接附上」的捷徑——就算中間某位親戚轉錯了，原話還在。網路不用每一層都硬記整句話，只要學「需要補充或修正什麼」就好。
+你請 10 個人接力轉述一句話，很容易越傳越歪。skip connection 像是把原話也一起附上，後面的人不用從零重建整句，只要補充「需要修正的部分」。ResNet 也是這樣：block 不必硬學完整輸出，只要學殘差（residual）修正量。
 
-### 在整體流程中的位置
+### 先問自己一個問題
 
-```text
-普通 CNN：輸入 x → [Conv → BN → ReLU → Conv → BN] → 輸出 H(x)
+如果加深網路後「訓練誤差」也變大，這是過擬合嗎？
 
-ResNet：  輸入 x ──── 捷徑（identity shortcut）────┐
-              │                                    ▼
-              └─► [Conv → BN → ReLU → Conv → BN] → (+) → ReLU → 輸出 H(x)
-                              F(x)
-```
+不是。過擬合是訓練誤差低、測試誤差高；退化問題是連訓練資料都學不好。ResNet 的核心動機是解決退化問題。
 
-### Key Concepts
-
-**退化問題 (Degradation Problem)：**
-
-網路從 20 層加深到 56 層，**連訓練誤差都變大**（不是只有測試誤差）。這不是過擬合（overfitting），是深層網路本身難以優化的問題。
-
-**ResNet 解法：**
+### 技術說法
 
 ```text
-公式：H(x) = F(x) + x
+普通 CNN block：
+x → [Conv → BN → ReLU → Conv → BN] → H(x)
 
-x    = 原始輸入，走捷徑直達輸出
-F(x) = 這個 block 實際要學的「修正量」（殘差）
-H(x) = 最終輸出 = 原輸入 + 修正量
+ResNet block：
+x ──────────────── shortcut ───────────────┐
+│                                           ▼
+└→ [Conv → BN → ReLU → Conv → BN] → F(x) → (+) → H(x)
 ```
 
-最壞情況：如果這層沒什麼要學，F(x) → 0，整個 block 自動變成 H(x) = x（恆等映射），「加深不會變差」。
+核心公式：
 
-**Identity Shortcut vs Projection Shortcut：**
+```text
+H(x) = F(x) + x
 
-| 類型 | 條件 | 公式 | 說明 |
+x    = 原始輸入
+F(x) = block 學到的修正量，也就是殘差
+H(x) = 原輸入 + 修正量
+```
+
+如果這個 block 沒什麼可學，`F(x) → 0`，就會變成：
+
+```text
+H(x) = x
+```
+
+也就是恆等映射（identity mapping），最壞情況只是把輸入原樣傳下去，不會因為加深而更難訓練。
+
+### 流程 / 選擇流程
+
+```text
+題目問深層網路問題
+│
+├─ 訓練誤差也變大、越深越難訓？→ 退化問題 → ResNet skip connection
+├─ 梯度越傳越弱？→ 梯度消失 → BN + ReLU 是主要解法，skip connection 有次要幫助
+└─ 訓練誤差低、測試誤差高？→ 過擬合 → Dropout / 正規化 / 資料擴增
+```
+
+### 一步一步例子
+
+假設某個 ResNet block 收到輸入 `x`：
+
+```text
+Step 1：x 走主路徑，經過 Conv / BN / ReLU，學到 F(x)
+Step 2：x 也走捷徑 shortcut，直接保留下來
+Step 3：把 F(x) 和 x 相加
+Step 4：得到 H(x) = F(x) + x
+```
+
+如果輸入輸出維度相同：
+
+```text
+H(x) = F(x) + x
+```
+
+如果輸入輸出維度不同，例如 channel 從 256 變 512，就不能直接相加，要用 `1 x 1 conv` 對齊：
+
+```text
+H(x) = F(x) + Ws x
+```
+
+### 比較表這樣讀
+
+這張表要抓「維度是否相同」。
+
+| shortcut 類型 | 什麼時候用 | 公式 | 考試判斷 |
 |---|---|---|---|
-| Identity shortcut | 輸入輸出維度相同 | H(x) = F(x) + x | 直接相加，無額外參數 |
-| Projection shortcut | 輸入輸出維度不同 | H(x) = F(x) + Wₛx | 1×1 卷積調整維度後再相加 |
+| Identity shortcut | 輸入輸出維度相同 | `H(x) = F(x) + x` | 直接相加，無額外參數 |
+| Projection shortcut | 輸入輸出維度不同 | `H(x) = F(x) + Ws x` | 用 `1 x 1 conv` 對齊維度 |
 
-> 考試重點：ResNet-50 在各 stage 銜接處（如 conv2→conv3），channel 數從 256 → 512，輸入輸出維度不同，此時 skip connection 會改用 **1×1 conv（projection shortcut）** 來對齊維度。考題會區分：同維度 = identity shortcut，跨維度 = projection shortcut。
-
-**ResNet 兩大收益：**
-
-| 收益 | 說明 |
-|---|---|
-| **主要：解決退化問題** | 最差退化為恆等映射，而非比淺層更爛 |
-| **次要：改善梯度流動** | 捷徑讓梯度更順暢反傳到淺層（次要效果） |
-
-> 考試陷阱：殘差連接解決的是「**退化問題**」，而非梯度消失。梯度消失已由 **Batch Normalization + ReLU** 解決（BN 在 ResNet 之前就存在）。如果選項說「skip connection 解決梯度消失」是不精確的說法——選「解決退化問題」才是 ResNet 的核心動機。
-
-**與普通 CNN 比較：**
+普通 CNN vs ResNet：
 
 | 比較項目 | 普通 CNN | ResNet |
 |---|---|---|
-| Block 公式 | H(x) = F(x) | H(x) = F(x) + x |
-| 深度極限 | 20~30 層就開始退化 | 152+ 層仍穩定訓練 |
-| 梯度流動 | 深層可能梯度消失 | 捷徑讓梯度直達淺層 |
-| 最壞情況 | 可能比淺層更差 | 至少退化成恆等映射 |
+| block 輸出 | `H(x) = F(x)` | `H(x) = F(x) + x` |
+| 深層訓練 | 容易遇到退化問題 | 加深後仍較容易訓練 |
+| 最壞情況 | 可能比淺層更差 | 可退回 identity mapping |
+| 核心解法 | 無捷徑 | skip connection |
+
+### 記憶方式
+
+```text
+ResNet = 原本答案 + 修正量
+H(x) = x + F(x)
+同維度直接加，不同維度 1 x 1 conv 對齊再加
+```
 
 ### Exam Rule
 
 ```text
-「網路很深卻訓不起來」「訓練誤差也在增加」→ 退化問題 (degradation)
-「解決退化問題」→ ResNet skip connection（核心動機）
-「梯度消失」→ 主要靠 Batch Normalization + ReLU 解決（BN 早於 ResNet）
-「H(x) = F(x) + x」→ identity shortcut（維度相同時）
-「H(x) = F(x) + Wₛx」→ projection shortcut（維度不同時，用 1×1 conv）
-skip connection「不是」為了解決過擬合！→ 它解決退化問題
-ResNet 代表：ResNet-50（現代主流 backbone）
+訓練誤差也隨深度增加 → 退化問題 (degradation)
+ResNet 核心動機 → 解決退化問題，不是解決過擬合
+H(x) = F(x) + x → identity shortcut
+H(x) = F(x) + Ws x → projection shortcut，用 1 x 1 conv 對齊維度
+梯度消失主要靠 BN + ReLU，skip connection 是次要幫助
+ResNet-50 的 50 → 網路總共有 50 層可訓練層
 ```
 
 ### Quick Check
 
-ResNet 的 skip connection 主要解決了什麼問題？
+ResNet 的 skip connection 主要解決什麼問題？
 
-答案：**退化問題 (degradation)**。退化是指訓練誤差本身隨網路加深而增大（不是過擬合）。skip connection 對梯度流動也有次要幫助，但梯度消失的主要解法是 **Batch Normalization + ReLU**，不是 skip connection。考試若問「ResNet 的核心動機」，選退化問題，不選梯度消失。
+答案：退化問題（degradation problem）。它指的是網路加深後，訓練誤差本身也變大；這不是過擬合。skip connection 對梯度流動有幫助，但考試問核心動機時要選退化問題。
 
 ---
 
-## 4. 三大任務族：分類、偵測、分割 🔥🔥🔥
+## 4. 三大任務族：分類、偵測、分割
 
 ### 先懂一句話
 
-電腦視覺任務的核心差別在「模型要回答得多細」：**分類**只回答「是什麼」，**偵測**要回答「在哪裡 + 是什麼」，**分割**要回答「每個像素屬於誰」。
+分類、偵測、分割的差別，不是模型名字，而是**模型要回答得多細**：分類回答「是什麼」，偵測回答「在哪裡 + 是什麼」，分割回答「每個像素屬於誰」。
 
 ### Everyday Analogy
 
-以「外送照片」為例：
-- **分類** = 「這張照片裡有食物嗎？」（一個答案）
-- **偵測** = 「用方框圈出便當在哪、珍奶在哪、餐具在哪」（每個物件一個框）
-- **語意分割** = 「這幾個像素是便當、那幾個像素是珍奶」（同類不分杯）
-- **實例分割** = 「三杯珍奶要分成珍奶 1、珍奶 2、珍奶 3」（每個個體獨立）
+用一張外送照片來想：
 
-### 在整體流程中的位置
+- 分類：這張照片裡有食物嗎？
+- 偵測：便當、飲料、餐具各在哪裡？請用方框圈出來。
+- 語意分割：哪些像素是便當、哪些像素是飲料？
+- 實例分割：三杯飲料要分成飲料 1、飲料 2、飲料 3。
+- 全景分割：桌面、背景、餐具、每杯飲料全部逐像素標清楚。
 
-```text
-有圖片
-  │
-  ├─ 只要整張圖的標籤？ → 影像分類 (Classification)
-  │
-  ├─ 要知道物件位置？ → 物件偵測 (Object Detection)
-  │
-  └─ 要像素級精度？
-        ├─ 同類不分個體 → 語意分割 (Semantic Segmentation)
-        ├─ 同類要分個體 → 實例分割 (Instance Segmentation)
-        └─ 兩者都要 → 全景分割 (Panoptic Segmentation)
-```
+### 先問自己一個問題
 
-### Key Concepts
+題目要的是一個答案、一堆框，還是一張像素級地圖？
 
-**四大任務全覽：**
+這是所有 CV 情境題的第一個判斷點。
 
-| 任務 | 輸入 | 輸出 | 代表架構 | 標準指標 |
+### 技術說法
+
+| 任務 | 英文 | 輸出 | 代表架構 | 常見指標 |
 |---|---|---|---|---|
-| 影像分類 (Classification) | 一張圖 | 單一類別 label | **ResNet** | Top-1 / Top-5 accuracy |
-| 物件偵測 (Object Detection) | 一張圖 | bbox + 類別 + 信心 list | **YOLO / Faster R-CNN** | **mAP** |
-| 語意分割 (Semantic Segmentation) | 一張圖 | 每像素類別圖 | **U-Net / FCN / DeepLab** | mIoU |
-| 實例分割 (Instance Segmentation) | 一張圖 | 每像素類別 + 個體 ID | **Mask R-CNN** | mAP (mask) |
-| 全景分割 (Panoptic Segmentation) | 一張圖 | 每像素 (類別 + 個體 ID) | Panoptic FPN | PQ |
+| 影像分類 | Image Classification | 單一類別 label | ResNet | Top-1 / Top-5 accuracy |
+| 物件偵測 | Object Detection | bbox + 類別 + 信心 list | YOLO / Faster R-CNN | mAP |
+| 語意分割 | Semantic Segmentation | 每像素類別 map | U-Net / FCN / DeepLab | mIoU |
+| 實例分割 | Instance Segmentation | 每像素類別 + 個體 ID | Mask R-CNN | mAP-mask |
+| 全景分割 | Panoptic Segmentation | 所有像素的類別 + 個體 ID | Panoptic FPN | PQ |
 
-**草原上 1 隻狗 + 3 隻羊，四種任務的輸出：**
+### 流程 / 選擇流程
 
 ```text
-影像分類：      「動物」（一個 label）
-
-物件偵測：      [狗 bbox] + [羊₁ bbox] + [羊₂ bbox] + [羊₃ bbox]
-
-語意分割：      狗的像素 → 全部標「狗色」
-               羊的像素 → 全部標「羊色」（3 隻羊是同一塊色，不分開）
-
-實例分割：      狗的像素 → 標「狗-個體1」
-               羊₁像素 → 標「羊-個體1」
-               羊₂像素 → 標「羊-個體2」
-               羊₃像素 → 標「羊-個體3」（各自獨立 mask）
+題目描述影像輸出需求
+│
+├─ 只要「這張圖是什麼」→ Classification
+├─ 要「物件在哪裡」→ Object Detection
+└─ 要「每個像素是什麼」→ Segmentation
+     ├─ 同類不用分個體 → Semantic Segmentation
+     ├─ 同類要分個體 → Instance Segmentation
+     └─ stuff + things 都要完整標 → Panoptic Segmentation
 ```
 
-**語意分割 vs 實例分割 vs 全景分割（最常考）：**
+### 一步一步例子
 
-| 比較項目 | 語意分割 | 實例分割 | 全景分割 |
+情境：草地上有 1 隻狗和 3 隻羊。
+
+```text
+Classification：
+輸出 = 「動物」或「草地動物」
+
+Object Detection：
+輸出 = [狗 bbox] + [羊1 bbox] + [羊2 bbox] + [羊3 bbox]
+
+Semantic Segmentation：
+狗的像素 → 狗
+羊的像素 → 羊
+三隻羊不分第幾隻，全部都是同一種「羊」標籤
+
+Instance Segmentation：
+狗的像素 → 狗-1
+羊的像素 → 羊-1、羊-2、羊-3，各自獨立 mask
+
+Panoptic Segmentation：
+狗、羊要分個體；草地、天空、路面這類背景也要逐像素標
+```
+
+### 比較表這樣讀
+
+讀這張表時用「同類要不要分個體」當關鍵。
+
+| 比較面向 | 語意分割 | 實例分割 | 全景分割 |
 |---|---|---|---|
-| 像素標籤 | 類別 | 類別 + 個體 ID | 類別 + 個體 ID（涵蓋所有像素）|
-| 3 台車怎麼標 | 一片「車」色塊 | 車₁、車₂、車₃ 三塊 mask | 車₁、車₂、車₃ + 背景各自標 |
-| 天空 / 路面（stuff）| 標記 | 通常不標 | 標記 |
+| 像素標籤內容 | 類別 | 類別 + 個體 ID | 類別 + 個體 ID |
+| 三台車怎麼標 | 全部同一種「車」色 | 車1、車2、車3 各自 mask | 車1、車2、車3，加上道路天空等背景 |
+| 是否處理 stuff（天空、路面） | 會 | 通常不強調 | 會，而且所有像素都要標 |
 | 代表架構 | U-Net / DeepLab | Mask R-CNN | Panoptic FPN |
 
-**記憶口訣：**
-- 一張標 = 分類
-- 有框 = 偵測
-- 每個像素 = 分割
-- 每個像素 + 分個體 = 實例分割
+### 記憶方式
+
+```text
+分類：一張圖一個答案
+偵測：每個物件一個框
+語意分割：同類一片色
+實例分割：同類也點名
+全景分割：things + stuff 全包辦
+```
 
 ### Exam Rule
 
 ```text
-「整張圖一個答案 / 貓還是狗」→ 影像分類 / ResNet
-「框出物件位置 + 類別 + 信心」→ 物件偵測 / YOLO / Faster R-CNN
-「醫學影像切邊 / 腫瘤輪廓 / 像素級標記」→ 語意分割 / U-Net
-「3 隻羊要分開 / 每人獨立 mask / 人群計數」→ 實例分割 / Mask R-CNN
-「天空+路面+每個人都要標」→ 全景分割 / Panoptic FPN
-mAP 是偵測任務的指標，mIoU 是語意分割的指標（不混用）
+整張圖一個答案 / 貓還是狗 → Classification / ResNet
+框出物件位置 + 類別 + 信心 → Object Detection / YOLO / Faster R-CNN
+醫學影像切邊 / 腫瘤輪廓 / 像素級標記 → Semantic Segmentation / U-Net
+3 隻羊要分開 / 每人獨立 mask → Instance Segmentation / Mask R-CNN
+天空 + 路面 + 每個人都要標 → Panoptic Segmentation / Panoptic FPN
+mAP 是偵測常用指標，mIoU 是語意分割常用指標
 ```
 
 ### Quick Check
 
-「醫院想讓 AI 在 CT 掃描圖中標出每個腫瘤的輪廓，且每個腫瘤要獨立標記」，應選哪種任務和架構？
+「醫院想讓 AI 在 CT 圖中標出每個腫瘤的輪廓，且每個腫瘤要獨立標記」，應選哪種任務和架構？
 
-答案：**實例分割 (Instance Segmentation) / Mask R-CNN**。需要「每個像素的類別 + 每個腫瘤個體的獨立 mask」，語意分割做不到「分個體」，實例分割才可以。
+答案：實例分割（Instance Segmentation）/ Mask R-CNN。因為需要像素級輪廓，而且每個腫瘤個體要分開；語意分割只能標「腫瘤」類別，不能分第幾顆。
 
 ---
 
-## 5. 物件偵測：YOLO vs Faster R-CNN 🔥🔥
+## 5. 物件偵測：YOLO vs Faster R-CNN
 
 ### 先懂一句話
 
-物件偵測有兩條路：**單階段 (single-shot)** 一次 forward pass 直接出框（快），**兩階段 (two-stage)** 先提候選框再分類（準）。YOLO 是單階段代表，Faster R-CNN 是兩階段代表。
+物件偵測（Object Detection）要輸出 `bbox + 類別 + 信心分數`；YOLO 是單階段（single-stage / single-shot）代表，重點是快，Faster R-CNN 是兩階段（two-stage）代表，傳統重點是準。
 
 ### Everyday Analogy
 
-- **YOLO（單階段）** = 你說「幫我找一副好評無線耳機」，語音助理一次給你答案
-- **Faster R-CNN（兩階段）** = 你先在蝦皮搜出 2,000 個候選商品，再一件件點進去看評價——慢，但不漏
+找餐廳時：
 
-### 在整體流程中的位置
+- YOLO 像直接問手機「附近最高評分牛肉麵在哪」，一次給你結果，速度快。
+- Faster R-CNN 像先列出一堆候選店，再逐家檢查評分、距離、評論，流程較慢但傳統上更細。
+
+### 先問自己一個問題
+
+題目比較的是「即時速度」還是「最高精度」？
+
+- 看到即時、毫秒級、高 FPS、邊際裝置、監視器、產線：先想 YOLO。
+- 看到醫療、離線分析、不計時間、小物件、最高精度：先想 Faster R-CNN。
+
+### 技術說法
 
 ```text
-單階段 (YOLO / SSD)：
-圖 → backbone → 直接輸出 grid 的 (bbox + 類別 + 信心)
+YOLO（單階段）：
+Image → Backbone → Neck → Detection Head → bbox + class + confidence
 
-兩階段 (Faster R-CNN)：
-圖 → backbone → RPN（提候選框 ~2000 個，訓練時）→ NMS 篩選 → ~300 個候選框 → 分類 + 精修 bbox
+Faster R-CNN（兩階段）：
+Image → Backbone → RPN 提候選框 → NMS 篩選 → RoI 分類 + bbox refine
 ```
 
-### Key Concepts
+RPN（Region Proposal Network）先提出可能有物件的候選區域，再交給後面分類與修框。
 
-**速度 vs 精度對比：**
+NMS（Non-Maximum Suppression，非最大值抑制）用來刪掉同一物件的重複框，只留下信心最高的框。
 
-| 維度 | YOLO（單階段）| Faster R-CNN（兩階段）|
+### 流程 / 選擇流程
+
+```text
+題目要做 Object Detection
+│
+├─ 需要即時 / 30 FPS / 邊際裝置 / 產線 → YOLO
+├─ 需要最高精度 / 醫療 / 離線 / 小物件 → Faster R-CNN
+└─ 題目問重複框如何處理 → NMS
+```
+
+### 一步一步例子
+
+YOLO 偵測流程：
+
+```text
+Step 1：圖片進入 CNN backbone 抽特徵
+Step 2：detection head 直接預測多個 bbox
+Step 3：每個 bbox 都有類別與信心分數
+Step 4：用 NMS 移除高度重疊的重複框（YOLOv5-v8 常見）
+Step 5：輸出最後 bbox list
+```
+
+Faster R-CNN 偵測流程：
+
+```text
+Step 1：圖片進入 CNN backbone 抽特徵
+Step 2：RPN 產生候選框 proposals
+Step 3：NMS 篩選候選框
+Step 4：RoI head 對候選框分類，並精修 bbox
+Step 5：輸出 bbox + 類別 + 信心
+```
+
+考試陷阱：Faster R-CNN 的「約 2000 個 proposals」常指訓練或 RPN 候選階段；推論時經 NMS 篩選後通常剩較少候選框再分類精修。題目若拿候選框數量比較速度，要先看描述情境。
+
+### 比較表這樣讀
+
+這張表用「考題線索」讀，不要死背哪個永遠比較好。
+
+| 比較面向 | YOLO（單階段） | Faster R-CNN（兩階段） |
 |---|---|---|
-| 流程 | 一次 forward 完事 | 先提候選框，再分類 |
-| 速度 | 毫秒級，30+ FPS | 數十至上百 ms |
-| 精度 | 傳統略低（v8+ 已追平）| 傳統較高 |
-| 小物件偵測 | 較弱 | 較強 |
-| 適用情境 | 即時影像、邊際裝置、監視器 | 醫療影像、離線精密分析 |
-| NMS 需求 | v5～v8 需要；v10 免 | 需要 |
+| 流程 | 一次 forward 直接預測 bbox | 先提候選框，再分類與修框 |
+| 主要優勢 | 快、適合即時 | 傳統精度高、細緻 |
+| 常見場景 | 監視器、產線、邊際裝置、自駕即時 | 醫療影像、離線精密分析、小物件 |
+| 速度線索 | 毫秒級、30+ FPS | 數十至上百 ms |
+| NMS | v5-v8 常需要；v10 強調 NMS-free | 需要 |
 
-**YOLO 世代演進：**
+YOLO 世代考點：
 
-| 版本 | 關鍵特色 |
+| 版本 | 考試抓法 |
 |---|---|
-| v3～v7 | Anchor-based（預設 prior box，需調整）|
-| v8 | Anchor-free（直接預測中心點到四邊距離），仍需 NMS |
-| v10 | NMS-free（訓練時一對多、推論時一對一，不需 NMS 後處理）|
+| YOLOv3-v7 | anchor-based，要用 anchor / prior box |
+| YOLOv8 | anchor-free，仍常見 NMS |
+| YOLOv10 | NMS-free，訓練一對多、推論一對一 |
 
-> iPAS 重點：題目通常只用「YOLO」通稱，不考你 v8 還 v10 差在哪。**「單階段、快、即時」是必背標籤。**
+### 記憶方式
 
-> 考試陷阱：Faster R-CNN 的「~2000 個 proposals」是**訓練時** RPN 的輸出數量；**推論時**經 NMS 篩選後只剩約 **300 個**候選框，才進入後續分類精修。題目若拿 2000 和 YOLO 比速度，前提要看是訓練還是推論情境。
-
-**NMS (Non-Maximum Suppression，非最大值抑制)：**
-偵測器對同一物件常產生多個重疊 bbox，NMS 用 IoU 門檻把重疊且信心較低的 bbox 刪掉，只保留信心最高的那個。YOLOv10 用 one-to-one head 省去這步。
+```text
+YOLO = You Only Look Once = 看一次就出框 = 快
+Faster R-CNN = 先找候選，再細判斷 = 傳統高精度
+NMS = 同一物件多個框，只留信心最高
+```
 
 ### Exam Rule
 
 ```text
-「即時偵測 / 毫秒級 / 邊際裝置 / 監視器 / 30 FPS」→ YOLO（單階段）
-「最高精度 / 醫療影像 / 不計時間 / 小物件」→ Faster R-CNN（兩階段）
-「先提候選框再分類」→ 兩階段偵測器（Faster R-CNN）
-「anchor-free + NMS-free」→ YOLOv10
-「重疊 bbox 太多，留信心最高的」→ NMS
-「產線即時檢測 / 工廠瑕疵辨識」→ YOLO（台灣製造業標準答案）
+即時偵測 / 毫秒級 / 高 FPS / 監視器 / 邊際裝置 → YOLO
+最高精度 / 醫療影像 / 離線分析 / 小物件 → Faster R-CNN
+先提候選框再分類 → Faster R-CNN / two-stage detector
+一次 forward 直接出框 → YOLO / single-stage detector
+重疊 bbox 太多，留信心最高 → NMS
+工廠產線即時瑕疵偵測 → YOLO
 ```
 
 ### Quick Check
 
 某工廠要在產線上即時偵測瑕疵品，要求每秒處理 30 幀以上，應選哪種偵測器？
 
-答案：**YOLO（單階段偵測器）**。即時性 + 高 FPS = 單階段偵測器首選。Faster R-CNN 雖然精度高，但速度達不到即時要求。
+答案：YOLO（單階段偵測器）。因為題目重點是即時性與高 FPS；Faster R-CNN 傳統精度高，但不適合這種速度優先的場景。
 
 ---
 
-## 6. 任務與架構選型 🔥🔥
+## 6. 任務與架構選型
 
 ### 先懂一句話
 
-「用哪種架構」不是靠感覺，而是**先看任務需求（輸出格式 + 即時性 + 精度要求），再選方法**。這一節就是把這個判斷流程練熟。
+選架構不要靠名字熟不熟，而要照順序判斷：**輸出格式 → 場景限制 → 架構 → 評估指標**。
 
 ### Everyday Analogy
 
-選架構就像選工具：螺絲釘要螺絲刀，釘子要鐵鎚——不是哪個工具最貴就選哪個，是看工作需要什麼。需要即時性就選 YOLO，需要像素級邊界就選 U-Net，需要分個體就選 Mask R-CNN。
+選 CV 架構像選工具。要鎖螺絲用螺絲起子，要切紙用剪刀；不是工具越複雜越好，而是任務需要什麼輸出。只要整張圖答案就用分類，需要即時方框就用 YOLO，需要像素邊界就用 U-Net，需要每個人分開 mask 就用 Mask R-CNN。
 
-### 在整體流程中的位置
+### 先問自己一個問題
+
+題目真正要的是哪一種輸出？
 
 ```text
-先看輸出形式 / 場景需求
-  │
-  ├─ 需要即時性（毫秒級）？→ 單階段偵測（YOLO）
-  ├─ 需要最高精度（不計時）？→ 兩階段偵測（Faster R-CNN）
-  ├─ 需要像素級邊界？
-  │    ├─ 不分個體 → 語意分割（U-Net / DeepLab）
-  │    └─ 要分個體 → 實例分割（Mask R-CNN）
-  └─ 只需要整張圖分類？→ 影像分類（ResNet）
+一個 label？
+一串 bbox？
+每個像素一個類別？
+每個像素 + 同類個體也要分開？
 ```
 
-### Key Concepts
+### 技術說法
 
-**情境 → 任務 → 架構 → 指標 完整對應表：**
-
-| 情境 / 場景 | 任務類型 | 代表架構 | 評估指標 |
+| 場景 | 任務類型 | 代表架構 | 評估指標 |
 |---|---|---|---|
-| 產線即時瑕疵偵測 | 物件偵測（即時）| YOLO | mAP |
-| 醫療 CT 精準偵測腫瘤 | 物件偵測（高精度）| Faster R-CNN | mAP |
-| 自駕車路面像素分割 | 語意分割 | DeepLab / FCN | mIoU |
-| 手術刀切割腫瘤邊界 | 語意分割 | U-Net | mIoU |
-| 人群計數（分每個人）| 實例分割 | Mask R-CNN | mAP-mask |
-| 整張圖「有沒有人」 | 影像分類 | ResNet | Top-1 accuracy |
-| 自駕需要天空 + 人都標 | 全景分割 | Panoptic FPN | PQ |
+| 整張圖判斷有沒有人 | 影像分類 | ResNet | Top-1 accuracy |
+| 產線即時瑕疵偵測 | 物件偵測（即時） | YOLO | mAP |
+| 醫療 CT 精準偵測腫瘤位置 | 物件偵測（高精度） | Faster R-CNN | mAP |
+| 手術或醫療影像切腫瘤邊界 | 語意分割 | U-Net | mIoU |
+| 自駕路面逐像素分類 | 語意分割 | DeepLab / FCN | mIoU |
+| 人群計數且每個人分開 | 實例分割 | Mask R-CNN | mAP-mask |
+| 天空、道路、行人、車全部標 | 全景分割 | Panoptic FPN | PQ |
 
-**輸出 vs 架構快速配對：**
+### 流程 / 選擇流程
 
-| 輸出形式 | 選這個 |
-|---|---|
-| 單一 label | ResNet（分類）|
-| bbox + 類別 + 信心（即時）| YOLO |
-| bbox + 類別 + 信心（高精）| Faster R-CNN |
-| 逐像素類別（不分個體）| U-Net / DeepLab |
-| 逐像素類別 + 個體 ID | Mask R-CNN |
+```text
+Step 1：先看輸出格式
+│
+├─ 單一 label → Classification → ResNet
+├─ bbox list → Detection
+│    ├─ 要即時 → YOLO
+│    └─ 要高精度 → Faster R-CNN
+└─ pixel map → Segmentation
+     ├─ 不分個體 → Semantic Segmentation → U-Net / DeepLab
+     ├─ 分個體 → Instance Segmentation → Mask R-CNN
+     └─ stuff + things 全標 → Panoptic Segmentation → Panoptic FPN
+
+Step 2：再看評估指標
+│
+├─ Classification → Accuracy
+├─ Detection → mAP
+├─ Semantic Segmentation → mIoU
+└─ Instance Segmentation → mAP-mask
+```
+
+### 一步一步例子
+
+題目：「自動駕駛攝影機要把天空、道路、行人 1、行人 2、車 1、車 2 全部標出來。」
+
+```text
+Step 1：需要每個像素都有標籤 → segmentation，不是 classification / detection
+Step 2：行人和車要分個體 → instance-level
+Step 3：天空、道路這種 stuff 也要標 → panoptic segmentation
+Step 4：代表架構 → Panoptic FPN
+```
+
+題目：「MRI 影像要標出腫瘤輪廓，但不要求每顆腫瘤分開。」
+
+```text
+Step 1：需要像素級輪廓 → segmentation
+Step 2：不分個體 → semantic segmentation
+Step 3：醫學影像常見架構 → U-Net
+Step 4：評估指標 → mIoU
+```
+
+### 比較表這樣讀
+
+這張表用「輸出」直接配答案。
+
+| 輸出形式 | 任務 | 架構 | 指標 |
+|---|---|---|---|
+| 單一 label | Classification | ResNet | Top-1 / Top-5 |
+| bbox + 類別 + 信心，速度優先 | Detection | YOLO | mAP |
+| bbox + 類別 + 信心，精度優先 | Detection | Faster R-CNN | mAP |
+| 逐像素類別，不分個體 | Semantic Segmentation | U-Net / DeepLab | mIoU |
+| 逐像素類別 + 個體 ID | Instance Segmentation | Mask R-CNN | mAP-mask |
+| 所有像素 + things/stuff | Panoptic Segmentation | Panoptic FPN | PQ |
+
+### 記憶方式
+
+```text
+label → ResNet
+bbox + fast → YOLO
+bbox + precise → Faster R-CNN
+pixel class → U-Net / DeepLab
+pixel + instance → Mask R-CNN
+pixel + everything → Panoptic FPN
+```
 
 ### Exam Rule
 
@@ -469,115 +727,152 @@ mAP 是偵測任務的指標，mIoU 是語意分割的指標（不混用）
 輸出 = bbox list，且要高精度 → Faster R-CNN
 輸出 = 每像素類別（不分個體）→ U-Net / DeepLab
 輸出 = 每像素類別 + 個體 → Mask R-CNN
-醫學影像切邊 / 細胞邊界 → U-Net（語意分割）
+醫學影像切邊 / 細胞邊界 → U-Net（若不分個體）
+人群計數 / 每人獨立 mask → Mask R-CNN
 ```
 
 ### Quick Check
 
-「自動駕駛系統需要將攝影機影像的每個像素分類為：天空、道路、行人₁、行人₂、行人₃……且行人之間必須分開標記」，應選哪種架構？
+「自動駕駛系統需要將攝影機影像的每個像素分類為天空、道路、行人 1、行人 2，且行人之間必須分開標記」，應選哪種架構？
 
-答案：**Mask R-CNN（實例分割）**，或更完整的 **Panoptic FPN（全景分割）**。需要同時處理「可數個體（行人分個體）」且像素層級，實例分割是最低要求；若還要處理天空 / 路面這類 stuff 像素，則選全景分割。
+答案：最完整選全景分割（Panoptic Segmentation）/ Panoptic FPN。因為天空、道路屬於 stuff，行人又需要分個體；若題目只強調行人分個體、不強調背景全標，則可選實例分割 / Mask R-CNN。
 
 ---
 
-## 7. 評估指標：IoU 與 mAP 🔥🔥🔥
+## 7. 評估指標：IoU 與 mAP
 
 ### 先懂一句話
 
-偵測模型的好壞不能只看「有沒有找到物件」，還要看「框得多準」——這就是 IoU 和 mAP 存在的原因。IoU 量單一框的重疊度，mAP 是整個資料集上所有類別的平均精度。
+物件偵測不能只問「有沒有找到」，還要問「框得準不準」。IoU 量單一預測框和真實框的重疊度，mAP 量整個偵測模型在所有類別上的平均表現。
 
 ### Everyday Analogy
 
-- **IoU** = 你跟朋友合租，「共用空間」除以「兩人加起來的總空間」——共用越多，IoU 越高，定位越準。
-- **mAP@0.5** = 「只要寫得跟標準答案差不多就給分」（一位老師，寬鬆）
-- **mAP@0.5:0.95** = 「從寬鬆到超嚴格 10 位老師同時打分、再平均」（公平但嚴格）
+你和朋友各畫一個圈，想圈出同一塊地。IoU 就是「你們兩個圈重疊的部分」除以「兩個圈合起來覆蓋的總範圍」。重疊越多，IoU 越高，代表定位越準。
 
-### 在整體流程中的位置
+`mAP@0.5` 像寬鬆老師，只要求 IoU 過 0.5；`mAP@0.5:0.95` 像 10 位老師從寬到嚴一起打分，最後取平均。
+
+### 先問自己一個問題
+
+題目問的是單一框、單一類別，還是整個資料集平均？
+
+- 單一預測框 vs 真實框：IoU。
+- 某一類別的 PR 曲線下面積：AP。
+- 所有類別 AP 平均：mAP。
+- 語意分割逐像素平均：mIoU。
+
+### 技術說法
+
+```text
+IoU = Intersection / Union
+    = 交集面積 / 聯集面積
+```
+
+常見判斷：
+
+```text
+IoU >= 0.5 → 通常可算 True Positive
+IoU < 0.5  → False Positive
+```
+
+Precision / Recall：
+
+```text
+Precision = TP / (TP + FP)  ← 你說有的，有多少是真的
+Recall    = TP / (TP + FN)  ← 真的有的，你抓到幾個
+F1        = 2PR / (P + R)
+```
+
+AP / mAP：
+
+| 指標 | 中文意思 | 技術定義 |
+|---|---|---|
+| AP (Average Precision) | 單一類別平均精度 | 某類別 Precision-Recall 曲線下面積 |
+| mAP (mean Average Precision) | 多類別平均精度 | 所有類別 AP 的平均 |
+| mIoU (mean IoU) | 多類別平均交並比 | 分割任務中各類別 IoU 的平均 |
+
+### 流程 / 選擇流程
 
 ```text
 偵測模型輸出 bbox
-  │
-  ├─ 和 ground truth 重疊多少？→ IoU
-  │
-  ├─ IoU ≥ 0.5 → True Positive (TP)
-  ├─ IoU < 0.5 → False Positive (FP)
-  │
-  ├─ Precision = TP / (TP + FP)
-  ├─ Recall    = TP / (TP + FN)
-  │
-  ├─ PR 曲線下面積 = AP（某類別）
-  │
-  └─ 各類別 AP 平均 = mAP
+│
+├─ 和 ground truth 比重疊 → IoU
+├─ IoU 過門檻 → TP，沒過 → FP
+├─ 用 TP / FP / FN 算 Precision 和 Recall
+├─ 畫 PR curve，曲線下面積 → AP（單一類別）
+└─ 所有類別 AP 平均 → mAP
 ```
 
-### Key Concepts
+### 一步一步例子
 
-**IoU（Intersection over Union，交集比聯集）：**
+IoU 計算：
 
 ```text
-IoU = 交集面積 / 聯集面積
+預測框面積 = 100 x 100 = 10,000
+真實框面積 = 100 x 100 = 10,000
+交集面積 = 50 x 50 = 2,500
 
-範圍 [0, 1]
-IoU ≥ 0.5 → 一般視為正確偵測 (True Positive)
-IoU < 0.5 → 偵測失敗 (False Positive)
+聯集面積 = 預測框 + 真實框 - 交集
+        = 10,000 + 10,000 - 2,500
+        = 17,500
+
+IoU = 2,500 / 17,500
+    = 0.143
 ```
 
-**IoU 計算算例：**
+如果門檻是 `IoU >= 0.5` 才算 True Positive，這個偵測就是 False Positive。
+
+mAP@0.5:0.95 計算概念：
 
 ```text
-預測 bbox = 100×100（左上角在 (0, 0)）
-真實 bbox = 100×100（左上角在 (50, 50)）
-
-交集：50×50 = 2,500
-聯集：10,000 + 10,000 − 2,500 = 17,500
-IoU = 2,500 / 17,500 ≈ 0.143 → False Positive（沒過 0.5 門檻）
+Step 1：在 IoU=0.50 算一次 mAP
+Step 2：在 IoU=0.55 算一次 mAP
+Step 3：一路算到 IoU=0.95
+Step 4：共 10 個門檻，把 10 個 mAP 平均
 ```
 
-**Precision / Recall / F1：**
+### 比較表這樣讀
 
-```text
-Precision = TP / (TP + FP)    ← 你說有的，有多少是真的
-Recall    = TP / (TP + FN)    ← 真的有的，你抓到幾個
-F1        = 2PR / (P + R)     ← 精確率與召回率的調和平均
-```
+這張表用「嚴格度」看。
 
-**AP 與 mAP：**
-
-| 指標 | 定義 |
-|---|---|
-| AP (Average Precision) | 某一個類別的 Precision-Recall 曲線下面積 |
-| mAP (mean AP) | 各類別 AP 的平均，物件偵測的標準指標 |
-
-**mAP@0.5 vs mAP@0.5:0.95（最常考）：**
-
-| 指標 | IoU 門檻 | 嚴格度 | 資料集傳統 |
+| 指標 | IoU 門檻 | 嚴格度 | 常見資料集 / 用法 |
 |---|---|---|---|
-| mAP@0.5 | 單一門檻 = 0.5 | 寬鬆 | PASCAL VOC |
-| mAP@0.5:0.95 | 0.5, 0.55, 0.60, …, 0.95，共 10 個門檻，各算一次 mAP 後取平均 | 嚴格 | **COCO**（現代論文標配）|
+| mAP@0.5 | 單一門檻 0.5 | 較寬鬆 | PASCAL VOC |
+| mAP@0.5:0.95 | 0.50, 0.55, ..., 0.95，共 10 個門檻 | 較嚴格 | COCO / 現代論文常見 |
+
+不要把 mAP 和 mIoU 混在一起：
+
+| 任務 | 常見指標 | 判斷重點 |
+|---|---|---|
+| Object Detection | mAP | bbox 是否框準、類別是否對 |
+| Semantic Segmentation | mIoU | 每個像素類別是否標準 |
+| Instance Segmentation | mAP-mask | mask 是否準、個體是否分對 |
+
+### 記憶方式
 
 ```text
-mAP@0.5      = mAP(IoU=0.5)
-mAP@0.5:0.95 = mean{ mAP(0.50), mAP(0.55), …, mAP(0.95) }
-                      共 10 個門檻，每 0.05 一階
+IoU = 交集 / 聯集
+AP = 一個類別的 PR 曲線面積
+mAP = 多個類別 AP 平均
+0.5:0.95 = 10 個門檻平均，COCO，比較嚴格
 ```
 
 ### Exam Rule
 
 ```text
-「交集面積 / 聯集面積」→ IoU
-「IoU ≥ 0.5 才算正確」→ 最常用的 TP 判斷門檻（但不代表「完美」）
-「各類別 AP 的平均」→ mAP
-「PASCAL VOC 指標 / 單一 IoU 門檻」→ mAP@0.5
-「COCO 指標 / 10 個門檻平均 / 嚴格評測」→ mAP@0.5:0.95
-「對定位精度最敏感的指標」→ mAP@0.5:0.95（COCO）
-語意分割的指標 = mIoU（不是 mAP）
+交集面積 / 聯集面積 → IoU
+IoU >= 0.5 → 常見 TP 判斷門檻，但不是完美偵測
+某一類別 PR 曲線下面積 → AP
+各類別 AP 平均 → mAP
+PASCAL VOC / 單一門檻 0.5 → mAP@0.5
+COCO / 10 個門檻平均 / 嚴格評測 → mAP@0.5:0.95
+語意分割 → mIoU，不是 mAP
 ```
 
 ### Quick Check
 
 「某論文報告 mAP@0.5:0.95 = 0.52」，這個指標是怎麼計算的？
 
-答案：在 **COCO** 資料集慣例下，分別計算 IoU 門檻為 0.50, 0.55, 0.60, …, 0.95（共 **10 個門檻**）的 mAP，再取這 10 個值的平均。比 mAP@0.5 嚴格得多。
+答案：在 IoU 門檻 `0.50, 0.55, 0.60, ..., 0.95` 共 10 個門檻下分別計算 mAP，再取平均。這是 COCO 慣例，比只看 `mAP@0.5` 嚴格。
 
 ---
 
@@ -586,78 +881,80 @@ mAP@0.5:0.95 = mean{ mAP(0.50), mAP(0.55), …, mAP(0.95) }
 ### Tree A：看到「任務需求」→ 選架構
 
 ```text
-題目描述一個應用場景，問要用什麼架構？
+題目描述應用場景，問要用什麼架構？
 │
-├─ 輸出是「整張圖的類別」？
-│     └─ → 影像分類 (Image Classification) / ResNet
+├─ 輸出是整張圖的類別？
+│     └─ 影像分類 (Image Classification) / ResNet
 │
-├─ 輸出是「物件位置框 + 類別」？
-│     ├─ 需要即時（毫秒級 / 高 FPS）？
-│     │     └─ → YOLO（單階段偵測器）
+├─ 輸出是物件位置框 + 類別？
+│     ├─ 需要即時 / 高 FPS / 毫秒級？
+│     │     └─ YOLO（單階段偵測器）
 │     └─ 需要最高精度 / 不計速度？
-│           └─ → Faster R-CNN（兩階段偵測器）
+│           └─ Faster R-CNN（兩階段偵測器）
 │
-└─ 輸出是「每個像素的標籤」？
+└─ 輸出是每個像素的標籤？
       ├─ 同類不需要分個體？
-      │     └─ → 語意分割 / U-Net / DeepLab
+      │     └─ 語意分割 / U-Net / DeepLab
       ├─ 同類也要分個體？
-      │     └─ → 實例分割 / Mask R-CNN
-      └─ 所有像素都要標（包含天空 / 路面）+ 個體分開？
-            └─ → 全景分割 / Panoptic FPN
+      │     └─ 實例分割 / Mask R-CNN
+      └─ 所有像素都要標，包含天空 / 路面 + 個體分開？
+            └─ 全景分割 / Panoptic FPN
 ```
 
 ### Tree B：看到「CNN 元件問題」→ 判斷是哪個元件
 
 ```text
-題目在問 CNN 的某個元件的目的或效果？
+題目在問 CNN 某個元件的目的或效果？
 │
-├─ 「抽取局部特徵 / 邊緣 / 紋理」？
-│     └─ → 卷積層 (Convolutional Layer)
+├─ 抽取局部特徵 / 邊緣 / 紋理？
+│     └─ 卷積層 (Convolutional Layer)
 │
-├─ 「縮小特徵圖 / 平移不變性 / 降低參數量」？
-│     └─ → 池化層 (Pooling Layer)
-│        注意：不是「抽特徵」！那是卷積層的事
+├─ 穩定每層輸出 / 加速訓練 / 緩解梯度問題？
+│     └─ 批次正規化 (Batch Normalization, BN)
 │
-├─ 「引入非線性 / 讓網路學複雜模式」？
-│     └─ → 激活函數 (ReLU)
+├─ 縮小特徵圖 / 平移不變性 / 降低參數量？
+│     └─ 池化層 (Pooling Layer)
+│        注意：不是抽特徵，那是卷積層
 │
-└─ 「根據特徵做最後分類 / 輸出類別機率」？
-      └─ → 全連接層 (Fully Connected Layer)
+├─ 引入非線性 / 讓網路學複雜模式？
+│     └─ 激活函數 (ReLU)
+│
+└─ 根據特徵做最後分類 / 輸出類別機率？
+      └─ 全連接層 (Fully Connected Layer)
 ```
 
-### Tree C：看到「深層網路問題」→ 判斷是什麼解法
+### Tree C：看到「深層網路問題」→ 判斷解法
 
 ```text
-題目提到深層網路的訓練問題？
+題目提到深層網路訓練問題？
 │
-├─ 「訓練誤差也在增加（越深越差）」？
-│     └─ → 退化問題 (degradation)，解法：ResNet skip connection
+├─ 訓練誤差也在增加，越深越差？
+│     └─ 退化問題 (degradation)，解法：ResNet skip connection
 │
-├─ 「梯度在深層越傳越弱 / 消失」？
-│     └─ → 梯度消失 (vanishing gradient)，主要解法：Batch Normalization + ReLU
-│           （ResNet skip connection 為次要幫助，退化問題才是 skip connection 的核心動機）
+├─ 梯度在深層越傳越弱 / 消失？
+│     └─ 梯度消失 (vanishing gradient)，主要解法：BN + ReLU
+│        skip connection 有幫助，但核心動機是退化問題
 │
-└─ 「訓練誤差低，但測試誤差高」？
-      └─ → 過擬合 (overfitting)，解法：Dropout / 正規化
-         注意：這不是 skip connection 解決的問題！
+└─ 訓練誤差低，但測試誤差高？
+      └─ 過擬合 (overfitting)，解法：Dropout / 正規化 / 資料擴增
 ```
 
-### Tree D：看到「mAP 指標問題」→ 判斷用哪個標準
+### Tree D：看到「mAP 指標問題」→ 判斷標準
 
 ```text
 題目問評估指標或比較嚴格度？
 │
-├─ 「單一 IoU 門檻 / 寬鬆評測 / PASCAL VOC」？
-│     └─ → mAP@0.5
+├─ 單一 IoU 門檻 / 寬鬆評測 / PASCAL VOC？
+│     └─ mAP@0.5
 │
-├─ 「10 個門檻平均 / 嚴格 / COCO 標準 / 現代論文」？
-│     └─ → mAP@0.5:0.95
+├─ 10 個門檻平均 / 嚴格 / COCO 標準？
+│     └─ mAP@0.5:0.95
 │
-├─ 「逐像素精度 / 語意分割評測」？
-│     └─ → mIoU（不是 mAP）
+├─ 逐像素精度 / 語意分割評測？
+│     └─ mIoU
 │
-└─ 「偵測框重疊度 / 預測框和真實框」？
-      └─ → IoU（交集 / 聯集）
+└─ 偵測框重疊度 / 預測框和真實框？
+      └─ IoU = 交集 / 聯集
 ```
 
 ---
@@ -666,113 +963,99 @@ mAP@0.5:0.95 = mean{ mAP(0.50), mAP(0.55), …, mAP(0.95) }
 
 ### Trap 1：池化層的目的是「抽取更多特徵」
 
-錯。池化層的目的是「縮小特徵圖尺寸 + 保留關鍵訊號 + 降低參數量 + 提升平移不變性」。**抽特徵是卷積層的工作**，池化層只是整理、濃縮已有的特徵圖。
+錯。池化層的目的是縮小特徵圖尺寸、保留關鍵訊號、降低參數量、提升平移不變性。抽特徵是卷積層的工作。
 
 Exam fix：
 
 ```text
-「縮小特徵圖 / 降維 / 平移不變性」→ 池化層
-「抽取特徵 / 找邊緣 / 找紋理」→ 卷積層
+縮小特徵圖 / 降維 / 平移不變性 → 池化層
+抽取特徵 / 找邊緣 / 找紋理 → 卷積層
 ```
 
----
+### Trap 2：ResNet 的 skip connection 是為了解決過擬合
 
-### Trap 2：ResNet 的 skip connection 是為了解決過擬合或梯度消失
-
-錯。skip connection 解決的核心是**退化問題 (degradation)**：訓練誤差本身就比淺層更大，這不是過擬合（「訓練誤差低、測試誤差高」），也不是梯度消失（梯度消失的主要解法是 **Batch Normalization + ReLU**，早於 ResNet 就已解決）。skip connection 對梯度流動有次要幫助，但把它列為「解決梯度消失」是不精確的，會在細分類題目上失分。
+錯。skip connection 的核心是解決退化問題（degradation）：網路加深後，訓練誤差也變大。過擬合是訓練誤差低、測試誤差高，兩者不同。
 
 Exam fix：
 
 ```text
-「過擬合」→ Dropout / 正規化（L1/L2）/ 資料擴增
-「梯度消失」→ Batch Normalization + ReLU（主要解法）
-「退化問題 / 訓練誤差隨深度增加 / 網路越深越難訓」→ ResNet skip connection
+過擬合 → Dropout / 正規化 / 資料擴增
+梯度消失 → BN + ReLU 是主要解法
+退化問題 / 訓練誤差隨深度增加 → ResNet skip connection
 ```
-
----
 
 ### Trap 3：語意分割和實例分割是同一件事
 
-錯。語意分割只標「像素的類別」，同類不分個體；實例分割標「像素的類別 + 每個個體的獨立 mask」。照片裡 3 隻羊：語意分割輸出一塊「羊」色，實例分割輸出羊₁、羊₂、羊₃ 三塊分開的 mask。
+錯。語意分割只標像素類別，同類不分個體；實例分割標像素類別加個體 ID。照片裡 3 隻羊，語意分割是一片「羊」，實例分割是羊 1、羊 2、羊 3。
 
 Exam fix：
 
 ```text
-「同類不分個體 / 一片色塊」→ 語意分割 / U-Net
-「同類要分個體 / 3 隻羊 3 個 mask」→ 實例分割 / Mask R-CNN
+同類不分個體 / 一片色塊 → 語意分割 / U-Net
+同類要分個體 / 3 隻羊 3 個 mask → 實例分割 / Mask R-CNN
 ```
 
----
+### Trap 4：mAP 就是在 IoU=0.5 下的平均精度
 
-### Trap 4：mAP 就是「在 IoU=0.5 下的平均精度」
-
-錯，不一定。mAP@0.5 是單門檻，但 COCO 的 mAP@0.5:0.95 是 10 個門檻（0.5, 0.55, …, 0.95）的平均。現代論文說「mAP」通常指的是後者（更嚴格）。
+不一定。`mAP@0.5` 是單一門檻；`mAP@0.5:0.95` 是 10 個 IoU 門檻的平均，較嚴格。
 
 Exam fix：
 
 ```text
-「單一門檻 0.5 / PASCAL VOC」→ mAP@0.5
-「10 個門檻平均 / COCO / 嚴格」→ mAP@0.5:0.95
+單一門檻 0.5 / PASCAL VOC → mAP@0.5
+10 個門檻平均 / COCO / 嚴格 → mAP@0.5:0.95
 ```
-
----
 
 ### Trap 5：Faster R-CNN 一定比 YOLO 更精準
 
-錯，傳統上是這樣，但新版 YOLO（v8、v10）已大幅追平甚至超越。如果題目說「兩階段**一定**比單階段精準」，要警覺——這是陷阱。
+這句太絕對。傳統上兩階段偵測器精度較高，但新版 YOLO 已大幅追平。考試通常要抓的是情境：即時速度選 YOLO，最高精度或離線精密分析才偏 Faster R-CNN。
 
 Exam fix：
 
 ```text
-「傳統上精度較高 / 不計速度」→ Faster R-CNN
-「現代 v8+ 精度已追平 / 仍需即時」→ YOLO v8/v10
-「一定/必定 兩階段更準」→ 這說法是陷阱（現代 YOLO 已追平）
+即時 / 高 FPS → YOLO
+傳統高精度 / 不計速度 → Faster R-CNN
+一定 / 必定兩階段更準 → 小心絕對化陷阱
 ```
 
----
+### Trap 6：卷積輸出尺寸公式是 `O = W / S`
 
-### Trap 6：卷積輸出尺寸公式是 O = W / S
-
-錯，漏掉了 kernel size 和 padding。正確公式：
+錯，漏掉 kernel size、padding 和最後 `+1`。
 
 ```text
-O = ⌊(W − F + 2P) / S⌋ + 1
+O = floor((W - F + 2P) / S) + 1
 ```
-
-最常見錯誤：忘記減 F、忘記加 2P、忘記最後加 1、忘記 floor。
 
 Exam fix：
 
 ```text
-「卷積輸出尺寸」→ 先寫 W − F + 2P，再除 S，floor，加 1
-stride 增大 → 輸出縮小（S=2 約縮半）
-same padding（S=1）→ P = (F−1)/2，輸出與輸入同尺寸
+先寫 W - F + 2P
+再除以 S
+再 floor
+最後 + 1
 ```
 
----
+### Trap 7：IoU >= 0.5 代表完美偵測
 
-### Trap 7：IoU ≥ 0.5 代表「完美偵測」
-
-錯，IoU ≥ 0.5 只是被計為 True Positive 的**最低門檻**，不代表「完美」。COCO 嚴格評測要求到 0.95。更高的 IoU 代表定位更精準。
+錯。IoU >= 0.5 只是常見及格線，不代表完美。COCO 嚴格評測會看 0.5 到 0.95 的多個門檻。
 
 Exam fix：
 
 ```text
-「IoU ≥ 0.5 → True Positive」→ 只是「及格線」，不是完美
-「COCO 嚴格評測」→ 需要 IoU 從 0.5 到 0.95 都能得分
+IoU >= 0.5 → 常見 True Positive 門檻
+IoU 越高 → 定位越準
+COCO → 0.5 到 0.95 多門檻平均
 ```
-
----
 
 ### Trap 8：YOLO 和 CNN 是競爭關係
 
-錯，YOLO 建立在 CNN backbone 之上。YOLOv8 的 backbone 就是 CSPDarknet + C2f 模組（CNN 家族）。CNN 是底層元件，YOLO 是上層應用，兩者是**層級關係**，不是替代關係。
+錯。YOLO 通常建立在 CNN backbone 之上。CNN 是底層特徵抽取方法，YOLO 是物件偵測架構，兩者是層級關係，不是替代關係。
 
 Exam fix：
 
 ```text
-「YOLO vs CNN」→ 不是替代，YOLO 的底層就是 CNN backbone
-「YOLO 的組成」→ CNN backbone + detection head（+ neck）
+CNN → backbone / 特徵抽取
+YOLO → 使用 backbone 的物件偵測器
 ```
 
 ---
@@ -783,8 +1066,8 @@ Exam fix：
 
 **Q1.** 卷積層（Convolutional Layer）最主要的功能是什麼？
 
-答案：A. 從影像中抽取局部特徵（邊緣、紋理、形狀）
-理由：卷積層用 kernel 在影像上滑動、做局部內積，負責特徵提取；降維是池化層的工作。
+答案：從影像中抽取局部特徵，例如邊緣、紋理、形狀。
+理由：卷積層用 kernel 在影像上滑動做局部運算；降維是池化層的工作。
 
 ---
 
@@ -793,21 +1076,21 @@ Exam fix：
 A. Padding　B. Kernel size　C. Stride　D. Channel
 
 答案：C. Stride（步長）
-理由：Stride 控制卷積核每次移動幾格，S=2 時輸出尺寸約縮為輸入的一半。
+理由：Stride 控制 kernel 每次移動幾格，`S=2` 時輸出尺寸通常約縮半。
 
 ---
 
-**Q3.** 輸入影像 32×32，使用 3×3 kernel，stride=1，padding=0，輸出特徵圖尺寸是？
+**Q3.** 輸入影像 `32 x 32`，使用 `3 x 3` kernel，stride=1，padding=0，輸出特徵圖尺寸是？
 
-答案：30×30
-理由：O = ⌊(32 − 3 + 2×0) / 1⌋ + 1 = 29 + 1 = 30。
+答案：`30 x 30`
+理由：`O = floor((32 - 3 + 2 x 0) / 1) + 1 = 29 + 1 = 30`。
 
 ---
 
-**Q4.** 輸入影像 64×64，使用 5×5 kernel，stride=2，padding=2，輸出尺寸是？
+**Q4.** 輸入影像 `64 x 64`，使用 `5 x 5` kernel，stride=2，padding=2，輸出尺寸是？
 
-答案：32×32
-理由：O = ⌊(64 − 5 + 2×2) / 2⌋ + 1 = ⌊63 / 2⌋ + 1 = 31 + 1 = 32。
+答案：`32 x 32`
+理由：`O = floor((64 - 5 + 2 x 2) / 2) + 1 = floor(63 / 2) + 1 = 31 + 1 = 32`。
 
 ---
 
@@ -819,14 +1102,14 @@ C. 引入非線性，讓網路學習複雜模式
 D. 輸出最終的分類機率
 
 答案：B
-理由：池化層做的是「降維 + 平移不變性」，不是抽特徵（那是卷積層），不是引入非線性（那是 ReLU）。
+理由：池化層做的是降維與提升平移不變性；抽特徵是卷積層，非線性是 ReLU。
 
 ---
 
 **Q6.** 最大池化（Max Pooling）和平均池化（Average Pooling）最主要的差異是？
 
-答案：最大池化取視窗內最大值，保留銳利邊緣特徵，適合中間層；平均池化取平均值，輸出較平滑，常用於 Global Average Pooling（在分類層前壓縮特徵圖）。
-理由：兩者都是降維，差異在「取最大值 vs 取平均值」，用途也略不同。
+答案：最大池化取視窗內最大值，常保留銳利特徵；平均池化取平均值，輸出較平滑，也常出現在 Global Average Pooling。
+理由：兩者都是降維，差異在取最大值或取平均值。
 
 ---
 
@@ -835,19 +1118,19 @@ D. 輸出最終的分類機率
 **Q7.** ResNet 的 skip connection（殘差連接）主要解決了什麼問題？
 
 A. 過擬合 (overfitting)
-B. 退化問題 (degradation) 與梯度消失 (vanishing gradient)
+B. 退化問題 (degradation)
 C. 池化層丟失特徵資訊
 D. 卷積核尺寸不足
 
-答案：B（但注意：更精確的答案是「退化問題」是核心動機；梯度消失的主要解法是 BN+ReLU，skip connection 的貢獻是次要）
-理由：退化問題是「訓練誤差隨網路加深而增大」，和過擬合（訓練低、測試高）不同。skip connection 讓最壞情況退化為恆等映射，同時對梯度流動有次要改善效果。
+答案：B
+理由：退化問題是訓練誤差隨網路加深而增大；skip connection 的核心動機是讓深層網路更容易訓練。
 
 ---
 
-**Q8.** ResNet 的 block 公式 H(x) = F(x) + x 中，x 代表什麼？
+**Q8.** ResNet 的 block 公式 `H(x) = F(x) + x` 中，`x` 代表什麼？
 
-答案：x 是原始輸入（input），通過 identity shortcut（捷徑）直接加到輸出。F(x) 是這個 block 要學的「修正量（殘差）」，輸出 = 原輸入 + 修正量。
-理由：這個設計讓「最壞情況下 F(x)→0，輸出=x（恆等映射）」，加深網路不會比淺層更差。
+答案：`x` 是原始輸入，透過 identity shortcut 直接加到輸出。
+理由：`F(x)` 是 block 學到的修正量；若 `F(x)` 接近 0，輸出就接近原輸入。
 
 ---
 
@@ -859,7 +1142,7 @@ C. 使用更大的 kernel 來捕捉全局特徵
 D. 完全取代全連接層
 
 答案：B
-理由：ResNet 的核心動機就是「解決退化問題」——讓加深網路不再比淺層更難訓練。
+理由：ResNet 的核心是解決退化問題，而不是增加 pooling 或取代 FC。
 
 ---
 
@@ -873,25 +1156,25 @@ C. 語意分割 / U-Net
 D. 實例分割 / Mask R-CNN
 
 答案：B
-理由：需要輸出「bounding box + 類別」 = 物件偵測任務。是否選 YOLO 或 Faster R-CNN 取決於是否需要即時性。
+理由：需要輸出 bounding box + 類別，這是物件偵測；是否選 YOLO 或 Faster R-CNN 取決於速度與精度需求。
 
 ---
 
 **Q11.** 「醫療 AI 要標出 MRI 掃描圖中每顆腫瘤的精確輪廓，且每顆腫瘤獨立標記」，應選哪種架構？
 
-答案：Mask R-CNN（實例分割）
-理由：需要「每像素類別 + 每個腫瘤個體獨立 mask」= 實例分割。語意分割可以標像素類別，但無法分開「第幾顆腫瘤」。
+答案：Mask R-CNN（實例分割）。
+理由：需要每像素類別加每顆腫瘤的獨立 mask；語意分割不能分個體。
 
 ---
 
 **Q12.** 「照片裡有 3 隻貓，語意分割的輸出是什麼？」
 
-答案：3 隻貓的像素**全部標記為同一個「貓」類別**（一片色塊），不區分哪隻是第幾隻。
-理由：語意分割只做像素層級的類別標記，同類個體不分開。要分個體需要實例分割。
+答案：3 隻貓的像素全部標記為同一個「貓」類別，不區分第幾隻。
+理由：語意分割只標類別；要分個體才是實例分割。
 
 ---
 
-**Q13.** 以下哪個架構適合「自駕車需要將攝影機畫面中的天空、路面（stuff）以及每個行人、每台車（things + 分個體）全部標記」的需求？
+**Q13.** 以下哪個架構適合「自駕車需要將天空、路面以及每個行人、每台車全部標記」？
 
 A. 語意分割 / DeepLab
 B. 實例分割 / Mask R-CNN
@@ -899,7 +1182,7 @@ C. 全景分割 / Panoptic FPN
 D. 影像分類 / ResNet
 
 答案：C
-理由：全景分割 = 語意分割（處理 stuff：天空、路面）+ 實例分割（處理 things：行人、車分個體），是最完整的方案。
+理由：全景分割同時涵蓋 stuff（天空、路面）與 things（行人、車且分個體）。
 
 ---
 
@@ -907,8 +1190,8 @@ D. 影像分類 / ResNet
 
 **Q14.** 工廠產線需要每秒偵測 30 幀以上的瑕疵品，應選哪種偵測器？
 
-答案：YOLO（單階段偵測器）
-理由：即時性需求（高 FPS）= 單階段偵測器首選。YOLO 一次 forward pass 直接輸出所有 bbox，適合即時場景。
+答案：YOLO（單階段偵測器）。
+理由：即時性與高 FPS 是 YOLO 的典型場景。
 
 ---
 
@@ -920,27 +1203,27 @@ C. YOLO 是單階段偵測器，速度較快
 D. Faster R-CNN 是單階段偵測器，精度較高
 
 答案：C
-理由：YOLO = 單階段（single-shot），一次 forward pass 直接預測。Faster R-CNN = 兩階段（two-stage），先 RPN 提候選框再分類。
+理由：YOLO 是 single-stage，Faster R-CNN 是 two-stage。
 
 ---
 
 **Q16.** NMS（Non-Maximum Suppression，非最大值抑制）的作用是什麼？
 
-答案：刪除對同一個物件的多個重疊 bounding box，只保留信心分數最高的那個框。
-理由：偵測器常對同一物件輸出多個重疊 bbox，NMS 用 IoU 門檻篩選，避免重複偵測。
+答案：刪除同一物件的多個重疊 bounding boxes，只保留信心分數最高的框。
+理由：偵測器常對同一物件輸出多個框，NMS 用 IoU 門檻去重。
 
 ---
 
 ### 10.5 IoU 與 mAP
 
-**Q17.** 「IoU ≥ 0.5 視為 True Positive」中，IoU 是如何計算的？
+**Q17.** 「IoU >= 0.5 視為 True Positive」中，IoU 是如何計算的？
 
-答案：IoU = 預測 bbox 與真實 bbox 的「交集面積」除以「聯集面積」。IoU 範圍是 [0, 1]，越高代表定位越準。
-理由：這是物件偵測評估的基礎公式。
+答案：IoU = 預測 bbox 與真實 bbox 的交集面積 / 聯集面積。
+理由：IoU 範圍是 0 到 1，越高表示定位越準。
 
 ---
 
-**Q18.** 以下哪個指標是 COCO benchmark 的現代標準，且比 PASCAL VOC 的指標更嚴格？
+**Q18.** 以下哪個指標是 COCO benchmark 的現代標準，且比 PASCAL VOC 更嚴格？
 
 A. mAP@0.5
 B. Top-1 accuracy
@@ -948,21 +1231,21 @@ C. mAP@0.5:0.95
 D. mIoU
 
 答案：C
-理由：mAP@0.5:0.95 在 IoU 從 0.5 到 0.95（共 10 個門檻）各算一次 mAP 後取平均，是 COCO 標準，比只用 IoU=0.5 的 mAP@0.5 嚴格得多。
+理由：`mAP@0.5:0.95` 在 0.50 到 0.95 共 10 個 IoU 門檻下計算後平均，較嚴格。
 
 ---
 
-**Q19.** mAP@0.5:0.95 使用幾個 IoU 門檻？
+**Q19.** `mAP@0.5:0.95` 使用幾個 IoU 門檻？
 
-答案：10 個（0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95，每 0.05 一階）。
-理由：這是 COCO 評估協議的標準定義，記住「10 個門檻、每 0.05 一階」。
+答案：10 個。
+理由：門檻是 `0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95`，每 0.05 一階。
 
 ---
 
 **Q20.** 語意分割任務最常用的評估指標是什麼？
 
-答案：**mIoU（mean Intersection over Union）**，即各類別 IoU 的平均值。
-理由：mAP 主要用於物件偵測（有 bbox），語意分割是逐像素任務，用 mIoU 衡量每個像素的標記精度更合適。
+答案：mIoU（mean Intersection over Union）。
+理由：語意分割是逐像素任務，常用各類別 IoU 的平均來評估。
 
 ---
 
@@ -971,16 +1254,16 @@ D. mIoU
 **Q21.** 以下何者對「池化層平移不變性」的描述最準確？
 
 A. 池化層讓模型記住特徵的絕對位置
-B. 池化層讓同樣的特徵無論出現在影像何處，輸出都相似
-C. 池化層引入更多非線性，讓模型更強大
-D. 池化層將特徵圖的解析度放大
+B. 池化層讓同樣的特徵小幅平移後，輸出仍相似
+C. 池化層引入更多非線性
+D. 池化層將特徵圖解析度放大
 
 答案：B
-理由：平移不變性（translation invariance）= 特徵平移後，池化後的輸出不會大幅改變。這是最大池化降採樣的重要特性。
+理由：平移不變性是指特徵位置小幅改變時，池化後輸出不會大幅變動。
 
 ---
 
-**Q22.** 「AP（Average Precision）」是針對什麼計算的？
+**Q22.** AP（Average Precision）是針對什麼計算的？
 
 A. 整個資料集所有類別的平均精度
 B. 某一個類別的 Precision-Recall 曲線下面積
@@ -988,14 +1271,14 @@ C. 某一張圖的精確率
 D. 所有 IoU 門檻下的平均
 
 答案：B
-理由：AP 是針對**單一類別**計算 PR 曲線下面積；**mAP** 才是所有類別 AP 的平均。
+理由：AP 是單一類別的 PR 曲線下面積；mAP 才是多類別 AP 的平均。
 
 ---
 
-**Q23.** 以下哪一項架構的輸出格式為「逐像素類別 map，同類物件不分個體」？
+**Q23.** 哪一項架構的輸出格式是「逐像素類別 map，同類物件不分個體」？
 
-答案：**語意分割（Semantic Segmentation）**，代表架構為 U-Net / FCN / DeepLab。
-理由：語意分割對每個像素輸出一個類別標籤，但同類別的不同個體使用同一標籤、不做區分。
+答案：語意分割（Semantic Segmentation），代表架構是 U-Net / FCN / DeepLab。
+理由：語意分割對每個像素輸出類別標籤，但同類不同個體不分開。
 
 ---
 
@@ -1007,44 +1290,46 @@ C. Pool → Conv → ReLU → ... → FC → Softmax
 D. Conv → Pool → ReLU → ... → FC → Softmax
 
 答案：B
-理由：標準 CNN block 是「卷積 → ReLU → 池化」重複 N 次，最後接全連接層 + Softmax 輸出分類機率。
+理由：簡化 CNN block 是 `Conv → ReLU → Pool` 重複數次，最後接 FC 與 Softmax；現代實作常在 Conv 後加入 BN。
 
 ---
 
 **Q25.** ResNet-50 中的「50」代表什麼？
 
-答案：網路總共有 **50 層**（可訓練的卷積層 + 全連接層的總深度）。
-理由：ResNet 家族以深度命名，如 ResNet-18, 34, 50, 101, 152；ResNet-50 是目前最常用的 backbone 基準。
+答案：網路總共有 50 層可訓練層。
+理由：ResNet 家族常用深度命名，例如 ResNet-18、34、50、101、152。
 
 ---
 
 ## Final Oral Recall
 
-考前最後 3 分鐘，把這幾句唸一次：
+考前最後 3 分鐘唸這幾句：
 
-1. CNN 四大元件：「**卷積抽特徵、ReLU 加非線性、池化縮維度、全連接說答案**」——池化絕對不是抽特徵，那是最常考的陷阱。
-
-2. 卷積輸出公式：「**O = ⌊(W − F + 2P) / S⌋ + 1**，框架預設 floor 向下取整」——漏掉 F 或 2P 是最常見錯誤。
-
-3. 任務三階梯：「**一張標 = 分類、有框 = 偵測、每個像素 = 分割**；同類要分個體就選實例分割 (Mask R-CNN)」。
-
-4. 偵測器二選一：「**即時 / 高 FPS / 邊際裝置 → YOLO；最高精度 / 醫療 / 離線 → Faster R-CNN**」。
-
-5. skip connection 解決的是「**退化問題**，不是過擬合也不是梯度消失」——過擬合是訓練低 / 測試高；退化是訓練誤差本身就變大；梯度消失靠 **BN + ReLU** 解決。
-
-6. mAP 記憶：「**mAP@0.5 = 單一門檻 0.5（PASCAL VOC，寬鬆）；mAP@0.5:0.95 = 10 個門檻平均（COCO，嚴格）**」。
-
-7. 分割三兄弟：「**語意不認人（同類一片色）、實例會點名（同類也分開）、全景全包辦（連天空都標）**」。
+1. CNN 元件口訣：卷積抽特徵、BN 穩訓練、ReLU 加非線性、池化縮維度、FC 說答案。
+2. 池化不是抽特徵；抽特徵是卷積層，池化是縮小特徵圖與提升平移不變性。
+3. 卷積輸出公式：`O = floor((W - F + 2P) / S) + 1`，不要漏掉 `F`、`2P`、`floor`、`+1`。
+4. ResNet 解決的是退化問題：訓練誤差也隨深度增加而變差，不是過擬合。
+5. `H(x) = F(x) + x` 是 identity shortcut；維度不同時用 `1 x 1 conv` 做 projection shortcut。
+6. 任務三階梯：一張標 = 分類；有框 = 偵測；每個像素 = 分割；同類要分個體 = 實例分割。
+7. 偵測器二選一：即時 / 高 FPS / 邊際裝置 → YOLO；最高精度 / 醫療 / 離線 → Faster R-CNN。
+8. IoU = 交集 / 聯集；AP 是單類別 PR 曲線面積；mAP 是多類別 AP 平均。
+9. `mAP@0.5` 是單一門檻較寬鬆；`mAP@0.5:0.95` 是 10 個門檻平均，COCO 較嚴格。
+10. 語意不認人，實例會點名，全景全包辦。
 
 ---
 
 ## Final Study Advice
 
-不要只背架構名稱。考試真正測的是：**你能不能從題目描述判斷「這需要什麼輸出格式 → 對應什麼任務 → 選哪個架構」**。
+不要只背架構名稱。考試真正測的是你能不能從題目描述推回：
 
-每道情境題的解題步驟：
-1. 先看輸出格式（一個 label？bbox？每像素？）
-2. 再看場景需求（即時？高精度？分個體？）
-3. 最後選架構
+```text
+輸出格式 → 任務類型 → 場景限制 → 架構 → 指標
+```
 
-遇到 mAP 題目：先確認是「PASCAL VOC / 單門檻」還是「COCO / 10 門檻」；遇到 ResNet 題目：先確認是「解決退化」不是「解決過擬合」。這兩個是最高頻的混淆點。
+每道情境題都照這三步：
+
+1. 先看輸出格式：一個 label、bbox、每像素，還是每像素加個體 ID。
+2. 再看限制：即時、高精度、分個體、是否包含 stuff 背景。
+3. 最後選架構與指標：ResNet、YOLO、Faster R-CNN、U-Net、Mask R-CNN、Panoptic FPN，以及 accuracy、mAP、mIoU、PQ。
+
+遇到 mAP 題，先確認是 PASCAL VOC 的單門檻還是 COCO 的 10 門檻；遇到 ResNet 題，先確認是退化問題，不要選成過擬合。這兩個是最容易失分的混淆點。
