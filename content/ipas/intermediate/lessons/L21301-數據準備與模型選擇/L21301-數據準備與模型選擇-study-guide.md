@@ -320,7 +320,7 @@ Step 4：補完後再進入縮放或建模
 ```text
 需要縮放嗎？
 │
-├─ 使用 SVM / k-NN / 距離型模型 → 需要
+├─ 使用 SVM（Support Vector Machine，支援向量機）/ k-NN（k-Nearest Neighbors，k 近鄰）/ 距離型模型 → 需要
 ├─ 特徵尺度差很大 → 需要
 ├─ 決策樹 / 隨機森林 → 縮放不是第一優先
 └─ 有明顯離群值但仍需縮放 → RobustScaler
@@ -687,7 +687,7 @@ Train 學習，Val 選擇，Test 驗收。
 
 考試要看出：Accuracy 很高不代表好，因為業務真正關心的是少數類別有沒有被抓到。
 
-SMOTE（Synthetic Minority Over-sampling Technique）例子：
+SMOTE（Synthetic Minority Over-sampling Technique，合成少數類別過採樣技術）例子：
 
 ```text
 Step 1：先切 Train / Val / Test
@@ -729,17 +729,17 @@ SMOTE 和簡單過採樣的差別：
 | 線性模型（Linear Model） | 快、可解釋性高 | 難處理複雜非線性關係 |
 | 決策樹（Decision Tree） | 直觀、好說明 | 易過度擬合 |
 | 隨機森林（Random Forest） | 穩健、效果好 | 較難解釋，成本較高 |
-| 支援向量機（SVM） | 小中型資料有效 | 對尺度敏感，大資料成本高 |
-| k 近鄰（k-NN） | 直觀 | 推論慢，對尺度敏感 |
+| 支援向量機（SVM, Support Vector Machine） | 小中型資料有效 | 對尺度敏感，大資料成本高 |
+| k 近鄰（k-NN, k-Nearest Neighbors） | 直觀 | 推論慢，對尺度敏感 |
 | 神經網路（Neural Network） | 表現潛力高 | 資料、算力、維護成本高 |
 
 迴歸評估指標表要看「你想懲罰什麼」：
 
 | 指標 | 公式 | 特點 |
 |---|---|---|
-| MAE（平均絕對誤差） | mean(\|y − ŷ\|) | 對離群值不敏感 |
-| MSE（均方誤差） | mean((y − ŷ)²) | 放大大誤差，可微分 |
-| RMSE（均方根誤差） | √MSE | 與 y 同單位，常用 |
+| MAE（Mean Absolute Error，平均絕對誤差） | mean(\|y − ŷ\|) | 對離群值不敏感 |
+| MSE（Mean Squared Error，均方誤差） | mean((y − ŷ)²) | 放大大誤差，可微分 |
+| RMSE（Root Mean Squared Error，均方根誤差） | √MSE | 與 y 同單位，常用 |
 | R²（決定係數） | 1 − SS_res/SS_tot | 越接近 1 越好（可為負） |
 
 ```text

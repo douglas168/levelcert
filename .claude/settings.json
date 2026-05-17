@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21101-自然語言處理技術與應用/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21101-自然語言處理技術與應用/L21101-自然語言處理技術與應用-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21302-AI技術系統集成與部署/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21302-AI技術系統集成與部署/L21302-AI技術系統集成與部署-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22101-敘述性統計與資料摘要技術/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22101-敘述性統計與資料摘要技術/L22101-敘述性統計與資料摘要技術-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22102-機率分佈與資料分佈模型/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22102-機率分佈與資料分佈模型/L22102-機率分佈與資料分佈模型-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22103-假設檢定與統計推論/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22103-假設檢定與統計推論/L22103-假設檢定與統計推論-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22201-數據收集與清理/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22201-數據收集與清理/L22201-數據收集與清理-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22202-數據儲存與管理/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22202-數據儲存與管理/L22202-數據儲存與管理-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22203-數據處理技術與工具/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22203-數據處理技術與工具/L22203-數據處理技術與工具-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22301-統計學在大數據中的應用/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22301-統計學在大數據中的應用/L22301-統計學在大數據中的應用-study-guide.md\")",
+      "Bash(mv \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22302-常見的大數據分析方法/study-guide-v2.md\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22302-常見的大數據分析方法/L22302-常見的大數據分析方法-study-guide.md\")",
+      "Bash(wait)",
+      "Bash(gemini -p \"Say OK\")",
+      "Read(//Users/douglaskuo/.codex/**)",
+      "Bash(grep -n \"anchoring bias\\\\|Llama-3\\\\.1\\\\|每萬請求 NT\\\\$2,000\\\\|每萬請求 NT\\\\\\\\\\\\$2,000\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21201-AI導入評估/L21201-AI導入評估-study-guide.md\")",
+      "Bash(grep -n \"Llama-3\\\\.1\\\\|每萬請求 NT\\\\$2,000\\\\|每萬請求 NT\\\\\\\\\\\\$2,000\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21201-AI導入評估/L21201-AI導入評估-study-guide.md\")"
+    ],
+    "additionalDirectories": [
+      "/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22303-數據可視化工具",
+      "/tmp"
+    ]
+  }
+}

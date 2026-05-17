@@ -70,9 +70,9 @@
 | 隨機變數（Random Variable, RV） | 把隨機結果變成數字 |
 | 離散型（Discrete） | 可以一個一個數 |
 | 連續型（Continuous） | 落在連續區間內 |
-| PMF（Probability Mass Function） | 離散型的單點機率 |
-| PDF（Probability Density Function） | 連續型的密度曲線 |
-| CDF（Cumulative Distribution Function） | 累積到某值為止的機率 |
+| PMF（Probability Mass Function，機率質量函數） | 離散型的單點機率 |
+| PDF（Probability Density Function，機率密度函數） | 連續型的密度曲線 |
+| CDF（Cumulative Distribution Function，累積分佈函數） | 累積到某值為止的機率 |
 
 ### 流程 / 選擇流程
 

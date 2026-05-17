@@ -32,7 +32,7 @@
 
 ### 先懂一句話
 
-這一課是從「資料」看生成式 AI：模型要先拿大量資料預訓練，資料要先清理與分詞；若要客製化，可以微調或用 RAG 接外部文件；模型太大時，才需要分散式訓練。
+這一課是從「資料」看生成式 AI：模型要先拿大量資料預訓練，資料要先清理與分詞；若要客製化，可以微調或用 RAG（Retrieval-Augmented Generation，檢索增強生成）接外部文件；模型太大時，才需要分散式訓練。
 
 ### Everyday Analogy
 
@@ -48,9 +48,9 @@
 
 1. 預訓練語料（pretraining corpus）：讓基礎模型先建立通用能力。
 2. 語料處理（corpus processing）：清理、去重、分詞。
-3. 客製化方法（customization）：微調（fine-tuning）、LoRA / PEFT，或 RAG。
-4. 資源配置（distributed training）：資料、tensor、模型 stage 怎麼切到多張 GPU。
-5. 生成 API（generation API）：tokenizer 進、`model.generate()` 出。
+3. 客製化方法（customization）：微調（fine-tuning）、LoRA（Low-Rank Adaptation，低秩適配）/ PEFT（Parameter-Efficient Fine-Tuning，參數高效微調），或 RAG。
+4. 資源配置（distributed training）：資料、tensor、模型 stage 怎麼切到多張 GPU（Graphics Processing Unit，圖形處理器）。
+5. 生成 API（Application Programming Interface，應用程式介面）：tokenizer 進、`model.generate()` 出。
 
 ### 流程 / 選擇流程
 
@@ -70,12 +70,12 @@ Raw web / documents
 |---|---|
 | Common Crawl、C4、The Pile、ROOTS | 大規模預訓練語料庫 |
 | quality filter、dedup、MinHash、perplexity filter | 語料清理與去重 |
-| BPE、WordPiece、SentencePiece、tiktoken | 分詞器 tokenizer |
-| SFT、instruction-response pairs | 監督式微調資料 |
-| chosen/rejected responses | RLHF 偏好資料 |
+| BPE（Byte Pair Encoding，位元組對編碼）、WordPiece、SentencePiece、tiktoken | 分詞器 tokenizer |
+| SFT（Supervised Fine-Tuning，監督式微調）、instruction-response pairs | 監督式微調資料 |
+| chosen/rejected responses | RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）偏好資料 |
 | LoRA、adapter、rank r | PEFT / 參數高效微調 |
 | chunking、embedding、vector store | RAG 資料管線 |
-| DDP、tensor parallel、pipeline parallel | 分散式訓練 |
+| DDP（Distributed Data Parallel，分散式資料平行）、tensor parallel、pipeline parallel | 分散式訓練 |
 | `pipeline(...)`、`model.generate()` | Hugging Face API 資料流 |
 
 ### 記憶方式
@@ -182,7 +182,7 @@ Licensing = 能合法使用
 ```text
 Common Crawl / C4 / The Pile / ROOTS / RedPajama / Dolma → pretraining corpus
 規模 + 品質 + 多樣性 + 授權 → 預訓練語料評估重點
-open web data → 仍要檢查 copyright、PII、license
+open web data → 仍要檢查 copyright、PII（Personally Identifiable Information，個人可識別資訊）、license
 資料越大就一定越好 → 錯，還要看品質與合規
 ```
 
@@ -411,9 +411,9 @@ GPU 預算有限、資料不多
 | RLHF 偏好資料 | prompt / chosen response / rejected response | chosen/rejected、reward modeling、preference data |
 | FLAN | 多任務 instruction tuning | 1.8K tasks、多任務指令調整 |
 
-#### 4.2 DPO (Direct Preference Optimization) 🔥🔥
+#### 4.2 DPO（Direct Preference Optimization，直接偏好最佳化） 🔥🔥
 
-**一句話**：不需要 Reward Model 和 PPO，直接用偏好資料訓練語言模型的對齊方法。
+**一句話**：不需要 Reward Model 和 PPO（Proximal Policy Optimization，近端策略最佳化），直接用偏好資料訓練語言模型的對齊方法。
 
 **RLHF vs DPO 對比**：
 

@@ -6,7 +6,7 @@
 
 ## 0. How to Use This Guide
 
-本章不要用「背法條」的方式讀。考試通常給你一個 AI 使用情境，問你要判斷風險類型、風險等級、應產出什麼文件、或該用哪個治理框架。
+本章不要用「背法條」的方式讀。考試通常給你一個 AI（Artificial Intelligence，人工智慧）使用情境，問你要判斷風險類型、風險等級、應產出什麼文件、或該用哪個治理框架。
 
 建議讀法：
 
@@ -62,12 +62,12 @@ AI use case
    → 台灣 AI 基本法 / FSC 指引
    ↓
 4. 框架映射（Framework Mapping）
-   → NIST AI RMF：Govern / Map / Measure / Manage
+   → NIST AI RMF（National Institute of Standards and Technology AI Risk Management Framework，美國國家標準與技術研究院 AI 風險管理框架）：Govern / Map / Measure / Manage
    → ISO/IEC 42001 / 23894 / 27001
    ↓
 5. 控制項與評估文件
    → 預防 / 偵測 / 矯正 / 治理控制
-   → 高風險情境注意 FRIA（基本權影響評估）
+   → 高風險情境注意 FRIA（Fundamental Rights Impact Assessment，基本權影響評估）
    ↓
 6. 殘餘風險決策
    → residual risk vs risk appetite
@@ -86,12 +86,12 @@ AI use case
 | residual risk 能不能接受 | 風險胃納（Risk Appetite） | 殘餘風險要和組織可接受上限比較 |
 | social scoring、職場情緒辨識 | EU AI Act 禁止實務 | 先判斷能不能做 |
 | chatbot、deepfake、AI 生成內容標示 | 限制風險 / 透明義務 | 重點是告知使用者 |
-| policy、RACI、治理委員會 | NIST Govern | 治理與問責 |
+| policy、RACI（Responsible / Accountable / Consulted / Informed，負責 / 當責 / 諮詢 / 告知）、治理委員會 | NIST Govern | 治理與問責 |
 | stakeholders、use context、harm 假設 | NIST Map | 盤點情境 |
 | metrics、fairness test、robustness test | NIST Measure | 量測與驗證 |
 | mitigation、rollback、incident response | NIST Manage | 處置與回應 |
-| AI 管理系統、可認證 | ISO/IEC 42001:2023 | AIMS 管理系統標準 |
-| 7 trustworthy AI requirements | HLEG | 發布方配對題 |
+| AI 管理系統、可認證 | ISO/IEC 42001:2023 | AIMS（AI Management System，AI 管理系統）標準 |
+| 7 trustworthy AI requirements | HLEG（High-Level Expert Group on AI，歐盟高階專家小組） | 發布方配對題 |
 
 ### 記憶方式
 
@@ -162,7 +162,7 @@ AI 風險分類常見七類：技術風險（Technical Risk）、法遵風險（
 | 模型或資料行為不穩 | 技術風險（Technical Risk） | 模型失準、資料漂移、幻覺 | 問題在系統技術表現 |
 | 違反法令或監理要求 | 法遵風險（Compliance Risk） | 未揭露 AI、缺文件、未符主管機關要求 | 問題在規範要求 |
 | 對族群不公平 | 倫理風險（Ethical Risk） | 歧視、操控、弱勢受損 | 問題在公平與自主 |
-| 流程或供應商中斷 | 營運風險（Operational Risk） | 第三方 API 掛掉、人工覆核沒人接 | 問題在作業不中斷 |
+| 流程或供應商中斷 | 營運風險（Operational Risk） | 第三方 API（Application Programming Interface，應用程式介面）掛掉、人工覆核沒人接 | 問題在作業不中斷 |
 | 被攻擊或資料外洩 | 資安風險（Security Risk） | prompt injection、資料外洩、模型盜用 | 問題在攻擊與防護 |
 | 社會信任下降 | 聲譽風險（Reputational Risk） | 歧視文案炎上、品牌受損 | 問題在外部觀感 |
 | 影響隱私、平等、程序正義 | 基本權風險（Fundamental Rights Risk） | 補助資格、社福審查、無申訴 | 問題在權利保障 |
@@ -448,7 +448,7 @@ EU AI Act 對通用目的 AI 模型（General Purpose AI, GPAI）有專門義務
 | 一般 GPAI 模型 | 技術文件、著作權政策、訓練資料摘要 |
 | 具系統性風險的 GPAI 模型 | 上述義務 + 對抗性測試、重大事故通報、網路安全措施 |
 
-> 考試提醒：EU AI Act 使用「訓練所用累積運算量大於 10^25 FLOPs」作為高影響能力的推定門檻之一。
+> 考試提醒：EU AI Act 使用「訓練所用累積運算量大於 10^25 FLOPs（Floating Point Operations，浮點運算次數）」作為高影響能力的推定門檻之一。
 
 ### 記憶方式
 
@@ -533,7 +533,7 @@ Manage（管） = 優先排序、緩解、監控、回應
 
 FRIA vs DPIA：先看「保護的是什麼」。
 
-| 面向 | FRIA | DPIA |
+| 面向 | FRIA（Fundamental Rights Impact Assessment，基本權影響評估） | DPIA（Data Protection Impact Assessment，資料保護影響評估） |
 |---|---|---|
 | 全名 | Fundamental Rights Impact Assessment | Data Protection Impact Assessment |
 | 法源重點 | EU AI Act Art.27 | GDPR |
@@ -657,7 +657,7 @@ Govern 是不是只做一次？                → 否，cross-cutting
 |---|---|---|
 | 人工智慧基本法 | 法律框架 | NSTC、7 原則、公部門風險評估 |
 | AI 基本法第 19 條 | 公部門使用 AI 風險評估要求 | 政府機關、執行業務、提供服務 |
-| FSC 金融業 AI 指引 | 行政指導 | 金融業、6 原則、非強制法律 |
+| FSC（Financial Supervisory Commission，金管會）金融業 AI 指引 | 行政指導 | 金融業、6 原則、非強制法律 |
 
 台灣 AI 基本法 7 原則（口訣：永人隱安透公責）：
 
@@ -742,7 +742,7 @@ ISO/IEC 42001 管 AI 管理系統，ISO/IEC 23894 管 AI 風險管理方法，IS
 
 ### 技術說法
 
-ISO/IEC 42001:2023 是 AI management system（AIMS）標準，規範組織如何建立、實施、維持與持續改進 AI 管理系統。ISO/IEC 23894:2023 是 AI 風險管理指引。ISO/IEC 27001 是資訊安全管理系統（ISMS）標準，核心是 confidentiality、integrity、availability（CIA）。
+ISO/IEC 42001:2023 是 AI management system（AIMS，AI 管理系統）標準，規範組織如何建立、實施、維持與持續改進 AI 管理系統。ISO/IEC 23894:2023 是 AI 風險管理指引。ISO/IEC 27001 是資訊安全管理系統（ISMS, Information Security Management System）標準，核心是 CIA（Confidentiality / Integrity / Availability，機密性 / 完整性 / 可用性）。
 
 ### 流程 / 選擇流程
 

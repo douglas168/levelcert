@@ -80,11 +80,11 @@ Raw text 原始文字
 ```text
 看到「文字怎麼切」→ Tokenization
 看到「文字怎麼變成模型能算」→ Embedding
-看到「上下文、長距依賴、Q/K/V」→ Transformer / Attention
+看到「上下文、長距依賴、Q/K/V（Query/Key/Value，查詢/鍵/值）」→ Transformer / Attention
 看到「理解、分類、NER」→ Encoder-only / BERT
 看到「對話、續寫、生成」→ Decoder-only / GPT
 看到「翻譯、摘要、seq2seq」→ Encoder-decoder / T5/BART
-看到「查公司文件、引用來源」→ RAG
+看到「查公司文件、引用來源」→ RAG（Retrieval-Augmented Generation，檢索增強生成）
 ```
 
 ### 一步一步例子
@@ -176,8 +176,8 @@ Raw text → Tokenization → Embedding
 
 ```text
 有明確空格、詞彙穩定 → Word-level
-新詞、罕見詞、專有名詞、OOV → Subword
-幾乎不能有 OOV，但可接受序列很長 → Character-level
+新詞、罕見詞、專有名詞、OOV（Out-of-Vocabulary，字典外詞）→ Subword
+幾乎不能有 OOV（Out-of-Vocabulary，字典外詞），但可接受序列很長 → Character-level
 ```
 
 ### 一步一步例子
@@ -221,9 +221,9 @@ Subword 三大方法要用「模型線索」讀：
 
 | 方法 | 常見模型 | 考試記法 |
 |---|---|---|
-| BPE | GPT / Llama / Qwen / Gemma / RoBERTa | 合併常一起出現的字元或子字元 pair；RoBERTa 使用 Byte-level BPE，不產生 `##` 前綴 |
+| BPE（Byte Pair Encoding，位元組對編碼） | GPT / Llama / Qwen / Gemma / RoBERTa | 合併常一起出現的字元或子字元 pair；RoBERTa 使用 Byte-level BPE，不產生 `##` 前綴 |
 | WordPiece | BERT / DistilBERT | BERT 常見；常看到 `##` 非詞首標記 |
-| Unigram LM | T5 / XLNet / ALBERT / mT5 | 常透過 SentencePiece 實作；適合無空白語言 |
+| Unigram LM（Unigram Language Model，一元語言模型） | T5 / XLNet / ALBERT / mT5 | 常透過 SentencePiece 實作；適合無空白語言 |
 
 常見陷阱用這張表排除：
 
@@ -245,7 +245,7 @@ Unigram → T5 / SentencePiece
 
 ### 中文 NLP 補充：CKIP 🔥
 
-**CKIP（中研院中文知識庫計劃）** 是台灣常被引用的繁體中文 NLP 工具組，提供：
+**CKIP（Chinese Knowledge Information Processing，中研院中文知識庫計劃）** 是台灣常被引用的繁體中文 NLP 工具組，提供：
 
 - **中文斷詞**（Word Segmentation）
 - **詞性標記**（POS Tagging）
@@ -412,7 +412,7 @@ Q/K/V 是什麼？
 
 ### 技術說法
 
-RNN/LSTM 像一個字一個字照順序讀；Transformer 可以讓整句話的 token 同時彼此參考。
+RNN（Recurrent Neural Network，循環神經網路）/ LSTM（Long Short-Term Memory，長短期記憶網路）像一個字一個字照順序讀；Transformer 可以讓整句話的 token 同時彼此參考。
 
 ```text
 Embedding → Transformer → Task output
@@ -534,7 +534,7 @@ Transformer 架構可以分成三大家族：`Encoder-only`、`Decoder-only`、`
 
 ### Everyday Analogy
 
-把三大家族想成三種角色：`BERT` 是閱讀理解高手，擅長看完整段文字後判斷；`GPT` 是接話寫作高手，擅長根據前文往後寫；`T5/BART` 是改寫與翻譯高手，擅長把一段文字變成另一段文字。
+把三大家族想成三種角色：`BERT`（Bidirectional Encoder Representations from Transformers，雙向 Transformer 編碼器表徵）是閱讀理解高手，擅長看完整段文字後判斷；`GPT`（Generative Pre-trained Transformer，生成式預訓練 Transformer）是接話寫作高手，擅長根據前文往後寫；`T5`（Text-to-Text Transfer Transformer，文字到文字轉換 Transformer）/ `BART`（Bidirectional and Auto-Regressive Transformers，雙向與自迴歸 Transformer）是改寫與翻譯高手，擅長把一段文字變成另一段文字。
 
 ### 先問自己一個問題
 
@@ -604,8 +604,8 @@ Step 3 選 Encoder-decoder / T5/BART
 
 | 訓練目標 | 白話 | 對應架構 |
 |---|---|---|
-| MLM | 遮住部分 token，猜回來 | Encoder-only / BERT |
-| Causal LM / Next-token | 給前文，猜下一個 token | Decoder-only / GPT |
+| MLM（Masked Language Modeling，遮罩語言模型） | 遮住部分 token，猜回來 | Encoder-only / BERT |
+| Causal LM（Causal Language Model，因果語言模型） / Next-token | 給前文，猜下一個 token | Decoder-only / GPT |
 | Span corruption（sentinel token） | 用 `<extra_id_n>` 取代連續 span，還原被遮住的片段 | Encoder-decoder / T5 |
 | Multi-noise Denoising | 文字填充、token 刪除、句子換序、文件旋轉等多種雜訊組合，還原原文 | Encoder-decoder / BART |
 
@@ -782,7 +782,7 @@ Fine-tuning 與 PEFT 用「要更新多少參數」來讀：
 
 ### 先懂一句話
 
-RAG（Retrieval-Augmented Generation，檢索增強生成）是「先查資料，再讓 LLM 回答」。
+RAG（Retrieval-Augmented Generation，檢索增強生成）是「先查資料，再讓 LLM（Large Language Model，大型語言模型）回答」。
 
 ### Everyday Analogy
 

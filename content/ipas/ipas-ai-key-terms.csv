@@ -1,0 +1,316 @@
+英文術語,英文全名 / 展開,中文名稱,中文簡義,英文意義,所屬領域,初級基礎,中級重點,考試提示
+Artificial Intelligence,Artificial Intelligence,人工智慧,讓系統執行需要人類智慧的任務，是 ML、DL、GenAI 的上層概念。,Systems that perform tasks requiring human-like intelligence,AI 基礎與分類,L11101,All L21/L22,Layer above ML and DL
+Machine Learning,Machine Learning,機器學習,讓模型從資料中學規律，用來分類、預測、分群或排序。,Learning patterns from data,AI 基礎與分類,L11301,L21301/L22302/L22401,Data-driven prediction
+Deep Learning,Deep Learning,深度學習,使用多層神經網路自動學特徵，常用於影像、語音、文字與生成式 AI。,Neural-network-based machine learning with many layers,AI 基礎與分類,L11301,L21101-L21104,Neural networks / representation learning
+Discriminative AI,Discriminative AI,鑑別式 AI,根據輸入判斷類別或數值，重點是「判斷答案」。,Predicts label or numeric output from input,AI 基礎與分類,L11401,L22402,Classification / fraud / churn / spam
+Generative AI,Generative AI,生成式 AI,根據提示或條件產生文字、圖片、音訊、程式碼等新內容。,Creates new content such as text images audio or code,AI 基礎與分類,L11401/L12201,L21103/L22403,Generate content
+Multimodal AI,Multimodal AI,多模態 AI,同時處理文字、圖片、語音等多種資料型態。,Handles multiple modalities such as text image and audio,AI 基礎與分類,L11402,L21104,Text plus image/audio
+Structured Data,Structured Data,結構化資料,結構化資料：屬於「資料基礎」的考試關鍵詞；詳細英文定義見英文意義欄。,Table-like data with fixed schema,資料基礎,L11201,L22202,Rows columns schema
+Semi-structured Data,Semi-structured Data,半結構化資料,半結構化資料：屬於「資料基礎」的考試關鍵詞；詳細英文定義見英文意義欄。,Flexible structured data such as JSON or XML,資料基礎,L11201,L22201/L22202,JSON logs APIs
+Unstructured Data,Unstructured Data,非結構化資料,非結構化資料：屬於「資料基礎」的考試關鍵詞；詳細英文定義見英文意義欄。,Text image audio documents without fixed table schema,資料基礎,L11201,L21101-L21104,Text image audio
+Data Quality,Data Quality,資料品質,資料品質：屬於「資料基礎」的考試關鍵詞；詳細英文定義見英文意義欄。,Completeness accuracy consistency timeliness uniqueness validity,資料基礎,L11202,L22201,Quality dimensions
+Completeness,Completeness,完整性,完整性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether required data is present,資料品質,L11202,L22201,Missing data
+Accuracy,Accuracy,準確性,準確性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether data values are correct,資料品質,L11202,L22201,Wrong values
+Consistency,Consistency,一致性,一致性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether data agrees across systems,資料品質,L11202,L22201,Conflicting records
+Timeliness,Timeliness,即時性,即時性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether data is current enough,資料品質,L11202,L22201,Delayed data
+Uniqueness,Uniqueness,唯一性,唯一性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether duplicates are avoided,資料品質,L11202,L22201,Deduplication
+Validity,Validity,有效性,有效性：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Whether data follows rules or formats,資料品質,L11202,L22201,Invalid format/range
+Mean,Mean,平均數,平均數：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Sum divided by count and sensitive to outliers,統計,L11202,L22101,Center without outliers
+Median,Median,中位數,中位數：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Middle value and robust to outliers,統計,L11202,L22101,Use when outliers exist
+Mode,Mode,眾數,眾數：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Most frequent value,統計,L11202,L22101,Categorical/common value
+Variance,Variance,變異數,變異數：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Average squared deviation,統計,L11202,L22101,Spread / ddof trap
+Standard Deviation,Standard Deviation,標準差,標準差：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Square root of variance,統計,L11202,L22101,Same unit as data
+IQR,Interquartile Range,四分位距,四分位距：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Q3 minus Q1,統計,L11202,L22101,Robust spread
+Fence,Fence,離群值界線,離群值界線：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Q1-1.5IQR and Q3+1.5IQR,統計,L11202,L22101,Outlier boundary
+Boxplot Whisker,Boxplot Whisker,箱型圖鬚線,箱型圖鬚線：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Last real data point inside the fence,統計,L11202,L22101,Not the fence value
+Skewness,Skewness,偏態,偏態：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Direction of distribution tail,統計,L11202,L22101,Right skew mean > median
+Kurtosis,Kurtosis,峰度,峰度：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Measure of tail/heaviness or peakedness,統計,L11202,L22101,Fisher normal=0 / Pearson normal=3
+CV,Coefficient of Variation,變異係數,變異係數：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,SD divided by mean times 100 percent,統計,L11202,L22101,Compare spread across units
+PMF,Probability Mass Function,機率質量函數,機率質量函數：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Probability for discrete values,機率分佈,L11301,L22102,Discrete P(X=x)
+PDF,Probability Density Function,機率密度函數,機率密度函數：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Density for continuous variables,機率分佈,L11301,L22102,Continuous single point probability is 0
+CDF,Cumulative Distribution Function,累積分佈函數,累積分佈函數：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Probability up to a value,機率分佈,L11301,L22102,P(a<X<=b)=CDF(b)-CDF(a)
+Normal Distribution,Normal Distribution,常態分佈,常態分佈：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Bell-shaped distribution with mean and variance,機率分佈,L11301,L22102,scipy scale is sigma
+Binomial Distribution,Binomial Distribution,二項分佈,二項分佈：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Number of successes in n trials,機率分佈,L11301,L22102,Mean=np Var=np(1-p)
+Poisson Distribution,Poisson Distribution,卜瓦松分佈,卜瓦松分佈：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Counts events with rate lambda,機率分佈,L11301,L22102,Mean=Variance=lambda
+Uniform Distribution,Uniform Distribution,均勻分佈,均勻分佈：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Equal probability across interval,機率分佈,L11301,L22102,scipy scale=b-a
+Exponential Distribution,Exponential Distribution,指數分佈,指數分佈：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Waiting time between Poisson events,機率分佈,L11301,L22102,scipy scale=1/lambda
+CLT,Central Limit Theorem,中央極限定理,中央極限定理：屬於「機率分佈」的考試關鍵詞；詳細英文定義見英文意義欄。,Sample mean tends toward normal as n grows,機率分佈,L11301,L22102,Sample mean not raw data
+Hypothesis Test,Hypothesis Test,假設檢定,假設檢定：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Decides whether evidence rejects H0,統計,L11301,L22103,p<=alpha reject H0
+H0,Null Hypothesis,虛無假設,虛無假設：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Default no difference/no effect hypothesis,統計,L11301,L22103,Can reject or fail to reject
+H1,Alternative Hypothesis,對立假設,對立假設：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Alternative hypothesis with effect or difference,統計,L11301,L22103,Research question direction
+p-value,p-value,p 值,p 值：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Under H0 how extreme the observed data is,統計,L11301,L22103,Not probability H0 is true
+Type I Error,Type I Error,第一型錯誤,第一型錯誤：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Rejecting a true H0 / false positive,統計,L11301,L22103,alpha / false alarm
+Type II Error,Type II Error,第二型錯誤,第二型錯誤：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Failing to reject a false H0 / false negative,統計,L11301,L22103,beta / missed detection
+Power,Power,檢定力,檢定力：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,One minus beta,統計,L11301,L22103,Ability to detect real effect
+t-test,t-test,t 檢定,t 檢定：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Compares means in one or two groups,統計,L11301,L22103,One-sample independent paired
+Welch t-test,Welch t-test,Welch t 檢定,Welch t 檢定：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Two independent groups with unequal variances,統計,L11301,L22103,equal_var=False
+Chi-square Test,Chi-square Test,卡方檢定,卡方檢定：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Tests independence in categorical count table,統計,L11301,L22103,Input counts not percentages
+ANOVA,ANOVA,變異數分析,變異數分析：屬於「統計」的考試關鍵詞；詳細英文定義見英文意義欄。,Compares means across three or more groups,統計,L11301,L22103,Reject means at least one differs
+API Polling,Application Programming Interface,API 輪詢,API 輪詢：屬於「資料收集」的考試關鍵詞；詳細英文定義見英文意義欄。,Periodically pull API data,資料收集,L11201,L22201,定期拉資料
+Webhook,Webhook,Webhook 事件推送,Webhook 事件推送：屬於「資料收集」的考試關鍵詞；詳細英文定義見英文意義欄。,Sender pushes data when event occurs,資料收集,L11201,L22201,事件發生即推送
+CDC,Change Data Capture,變更資料擷取,擷取資料庫變更紀錄，例如 binlog，用於即時同步資料異動。,Captures database changes from logs,資料收集,L11201,L22201,DB binlog changes
+Kafka,Kafka,Kafka 串流平台,高吞吐量串流訊息平台，用於事件流與資料管線。,High-throughput event streaming platform,資料收集,L11201,L22201,High throughput stream
+Web Scraping,Web Scraping,網頁爬取,網頁爬取：屬於「資料收集」的考試關鍵詞；詳細英文定義見英文意義欄。,Extracting data from web pages,資料收集,L11201,L22201,HTML unstructured data
+ETL,"Extract, Transform, Load",擷取轉換載入,先轉換資料再載入目標系統，常見於傳統資料倉儲流程。,Transform before loading into target,資料管線,L11202,L22201,Traditional DW
+ELT,"Extract, Load, Transform",擷取載入轉換,先載入資料再轉換，常見於雲端資料湖倉流程。,Load first then transform,資料管線,L11202,L22201,Cloud/lakehouse
+Schema Drift,Schema Drift,結構漂移,結構漂移：屬於「資料品質」的考試關鍵詞；詳細英文定義見英文意義欄。,Schema changes such as new deleted renamed fields,資料品質,L11202,L22201,Column/type changes
+RDBMS,Relational Database Management System,關聯式資料庫,關聯式資料庫：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,SQL database with fixed schema and ACID,資料儲存,L11201,L22202,OLTP fixed schema
+NoSQL,Not Only SQL,非關聯式資料庫,非關聯式資料庫：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Flexible non-relational databases,資料儲存,L11201,L22202,Document/key-value/wide-column/graph
+ACID,"Atomicity, Consistency, Isolation, Durability",ACID 交易特性,ACID 交易特性：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Atomicity consistency isolation durability,資料儲存,L11201,L22202,Strong transaction correctness
+BASE,"Basically Available, Soft state, Eventual consistency",BASE 特性,BASE 特性：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Basically available soft state eventual consistency,資料儲存,L11201,L22202,Availability/eventual consistency
+OLTP,Online Transaction Processing,線上交易處理,線上交易處理：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Transaction workload with row-oriented access,資料儲存,L11201,L22202,Read/write whole records
+OLAP,Online Analytical Processing,線上分析處理,線上分析處理：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Analytical workload with columnar scans,資料儲存,L11201,L22202,Aggregation/BI
+Data Lake,Data Lake,資料湖,可存放多格式原始資料，彈性高但需要治理。,Raw flexible data storage,資料儲存,L11201,L22202,Many formats / schema-on-read
+Data Warehouse,Data Warehouse,資料倉儲,結構化分析資料庫，適合 BI 查詢與彙總分析。,Structured analytics storage,資料儲存,L11201,L22202,BI structured schema
+Lakehouse,Lakehouse,資料湖倉,結合資料湖彈性與資料倉儲治理能力的架構。,Combines lake flexibility and warehouse governance,資料儲存,L11201,L22202,Lake plus DW governance
+HDFS,Hadoop Distributed File System,Hadoop 分散式檔案系統,Hadoop 分散式檔案系統：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Distributed file system with NameNode and DataNodes,資料儲存,L11201,L22202,NameNode SPOF
+Delta Lake,Delta Lake,Delta Lake 開放表格格式,Delta Lake 開放表格格式：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Table format for reliable lakehouse tables,資料儲存,L11201,L22202,Not full platform
+Apache Iceberg,Apache Iceberg,Apache Iceberg 開放表格格式,Apache Iceberg 開放表格格式：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Open table format for large analytic datasets,資料儲存,L11201,L22202,Not full platform
+Apache Hudi,Apache Hudi,Apache Hudi 開放表格格式,Apache Hudi 開放表格格式：屬於「資料儲存」的考試關鍵詞；詳細英文定義見英文意義欄。,Open table format supporting upserts/incremental processing,資料儲存,L11201,L22202,Not full platform
+Feature Store,Feature Store,特徵庫,特徵庫：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Centralized feature computation for training/serving,部署與 MLOps,L12302,L21302/L22202,Prevent training-serving skew
+Spark,Spark,Spark 分散式處理引擎,分散式資料處理引擎，Transformation lazy，Action 才觸發執行。,Distributed batch and micro-batch processing engine,大數據處理,L11202,L22203,Transformations lazy actions execute
+RDD,Resilient Distributed Dataset,RDD 彈性分散式資料集,RDD 彈性分散式資料集：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Low-level Spark abstraction,大數據處理,L11202,L22203,No Catalyst
+DataFrame,DataFrame,DataFrame,DataFrame：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Spark table-like abstraction with schema and Catalyst,大數據處理,L11202,L22203,SQL optimized
+Lazy Evaluation,Lazy Evaluation,延遲執行,延遲執行：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Builds plan until an action triggers execution,大數據處理,L11202,L22203,filter/select not immediate
+Transformation,Transformation,轉換操作,轉換操作：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Spark operation that builds a plan,大數據處理,L11202,L22203,filter select groupBy join
+Action,Action,動作操作,動作操作：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Spark operation that triggers execution,大數據處理,L11202,L22203,show count collect write
+Structured Streaming,Structured Streaming,結構化串流,結構化串流：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Spark micro-batch streaming,大數據處理,L11202,L22203,Not true event-at-a-time
+Flink,Flink,Flink 串流處理,Flink 串流處理：屬於「大數據處理」的考試關鍵詞；詳細英文定義見英文意義欄。,True streaming/event-at-a-time engine,大數據處理,L11202,L22203,Lower latency stream
+GROUP BY,GROUP BY,GROUP BY 分組彙總,把資料依群組彙總，結果會減少資料列。,Aggregates groups and reduces row count,SQL 與資料查詢,L11202,L22203,One row per group
+Window Function,Window Function,視窗函數,在保留原始資料列的情況下，新增排名、累計、lag、lead 等欄位。,Computes over partition while preserving rows,SQL 與資料查詢,L11202,L22203,Ranking cumulative lag lead
+ROW_NUMBER,ROW_NUMBER,列序號,列序號：屬於「SQL 與資料查詢」的考試關鍵詞；詳細英文定義見英文意義欄。,Unique sequential number,SQL 與資料查詢,L11202,L22203,1 2 3
+RANK,RANK,排名,排名：屬於「SQL 與資料查詢」的考試關鍵詞；詳細英文定義見英文意義欄。,Ranking with gaps after ties,SQL 與資料查詢,L11202,L22203,1 1 3
+DENSE_RANK,DENSE_RANK,密集排名,密集排名：屬於「SQL 與資料查詢」的考試關鍵詞；詳細英文定義見英文意義欄。,Ranking without gaps after ties,SQL 與資料查詢,L11202,L22203,1 1 2
+LAG,LAG,前一列,前一列：屬於「SQL 與資料查詢」的考試關鍵詞；詳細英文定義見英文意義欄。,Returns previous row value,SQL 與資料查詢,L11202,L22203,Previous value
+LEAD,LEAD,後一列,後一列：屬於「SQL 與資料查詢」的考試關鍵詞；詳細英文定義見英文意義欄。,Returns next row value,SQL 與資料查詢,L11202,L22203,Next value
+MinMaxScaler,MinMaxScaler,最小最大縮放,最小最大縮放：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Scales values to range such as 0 to 1,資料前處理,L11301,L22301,Outlier sensitive
+StandardScaler,StandardScaler,標準化,標準化：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Scales to mean 0 and std 1,資料前處理,L11301,L22301,No fixed bounds
+RobustScaler,RobustScaler,穩健縮放,穩健縮放：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Uses median and IQR,資料前處理,L11301,L22301,Outlier robust
+Log Transform,Log Transform,對數轉換,對數轉換：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Compresses right-skewed positive values,資料前處理,L11301,L22301,log1p for zero
+Box-Cox,Box-Cox,Box-Cox 轉換,Box-Cox 轉換：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Power transform requiring positive values,資料前處理,L11301,L22301,x>0
+Yeo-Johnson,Yeo-Johnson,Yeo-Johnson 轉換,Yeo-Johnson 轉換：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Power transform supporting zero and negative values,資料前處理,L11301,L22301,Supports <=0
+QuantileTransformer,QuantileTransformer,分位數轉換,分位數轉換：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Maps ranks to uniform or normal distribution,資料前處理,L11301,L22301,Nonlinear / ranking
+Train Set,Train Set,訓練集,訓練集：屬於「機器學習流程」的考試關鍵詞；詳細英文定義見英文意義欄。,Data used to fit model parameters,機器學習流程,L11301,L21301,Fit only on train
+Validation Set,Validation Set,驗證集,驗證集：屬於「機器學習流程」的考試關鍵詞；詳細英文定義見英文意義欄。,Data used to tune and compare models,機器學習流程,L11301,L21301,Model selection
+Test Set,Test Set,測試集,測試集：屬於「機器學習流程」的考試關鍵詞；詳細英文定義見英文意義欄。,Final evaluation data,機器學習流程,L11301,L21301,Use once
+Data Leakage,Data Leakage,資料洩漏,訓練過程偷看到測試集、未來資料或目標資訊，會讓評估失真。,Training sees information it should not have,機器學習流程,L11301,L21301/L22302,Fit/test contamination
+Target Encoding,Target Encoding,目標編碼,目標編碼：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Encode category using target statistics,資料前處理,L11301,L21301,Only after split using train
+One-Hot Encoding,One-Hot Encoding,獨熱編碼,獨熱編碼：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Create binary columns for categories,資料前處理,L11301,L21301,No natural order
+Ordinal Encoding,Ordinal Encoding,序位編碼,序位編碼：屬於「資料前處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Encode ordered categories as integers,資料前處理,L11301,L21301,Natural order exists
+SMOTE,Synthetic Minority Over-sampling Technique,合成少數類過採樣,在少數類樣本之間內插生成新樣本，只能在訓練集或 fold 內做。,Interpolates minority class examples,類別不平衡,L11302,L22302,Train/fold only
+Random Oversampling,Random Oversampling,隨機過採樣,隨機過採樣：屬於「類別不平衡」的考試關鍵詞；詳細英文定義見英文意義欄。,Duplicates minority examples,類別不平衡,L11302,L22302,Copy not interpolation
+Undersampling,Undersampling,欠採樣,欠採樣：屬於「類別不平衡」的考試關鍵詞；詳細英文定義見英文意義欄。,Reduces majority class examples,類別不平衡,L11302,L22302,May lose information
+Class Weight,Class Weight,類別權重,類別權重：屬於「類別不平衡」的考試關鍵詞；詳細英文定義見英文意義欄。,Adjusts loss weighting instead of changing data,類別不平衡,L11302,L22302,No resampling
+Supervised Learning,Supervised Learning,監督式學習,監督式學習：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Learning with labels,機器學習,L11301,L21301/L22302,Classification/regression
+Unsupervised Learning,Unsupervised Learning,非監督式學習,非監督式學習：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Learning without labels,機器學習,L11301,L22302,Clustering
+Regression,Regression,迴歸,迴歸：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Predict continuous numeric values,機器學習,L11301,L21301,Continuous target
+Classification,Classification,分類,分類：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Predict categories,機器學習,L11301,L22402,Class label
+k-means,k-means,k 平均分群,k 平均分群：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Unsupervised clustering minimizing SSE,機器學習,L11302,L22302,No labels / clusters
+k-means++,k-means++,k-means++ 初始化,k-means++ 初始化：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Better centroid initialization for k-means,機器學習,L11302,L22302,Initialization
+Elbow Method,Elbow Method,手肘法,手肘法：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Heuristic for choosing k by SSE curve,機器學習,L11302,L22302,Choose cluster number
+Decision Tree,Decision Tree,決策樹,決策樹：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Supervised rule-based tree model,機器學習,L11302,L22302,Interpretable splits
+Gini Impurity,Gini Impurity,吉尼不純度,吉尼不純度：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Decision tree split impurity measure,機器學習,L11302,L22302,sklearn default
+Entropy,Entropy,熵,熵：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Uncertainty measure used in decision trees,機器學習,L11302,L22302,Information gain
+Information Gain,Information Gain,資訊增益,資訊增益：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Entropy reduction after split,機器學習,L11302,L22302,Tree split criterion
+Pruning,Pruning,剪枝,剪枝：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Reduces decision tree overfitting,機器學習,L11302,L22302,Overfitting control
+Confusion Matrix,Confusion Matrix,混淆矩陣,混淆矩陣：屬於「模型評估指標」的考試關鍵詞；詳細英文定義見英文意義欄。,Table of TP FP FN TN,模型評估指標,L11301,L22402,sklearn [[TN FP][FN TP]]
+Accuracy,Accuracy,準確率,準確率：屬於「模型評估指標」的考試關鍵詞；詳細英文定義見英文意義欄。,Correct predictions divided by all predictions,模型評估指標,L11301,L22402,Unsafe in imbalance
+Precision,Precision,精確率,模型判成正類的樣本中，有多少真的正確；FP 代價高時優先。,TP divided by predicted positives,模型評估指標,L11301,L22402,FP costly
+Recall,Recall,召回率,真正正類中，有多少被模型抓到；FN 代價高時優先。,TP divided by actual positives,模型評估指標,L11301,L22402,FN costly
+F1 Score,F1 Score,F1 分數,Precision 與 Recall 的調和平均，適合兩者都要兼顧時使用。,Harmonic mean of precision and recall,模型評估指標,L11301,L22402,Balance P and R
+ROC AUC,Receiver Operating Characteristic Area Under the Curve,ROC 曲線下面積,ROC AUC（Receiver Operating Characteristic Area Under the Curve）：衡量分類模型排序能力，通常要用機率 y_prob。,Ranking ability across thresholds,模型評估指標,L11301,L22402,Use y_prob
+PR Curve,Precision-Recall Curve,精確率召回率曲線,PR Curve（Precision-Recall Curve）：觀察 precision 與 recall 的取捨，少數正類時特別有用。,Precision-recall curve useful for rare positives,模型評估指標,L11301,L22302,Imbalanced positive class
+Threshold,Threshold,閾值,閾值：屬於「模型評估指標」的考試關鍵詞；詳細英文定義見英文意義欄。,Probability cutoff for classification,模型評估指標,L11301,L22402,Lower raises recall often
+Tokenization,Tokenization,斷詞 / Token 化,把文字切成模型可處理的 token，是文字進入模型的第一步。,Break text into model-readable units,自然語言處理,L12202,L21101/L22403,Text input first step
+BPE,Byte Pair Encoding,Byte Pair Encoding,BPE（Byte Pair Encoding）：subword tokenizer，常與 GPT / RoBERTa 搭配。,Subword tokenizer often associated with GPT,自然語言處理,L12202,L21101/L22403,GPT/RoBERTa
+WordPiece,WordPiece,WordPiece,WordPiece：subword tokenizer，常與 BERT 搭配，常見 `##` 前綴。,Subword tokenizer associated with BERT,自然語言處理,L12202,L21101/L22403,BERT / ## prefix
+Unigram,Unigram,Unigram tokenizer,Unigram：subword tokenizer 方法，常與 SentencePiece / T5 相關。,Subword tokenizer used with SentencePiece,自然語言處理,L12202,L21101,T5/SentencePiece
+SentencePiece,SentencePiece,SentencePiece,SentencePiece：tokenizer 工具，常用於多語與 raw text；T5 常見。,Tokenizer library common for multilingual/raw text,自然語言處理,L12202,L21101/L22403,T5/multilingual
+tiktoken,tiktoken,tiktoken,tiktoken：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,OpenAI tokenizer library,自然語言處理,L12202,L22403,OpenAI tokenization
+Embedding,Embedding,嵌入向量,把 token、文字或物件轉成向量，讓模型可以計算相似度與關係。,Vector representation of tokens/items,自然語言處理,L11301,L21101,Computable representation
+Static Embedding,Static Embedding,靜態嵌入,靜態嵌入：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Same word gets same vector,自然語言處理,L11301,L21101,word2vec/GloVe
+Contextualized Embedding,Contextualized Embedding,動態嵌入,動態嵌入：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Vector depends on context,自然語言處理,L11301,L21101,BERT/ELMo
+word2vec,word2vec,word2vec,word2vec：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Prediction-based static embedding,自然語言處理,L11301,L21101,Prediction based
+GloVe,GloVe,GloVe,GloVe：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Co-occurrence-based static embedding,自然語言處理,L11301,L21101,Co-occurrence matrix
+Transformer,Transformer,Transformer,以注意力機制處理序列資料的模型架構，是 BERT、GPT、T5 的基礎。,Attention-based sequence architecture,自然語言處理,L11401,L21101,BERT/GPT/T5
+Self-Attention,Self-Attention,自注意力,自注意力：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Tokens attend to tokens in same sequence,自然語言處理,L11401,L21101,Q K V same sequence
+Multi-head Attention,Multi-head Attention,多頭注意力,多頭注意力：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Multiple attention heads in parallel,自然語言處理,L11401,L21101,Several QKV heads
+Positional Encoding,Positional Encoding,位置編碼,位置編碼：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Adds token order information to transformer,自然語言處理,L11401,L21101,Transformer lacks order by itself
+BERT,Bidirectional Encoder Representations from Transformers,BERT,BERT（Bidirectional Encoder Representations from Transformers）：Encoder-only、雙向 Transformer，適合理解型任務，如分類、NER、抽取式問答。,Encoder-only bidirectional transformer,自然語言處理,L12201,L21101,Classification NER QA
+GPT,Generative Pre-trained Transformer,GPT,GPT（Generative Pre-trained Transformer）：Decoder-only、自迴歸 Transformer，適合文字生成、對話與 next-token prediction。,Decoder-only autoregressive transformer,自然語言處理,L12201,L21101,Generation dialogue
+T5,Text-To-Text Transfer Transformer,T5,T5（Text-To-Text Transfer Transformer）：Encoder-Decoder 架構，把任務統一成 text-to-text，常見於翻譯、摘要與 seq2seq。,Encoder-decoder text-to-text transformer,自然語言處理,L12201,L21101,Seq2seq span corruption
+BART,Bidirectional and Auto-Regressive Transformers,BART,BART（Bidirectional and Auto-Regressive Transformers）：Encoder-Decoder denoising model，常見於摘要、翻譯與生成。,Encoder-decoder denoising transformer,自然語言處理,L12201,L21101,Summary translation generation
+MLM,Masked Language Modeling,遮罩語言模型,MLM（Masked Language Modeling）：遮住部分 token 讓模型預測，是 BERT 的訓練目標。,Masked language modeling training objective,自然語言處理,L12201,L21101,BERT objective
+Causal LM,Causal LM,因果語言模型,Causal LM（Causal Language Modeling）：由左到右預測 next token，是 GPT 的訓練目標。,Next-token prediction objective,自然語言處理,L12201,L21101,GPT objective
+BLEU,BLEU,BLEU 指標,BLEU 指標：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Machine translation quality metric,自然語言處理,L12201,L21101,Higher better
+ROUGE,ROUGE,ROUGE 指標,ROUGE 指標：屬於「自然語言處理」的考試關鍵詞；詳細英文定義見英文意義欄。,Summarization overlap metric,自然語言處理,L12201,L21101,Higher better
+CNN,Convolutional Neural Network,卷積神經網路,用卷積擷取局部影像特徵，是電腦視覺的基礎模型。,Image neural network using convolution filters,電腦視覺,L11302,L21102,Image feature extraction
+Convolution,Convolution,卷積,卷積：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Local filter operation on image/features,電腦視覺,L11302,L21102,Local feature
+Pooling,Pooling,池化,池化：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Downsampling operation,電腦視覺,L11302,L21102,Reduce size / invariance
+ReLU,Rectified Linear Unit,ReLU 激活函數,ReLU 激活函數：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Nonlinear activation function,電腦視覺,L11302,L21102,Nonlinearity
+Batch Normalization,Batch Normalization,批次正規化,批次正規化：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Stabilizes neural network training,電腦視覺,L11302,L21102,Training stability
+Fully Connected Layer,Fully Connected Layer,全連接層,全連接層：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Dense layer often used for output,電腦視覺,L11302,L21102,Classification output
+ResNet,ResNet,殘差網路,透過 skip connection 緩解深層網路退化問題，不是解決 overfitting。,CNN with skip connections,電腦視覺,L11302,L21102,Solves degradation
+Skip Connection,Skip Connection,跳接連接,跳接連接：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Adds input to later layer output,電腦視覺,L11302,L21102,H(x)=F(x)+x
+Image Classification,Image Classification,影像分類,影像分類：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Predict one or more image labels,電腦視覺,L11302,L21102,Class label only
+Object Detection,Object Detection,物件偵測,物件偵測：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Find objects with boxes and classes,電腦視覺,L11302,L21102,Bounding box + class
+Semantic Segmentation,Semantic Segmentation,語意分割,語意分割：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Pixel-level class labels,電腦視覺,L11302,L21102,Does not separate same-class instances
+Instance Segmentation,Instance Segmentation,實例分割,實例分割：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Pixel-level labels plus instance IDs,電腦視覺,L11302,L21102,Separates individual objects
+Panoptic Segmentation,Panoptic Segmentation,全景分割,全景分割：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Combines semantic stuff and instance things,電腦視覺,L11302,L21102,Stuff plus things
+IoU,Intersection over Union,交併比,交併比：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Intersection over union,電腦視覺,L11302,L21102,Box/mask overlap
+AP,Average Precision,平均精度,平均精度：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Area under precision-recall curve for one class,電腦視覺,L11302,L21102,Single class
+mAP,mean Average Precision,平均 AP,平均 AP：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Mean AP across classes,電腦視覺,L11302,L21102,Detection metric
+mIoU,mean Intersection over Union,平均交併比,平均交併比：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Mean pixel-level IoU,電腦視覺,L11302,L21102,Segmentation metric
+YOLO,You Only Look Once,YOLO,YOLO：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Fast single-stage object detector,電腦視覺,L11302,L21102,Real-time detection
+Faster R-CNN,Faster R-CNN,Faster R-CNN,Faster R-CNN：屬於「電腦視覺」的考試關鍵詞；詳細英文定義見英文意義欄。,Two-stage higher-accuracy detector,電腦視覺,L11302,L21102,High accuracy detection
+CLIP,Contrastive Language-Image Pre-training,CLIP 文圖對齊模型,把文字與圖片對齊到同一向量空間，可做 zero-shot 與檢索，但不生成圖片。,Aligns text and image embeddings,多模態 AI,L12201,L21104,Does not generate images
+Cross-Attention,Cross-Attention,跨注意力,跨注意力：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Q from one modality and K/V from another,多模態 AI,L11402,L21104,Connect modalities
+Early Fusion,Early Fusion,早期融合,早期融合：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Combine modalities at input level,多模態 AI,L11402,L21104,Simple but feature mismatch risk
+Late Fusion,Late Fusion,晚期融合,晚期融合：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Combine decisions from separate modality models,多模態 AI,L11402,L21104,Graceful degradation
+Hybrid Fusion,Hybrid Fusion,混合融合,混合融合：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Combine modalities in intermediate layers,多模態 AI,L11402,L21104,Attention/gating
+LLaVA,Large Language and Vision Assistant,LLaVA,LLaVA：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Vision-language model using projection to LLM,多模態 AI,L12201,L21104,MLP projection not cross-attention
+Flamingo,Flamingo,Flamingo,Flamingo：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Vision-language model using gated cross-attention,多模態 AI,L12201,L21104,Gated cross-attention
+Whisper,Whisper,Whisper,Whisper：屬於「多模態 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Speech recognition model,多模態 AI,L12201,L21104,ASR encoder-decoder
+Foundation Model,Foundation Model,基礎模型,基礎模型：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Large pretrained model adaptable to many tasks,生成式 AI,L12201,L21103/L22403,Pretrained general model
+Pretraining,Pretraining,預訓練,預訓練：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Train on massive corpus before task adaptation,生成式 AI,L11401,L21103/L22403,General knowledge/language
+Pretraining Corpus,Pretraining Corpus,預訓練語料,預訓練語料：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Large text dataset for pretraining,生成式 AI,L12201,L22403,Common Crawl/C4/The Pile/ROOTS
+Corpus Size,Corpus Size,語料規模,語料規模：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Total amount of training text/data,生成式 AI,L12201,L22403,TB/trillion tokens
+Vocabulary Size,Vocabulary Size,詞彙表大小,詞彙表大小：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Number of tokens in tokenizer vocabulary,生成式 AI,L12201,L22403,Not corpus size
+Quality Filtering,Quality Filtering,品質過濾,品質過濾：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Remove low-quality corpus content,生成式 AI,L12201,L22403,Ads/gibberish removal
+Exact Deduplication,Exact Deduplication,完全重複去除,完全重複去除：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Remove identical duplicate documents,生成式 AI,L12201,L22403,Exact duplicate
+Near Deduplication,Near Deduplication,近似重複去除,近似重複去除：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Remove highly similar documents,生成式 AI,L12201,L22403,MinHash/LSH
+Perplexity Filtering,Perplexity Filtering,困惑度過濾,困惑度過濾：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Filter text by language-model naturalness,生成式 AI,L12201,L22403,Low naturalness text
+SFT,Supervised Fine-Tuning,監督式微調,用指令與答案範例訓練模型，讓模型學會回答格式與任務行為。,Instruction-response fine-tuning,生成式 AI,L12202,L21103/L22403,Learn answer format
+RLHF,Reinforcement Learning from Human Feedback,人類回饋強化學習,用人類偏好資料訓練 Reward Model，再透過 PPO 等方法對齊模型。,Preference alignment with reward model and PPO,生成式 AI,L12202,L21103/L22403,Reward model required
+DPO,Direct Preference Optimization,直接偏好最佳化,直接用 chosen/rejected 偏好資料最佳化語言模型，不需要 Reward Model。,Preference optimization without reward model,生成式 AI,L12202,L21103/L22403,No reward model/PPO
+RAG,Retrieval-Augmented Generation,檢索增強生成,不改模型權重，先檢索外部文件，再把資料補進 prompt 生成答案。,Retrieves external context before generating,生成式 AI,L12202,L21101/L21201/L22403,Knowledge updates/citations
+LoRA,Low-Rank Adaptation,低秩適應,用低秩 adapter 微調少量參數，降低客製模型的算力成本。,Parameter-efficient fine-tuning with small adapters,生成式 AI,L12202,L21101/L22403,Low-resource customization
+PEFT,Parameter-Efficient Fine-Tuning,參數高效微調,只調整少量參數的微調方法總稱，適合資源有限時客製模型。,Fine-tuning a small subset of parameters,生成式 AI,L12202,L21101/L22403,Efficient adaptation
+GAN,Generative Adversarial Network,生成對抗網路,生成對抗網路：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Generator and discriminator compete,生成式 AI,L11401,L21103,Generator/discriminator
+Generator,Generator,生成器,生成器：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,GAN component that creates fake samples,生成式 AI,L11401,L21103,G(z)
+Discriminator,Discriminator,鑑別器,鑑別器：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,GAN component that judges real vs fake,生成式 AI,L11401,L21103,Real/fake probability
+Mode Collapse,Mode Collapse,模式崩塌,模式崩塌：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,GAN generates limited variety,生成式 AI,L11401,L21103,Not overfitting
+Diffusion Model,Diffusion Model,擴散模型,擴散模型：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Generates by learning denoising process,生成式 AI,L11401,L21103,Noise and denoise
+DDPM,Denoising Diffusion Probabilistic Model,去噪擴散機率模型,去噪擴散機率模型：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Diffusion model with learned reverse denoising,生成式 AI,L11401,L21103,MSE on noise
+DDIM,Denoising Diffusion Implicit Model,去噪擴散隱式模型,去噪擴散隱式模型：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Faster diffusion sampling with fewer steps,生成式 AI,L11401,L21103,Fewer steps slight quality tradeoff
+Stable Diffusion,Stable Diffusion,Stable Diffusion,Stable Diffusion：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Latent diffusion text-to-image model,生成式 AI,L12201,L21103,Latent diffusion + CLIP text encoder
+FID,Fréchet Inception Distance,FID 指標,FID 指標：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Image generation quality metric comparing batches,生成式 AI,L12201,L21103,Lower better / batch comparison
+CLIP Score,Contrastive Language-Image Pre-training,CLIP 分數,CLIP 分數：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Text-image alignment score,生成式 AI,L12201,L21103,Higher better
+Perplexity,Perplexity,PPL 困惑度,PPL 困惑度：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Language model uncertainty metric,生成式 AI,L12201,L21103,Lower better
+Temperature,Temperature,溫度參數,溫度參數：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Controls randomness in generation,生成式 AI,L12202,L22403,Inference parameter
+max_new_tokens,max_new_tokens,最大新 token 數,最大新 token 數：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Limits generated token count,生成式 AI,L12202,L22403,Inference parameter
+do_sample,do_sample,是否抽樣,是否抽樣：屬於「生成式 AI」的考試關鍵詞；詳細英文定義見英文意義欄。,Controls sampling during generation,生成式 AI,L12202,L22403,Inference parameter
+Hallucination,Hallucination,幻覺,幻覺（Hallucination）：模型產生沒有根據或錯誤的內容；RAG 可降低但不能保證消除。,Unsupported or false model output,生成式 AI,L12202,L21101/L21201,RAG can reduce
+Data Parallelism,Data Parallelism,資料平行,資料平行：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Copies model and splits data across workers,分散式機器學習,L11301,L22401/L22403,Data too large
+Model Parallelism,Model Parallelism,模型平行,模型平行：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Splits model across devices,分散式機器學習,L11301,L22401/L22403,Model too large
+Tensor Parallelism,Tensor Parallelism,張量平行,張量平行：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Splits large tensors/layers across devices,分散式機器學習,L11301,L22403,Large layer
+Pipeline Parallelism,Pipeline Parallelism,管線平行,管線平行：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Splits model stages and passes micro-batches,分散式機器學習,L11301,L22403,Model stages
+Parameter Server,Parameter Server,參數伺服器,參數伺服器：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Central server aggregates gradients,分散式機器學習,L11301,L22401,Central aggregation
+AllReduce,AllReduce,全歸約,全歸約：屬於「分散式機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Workers aggregate gradients together,分散式機器學習,L11301,L22401,No central bottleneck
+Online Learning,Online Learning,線上學習,線上學習：屬於「機器學習」的考試關鍵詞；詳細英文定義見英文意義欄。,Model updates as new data arrives,機器學習,L11301,L22401,Continuous model update
+Online Serving,Online Serving,線上服務,線上服務：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Deployed model provides real-time predictions,部署與 MLOps,L12302,L22401,Serving not learning
+Batch Inference,Batch Inference,批次推論,批次推論：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Scheduled large-volume prediction,部署與 MLOps,L12302,L21302,Not real time
+Real-time Inference,Real-time Inference,即時推論,即時推論：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Low-latency online prediction,部署與 MLOps,L12302,L21302,Immediate response
+MLOps,Machine Learning Operations,機器學習維運,把模型訓練、註冊、部署、監控、重新訓練流程系統化。,Operational pipeline for ML lifecycle,部署與 MLOps,L12302,L21302,Registry serving monitoring retraining
+Model Registry,Model Registry,模型註冊庫,保存模型版本、metadata、指標與審批狀態；不存 active endpoint。,Stores model versions metadata metrics approvals,部署與 MLOps,L12302,L21302,Not active endpoint
+Model Serving,Model Serving,模型服務,模型服務：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Running model for predictions,部署與 MLOps,L12302,L21302,Endpoint/inference
+Monitoring,Monitoring,監控,監控：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Tracking system and model health,部署與 MLOps,L12302,L21302,Latency drift metrics
+Retraining,Retraining,重新訓練,重新訓練：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Updating model after degradation or new data,部署與 MLOps,L12302,L21302,Drift response
+Rollback,Rollback,回滾,回滾：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Return to stable previous version,部署與 MLOps,L12302,L21302,Emergency recovery
+Data Drift,Data Drift,資料漂移,輸入資料分佈 P(X) 改變。,Input distribution P(X) changes,部署與 MLOps,L12302,L21302,P(X) change
+Concept Drift,Concept Drift,概念漂移,輸入與輸出關係 P(Y|X) 改變。,Relationship P(Y|X) changes,部署與 MLOps,L12302,L21302,P(Y|X) change
+SLI,Service Level Indicator,服務水準指標,服務水準指標：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Measured service indicator,部署與 MLOps,L12302,L21302,Actual measurement
+SLO,Service Level Objective,服務水準目標,服務水準目標：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Internal reliability target,部署與 MLOps,L12302,L21302,Internal goal
+SLA,Service Level Agreement,服務水準協議,服務水準協議：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,External contract with penalties,部署與 MLOps,L12302,L21302,Contract
+Shadow Test,Shadow Test,影子測試,新版模型在背景接真實流量，但使用者仍看到舊版輸出。,New model runs in background without user impact,部署與 MLOps,L12302,L21302,Users still see old output
+Canary Deployment,Canary Deployment,金絲雀部署,讓小比例使用者真的收到新版，用低風險方式逐步放量。,Small percentage of users receive new version,部署與 MLOps,L12302,L21302,Small group real new output
+Blue-Green Deployment,Blue-Green Deployment,藍綠部署,藍綠部署：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Two environments with instant switch,部署與 MLOps,L12302,L21302,Fast rollback
+A/B Testing,A/B Testing,A/B 測試,A/B 測試：屬於「部署與 MLOps」的考試關鍵詞；詳細英文定義見英文意義欄。,Compare user/business outcomes between variants,部署與 MLOps,L12302,L21302,Conversion/commercial effect
+AI Adoption,Artificial Intelligence,AI 導入,AI 導入：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Organizational use of AI to solve problems,AI 導入與商業評估,L12301,L21201/L21202,Evaluation/planning
+Business Framing,Business Framing,業務問題定義,業務問題定義：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Define business problem and success criteria,AI 導入與商業評估,L12301,L21201,Start of evaluation
+Solution Ladder,Solution Ladder,解決方案階梯,解決方案階梯（Solution Ladder）：Prompt -> RAG -> Fine-tuning -> From-scratch，原則是先試低成本低複雜度方案。,Prompt -> RAG -> fine-tuning -> from-scratch,AI 導入與商業評估,L12301,L21201,Start low complexity
+Dual-Constraint,Dual-Constraint,雙重約束,雙重約束：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Two must-pass feasibility constraints,AI 導入與商業評估,L12301,L21201,Before weighted scoring
+Weighted Scoring Matrix,Weighted Scoring Matrix,加權評分矩陣,加權評分矩陣：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Compare solutions by weighted criteria,AI 導入與商業評估,L12301,L21201,Weights before scores
+TCO,Total Cost of Ownership,總擁有成本,總擁有成本，包含直接成本、間接成本與機會成本。,Direct indirect opportunity costs,AI 導入與商業評估,L12301,L21201,Not just API/server fee
+ROI,Return on Investment,投資報酬率,投資報酬率，通常用淨效益除以投入成本。,Net benefit divided by investment,AI 導入與商業評估,L12301,L21201,(net benefit/investment)*100%
+Payback Period,Payback Period,投資回收期,投資回收期：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Investment divided by annual net benefit,AI 導入與商業評估,L12301,L21201,Years to recover
+Break-even,Break-even,損益兩平,損益兩平：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Volume where two options cost the same,AI 導入與商業評估,L12301,L21201,Fixed cost divided by unit cost difference
+Vendor Lock-in,Vendor Lock-in,供應商鎖定,供應商鎖定：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Dependence on one vendor API pricing or version,AI 導入與商業評估,L12301,L21201,Migration risk
+Data Residency,Data Residency,資料落地 / 資料主權,資料落地 / 資料主權：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Where data is stored and processed,AI 導入與商業評估,L12301,L21201,Jurisdiction requirement
+Roadmap,Roadmap,導入路線圖,導入路線圖：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Phased plan from needs to rollout,AI 導入與商業評估,L12302,L21202,Need design resource pilot rollout
+RACI,"Responsible, Accountable, Consulted, Informed",RACI 責任矩陣,責任分工矩陣；A 是 Accountable，每一列只能一人。,Responsible accountable consulted informed,AI 導入與商業評估,L12302,L21202,A exactly one
+North Star Metric,North Star Metric,北極星指標,北極星指標：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,One primary success metric,AI 導入與商業評估,L12302,L21202,Only one NSM
+OKR,Objectives and Key Results,目標與關鍵結果,目標與關鍵結果：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Objective plus measurable key results,AI 導入與商業評估,L12302,L21202,Objective + 3-5 KRs
+KPI,Key Performance Indicator,關鍵績效指標,關鍵績效指標：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Operational/business/risk metrics,AI 導入與商業評估,L12302,L21202,3+2+1 KPI
+PoC,Proof of Concept,概念驗證,概念驗證，用小範圍確認技術可行性。,Small technical feasibility check,AI 導入與商業評估,L12302,L21202,Internal / feasibility
+MVP,Minimum Viable Product,最小可行產品,最小可行產品，用最少功能驗證使用者與商業需求。,Minimum usable product for customer validation,AI 導入與商業評估,L12302,L21202,Early users
+Pilot,Pilot,試行,試行，把方案放到有限真實場景或少量流量驗證。,Limited real-world rollout,AI 導入與商業評估,L12302,L21202,5-20% real traffic
+Rollout,Rollout,擴展上線,擴展上線：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Scale deployment after pilot success,AI 導入與商業評估,L12302,L21202,After pilot conditions
+CRISP-DM,Cross-Industry Standard Process for Data Mining,跨產業資料探勘標準流程,跨產業資料探勘標準流程：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Iterative data mining project lifecycle,AI 導入與商業評估,L12302,L21202,Not linear
+No-Code,No-Code,無程式碼,無程式碼：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Visual development without coding,AI 導入與商業評估,L12101,L21201/L21202,Citizen development
+Low-Code,Low-Code,低程式碼,低程式碼：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Visual development with some coding,AI 導入與商業評估,L12101,L21201/L21202,Faster app development
+Citizen Developer,Citizen Developer,公民開發者,公民開發者：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Non-engineer building approved tools,AI 導入與商業評估,L12101,L21202,Nontechnical builder
+Workflow Automation,Workflow Automation,流程自動化,流程自動化：屬於「AI 導入與商業評估」的考試關鍵詞；詳細英文定義見英文意義欄。,Automating repeated business steps,AI 導入與商業評估,L12102,L21202,Operational workflows
+AI Governance,Artificial Intelligence,AI 治理,AI 治理：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Policies controls and accountability for AI,AI 治理與風險,L11102,L21203,Responsible AI
+Risk Register,Risk Register,風險登錄表,風險登錄表：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Living list of risks owners controls residual risk,AI 治理與風險,L12303,L21203,Owner/control/residual risk
+Inherent Risk,Inherent Risk,固有風險,固有風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Risk before controls,AI 治理與風險,L12303,L21203,Likelihood x impact
+Residual Risk,Residual Risk,殘餘風險,殘餘風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Risk remaining after controls,AI 治理與風險,L12303,L21203,Compare to risk appetite
+Risk Appetite,Risk Appetite,風險胃納,風險胃納：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Amount of risk leadership accepts,AI 治理與風險,L12303,L21203,Residual > appetite needs action
+Mitigate,Mitigate,降低風險,降低風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Reduce likelihood or impact,AI 治理與風險,L12303,L21203,Risk treatment option
+Transfer,Transfer,轉移風險,轉移風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Move risk via insurance/contract/vendor,AI 治理與風險,L12303,L21203,Risk treatment option
+Accept,Accept,接受風險,接受風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Accept risk within appetite,AI 治理與風險,L12303,L21203,Risk treatment option
+Avoid,Avoid,規避風險,規避風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Stop activity causing risk,AI 治理與風險,L12303,L21203,Risk treatment option
+EU AI Act,EU AI Act,歐盟 AI 法案,歐盟以風險分級管理 AI 的法規框架。,Risk-based AI regulation framework,AI 治理與風險,L11102,L21203,Unacceptable/high/limited/minimal
+Unacceptable Risk,Unacceptable Risk,不可接受風險,不可接受風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Prohibited AI use,AI 治理與風險,L11102,L21203,Art.5 prohibited
+High Risk AI,High Risk AI,高風險 AI,高風險 AI：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Allowed AI requiring heavy compliance,AI 治理與風險,L11102,L21203,Annex III not banned
+Limited Risk,Limited Risk,有限風險,有限風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,AI requiring transparency/disclosure,AI 治理與風險,L11102,L21203,Chatbot/deepfake disclosure
+Minimal Risk,Minimal Risk,微小風險,微小風險：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Low-risk AI with voluntary controls,AI 治理與風險,L11102,L21203,Spam filter/recommender examples
+FRIA,Fundamental Rights Impact Assessment,基本權利影響評估,基本權利影響評估，範圍比 DPIA 更廣。,Broader fundamental rights impact assessment,AI 治理與風險,L11102,L21203,Broader than DPIA
+DPIA,Data Protection Impact Assessment,資料保護影響評估,資料保護影響評估，重點在個資與隱私風險。,Data protection impact assessment,AI 治理與風險,L11203,L21203,Privacy/data focus
+NIST AI RMF,National Institute of Standards and Technology AI Risk Management Framework,NIST AI 風險管理框架,美國 NIST 的 AI 風險管理框架：Govern、Map、Measure、Manage。,Govern Map Measure Manage framework,AI 治理與風險,L11102,L21203,治盤量管
+ISO 42001,International Organization for Standardization,AI 管理系統標準,AI 管理系統標準：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Certifiable AI management system,AI 治理與風險,L11102,L21203,AI governance certification
+ISO 23894,International Organization for Standardization,AI 風險管理指引,AI 風險管理指引：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,AI risk management guidance,AI 治理與風險,L11102,L21203,Method not certification
+ISO 27001,International Organization for Standardization,資訊安全管理系統,資訊安全管理系統：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Information security management standard,AI 治理與風險,L11203,L21203,CIA security not full AI governance
+Human-in-the-loop,Human-in-the-loop,人在迴圈中,人在迴圈中：屬於「AI 治理與風險」的考試關鍵詞；詳細英文定義見英文意義欄。,Human review or intervention in AI workflow,AI 治理與風險,L11102,L21203,High impact oversight
+PII,Personally Identifiable Information,個人可識別資訊,個人可識別資訊：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Information that can identify a person,隱私保護,L11203,L22201/L22404,Personal data protection
+Masking,Masking,遮罩,遮罩：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Makes sensitive data unreadable in display,隱私保護,L11203,L22201,Hide values
+Redaction,Redaction,遮蔽 / 移除,遮蔽 / 移除：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Removes sensitive content,隱私保護,L11203,L22201,Irreversible removal
+Pseudonymization,Pseudonymization,假名化,用可還原的代號取代識別資料，仍可能算個資。,Reversible replacement using mapping,隱私保護,L11203,L22201/L22404,Still personal data in GDPR framing
+Anonymization,Anonymization,匿名化,不可逆地移除可識別性，真正匿名後才不再是個資。,Irreversible de-identification,隱私保護,L11203,L22201/L22404,No longer identifiable if truly irreversible
+k-anonymity,k-anonymity,k-匿名性,k-匿名性：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Each equivalence class has at least k records,隱私保護,L11203,L22404,Prevent identity disclosure
+l-diversity,l-diversity,l-多樣性,l-多樣性：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Sensitive values inside group are diverse,隱私保護,L11203,L22404,Prevent attribute disclosure
+t-closeness,t-closeness,t-相近性,t-相近性：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Group sensitive distribution close to overall distribution,隱私保護,L11203,L22404,Prevent distribution skew attack
+Generalization,Generalization,泛化,泛化：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Replace exact values with broader ranges,隱私保護,L11203,L22404,Age to age range
+Suppression,Suppression,抑制,抑制：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Remove or mask high-risk values,隱私保護,L11203,L22404,Hide rare identifier
+Differential Privacy,Differential Privacy,差分隱私,在統計輸出加入雜訊以保護個體；epsilon 越小隱私越強。,Adds noise to statistical outputs,隱私保護,L11203,L22404,epsilon smaller stronger privacy
+Epsilon,Epsilon,ε 隱私預算,ε 隱私預算：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Differential privacy privacy-loss parameter,隱私保護,L11203,L22404,Smaller epsilon stronger privacy
+Federated Learning,Federated Learning,聯邦學習,資料不離本地，只傳模型更新或梯度。,Train without moving raw local data,隱私保護,L11203,L22404,Only model updates move
+FedAvg,FedAvg,聯邦平均,聯邦平均：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Average client model updates weighted by data size,隱私保護,L11203,L22404,Federated aggregation
+Secure Aggregation,Secure Aggregation,安全聚合,安全聚合：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Server sees only aggregated updates,隱私保護,L11203,L22404,Protect individual client updates
+Horizontal FL,Horizontal FL,水平聯邦學習,水平聯邦學習：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Same features different users across parties,隱私保護,L11203,L22404,Rows differ columns similar
+Vertical FL,Vertical FL,垂直聯邦學習,垂直聯邦學習：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Same users different features across parties,隱私保護,L11203,L22404,Rows same columns differ
+Encryption at Rest,Encryption at Rest,靜態資料加密,靜態資料加密：屬於「資安與存取控制」的考試關鍵詞；詳細英文定義見英文意義欄。,Encrypt stored data,資安與存取控制,L11203,L22404,AES-256
+Encryption in Transit,Encryption in Transit,傳輸中加密,傳輸中加密：屬於「資安與存取控制」的考試關鍵詞；詳細英文定義見英文意義欄。,Encrypt data moving over network,資安與存取控制,L11203,L22404,TLS 1.3
+Homomorphic Encryption,Homomorphic Encryption,同態加密,同態加密：屬於「資安與存取控制」的考試關鍵詞；詳細英文定義見英文意義欄。,Compute on encrypted data,資安與存取控制,L11203,L22404,Encrypted computation
+RBAC,Role-Based Access Control,角色型存取控制,依角色控制權限。,Access based on user role,資安與存取控制,L11203,L22404,Role-based
+ABAC,Attribute-Based Access Control,屬性型存取控制,依使用者、資源、環境等屬性控制權限。,Access based on attributes/context,資安與存取控制,L11203,L22404,Attribute/context-based
+Field-Level Security,Field-Level Security,欄位層級安全,欄位層級安全：屬於「資安與存取控制」的考試關鍵詞；詳細英文定義見英文意義欄。,Restrict access to specific columns/fields,資安與存取控制,L11203,L22404,Different roles see different fields
+Data Minimization,Data Minimization,資料最小化,資料最小化：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Collect only necessary data,隱私保護,L11203,L22404,Privacy principle
+Privacy by Design,Privacy by Design,隱私設計,隱私設計：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Build privacy into system design,隱私保護,L11203,L22404,GDPR Art.25 concept
+Incident Notification,Incident Notification,事件通知,事件通知：屬於「隱私保護」的考試關鍵詞；詳細英文定義見英文意義欄。,Notify relevant parties after breach,隱私保護,L11203,L22404,Know law/jurisdiction distinction
+Tableau,Tableau,Tableau,Tableau：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Drag-and-drop BI visualization tool,資料視覺化,L11202,L22303,Business users / Public is public
+Power BI,Power BI,Power BI,Power BI：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Microsoft BI visualization tool,資料視覺化,L11202,L22303,Microsoft ecosystem
+matplotlib,matplotlib,matplotlib,matplotlib：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Low-level static plotting library,資料視覺化,L11202,L22303,Precise control
+seaborn,seaborn,seaborn,seaborn：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,High-level statistical plotting library,資料視覺化,L11202,L22303,EDA
+Plotly,Plotly,Plotly,Plotly：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Interactive plotting library,資料視覺化,L11202,L22303,Hover zoom dashboard
+Bar Chart,Bar Chart,長條圖,長條圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Compares categories,資料視覺化,L11202,L22303,Categorical comparison
+Histogram,Histogram,直方圖,直方圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows continuous distribution with bins,資料視覺化,L11202,L22303,Continuous distribution
+Line Chart,Line Chart,折線圖,折線圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows trend over time,資料視覺化,L11202,L22303,Time trend
+Scatter Plot,Scatter Plot,散佈圖,散佈圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows relationship between two continuous variables,資料視覺化,L11202,L22303,Two numeric variables
+Heatmap,Heatmap,熱力圖,熱力圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows matrix values such as correlation,資料視覺化,L11202,L22303,2D matrix/correlation
+Boxplot,Boxplot,箱型圖,箱型圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows median IQR outliers,資料視覺化,L11202,L22303,Distribution and outliers
+Violin Plot,Violin Plot,小提琴圖,小提琴圖：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Shows distribution shape and density,資料視覺化,L11202,L22303,Bimodal/shape
+Data-Ink Ratio,Data-Ink Ratio,資料墨水比,資料墨水比：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Share of ink that represents data,資料視覺化,L11202,L22303,Maximize remove decoration
+Chart Junk,Chart Junk,圖表垃圾,圖表垃圾：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Decorative elements that hinder reading,資料視覺化,L11202,L22303,Remove unnecessary decoration
+Pre-attentive Attribute,Pre-attentive Attribute,前注意屬性,前注意屬性：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Visual features noticed quickly,資料視覺化,L11202,L22303,Position > color > size > shape
+Viridis,Viridis,Viridis 色盤,Viridis 色盤：屬於「資料視覺化」的考試關鍵詞；詳細英文定義見英文意義欄。,Colorblind-friendly sequential colormap,資料視覺化,L11202,L22303,Accessible color

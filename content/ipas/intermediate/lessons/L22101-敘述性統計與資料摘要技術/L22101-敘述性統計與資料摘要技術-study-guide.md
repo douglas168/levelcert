@@ -2,7 +2,7 @@
 
 ## 0. How to Use This Guide
 
-這份筆記的讀法是：先用一句話抓住直覺，再看生活比喻，最後才進入正式術語與公式。遇到表格時，不要一列一列死背；先看「題目問什麼」，再選對應的統計量或 API。
+這份筆記的讀法是：先用一句話抓住直覺，再看生活比喻，最後才進入正式術語與公式。遇到表格時，不要一列一列死背；先看「題目問什麼」，再選對應的統計量或 API（Application Programming Interface，應用程式介面）。
 
 建議先讀第 1 節的大地圖，再讀第 2 到第 7 節的核心概念。每一節都會盡量照這個順序走：
 
@@ -29,7 +29,7 @@
 | 🔥🔥 | 常考，要能解釋差異 |
 | 🔥🔥🔥 | 高頻必背，要能做情境判斷 |
 
-本課不重點考假說檢定（hypothesis testing）、p-value、PMF、CDF、機率分布推導，也不考建模特徵工程。考試重點是「小資料集計算 + 表格/API 輸出判讀」。
+本課不重點考假說檢定（hypothesis testing）、p-value、PMF（Probability Mass Function，機率質量函數）、CDF（Cumulative Distribution Function，累積分布函數）、機率分布推導，也不考建模特徵工程。考試重點是「小資料集計算 + 表格/API 輸出判讀」。
 
 ## 1. Big Picture / Core Pipeline 🔥🔥🔥
 
@@ -75,7 +75,7 @@
 | 題目問的是 | 想到 |
 |---|---|
 | 典型中心位置 | mean / median / mode |
-| 資料散多開 | range / variance / standard deviation / IQR / CV |
+| 資料散多開 | range / variance / standard deviation / IQR（Interquartile Range，四分位距）/ CV（Coefficient of Variation，變異係數） |
 | 是否右偏、左偏、尾巴厚不厚 | skewness / kurtosis / Q-Q plot |
 | 缺值、重複、離群值 | dropna / fillna / drop_duplicates / IQR / Z-score |
 | `describe()` 的 `25%`、`50%`、`75%` | Q1 / median / Q3 |
@@ -251,8 +251,8 @@ ddof=1 → 樣本（sample）→ 分母 N-1
 | Population Variance 母體變異數 | `Σ(xᵢ - μ)² / N` | 分母是 `N`，`ddof=0` |
 | Sample Variance 樣本變異數 | `Σ(xᵢ - x̄)² / (n-1)` | 分母是 `n-1`，`ddof=1` |
 | Standard Deviation 標準差 | 變異數開根號 | 單位和原資料相同 |
-| IQR 四分位距 | `Q3 - Q1` | 看中間 50% 的範圍 |
-| CV 變異係數 | `(標準差 / 平均數) × 100%` | 比較不同單位或不同尺度 |
+| IQR（Interquartile Range，四分位距） | `Q3 - Q1` | 看中間 50% 的範圍 |
+| CV（Coefficient of Variation，變異係數） | `(標準差 / 平均數) × 100%` | 比較不同單位或不同尺度 |
 
 ### 一步一步例子
 

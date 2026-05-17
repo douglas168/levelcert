@@ -20,7 +20,7 @@
 建議閱讀順序：
 
 1. 先讀第 1 節，建立「大數據分類工作負載」的整體流程。
-2. 再讀第 2-7 節，學會場景、混淆矩陣、指標、threshold、AUC-ROC、sklearn pseudocode。
+2. 再讀第 2-7 節，學會場景、混淆矩陣、指標、threshold、AUC-ROC（Area Under the Curve - Receiver Operating Characteristic，曲線下面積-接收者操作特徵）、sklearn pseudocode。
 3. 考前用第 8-11 節練判斷：先看場景，再看 FP/FN 代價，再選指標或程式輸出。
 
 火力標記：
@@ -84,7 +84,7 @@
 | rare event / 少數類很少 / 正類不到 1% | Accuracy 可能誤導 |
 | 不想漏掉真正陽性 | Recall、FN 代價 |
 | 不想誤殺正常個案 | Precision、FP 代價 |
-| 不同 threshold 下的表現 | ROC Curve、AUC |
+| 不同 threshold 下的表現 | ROC Curve（Receiver Operating Characteristic Curve，接收者操作特徵曲線）、AUC（Area Under the Curve，曲線下面積） |
 | `.fit()` / `.predict()` / `.predict_proba()` | sklearn 推論流程 |
 
 ### 記憶方式
@@ -551,7 +551,7 @@ threshold = 0.70
 
 ### 先懂一句話
 
-`ROC Curve（接收者操作特徵曲線）` 看不同 threshold 下的抓人能力與誤抓程度；`AUC（Area Under the Curve）` 把整條 ROC 曲線壓成一個數字，摘要模型的排序能力。
+`ROC Curve（Receiver Operating Characteristic Curve，接收者操作特徵曲線）` 看不同 threshold 下的抓人能力與誤抓程度；`AUC（Area Under the Curve，曲線下面積）` 把整條 ROC 曲線壓成一個數字，摘要模型的排序能力。
 
 ### Everyday Analogy
 
@@ -568,7 +568,7 @@ threshold = 0.70
 
 ### 技術說法
 
-`TPR（True Positive Rate）` 就是 Recall。`FPR（False Positive Rate）` 是負類被誤判成正類的比例。
+`TPR（True Positive Rate，真正率）` 就是 Recall。`FPR（False Positive Rate，假正率）` 是負類被誤判成正類的比例。
 
 ```text
 TPR = Recall = TP / (TP + FN)
@@ -663,7 +663,7 @@ score → 很多 classifier 預設 Accuracy
 
 ### 技術說法
 
-`sklearn（scikit-learn）` 常用 `fit / predict / predict_proba` 這種 API。分類指標如 `precision_score`、`recall_score`、`f1_score` 通常吃最終類別 `y_pred`；AUC 通常吃機率或分數 `y_prob`。
+`sklearn（scikit-learn）` 常用 `fit / predict / predict_proba` 這種 API（Application Programming Interface，應用程式介面）。分類指標如 `precision_score`、`recall_score`、`f1_score` 通常吃最終類別 `y_pred`；AUC 通常吃機率或分數 `y_prob`。
 
 ### 流程
 

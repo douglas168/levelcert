@@ -2,7 +2,7 @@
 
 > 對應評鑑範圍：L212 AI導入評估規劃 > L21201 AI導入評估
 >
-> 關鍵字：技術效能評估（technical performance evaluation）、工具效能評估（tool/vendor evaluation）、適用解決方案選擇（solution selection）、成本效益分析（cost-benefit analysis, CBA）、加權評分矩陣（weighted scoring matrix）、雙約束過濾（dual-constraint filtering）、TCO、ROI、Payback Period、Break-even
+> 關鍵字：技術效能評估（technical performance evaluation）、工具效能評估（tool/vendor evaluation）、適用解決方案選擇（solution selection）、成本效益分析（cost-benefit analysis, CBA）、加權評分矩陣（weighted scoring matrix）、雙約束過濾（dual-constraint filtering）、TCO（Total Cost of Ownership，總擁有成本）、ROI（Return on Investment，投資報酬率）、Payback Period（回收期）、Break-even（損益兩平）
 
 ---
 
@@ -30,8 +30,8 @@
 | 課程 | 範圍 |
 |---|---|
 | L21201（本課） | 評估到「我們選方案 X」為止 |
-| L21202 | 選好之後：需求分析、RACI、五階段路線圖 |
-| L21203 | EU AI Act、NIST RMF、風險登記冊 |
+| L21202 | 選好之後：需求分析、RACI（Responsible, Accountable, Consulted, Informed，負責/當責/諮詢/知會）、五階段路線圖 |
+| L21203 | EU AI Act（European Union Artificial Intelligence Act，歐盟人工智慧法）、NIST RMF（National Institute of Standards and Technology Risk Management Framework，NIST 風險管理框架）、風險登記冊 |
 
 ---
 
@@ -42,7 +42,7 @@
 → 候選方案盤點（Longlist 8–15 個方案）
 → 雙約束過濾（Dual-Constraint Filtering） ← 先過濾！
 → 加權評分矩陣（Weighted Scoring Matrix） ← 再評分！
-→ PoC 試辦（4–8 週）→ Go/No-Go → 移交 L21202
+→ PoC（Proof of Concept，概念驗證）試辦（4–8 週）→ Go/No-Go → 移交 L21202
 ```
 
 這個流程像一個**漏斗**：從多到少，逐步縮小到「選哪一個方案」。**雙約束過濾在加權評分之前**，是本課最常考的順序陷阱。
@@ -55,7 +55,7 @@
 | 「先砍掉哪些方案」「不可行過濾」 | 雙約束過濾 |
 | 「如何給方案打分」「怎麼算誰贏」 | 加權評分矩陣 |
 | 「accuracy / latency / throughput」 | 技術效能評估（準·延·量·伸·靠） |
-| 「API 換供應商風險」「模型被棄用」 | Vendor Lock-in |
+| 「API（Application Programming Interface，應用程式介面）換供應商風險」「模型被棄用」 | Vendor Lock-in |
 | 「先試 prompt 還是直接 fine-tune」 | 解決方案階梯（提·檢·微·建） |
 | 「TCO / ROI / Payback」 | 成本效益分析 |
 | 「自建還是買 API」「break-even」 | Build vs Buy + Break-even |
@@ -81,7 +81,7 @@
 
 ### 技術說法
 
-技術效能評估（Technical Performance Evaluation）要同時檢查模型品質、延遲、吞吐量、擴展能力與可靠性。考試看到 accuracy、F1、p95 latency、QPS、SLA，都是在問這一組評估。
+技術效能評估（Technical Performance Evaluation）要同時檢查模型品質、延遲、吞吐量、擴展能力與可靠性。考試看到 accuracy、F1、p95 latency、QPS（Queries per Second，每秒查詢數）、SLA（Service Level Agreement，服務等級協議），都是在問這一組評估。
 
 ### 流程 / 選擇流程
 
@@ -157,7 +157,7 @@ fraud detection「為何不能只看 accuracy」→ 資料極度不平衡，看 
 
 ### 先懂一句話
 
-選 LLM 供應商不只是看「誰現在最便宜」——要評估鎖定風險（API 棄用、漲價）、資料主權（資料能不能離境）、SLA，以及「如果要換廠商，遷移成本有多高」。
+選 LLM（Large Language Model，大型語言模型）供應商不只是看「誰現在最便宜」——要評估鎖定風險（API 棄用、漲價）、資料主權（資料能不能離境）、SLA，以及「如果要換廠商，遷移成本有多高」。
 
 ### Everyday Analogy
 
@@ -190,8 +190,8 @@ fraud detection「為何不能只看 accuracy」→ 資料極度不平衡，看 
 
 | 決策問題 | Managed API（OpenAI/Anthropic/Google） | Self-hosted（TAIDE/Llama/Qwen） |
 |---|---|---|
-| 要很快上線？ | 適合，初期成本（CapEx）近 0 | 不適合，通常要數週至數月 |
-| 流量初期不穩？ | 適合，用多少付多少（OpEx） | 較不適合，GPU 固定成本高 |
+| 要很快上線？ | 適合，初期成本（CapEx, Capital Expenditure，資本支出）近 0 | 不適合，通常要數週至數月 |
+| 流量初期不穩？ | 適合，用多少付多少（OpEx, Operating Expense，營運支出） | 較不適合，GPU（Graphics Processing Unit，圖形處理器）固定成本高 |
 | 長期大量穩定流量？ | token 成本可能變高 | 攤提後單位成本可能較低 |
 | 需要深度客製？ | 低到中，主要靠 prompt + 少量 fine-tune | 高，可做更深的微調與部署控制 |
 | 資料不能離境？ | 通常不適合，除非有合規資料中心與合約 | 適合，資料可留在指定環境 |
@@ -208,7 +208,7 @@ fraud detection「為何不能只看 accuracy」→ 資料極度不平衡，看 
 
 - 個資法 / 金管會規範：特定資料不可離境。
 - TAIDE-LX（國科會主導，基於 Meta LLaMA 2 7B 繁中微調；後續 TAIDE-LX2 系列採 Llama 3）：開源、免費、可自建、繁中強，但 7B 參數，品質與 frontier API 有差距。（注意：不是 Llama 3.1）
-- 中華電信 hicloud AI 算力雲：提供在地 GPU 算力（NVIDIA MIG 切片），按 GPU 小時計費，不是 token 計費。
+- 中華電信 hicloud AI 算力雲：提供在地 GPU 算力（NVIDIA MIG, Multi-Instance GPU，多實例 GPU 切片），按 GPU 小時計費，不是 token 計費。
 
 ### 記憶方式
 
@@ -234,7 +234,7 @@ Hybrid = 敏感資料地端，通用任務雲端
 
 **Q：** 一家金融公司考慮導入 LLM 客服，IT 主管說「資料涉及客戶個資，不能傳到境外」。哪個方案最符合此限制？
 
-答案：TAIDE 自建（部署於中華電信 hicloud GPU 切片），或其他 open-weight 模型自建，資料留台灣不離境。Managed API（OpenAI/Anthropic/Google）除非選定資料中心且簽署 DPA，否則預設資料離境，不符需求。
+答案：TAIDE 自建（部署於中華電信 hicloud GPU 切片），或其他 open-weight 模型自建，資料留台灣不離境。Managed API（OpenAI/Anthropic/Google）除非選定資料中心且簽署 DPA（Data Processing Agreement，資料處理協議），否則預設資料離境，不符需求。
 
 ---
 
@@ -284,7 +284,7 @@ AI 解決方案有一個「成本與複雜度的階梯」，從低到高：Promp
 複雜度 / 成本（低 → 高）
 
   [提] Prompt Engineering     70–85%* 準確率 | 近 0 成本 | 數小時
-  [檢] RAG 檢索增強生成        85–94%*        | 中等成本 | 數天
+  [檢] RAG（Retrieval-Augmented Generation，檢索增強生成） 85–94%* | 中等成本 | 數天
   [微] Fine-tuning 微調        90–96%*        | 數千–萬 USD | 數天–週
   [建] From-scratch Pre-training 92–97%*     | 數百萬 USD | 數月
 
@@ -385,7 +385,7 @@ RAG 解決事實正確 + 即時更新；Fine-tune 解決行為塑形 + 風格
 | 成本類別 | 問自己 | 範例 |
 |---|---|---|
 | **直接成本** | 帳單上看得到的成本是什麼？ | 每月 NT$30,000 OpenAI 帳單、GPU compute、storage、頻寬 |
-| **間接成本** | 為了讓系統能用，還要哪些人力與工程？ | MLOps 人力、整合工程、標註資料、安全合規 |
+| **間接成本** | 為了讓系統能用，還要哪些人力與工程？ | MLOps（Machine Learning Operations，機器學習維運）人力、整合工程、標註資料、安全合規 |
 | **機會成本** | 團隊做這件事，犧牲了什麼？ | 工程主管 30% 時間在維運 = NT$36 萬 |
 
 **CapEx vs OpEx：**
@@ -460,8 +460,8 @@ Break-even = 80,000 ÷ 1,500 = 53.3（萬請求）
 
 **NPV / IRR（知道名字即可，中級不考公式）：**
 
-- NPV（淨現值）：把未來現金流折現後加總，> 0 代表創造價值。
-- IRR（內部報酬率）：使 NPV = 0 的折現率，比 Payback 更精確，考慮時間價值。
+- NPV（Net Present Value，淨現值）：把未來現金流折現後加總，> 0 代表創造價值。
+- IRR（Internal Rate of Return，內部報酬率）：使 NPV = 0 的折現率，比 Payback 更精確，考慮時間價值。
 
 ### 記憶方式
 

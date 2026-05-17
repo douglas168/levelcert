@@ -1,6 +1,6 @@
 # L21102 電腦視覺技術與應用 - Study Guide
 
-> 一句話定位：這章不是只背「什麼是電腦視覺」，而是要會判斷 **CNN 怎麼抽特徵、分類/偵測/分割差在哪、YOLO/Faster R-CNN 怎麼選、IoU/mAP 怎麼評估**。
+> 一句話定位：這章不是只背「什麼是電腦視覺」，而是要會判斷 **CNN（Convolutional Neural Network，卷積神經網路）怎麼抽特徵、分類/偵測/分割差在哪、YOLO（You Only Look Once，一次看完整張圖的單階段偵測器）/ Faster R-CNN（Faster Region-based Convolutional Neural Network，區域式卷積神經網路）怎麼選、IoU（Intersection over Union，交並比）/ mAP（mean Average Precision，平均精度均值）怎麼評估**。
 
 ---
 
@@ -75,8 +75,8 @@ CNN Backbone
   ▼
 評估指標 (Evaluation Metrics)
   ├─ 分類 → Top-1 / Top-5 accuracy
-  ├─ 偵測 → IoU → Precision / Recall → AP → mAP
-  └─ 分割 → mIoU / mAP-mask / PQ
+  ├─ 偵測 → IoU → Precision / Recall → AP（Average Precision，平均精度）→ mAP
+  └─ 分割 → mIoU（mean IoU，平均交並比）/ mAP-mask / PQ（Panoptic Quality，全景品質）
 ```
 
 ### 流程 / 選擇流程
@@ -86,12 +86,12 @@ CNN Backbone
 │
 ├─ 只要整張圖一個答案？→ Image Classification → ResNet
 ├─ 要框出物件位置？→ Object Detection
-│    ├─ 即時 / 高 FPS → YOLO
+│    ├─ 即時 / 高 FPS（Frames Per Second，每秒影格數）→ YOLO
 │    └─ 高精度 / 不計速度 → Faster R-CNN
 └─ 要每個像素都有答案？→ Segmentation
      ├─ 同類不分個體 → Semantic Segmentation → U-Net / DeepLab
      ├─ 同類要分個體 → Instance Segmentation → Mask R-CNN
-     └─ 背景 stuff 也要全標 → Panoptic Segmentation → Panoptic FPN
+     └─ 背景 stuff 也要全標 → Panoptic Segmentation → Panoptic FPN（Feature Pyramid Network，特徵金字塔網路）
 ```
 
 ### 比較表這樣讀
@@ -104,7 +104,7 @@ CNN Backbone
 | bbox、方框、位置 + 類別 | 物件偵測 (Object Detection) | YOLO、Faster R-CNN / mAP |
 | 每個像素標類別、不分個體 | 語意分割 (Semantic Segmentation) | U-Net、DeepLab / mIoU |
 | 每個像素標類別、同類也要分開 | 實例分割 (Instance Segmentation) | Mask R-CNN / mAP-mask |
-| 天空、路面、行人、車全部逐像素標 | 全景分割 (Panoptic Segmentation) | Panoptic FPN / PQ |
+| 天空、路面、行人、車全部逐像素標 | 全景分割 (Panoptic Segmentation) | Panoptic FPN（Feature Pyramid Network，特徵金字塔網路）/ PQ（Panoptic Quality，全景品質） |
 
 ### 記憶方式
 

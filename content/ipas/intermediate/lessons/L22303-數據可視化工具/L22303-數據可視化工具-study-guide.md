@@ -12,7 +12,7 @@
 | 🔥🔥 | 常考，要能解釋差異 |
 | 🔥🔥🔥 | 高頻必背，要能做情境判斷 |
 
-練習時請直接遮住答案，先自己判斷，再看「答案」和「理由」。本章不深入統計檢定、機器學習專用圖如 PCA/ROC，也不考 Tableau/Power BI 的深度管理、權限治理或 ETL 架構。
+練習時請直接遮住答案，先自己判斷，再看「答案」和「理由」。本章不深入統計檢定、機器學習專用圖如 PCA（Principal Component Analysis，主成分分析）/ ROC（Receiver Operating Characteristic，接收者操作特徵），也不考 Tableau/Power BI 的深度管理、權限治理或 ETL（Extract, Transform, Load，擷取、轉換、載入）架構。
 
 閱讀方式：
 
@@ -75,10 +75,10 @@
 | 分佈形狀與密度輪廓 | `violin plot` 提琴圖 | 看分佈形狀 |
 | 兩維交叉資料或相關矩陣 | `heatmap` 熱圖 | 看格子高低 |
 | 靜態圖、細節控制、出版品質 | `matplotlib` | 手動精修 |
-| 快速 EDA、統計視覺化 | `seaborn` | 快速統計圖 |
+| 快速 EDA（Exploratory Data Analysis，探索性資料分析）、統計視覺化 | `seaborn` | 快速統計圖 |
 | hover / zoom / web dashboard | `Plotly` | 互動網頁圖 |
-| 拖拉式商業 dashboard | `Tableau` | 商業拖拉 BI |
-| Microsoft / Office 365 / Azure 整合 | `Power BI` | Microsoft BI |
+| 拖拉式商業 dashboard | `Tableau` | 商業拖拉 BI（Business Intelligence，商業智慧） |
+| Microsoft / Office 365 / Azure 整合 | `Power BI` | Microsoft BI（Business Intelligence，商業智慧） |
 | 刪掉多餘裝飾、提高有效資訊 | `data-ink ratio`、避免 `chart junk` | 清楚勝過花俏 |
 
 記憶方式：
@@ -311,7 +311,7 @@ data-ink ratio = data ink / total ink used
 | `scatter plot` 散布圖 | 兩個連續變數關係 | 不是用來看單一變數分佈 | x-y relationship |
 | `pie/donut chart` 圓餅/環圈 | 少量類別的整體占比 | 類別太多、差異太小會難讀 | part-to-whole |
 | `heatmap` 熱圖 | 兩維交叉、相關矩陣 | 配色錯會誤導 | matrix / grid |
-| `box plot` 箱線圖 | 中位數、四分位、離群值 | 不完整呈現分佈形狀 | median / IQR / outliers |
+| `box plot` 箱線圖 | 中位數、四分位、離群值 | 不完整呈現分佈形狀 | median / IQR（Interquartile Range，四分位距）/ outliers |
 | `violin plot` 提琴圖 | 分佈形狀、密度輪廓 | 對初學者較不直覺 | density / shape |
 | `stacked bar` 堆疊長條 | 部分占整體 | 子類別精準比較較難 | 組成 |
 | `grouped bar` 分組長條 | 並排比較群組 | 類別太多會擁擠 | 並排比較 |
@@ -348,7 +348,7 @@ violin plot = 看分佈形狀與密度
 |---|---|---|
 | 重點 | 摘要分佈 | 顯示分佈形狀 |
 | 看得到 | 中位數、四分位距、離群值 | 密度輪廓、偏態、雙峰 |
-| 考試關鍵字 | `median`、`IQR`、`outliers` | 分佈形狀更細、密度 |
+| 考試關鍵字 | `median`、`IQR（Interquartile Range，四分位距）`、`outliers` | 分佈形狀更細、密度 |
 
 #### 3.5 `stacked bar` vs `grouped bar`
 

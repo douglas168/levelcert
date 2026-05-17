@@ -73,7 +73,7 @@
 
 | 本課會考 | 本課不是重點 |
 |---|---|
-| Scaling、distribution transform、sklearn preprocessing | PCA / SVD 數學推導 |
+| Scaling、distribution transform、sklearn preprocessing | PCA（Principal Component Analysis，主成分分析）/ SVD（Singular Value Decomposition，奇異值分解）數學推導 |
 | 看資料特徵選方法 | 特定機器學習模型完整假設 |
 | `fit`、`transform`、`fit_transform` 差異 | SMOTE、特徵選擇、資料切分策略 |
 
@@ -83,7 +83,7 @@
 題目問「資料要變得可比較」→ 先想 scaling
 題目問「分佈右偏、長尾」→ 先想 log / Box-Cox
 題目問「異常值很多」→ 先想 RobustScaler
-題目問 sklearn API → 訓練集 fit，測試集 transform
+題目問 sklearn API（Application Programming Interface，應用程式介面）→ 訓練集 fit，測試集 transform
 ```
 
 ### Quick Check
@@ -107,7 +107,7 @@
 ```text
 Min-Max Normalization = 看最小值與最大值
 Standardization / z-score = 看離平均數多遠
-Robust Scaling = 看中位數與 IQR，比較不怕異常值
+Robust Scaling = 看中位數與 IQR（Interquartile Range，四分位距），比較不怕異常值
 ```
 
 ### Everyday Analogy
@@ -262,7 +262,7 @@ Everyday Analogy：
 
 技術說法：
 
-`RobustScaler` 用`中位數（Median）`和`四分位距（Interquartile Range, IQR）`，所以比 `StandardScaler` 或 `MinMaxScaler` 更不怕異常值。
+`RobustScaler` 用`中位數（Median）`和`IQR（Interquartile Range，四分位距）`，所以比 `StandardScaler` 或 `MinMaxScaler` 更不怕異常值。
 
 ```text
 x' = (x - median) / IQR
