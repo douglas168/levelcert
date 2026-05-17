@@ -1,35 +1,31 @@
-# Handoff — 2026-05-16
+# Handoff — 2026-05-17
 
 ## Session Summary
 
-Applied a "reading-first" v3 format upgrade across all 22 IPAS AI應用規劃師 中級 study guides, and updated the format template with the new pattern.
+Single-task session: converted all 22 IPAS 中級 study-guide markdown files to PDF. Also staged and committed accumulated content from the previous session (exams, maps, supplementary files).
 
 ## What Was Done
 
-1. **Updated `study-guide-format-template.md`** — added explicit reading-first variant:
-   - `先問自己一個問題` section before technical definitions
-   - `技術說法` after analogy (not before)
-   - Box-formatted `先懂一句話` using code fences
-   - `比較表這樣讀` hook before every comparison table
-   - Instruction to show intermediate calculation steps
-   - Pair Chinese terms with English (`分位數（Quantile）`)
+**PDF generation** — converted all 22 `L2*-study-guide.md` files in `content/ipas/intermediate/lessons/` to PDF using pandoc (Markdown → HTML) + Chrome headless (HTML → PDF). PDFs saved flat in the lessons root directory (gitignored via `*.pdf`).
 
-2. **Revised all 22 intermediate study guides** with the new format:
-   - L21101–L21104 (AI技術): NLP, 電腦視覺, 生成式AI, 多模態
-   - L21201–L21203 (AI導入): 評估, 規劃, 風險管理
-   - L21301–L21302 (AI系統): 數據準備, 集成與部署
-   - L22101–L22103 (統計): 敘述性統計, 機率分佈, 假設檢定
-   - L22201–L22203 (數據工程): 收集清理, 儲存管理, 處理工具
-   - L22301–L22303 (大數據分析): 統計應用, 分析方法, 可視化
-   - L22401–L22404 (大數據×AI): 機器學習, 鑑別式AI, 生成式AI, 隱私合規
+- Tool chain: `pandoc 3.9` + Chrome headless (`--print-to-pdf`) with PingFang SC CSS for CJK rendering
+- Output: 22 PDFs, 1.6M–2.7M each, at `content/ipas/intermediate/lessons/L2*-study-guide.pdf`
+
+**Also committed** (accumulated from previous session, not yet in git):
+- `content/ipas/intermediate/exams/` — L21 + L22 mock exams and cheatsheets (v1 + v2)
+- `content/ipas/ipas-ai-grand-map.md`, `ipas-ai-mindmap.md`, `ipas-ai-concept-graph.md`, `ipas-ai-key-terms.csv`
+- `content/ipas/intermediate/lessons/study-method.md`
+- `content/ipas/intermediate/notebooklm-video-prompt.md`
+- `chatgpt-ai-founders20260428.md`, `gemin-ai-founders-20260428.md`
+- `.claude/settings.json`, `AGENTS.md`
 
 ## What's Next
 
-- **中級 exam is 2026-05-23** (7 days away) — primary goal is exam prep, not more content generation
-- **Generate 3 mock exams** for 資料分析組 SKU (`/course-generate-exam`) — highest ROI right now
-- Start 機器學習組 SKU (L23xxx, 12 lessons) after the exam
+- **中級 exam is 2026-05-23** (6 days away) — all study materials ready; exam prep is the priority
+- Regenerate PDFs if study guides are updated: `pandoc <md> -t html5 --standalone --css=/tmp/study-guide-style.css -o /tmp/<base>.html && /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --print-to-pdf=<output.pdf> file:///tmp/<base>.html`
+- Post-exam: evaluate 中級 content quality vs actual exam, then decide next-cert expansion
 
-## Pending Verification Before 5/23 Exam
+## Pending Verification Before 5/23 Exam (carried from 5/16)
 
 - **Taiwan AI Basic Law dates** in L21203 — flagged as needing verification against Presidential Office gazette / Legislative Yuan records
 - **ISO/IEC 27701:2025 standalone claim** in L22404 — original is an extension to ISO 27001; 2025 edition standalone status unconfirmed
@@ -37,8 +33,9 @@ Applied a "reading-first" v3 format upgrade across all 22 IPAS AI應用規劃師
 ## Key File Paths
 
 - Study guides: `content/ipas/intermediate/lessons/{code}-{topic}/{code}-{topic}-study-guide.md`
+- PDFs (gitignored): `content/ipas/intermediate/lessons/L2*-study-guide.pdf`
+- Exams: `content/ipas/intermediate/exams/`
 - Format template: `study-guide-format-template.md`
-- Accuracy reviews: `content/ipas/intermediate/lessons/{code}-{topic}/accuracy-review-2026-04-30.md`
 
 ## Open Items Carried Forward
 
