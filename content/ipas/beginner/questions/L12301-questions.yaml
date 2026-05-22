@@ -1,964 +1,832 @@
-# L12301 — 生成式AI導入評估
-# Question pool for adaptive testing
-# Generated: 2026-04-16
-# Total: 42 questions (8 per difficulty level 1-5, +2 coverage gap)
-
-# Answer distribution: a=11, b=11, c=10, d=10 (42 questions)
+topic: L12301
+topic_name: 生成式AI導入評估
+level: beginner
+generated: "2026-05-22"
+total: 40
+# Answer distribution: a=10, b=10, c=10, d=10
+# Bloom's distribution: D1=9, D2=10, D3=11, D4=6, D5=4
 # Syllabus coverage:
-#   L12301-tech: 5   L12301-tool: 5   L12301-model: 5   L12301-perf: 5
-#   L12301-solution: 5  L12301-cba: 5  L12301-agent: 5  L12301-guide: 5
+#   four-phase-framework: 8   four-dimensions: 8   build-buy-saas: 6
+#   ai-agent: 6   cost-analysis: 6   kpi-design: 6
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+questions:
 
-- id: "L12301-Q01"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 1
-  question: "經濟部產業發展署《AI導入指引》將AI導入流程分為幾個階段？"
-  options:
-    a: "三個階段"
-    b: "四個階段"
-    c: "五個階段"
-    d: "六個階段"
-  correct: "b"
-  explanation:
-    why_correct: "《AI導入指引》明確定義四個階段：構想評估、方案設計、驗證/POC、實施/營運。"
-    why_not_a: "三個階段遺漏了方案設計或驗證階段，不符合官方框架的完整結構。"
-    why_not_c: "五個階段是學生容易多加一個「維護」或「回饋」階段的常見錯誤，官方只有四階段。記憶口訣：「構方驗實」（構想評估→方案設計→驗證POC→實施營運）。"
-    why_not_d: "六個階段過多，《AI導入指引》採用精簡的四階段框架。記憶口訣：「構方驗實」——四個字對應四個階段，多一個少一個都不對。"
-  keywords:
-    - "AI導入指引"
-    - "四階段框架"
-  exam_trap: false
+  # ─────────────────────────────────────────────────────────────────────────
+  # D1 — Remember（記憶）| 9 questions
+  # ─────────────────────────────────────────────────────────────────────────
 
-- id: "L12301-Q02"
-  topic_code: "L12301"
-  item_code: "L12301-tech"
-  difficulty: 1
-  question: "在生成式AI導入評估中，技術評估（Technical Assessment）主要檢視的是什麼？"
-  options:
-    a: "市場上可用的AI工具數量"
-    b: "AI模型的準確率與召回率"
-    c: "企業現有基礎設施能否支援AI系統運作"
-    d: "AI導入後的投資報酬率"
-  correct: "c"
-  explanation:
-    why_correct: "技術評估的核心問題是「現有IT基礎設施、資料環境、網路與算力是否足以支援AI系統」，屬於可行性檢查。"
-    why_not_a: "盤點市場上的AI工具數量屬於工具評估（Tool Evaluation）的範疇，不是技術評估。"
-    why_not_b: "模型的準確率與召回率屬於模型評估（Model Evaluation），技術評估關注的是基礎設施層面。"
-    why_not_d: "投資報酬率屬於成本效益分析（CBA），不是技術評估的主要內容。"
-  keywords:
-    - "技術評估"
-    - "technical assessment"
-  exam_trap: true
+  - id: L12301-Q01
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 1
+    bloom: remember
+    question: "經濟部產業發展署《AI導入指引》將AI導入流程定義為幾個階段？"
+    options:
+      a: "四個階段：構想評估、方案設計、驗證/POC、實施/營運"
+      b: "三個階段：構想、方案、實施"
+      c: "五個階段：需求、設計、驗證、部署、維護"
+      d: "六個階段：評估、規劃、設計、測試、部署、監控"
+    correct: a
+    explanation:
+      why_correct: "《AI導入指引》明確定義四個階段：構想評估、方案設計、驗證/POC、實施/營運，口訣「構方驗實」。"
+      why_not_b: "三階段遺漏了「驗證/POC」階段，POC 是導入流程不可跳過的重要環節。"
+      why_not_c: "五個階段是考生常自行增加「維護」或「需求」的錯誤，官方框架只有四個。"
+      why_not_d: "六個階段過多，不符合《AI導入指引》的精簡四階段框架。"
+    keywords: ["AI導入指引", "四階段框架", "構方驗實"]
+    exam_trap: false
 
-- id: "L12301-Q03"
-  topic_code: "L12301"
-  item_code: "L12301-agent"
-  difficulty: 1
-  question: "AI代理（AI Agent）與傳統單次提示（Single-Prompt）生成式AI工具的最大差異是什麼？"
-  options:
-    a: "AI代理能自主執行多步驟任務並使用外部工具"
-    b: "AI代理的核心優勢在於能產生更高品質的文字輸出"
-    c: "AI代理不需要大型語言模型就能運作"
-    d: "AI代理主要是透過更大的模型參數量來提升回答品質"
-  correct: "a"
-  explanation:
-    why_correct: "AI代理的核心特徵是「自主多步驟執行 + 工具呼叫（tool-calling）+ 記憶保持」，這是它與單次提示GenAI最根本的區別。"
-    why_not_b: "文字輸出品質取決於底層LLM，不是Agent架構的差異。AI代理的核心差異是「自主多步驟執行+工具呼叫」，而非輸出品質。學生容易混淆「更聰明」和「能做更多事」。"
-    why_not_c: "AI代理的核心元件就是大型語言模型（LLM），沒有LLM就無法進行推理與決策。"
-    why_not_d: "Agent架構與模型參數量無關——小型模型也能作為Agent的推理核心，大型模型也可能只用於單次提示。學生容易將「更強的AI」等同於「更大的模型」。"
-  keywords:
-    - "AI代理"
-    - "AI Agent"
-    - "tool-calling"
-  exam_trap: false
+  - id: L12301-Q02
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 1
+    bloom: remember
+    question: "在生成式AI導入的四大評估維度中，「技術面評估」的核心問題是什麼？"
+    options:
+      a: "現有基礎設施、資料品質、API整合能力是否足夠"
+      b: "AI模型的準確率是否達到業界標準"
+      c: "導入AI後ROI能否達到預期目標"
+      d: "員工是否接受新的AI工作流程"
+    correct: a
+    explanation:
+      why_correct: "技術面評估的核心問題是「做得到嗎？」，包含基礎設施（算力、網路）、資料品質（量、格式）、API整合（與現有系統串接）三個面向。"
+      why_not_b: "模型準確率屬於「模型面評估」，不是技術面的主要關注點。"
+      why_not_c: "ROI 屬於「效能評估」，且是導入後才能評估的指標。"
+      why_not_d: "員工接受度屬於「工具評估」中的使用者介面與人員適配，或更廣義的導入規劃，不是技術面的核心問題。"
+    keywords: ["技術面", "技術評估", "technical assessment"]
+    exam_trap: true
 
-- id: "L12301-Q04"
-  topic_code: "L12301"
-  item_code: "L12301-model"
-  difficulty: 1
-  question: "在模型評估（Model Evaluation）中，下列哪一項不是常見的評估指標？"
-  options:
-    a: "員工滿意度（Employee Satisfaction）"
-    b: "推論延遲（Inference Latency）"
-    c: "準確率（Accuracy）"
-    d: "每次呼叫成本（Cost per Call）"
-  correct: "a"
-  explanation:
-    why_correct: "員工滿意度屬於組織管理指標，不屬於模型本身的技術評估指標。模型評估聚焦於準確率、延遲、成本等模型性能面向。"
-    why_not_b: "推論延遲衡量模型回應速度，是選擇生成式AI模型時的重要考量。"
-    why_not_c: "準確率是模型評估最基本的指標之一，用於衡量模型預測結果的正確程度。"
-    why_not_d: "每次呼叫成本是模型評估中衡量經濟可行性的關鍵指標。"
-  keywords:
-    - "模型評估"
-    - "model evaluation"
-  exam_trap: false
+  - id: L12301-Q03
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 1
+    bloom: remember
+    question: "AI Agent（AI代理）與一般生成式AI工具最根本的差異是什麼？"
+    options:
+      a: "AI Agent 能自主規劃並執行多步驟任務"
+      b: "AI Agent 使用更大的語言模型參數"
+      c: "AI Agent 的回答品質更高，錯誤率更低"
+      d: "AI Agent 只能處理文字，無法處理圖片"
+    correct: a
+    explanation:
+      why_correct: "AI Agent 的核心特徵是「自主多步驟執行 + 工具呼叫 + 跨步驟記憶」，這是與單次輸入輸出的一般 GenAI 工具最根本的差異。"
+      why_not_b: "Agent 架構與模型參數量無關，小型模型也能作為 Agent 的推理核心。"
+      why_not_c: "回答品質取決於底層 LLM，不是 Agent 架構帶來的差異。Agent 的核心差異是自主性和多步驟。"
+      why_not_d: "與處理模態（文字/圖片）無關；Agent 的核心是自主性，不是模態限制。"
+    keywords: ["AI Agent", "AI代理", "多步驟", "自主執行"]
+    exam_trap: false
 
-- id: "L12301-Q05"
-  topic_code: "L12301"
-  item_code: "L12301-perf"
-  difficulty: 1
-  question: "效能評估（Performance Evaluation）在AI導入流程中的主要目的是什麼？"
-  options:
-    a: "選擇最適合的AI模型供應商"
-    b: "比較AI導入前後的關鍵績效指標（KPI）變化"
-    c: "評估企業伺服器的運算效能"
-    d: "計算AI專案的總體開發成本"
-  correct: "b"
-  explanation:
-    why_correct: "效能評估的核心是比較導入前後的KPI變化，例如處理時間減少多少、錯誤率降低多少，以驗證AI導入的實際效益。"
-    why_not_a: "選擇AI模型供應商屬於工具評估或模型評估的範疇，不是效能評估。"
-    why_not_c: "評估伺服器運算效能屬於技術評估（Technical Assessment），效能評估聚焦的是業務績效。"
-    why_not_d: "計算開發成本屬於成本效益分析（CBA），不是效能評估的主要目的。"
-  keywords:
-    - "效能評估"
-    - "performance evaluation"
-    - "KPI"
-  exam_trap: true
+  - id: L12301-Q04
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 1
+    bloom: remember
+    question: "在AI導入成本分析中，「隱藏成本（Hidden Costs）」通常約佔總持有成本（TCO）的多少比例？"
+    options:
+      a: "約 5–15%"
+      b: "約 30–50%"
+      c: "約 50–70%"
+      d: "約 85–95%"
+    correct: d
+    explanation:
+      why_correct: "隱藏成本（整合開發、員工培訓、流程改造、資料治理、持續維護）通常佔TCO的85–95%，API費用等顯性成本只是冰山一角。"
+      why_not_a: "5–15% 是顯性成本（如API費用、授權費）的典型佔比，不是隱藏成本。"
+      why_not_b: "30–50% 低估了隱藏成本的規模；隱藏成本遠大於顯性成本。"
+      why_not_c: "50–70% 仍然低估了實際的隱藏成本比例。"
+    keywords: ["隱藏成本", "TCO", "Total Cost of Ownership"]
+    exam_trap: true
 
-- id: "L12301-Q06"
-  topic_code: "L12301"
-  item_code: "L12301-cba"
-  difficulty: 1
-  question: "成本效益分析（Cost-Benefit Analysis, CBA）在AI導入中的核心功能是什麼？"
-  options:
-    a: "確認AI模型的技術參數是否達標"
-    b: "評估企業資安風險等級"
-    c: "決定使用哪一家雲端服務供應商"
-    d: "判斷AI導入的經濟價值是否合理"
-  correct: "d"
-  explanation:
-    why_correct: "CBA的核心功能是透過比較導入AI的總成本與預期效益，判斷這項投資在經濟上是否合理、值得執行。"
-    why_not_a: "確認技術參數是模型評估的工作，CBA關注的是經濟面而非技術面。"
-    why_not_b: "資安風險評估屬於風險管理範疇，不是CBA的核心功能。"
-    why_not_c: "選擇雲端供應商屬於工具評估或方案設計階段的具體決策，CBA是更高層次的經濟分析。"
-  keywords:
-    - "成本效益分析"
-    - "cost-benefit analysis"
-    - "CBA"
-  exam_trap: false
+  - id: L12301-Q05
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 1
+    bloom: remember
+    question: "SaaS（Software as a Service，雲端訂閱服務）方案最主要的優勢是什麼？"
+    options:
+      a: "資料完全保存在公司內部，最為安全"
+      b: "可以完全依照公司需求客製化功能"
+      c: "快速上線、初期成本低、無需開發能力"
+      d: "系統維護完全由公司自行掌控"
+    correct: c
+    explanation:
+      why_correct: "SaaS 的核心優勢是「快速上線（最快）、初期成本最低、無需AI開發能力」，適合快速驗證和非核心業務場景。"
+      why_not_a: "SaaS 資料存放於供應商端，資料主權控制力最弱，這是SaaS的劣勢而非優勢。"
+      why_not_b: "高度客製化是Build（自建）的優勢，SaaS提供的是標準化功能，客製化程度最低。"
+      why_not_d: "SaaS由供應商負責維護，公司掌控力最低；自行掌控是Build的特點。"
+    keywords: ["SaaS", "雲端訂閱", "快速上線"]
+    exam_trap: false
 
-- id: "L12301-Q07"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 1
-  question: "在選擇AI解決方案時，「適用解決方案選擇（Solution Selection）」最需要優先考量的因素是什麼？"
-  options:
-    a: "方案是否符合企業的具體業務需求與使用場景"
-    b: "方案的技術成熟度與市場口碑"
-    c: "方案供應商的品牌知名度"
-    d: "方案的價格是否為市場最低"
-  correct: "a"
-  explanation:
-    why_correct: "適用解決方案選擇的首要原則是「需求對齊」——方案必須符合企業的具體業務需求與使用場景，而非僅看品牌、價格或口碑。"
-    why_not_b: "技術成熟度是參考因素之一，但不是最優先的——即使技術成熟，若不符合使用場景仍不適用。"
-    why_not_c: "品牌知名度不等於適用性，大品牌的方案未必適合特定企業的具體需求。"
-    why_not_d: "最低價格不代表最適合，AI解決方案需要綜合評估功能匹配度、支援服務等多項因素。"
-  keywords:
-    - "解決方案選擇"
-    - "solution selection"
-  exam_trap: false
+  - id: L12301-Q06
+    topic_code: L12301
+    subtopic: kpi-design
+    difficulty: 1
+    bloom: remember
+    question: "POC（Proof of Concept，概念驗證）在《AI導入指引》四階段中位於哪個階段？"
+    options:
+      a: "第三階段：驗證"
+      b: "第一階段：構想"
+      c: "第二階段：方案"
+      d: "第四階段：實施"
+    correct: a
+    explanation:
+      why_correct: "POC（概念驗證）是第三階段「驗證（Validation）」的核心活動，目的是在小規模測試技術可行性，確認方案可行後再進入正式實施。"
+      why_not_b: "構想階段的核心是痛點分析、場景選定，尚未到設計和測試的階段。"
+      why_not_c: "方案階段是設計解決方案、定義KPI、估算成本，還沒有實際執行測試。"
+      why_not_d: "實施階段是POC驗證通過後才進入的全面部署階段，不是做POC的地方。"
+    keywords: ["POC", "Proof of Concept", "概念驗證", "驗證階段"]
+    exam_trap: false
 
-- id: "L12301-Q08"
-  topic_code: "L12301"
-  item_code: "L12301-tool"
-  difficulty: 1
-  question: "工具評估（Tool Evaluation）在生成式AI導入中主要負責什麼？"
-  options:
-    a: "評估企業現有的IT人才是否充足"
-    b: "測試AI模型的推論速度"
-    c: "制定AI導入的時程規劃"
-    d: "比較不同生成式AI工具的功能、價格與適用場景"
-  correct: "d"
-  explanation:
-    why_correct: "工具評估的核心任務是比較市場上不同的生成式AI工具（如ChatGPT、Claude、Gemini等），從功能特性、價格、適用場景等維度進行系統性比較。"
-    why_not_a: "評估IT人才是否充足屬於技術評估中的人力資源面向，不是工具評估。"
-    why_not_b: "推論速度測試屬於模型評估（Model Evaluation）的指標，工具評估更關注工具整體的功能與場景匹配。"
-    why_not_c: "時程規劃屬於方案設計階段的工作，不是工具評估的主要任務。"
-  keywords:
-    - "工具評估"
-    - "tool evaluation"
-  exam_trap: false
+  - id: L12301-Q07
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 1
+    bloom: remember
+    question: "四大評估維度「技工模效」中，哪一個維度是在AI**導入後**才進行的？"
+    options:
+      a: "技術評估（Technical）"
+      b: "工具評估（Tool）"
+      c: "模型評估（Model）"
+      d: "效能評估（Performance）"
+    correct: d
+    explanation:
+      why_correct: "效能評估（Performance Evaluation）評估的是AI導入後的KPI變化和ROI，只有在導入後才能量測實際成效。前三個維度（技術、工具、模型）都是導入前的評估。"
+      why_not_a: "技術評估是導入前進行的，確認基礎設施和資料品質是否足夠。"
+      why_not_b: "工具評估是導入前進行的，比較供應商、工具的功能與風險。"
+      why_not_c: "模型評估是導入前進行的，比較不同模型的能力和幻覺風險。"
+    keywords: ["效能評估", "performance evaluation", "導入後", "技工模效"]
+    exam_trap: true
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  - id: L12301-Q08
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 1
+    bloom: remember
+    question: "TCO（Total Cost of Ownership，總持有成本）的概念是指什麼？"
+    options:
+      a: "系統生命週期內所有成本的總和，包含顯性和隱藏成本"
+      b: "只計算AI系統第一年的直接費用"
+      c: "只計算API使用費用和軟體授權費"
+      d: "只計算硬體採購和雲端運算費用"
+    correct: a
+    explanation:
+      why_correct: "TCO（總持有成本）是從長期視角評估所有成本的框架，包含顯性成本（API費、授權費、硬體）和隱藏成本（整合開發、培訓、維護等）的總和。"
+      why_not_b: "TCO 是長期概念，不只看第一年。隱藏成本往往在系統上線後才逐年浮現。"
+      why_not_c: "API費用和授權費只是顯性成本的一部分，不等於TCO。"
+      why_not_d: "硬體費用只是顯性成本的一小部分，TCO遠不止這些。"
+    keywords: ["TCO", "Total Cost of Ownership", "總持有成本"]
+    exam_trap: false
 
-- id: "L12301-Q09"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 2
-  question: "在《AI導入指引》的四階段框架中，「構想評估」階段的主要工作是什麼？"
-  options:
-    a: "開發AI模型並進行概念驗證"
-    b: "分析業務痛點、確認內部資源與AI的適配性"
-    c: "部署AI系統並監控運營績效"
-    d: "定義KPI並估算導入成本"
-  correct: "b"
-  explanation:
-    why_correct: "構想評估是第一階段，重點在分析業務痛點（哪些問題適合用AI解決）、盤點內部資源、確認AI適配性，並初步選定應用領域。"
-    why_not_a: "開發模型與POC屬於第三階段「驗證/POC」，構想評估還在更前期的可行性評估。"
-    why_not_c: "部署與監控屬於第四階段「實施/營運」，構想評估離部署還很遠。"
-    why_not_d: "定義KPI與估算成本屬於第二階段「方案設計」，構想評估還在探索適不適合的階段。"
-  keywords:
-    - "構想評估"
-    - "AI導入指引"
-    - "四階段框架"
-  exam_trap: false
+  - id: L12301-Q09
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 1
+    bloom: remember
+    question: "《AI導入指引》第二階段「方案（Solution Design）」的主要產出是什麼？"
+    options:
+      a: "應用場景清單與AI適配度報告"
+      b: "專案計畫書、KPI 定義與成本估算"
+      c: "POC 驗證報告與成功標準"
+      d: "正式上線的AI系統"
+    correct: b
+    explanation:
+      why_correct: "方案設計階段的主要產出是：專案計畫書（含方案選擇Build/Buy/SaaS）、KPI 定義、技術選型、成本估算。這些文件是進入驗證階段的基礎。"
+      why_not_a: "應用場景清單是第一階段（構想評估）的產出，由痛點分析和場景選定得出。"
+      why_not_c: "POC報告是第三階段（驗證）的產出，還沒到驗證就不會有POC報告。"
+      why_not_d: "正式上線的AI系統是第四階段（實施）的產出，是最後才完成的。"
+    keywords: ["方案設計", "Solution Design", "KPI定義", "專案計畫"]
+    exam_trap: false
 
-- id: "L12301-Q10"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 2
-  question: "在《AI導入指引》的四階段框架中，「方案設計」階段需要完成下列哪一項關鍵工作？"
-  options:
-    a: "確認業務痛點是否適合用AI解決"
-    b: "開發最小可行模型並測試效果"
-    c: "定義關鍵績效指標（KPI）並規劃AI應用場景"
-    d: "將AI系統正式上線並推廣至全公司"
-  correct: "c"
-  explanation:
-    why_correct: "方案設計是第二階段，重點在定義KPI、了解資料需求、規劃AI應用場景、估算成本，為後續POC做準備。"
-    why_not_a: "確認痛點是否適合AI是第一階段「構想評估」的工作。"
-    why_not_b: "開發模型並測試屬於第三階段「驗證/POC」的工作。"
-    why_not_d: "正式上線屬於第四階段「實施/營運」的工作。"
-  keywords:
-    - "方案設計"
-    - "KPI"
-    - "AI導入指引"
-  exam_trap: false
+  # ─────────────────────────────────────────────────────────────────────────
+  # D2 — Understand（理解）| 10 questions
+  # ─────────────────────────────────────────────────────────────────────────
 
-- id: "L12301-Q11"
-  topic_code: "L12301"
-  item_code: "L12301-cba"
-  difficulty: 2
-  question: "關於生成式AI導入的隱性成本（Hidden Costs），下列敘述何者正確？"
-  options:
-    a: "API呼叫費用通常佔總成本的50%以上"
-    b: "隱性成本包括人才培訓、資料治理、RAG基礎設施等"
-    c: "隱性成本只會在導入初期出現，營運後就不再產生"
-    d: "選擇免費的開源模型即可完全避免隱性成本"
-  correct: "b"
-  explanation:
-    why_correct: "根據產業調查，API費用僅佔總成本的5-15%，真正的大宗支出是人才招募與培訓、資料治理、RAG基礎設施建置等隱性成本。"
-    why_not_a: "這是常見誤解——API費用實際上只佔5-15%，人才與資料治理才是大頭。"
-    why_not_c: "隱性成本在營運階段持續發生，例如模型再訓練、資料更新、系統維護等都是持續性支出。"
-    why_not_d: "開源模型仍需要算力、部署、維護、資料治理等成本，免費的只是模型本身，不是整個系統。"
-  keywords:
-    - "隱性成本"
-    - "hidden costs"
-    - "成本效益分析"
-  exam_trap: true
+  - id: L12301-Q10
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 2
+    bloom: understand
+    question: "《AI導入指引》強調各階段「循序漸進」，這個原則最主要是要防止什麼風險？"
+    options:
+      a: "防止AI模型的準確率不達標"
+      b: "防止員工對AI的抵抗情緒"
+      c: "防止供應商選擇錯誤"
+      d: "防止在未驗證可行性前就全面投入資源，造成浪費"
+    correct: d
+    explanation:
+      why_correct: "循序漸進的設計是為了「在全面投入資源前，先透過POC小規模驗證可行性」。如果跳過驗證直接實施，萬一系統不可行，已投入的大量資源將付諸流水。"
+      why_not_a: "模型準確率問題透過模型面評估和POC測試來發現，不是「循序漸進」原則本身要防止的。"
+      why_not_b: "員工抵抗是工具評估（使用者介面與人員適配）和導入規劃要處理的問題，不是循序漸進的主要設計目的。"
+      why_not_c: "供應商選擇錯誤是工具評估和方案設計要解決的，不是循序漸進的主要設計目的。"
+    keywords: ["循序漸進", "POC", "可行性驗證"]
+    exam_trap: false
 
-- id: "L12301-Q12"
-  topic_code: "L12301"
-  item_code: "L12301-agent"
-  difficulty: 2
-  question: "關於AI代理（AI Agent）的運作機制，下列哪一項描述最為準確？"
-  options:
-    a: "AI代理透過「觀察→決策→行動」的循環來完成多步驟任務"
-    b: "AI代理只能回答問題，無法主動執行任務"
-    c: "AI代理不具備記憶功能，每次互動都從零開始"
-    d: "AI代理在任務完成後會自主學習並永久更新自身的推理模型"
-  correct: "a"
-  explanation:
-    why_correct: "AI代理的核心運作機制是observe → decide → act的循環，結合LLM推理、工具呼叫與記憶保持，自主完成多步驟任務。"
-    why_not_b: "AI代理的核心特徵就是「主動執行任務」，不僅是被動回答問題。"
-    why_not_c: "記憶（memory）是AI代理的關鍵元件之一，使其能在多步驟任務中保持上下文。"
-    why_not_d: "AI代理的記憶（memory）是工作記憶，用於當前任務的上下文保持，並非永久性的模型權重更新。學生容易將「記憶保持」誤解為「自主學習並改進模型」，但Agent不會自動重新訓練自己。"
-  keywords:
-    - "AI代理"
-    - "AI Agent"
-    - "observe-decide-act"
-  exam_trap: false
+  - id: L12301-Q11
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 2
+    bloom: understand
+    question: "以下哪個場景最適合使用AI Agent而非一般生成式AI工具？"
+    options:
+      a: "系統自動監控競爭對手價格、比對庫存、觸發訂購補貨"
+      b: "員工每天詢問：「幫我把這份會議記錄整理成摘要」"
+      c: "行銷人員需要生成多款廣告文案供選擇"
+      d: "客服人員使用AI協助撰寫標準回覆模板"
+    correct: a
+    explanation:
+      why_correct: "監控競爭對手→比對庫存→觸發訂購是一個多步驟、跨系統、需要持續自主執行的任務，這正是AI Agent的核心應用場景（多步驟 + 工具呼叫 + 自主執行）。"
+      why_not_b: "整理會議記錄摘要是單次輸入輸出的任務，一般GenAI工具（如ChatGPT）即可完成，不需要Agent的自主多步驟能力。"
+      why_not_c: "生成廣告文案是創意內容生成任務，人工選擇結果，是一般GenAI工具的典型使用場景。"
+      why_not_d: "撰寫標準回覆模板是單次生成任務，不需要多步驟自主執行。"
+    keywords: ["AI Agent", "多步驟", "自主執行", "跨系統整合"]
+    exam_trap: false
 
-- id: "L12301-Q13"
-  topic_code: "L12301"
-  item_code: "L12301-tech"
-  difficulty: 2
-  question: "企業進行技術評估（Technical Assessment）時，下列哪一項屬於需要檢視的資料環境面向？"
-  options:
-    a: "企業品牌形象是否適合導入AI"
-    b: "高階主管對AI的支持程度"
-    c: "現有資料的品質、格式與可取用性"
-    d: "競爭對手是否已導入類似AI系統"
-  correct: "c"
-  explanation:
-    why_correct: "技術評估中的資料環境檢視，需要確認企業現有資料的品質（是否乾淨完整）、格式（結構化/非結構化）、可取用性（是否有適當的存取機制）。"
-    why_not_a: "品牌形象屬於行銷或企業策略層面的考量，不是技術評估的範疇。"
-    why_not_b: "高階主管支持度屬於組織面或治理面的考量，雖然重要但不歸類在技術評估的資料環境面向。"
-    why_not_d: "競爭對手分析屬於市場策略層面，不是技術評估的核心內容。"
-  keywords:
-    - "技術評估"
-    - "資料品質"
-    - "data quality"
-  exam_trap: false
+  - id: L12301-Q12
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 2
+    bloom: understand
+    question: "企業在評估AI導入成本時，為什麼說「API費用只是冰山一角」？"
+    options:
+      a: "因為API費用會隨使用量增加而呈指數成長"
+      b: "因為API費用需要依照法規繳稅，增加了總體成本"
+      c: "因為API費用計算方式複雜，容易計算錯誤"
+      d: "因為整合開發、培訓、流程改造等隱藏成本遠大於API費用"
+    correct: d
+    explanation:
+      why_correct: "冰山比喻的意義在於：API費用（顯性成本）只佔TCO的5–15%，水面下的隱藏成本（整合開發、員工培訓、流程改造、資料治理、持續維護）佔85–95%，才是AI導入的真正大頭。"
+      why_not_a: "雖然使用量增加會使API費用成長，但這不是「冰山一角」比喻的核心含義。隱藏成本才是大頭。"
+      why_not_b: "稅務問題與冰山比喻無關，且不是成本被低估的主要原因。"
+      why_not_c: "計算複雜度與成本佔比無關，冰山比喻說的是「容易被忽略的大量成本」。"
+    keywords: ["隱藏成本", "冰山", "TCO", "顯性成本"]
+    exam_trap: false
 
-- id: "L12301-Q14"
-  topic_code: "L12301"
-  item_code: "L12301-tool"
-  difficulty: 2
-  question: "在評估生成式AI工具時，下列哪一組考量因素最為完整且正確？"
-  options:
-    a: "模型參數量、訓練資料規模、開發團隊所在國家"
-    b: "模型參數量大小、開發團隊人數、公司市值"
-    c: "工具介面美觀度、免費試用期長短、支援語言數量"
-    d: "功能特性、資料隱私合規、價格模式、技術支援"
-  correct: "d"
-  explanation:
-    why_correct: "工具評估應從功能（是否滿足需求）、合規（資料隱私與安全）、成本（定價模式）、支援（技術服務）等面向系統性評比。提醒：學生最常遺漏的是「合規」和「技術支援」這兩個維度——考試經常針對這個盲點出題。"
-    why_not_a: "參數量大不代表適合特定任務，訓練資料規模無法直接判斷工具品質，開發團隊所在國家更與工具功能無關。學生容易被「技術規格」的表象吸引，忽略真正影響導入成敗的實用維度（功能匹配、合規、價格、支援）。"
-    why_not_b: "參數量大不代表更適合，開發團隊人數和市值與工具的實際功能表現無直接關聯。"
-    why_not_c: "介面美觀、試用期、語言數量雖有參考價值，但不是企業導入評估的核心維度。"
-  keywords:
-    - "工具評估"
-    - "tool evaluation"
-    - "評估維度"
-  exam_trap: false
+  - id: L12301-Q13
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 2
+    bloom: understand
+    question: "在四大評估維度中，「模型面評估」關注「幻覺風險（Hallucination Risk）」，這對哪類應用場景特別重要？"
+    options:
+      a: "AI生成符合規定的醫療診斷說明書"
+      b: "AI協助員工起草創意廣告文案"
+      c: "AI自動回覆社群媒體的一般留言"
+      d: "AI協助員工進行腦力激盪和創意發想"
+    correct: a
+    explanation:
+      why_correct: "醫療診斷說明書要求極高準確度，一旦AI產生幻覺（輸出錯誤資訊）將直接影響病患安全。這類高準確度要求場景最需要在模型面評估中重點關注幻覺風險。"
+      why_not_b: "廣告文案是創意性工作，允許一定的AI發揮空間，對幻覺風險的敏感度相對較低。"
+      why_not_c: "一般社群媒體留言回覆錯誤的影響可控，幻覺風險的敏感度低於醫療場景。"
+      why_not_d: "腦力激盪和創意發想本身需要開放性思考，AI的「幻覺式」發散反而可能有用，不需嚴格控制。"
+    keywords: ["幻覺風險", "hallucination", "模型面", "準確率"]
+    exam_trap: false
 
-- id: "L12301-Q15"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 2
-  question: "關於AI解決方案的選擇，下列哪一項原則最為正確？"
-  options:
-    a: "永遠選擇功能最多、最先進的方案"
-    b: "優先選擇已在同產業成功案例最多的方案"
-    c: "最便宜的方案就是最好的方案"
-    d: "應根據企業具體需求、技術能力與預算綜合評估後選擇"
-  correct: "d"
-  explanation:
-    why_correct: "解決方案選擇應綜合考量需求匹配度、企業技術能力、預算限制、供應商支援等多面向因素，不能只看單一指標。"
-    why_not_a: "功能最多不代表最適合——過多功能反而增加複雜性與成本，企業應選擇「夠用且合適」的方案。"
-    why_not_b: "同產業成功案例可參考，但每家企業的需求、資源、文化不同，別人成功不保證自己適用。"
-    why_not_c: "最便宜的方案可能缺乏必要功能或支援，長期反而造成更高的隱性成本。"
-  keywords:
-    - "解決方案選擇"
-    - "solution selection"
-  exam_trap: false
+  - id: L12301-Q14
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 2
+    bloom: understand
+    question: "一間台灣金融機構考慮導入AI，因客戶資料受《個資法》嚴格規範且不得上雲，應優先考慮哪種方案？"
+    options:
+      a: "訂閱國際SaaS服務（如ChatGPT Enterprise）"
+      b: "購買國外AI廠商的標準套裝方案（Buy）"
+      c: "自建（Build）並在企業內部私有部署"
+      d: "優先選擇最便宜的SaaS方案以控制成本"
+    correct: c
+    explanation:
+      why_correct: "資料不能上雲是典型的「Build（自建）」或私有部署場景的判斷條件。金融機構的客戶資料受嚴格法規保護，必須在自己控制的環境中運行AI，最符合Build的適用情境。"
+      why_not_a: "ChatGPT Enterprise是SaaS服務，資料傳送至供應商端，違反資料不得上雲的要求。"
+      why_not_b: "購買標準套裝方案通常也需要資料送往供應商進行處理，無法完全滿足嚴格的資料主權要求。"
+      why_not_d: "以成本為優先而忽略資料合規要求是錯誤決策；資料主權應優先於成本考量。"
+    keywords: ["Build", "資料隱私", "私有部署", "個資法"]
+    exam_trap: false
 
-- id: "L12301-Q16"
-  topic_code: "L12301"
-  item_code: "L12301-perf"
-  difficulty: 2
-  question: "下列哪一項是效能評估（Performance Evaluation）常用的量化指標？"
-  options:
-    a: "導入AI後客戶服務回應時間的縮短百分比"
-    b: "AI系統上線後的新聞報導數量"
-    c: "員工對AI工具的主觀好感度"
-    d: "AI供應商的年度營收成長率"
-  correct: "a"
-  explanation:
-    why_correct: "效能評估使用量化KPI來衡量導入效果，例如回應時間縮短百分比、錯誤率降低幅度等，都是可測量的業務績效指標。"
-    why_not_b: "新聞報導數量與AI系統的實際運作效能無關，不是有效的KPI。"
-    why_not_c: "主觀好感度不是量化指標，效能評估需要可測量的客觀數據。"
-    why_not_d: "供應商營收是供應商的財務指標，與企業自身的AI導入效能無關。"
-  keywords:
-    - "效能評估"
-    - "performance evaluation"
-    - "KPI"
-  exam_trap: false
+  - id: L12301-Q15
+    topic_code: L12301
+    subtopic: kpi-design
+    difficulty: 2
+    bloom: understand
+    question: "Exit Criteria（退出標準）在POC中的作用是什麼？"
+    options:
+      a: "決定POC達到何種條件才算成功或應停止"
+      b: "定義AI系統的最終功能規格"
+      c: "設計AI模型的訓練和測試資料集"
+      d: "評估導入後員工的使用滿意度"
+    correct: a
+    explanation:
+      why_correct: "Exit Criteria（退出標準）是POC成功標準的一部分，定義「達到什麼條件算通過、達到什麼條件代表應該停止POC」，防止POC無限延伸而消耗資源。"
+      why_not_b: "功能規格是方案設計階段定義的，Exit Criteria只關注POC的通過/停止條件。"
+      why_not_c: "資料集設計是技術準備工作，不是Exit Criteria的範疇。"
+      why_not_d: "員工滿意度是效能評估的指標，是導入後才評估的，不是POC的退出標準。"
+    keywords: ["Exit Criteria", "退出標準", "POC", "成功標準"]
+    exam_trap: false
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L12301-Q16
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 2
+    bloom: understand
+    question: "「構想評估」階段的核心任務是什麼？"
+    options:
+      a: "選擇AI工具並估算導入成本"
+      b: "執行小規模POC驗證技術可行性"
+      c: "部署AI系統並追蹤KPI成效"
+      d: "分析業務痛點並判斷是否適合用AI解決"
+    correct: d
+    explanation:
+      why_correct: "構想評估的核心問題是「這個問題適合用AI解決嗎？」，主要活動是分析業務痛點、盤點內部資源、評估AI適配度、選定應用場景。包含一個關鍵判斷：如果問題用傳統方式就能解決，就不需要導入AI。"
+      why_not_a: "選擇AI工具和估算成本屬於第二階段「方案（Solution Design）」的任務。"
+      why_not_b: "執行POC屬於第三階段「驗證（Validation）」的任務。"
+      why_not_c: "部署系統和追蹤KPI屬於第四階段「實施（Implementation）」的任務。"
+    keywords: ["構想評估", "Ideation", "痛點分析", "AI適配度"]
+    exam_trap: false
 
-- id: "L12301-Q17"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 3
-  question: "某新創公司想導入生成式AI來自動生成行銷文案，目前正在釐清哪些業務流程可以用AI加速。根據《AI導入指引》四階段框架，這家公司目前處於哪一個階段？"
-  options:
-    a: "構想評估"
-    b: "方案設計"
-    c: "驗證/POC"
-    d: "實施/營運"
-  correct: "a"
-  explanation:
-    why_correct: "釐清哪些業務流程適合用AI是典型的「構想評估」工作——分析痛點、確認AI適配性、選定應用領域。"
-    why_not_b: "方案設計需要已確定要導入AI的領域，才會進入KPI定義和場景規劃，該公司還在前一步。"
-    why_not_c: "驗證/POC需要已有具體方案設計，才會進入模型開發與測試，該公司離這步還很遠。"
-    why_not_d: "實施/營運是最後階段，該公司才剛開始探索。"
-  keywords:
-    - "構想評估"
-    - "四階段框架"
-    - "AI導入指引"
-  exam_trap: false
+  - id: L12301-Q17
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 2
+    bloom: understand
+    question: "AI Agent 的「工具呼叫（Tool Calling）」功能使它能做到什麼？"
+    options:
+      a: "與外部系統（如資料庫、API、搜尋引擎）互動並執行操作"
+      b: "生成比一般AI更長的文字輸出"
+      c: "同時處理多個使用者的提問"
+      d: "自動選擇最適合的語言模型"
+    correct: a
+    explanation:
+      why_correct: "工具呼叫（Tool Calling）是AI Agent的核心能力之一，讓Agent能夠呼叫外部工具（搜尋引擎、資料庫API、計算工具、郵件系統等）並執行真實世界的操作，這是與單純生成文字的最大差異。"
+      why_not_b: "輸出長度與工具呼叫無關，是生成能力的問題。"
+      why_not_c: "同時處理多用戶是系統並發能力的問題，與Agent的工具呼叫功能無關。"
+      why_not_d: "選擇語言模型是系統架構設計的問題，不是工具呼叫的功能。"
+    keywords: ["工具呼叫", "Tool Calling", "AI Agent", "外部工具"]
+    exam_trap: false
 
-- id: "L12301-Q18"
-  topic_code: "L12301"
-  item_code: "L12301-tech"
-  difficulty: 3
-  question: "一家中小企業計畫導入生成式AI客服機器人，但發現公司目前只有共用的一般辦公電腦，沒有專用伺服器或GPU。從技術評估（Technical Assessment）的角度，最合理的建議是什麼？"
-  options:
-    a: "放棄AI導入計畫，因為缺乏GPU就無法使用AI"
-    b: "立即購買高階GPU伺服器再開始評估"
-    c: "評估採用雲端API服務，無需自建算力基礎設施"
-    d: "先招聘AI工程師團隊，再決定硬體需求"
-  correct: "c"
-  explanation:
-    why_correct: "技術評估不是只看現有硬體夠不夠，而是找出可行的技術路徑。雲端API服務讓中小企業不需自建算力就能使用生成式AI，是最務實的方案。"
-    why_not_a: "缺乏GPU不代表不能使用AI，雲端API服務讓任何企業都能存取AI能力，這是常見的過度悲觀誤判。"
-    why_not_b: "在尚未確認需求與方案前就大量投資硬體，違反漸進式導入原則，風險過高。"
-    why_not_d: "招聘AI團隊應在確認技術路徑後才決定，且中小企業使用雲端API可能完全不需要自建團隊。"
-  keywords:
-    - "技術評估"
-    - "雲端API"
-    - "中小企業"
-  exam_trap: true
+  - id: L12301-Q18
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 2
+    bloom: understand
+    question: "以下哪一項成本最符合「隱藏成本（Hidden Costs）」的定義？"
+    options:
+      a: "ChatGPT API 每月 $5,000 元的使用費"
+      b: "Microsoft Azure GPU 雲端運算費用"
+      c: "AI軟體的年度訂閱授權費"
+      d: "員工學習使用新AI工具的教育訓練費"
+    correct: d
+    explanation:
+      why_correct: "員工教育訓練費是典型的隱藏成本——容易被忽略、難以精確預估、且在整個導入過程中持續發生（新員工加入、工具更新都需要再訓練）。"
+      why_not_a: "API使用費是有帳單、可直接查看的顯性成本。"
+      why_not_b: "雲端運算費用是按帳計費的顯性成本，每月都有帳單。"
+      why_not_c: "年度訂閱授權費是有明確合約的顯性成本，不屬於隱藏成本。"
+    keywords: ["隱藏成本", "教育訓練", "員工培訓"]
+    exam_trap: false
 
-- id: "L12301-Q19"
-  topic_code: "L12301"
-  item_code: "L12301-model"
-  difficulty: 3
-  question: "某大學的教務處想用生成式AI協助回覆學生常見問題，預算有限且回應速度比生成品質更重要。在模型評估（Model Evaluation）中，應優先考量哪一組指標？"
-  options:
-    a: "模型參數量與訓練資料規模"
-    b: "推論延遲（Latency）與每次呼叫成本（Cost per Call）"
-    c: "模型在學術論文寫作上的表現"
-    d: "模型支援的語言數量與多模態能力"
-  correct: "b"
-  explanation:
-    why_correct: "場景需求是「回應速度優先、預算有限」，因此推論延遲（速度）和每次呼叫成本（預算控制）是最關鍵的評估指標。"
-    why_not_a: "參數量大不代表速度快或成本低，反而通常更慢更貴，不符合此場景需求。"
-    why_not_c: "學術論文寫作能力與回覆學生常見問題的場景不相關，屬於能力錯配。"
-    why_not_d: "語言數量和多模態能力在此場景中不是優先考量，學生問答主要是中文文字互動。"
-  keywords:
-    - "模型評估"
-    - "推論延遲"
-    - "latency"
-    - "cost per call"
-  exam_trap: false
+  - id: L12301-Q19
+    topic_code: L12301
+    subtopic: kpi-design
+    difficulty: 2
+    bloom: understand
+    question: "NPS（Net Promoter Score，淨推薦值）在AI導入評估中屬於哪類KPI？"
+    options:
+      a: "效率KPI（如處理時間減少比例）"
+      b: "成本KPI（如單位成本降低比例）"
+      c: "品質KPI（如系統準確率）"
+      d: "業務KPI（如客戶體驗和收入成長）"
+    correct: d
+    explanation:
+      why_correct: "NPS（淨推薦值）衡量的是客戶對品牌或服務的整體滿意度和推薦意願，屬於業務KPI類型（客戶體驗、收入成長等業務層面的指標）。"
+      why_not_a: "效率KPI關注的是流程速度的提升，如「處理時間減少40%」，不是客戶滿意度。"
+      why_not_b: "成本KPI關注的是費用降低，如「單位成本降低25%」，不是客戶推薦意願。"
+      why_not_c: "品質KPI通常指系統層面的準確率或錯誤率，NPS是更宏觀的業務指標。"
+    keywords: ["NPS", "Net Promoter Score", "業務KPI", "淨推薦值"]
+    exam_trap: false
 
-- id: "L12301-Q20"
-  topic_code: "L12301"
-  item_code: "L12301-cba"
-  difficulty: 4
-  question: "一家公司在評估導入生成式AI翻譯工具時，發現API費用為每月NT$3,000，但完整導入需要追加NT$50,000的員工培訓費和NT$30,000的資料整理費。這個案例最能說明成本效益分析（CBA）中的什麼概念？"
-  options:
-    a: "隱性成本（Hidden Costs）遠超顯性成本"
-    b: "API費用是AI導入中最需要控制的主要成本項目"
-    c: "只要選擇開源模型就能大幅降低這些額外支出"
-    d: "培訓與資料整理屬於一次性投入，長期不影響總體成本"
-  correct: "a"
-  explanation:
-    why_correct: "API費用（NT$3,000/月）是容易看到的顯性成本，但培訓費和資料整理費合計NT$80,000才是真正的大宗——這正是隱性成本遠超顯性成本的典型案例。識別隱性成本是CBA的關鍵能力。"
-    why_not_b: "這是最常見的誤判——學生看到API費用是最明顯的數字就以為它是大頭，但實際上API僅佔總成本的極小比例（產業調查為5-15%）。識別「顯性成本不等於主要成本」是隱性成本分析的核心。"
-    why_not_c: "開源模型免去了授權費，但員工培訓、資料整理、系統整合等隱性成本依然存在甚至更高（因為開源模型需要更多技術人力來部署和維護）。學生容易誤以為「免費模型=低總成本」。"
-    why_not_d: "培訓需要隨工具更新而重複投入，資料整理更是持續性工作（新資料不斷產生）。將這些歸為「一次性」是低估隱性成本的典型思維陷阱。"
-  keywords:
-    - "隱性成本"
-    - "hidden costs"
-    - "CBA"
-  exam_trap: false
+  # ─────────────────────────────────────────────────────────────────────────
+  # D3 — Apply（應用）| 11 questions
+  # ─────────────────────────────────────────────────────────────────────────
 
-- id: "L12301-Q21"
-  topic_code: "L12301"
-  item_code: "L12301-agent"
-  difficulty: 3
-  question: "某電商公司希望AI能自動處理退貨流程：接收客戶退貨申請→查詢訂單資料庫→判斷是否符合退貨條件→自動發送處理結果郵件。最適合採用的AI方案是什麼？"
-  options:
-    a: "使用ChatGPT直接生成退貨通知信"
-    b: "使用傳統規則引擎（Rule Engine）處理所有退貨"
-    c: "部署AI代理（AI Agent）串接訂單系統與郵件系統"
-    d: "聘請更多客服人員手動處理"
-  correct: "c"
-  explanation:
-    why_correct: "此流程需要多步驟自主執行（接收→查詢→判斷→發送），且需要呼叫外部工具（訂單資料庫、郵件系統），這正是AI代理的典型應用場景。"
-    why_not_a: "ChatGPT是單次提示工具，無法自主串接資料庫查詢和發送郵件，只能生成文字內容。"
-    why_not_b: "傳統規則引擎只能處理預定義的固定規則，無法應對多樣化的客戶退貨描述和例外情況。"
-    why_not_d: "手動處理不具擴展性且成本高，在有合適AI方案的情況下不是最佳選擇。"
-  keywords:
-    - "AI代理"
-    - "AI Agent"
-    - "tool-calling"
-    - "多步驟任務"
-  exam_trap: false
+  - id: L12301-Q20
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 3
+    bloom: apply
+    question: "某公司完成了AI客服系統的POC測試，結果顯示準確率達到目標。下一步應該做什麼？"
+    options:
+      a: "立即全面上線，因為POC已經驗證成功"
+      b: "重新進入構想階段重新評估需求"
+      c: "進入實施階段，規劃部署策略和KPI追蹤"
+      d: "重新選擇其他AI工具再做一次POC"
+    correct: c
+    explanation:
+      why_correct: "POC成功後，按照四階段框架，下一步應進入第四階段「實施（Implementation）」，包括規劃部署策略、員工培訓計畫、建立KPI追蹤機制，然後才正式全面上線。"
+      why_not_a: "POC通過≠可以立即全面上線。實施階段還需要規劃部署、培訓員工、建立監控機制。"
+      why_not_b: "重新進入構想階段是在當前路線失敗時才需要的，POC成功後不應退回第一階段。"
+      why_not_d: "POC成功意味著方案可行，不需要重新換工具再測試。"
+    keywords: ["POC", "實施階段", "四階段框架", "部署策略"]
+    exam_trap: true
 
-- id: "L12301-Q22"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 3
-  question: "一家會計事務所需要AI協助審閱合約文件，資料高度機密。在選擇AI解決方案時，下列哪一個考量應列為最高優先？"
-  options:
-    a: "AI模型的生成文字品質"
-    b: "方案的訂閱價格"
-    c: "方案的資料隱私與合規性（Data Privacy & Compliance）"
-    d: "AI模型的多語言支援能力"
-  correct: "c"
-  explanation:
-    why_correct: "會計事務所處理高度機密的合約文件，資料隱私與合規性必須是最高優先——資料外洩的風險遠大於其他考量。"
-    why_not_a: "文字品質重要但次於資料安全，如果資料因隱私問題外洩，生成品質再好也無意義。"
-    why_not_b: "價格是考量因素之一，但在高度機密場景中，資料安全優先於成本考量。"
-    why_not_d: "多語言支援在此場景中不是核心需求，合約審閱主要需要精準理解而非多語言。"
-  keywords:
-    - "解決方案選擇"
-    - "data privacy"
-    - "合規性"
-  exam_trap: false
+  - id: L12301-Q21
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 3
+    bloom: apply
+    question: "一家製造業想導入AI預測維修系統，IT部門確認伺服器算力足夠，但製程資料分散在15個不同系統且格式不統一。這個問題屬於哪個評估維度？"
+    options:
+      a: "工具評估：員工尚未接受工具操作培訓"
+      b: "模型評估：模型準確率未知"
+      c: "效能評估：ROI尚未確認"
+      d: "技術評估：資料品質不足"
+    correct: d
+    explanation:
+      why_correct: "資料分散且格式不統一是典型的「資料品質（Data Quality）」問題，屬於技術評估的範疇。技術評估包含基礎設施、API整合、資料品質三個面向，不只是硬體設備。"
+      why_not_a: "員工培訓問題屬於工具評估（人員適配）；題目的核心問題是資料格式不統一，不是人員問題。"
+      why_not_b: "模型準確率未知是模型評估的問題；但題目問的是資料品質問題，這在評估初期就已存在。"
+      why_not_c: "ROI屬於效能評估，且是導入後才能評估的指標；題目問的是資料整備問題。"
+    keywords: ["技術面", "資料品質", "Data Quality", "技術評估"]
+    exam_trap: true
 
-- id: "L12301-Q23"
-  topic_code: "L12301"
-  item_code: "L12301-perf"
-  difficulty: 3
-  question: "某銀行導入AI客服後，想要進行效能評估。下列哪一組指標最適合用來衡量AI導入前後的績效變化？"
-  options:
-    a: "AI模型的參數量與訓練時長"
-    b: "銀行股價變動與市值成長"
-    c: "AI系統的GPU使用率與記憶體佔用"
-    d: "客戶平均等待時間縮短比例與首次解決率提升幅度"
-  correct: "d"
-  explanation:
-    why_correct: "效能評估聚焦於業務KPI的前後比較，客戶等待時間和首次解決率直接反映客服品質的改善，是最適合的量化指標。"
-    why_not_a: "參數量與訓練時長是模型本身的技術規格，不是衡量業務效能的指標。"
-    why_not_b: "股價受太多外部因素影響，無法直接歸因於AI導入的效果，不是有效的效能指標。"
-    why_not_c: "GPU使用率是技術基礎設施的指標，不是業務效能的衡量標準。"
-  keywords:
-    - "效能評估"
-    - "KPI"
-    - "客戶服務"
-  exam_trap: false
+  - id: L12301-Q22
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 3
+    bloom: apply
+    question: "一家10人新創公司想快速導入AI客服提升效率，但沒有AI工程師且資金有限，最適合的方案是什麼？"
+    options:
+      a: "自建（Build）專屬AI客服系統"
+      b: "訂閱SaaS客服AI工具先快速上線"
+      c: "委外購買（Buy）中型企業AI客服軟體"
+      d: "暫時不導入，等公司規模更大再考慮"
+    correct: b
+    explanation:
+      why_correct: "SaaS（訂閱制）最適合這個情境：①快速上線（符合新創需求）②初期成本最低（符合資金有限條件）③無需AI工程師（符合沒有開發能力）④可先驗證價值再加碼投資。"
+      why_not_a: "Build需要AI工程師和大量初期投資，與公司條件完全不符。"
+      why_not_c: "購買中型企業軟體通常費用較高且包含許多用不到的功能，對10人新創不划算。"
+      why_not_d: "等待是不必要的，SaaS方案現在就能以低成本低風險方式驗證AI的價值。"
+    keywords: ["SaaS", "新創公司", "快速上線", "預算有限"]
+    exam_trap: false
 
-- id: "L12301-Q24"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 3
-  question: "某製造業公司已完成AI需求分析並確認要用AI優化品質檢測流程，現在正在定義成功指標和所需資料。根據《AI導入指引》框架，該公司正處於哪一個階段？"
-  options:
-    a: "構想評估"
-    b: "方案設計"
-    c: "驗證/POC"
-    d: "實施/營運"
-  correct: "b"
-  explanation:
-    why_correct: "已確認應用領域、正在定義KPI和規劃資料需求，這是典型的「方案設計」階段工作——在構想評估之後、POC之前。"
-    why_not_a: "構想評估是在更前期「探索哪些業務適合用AI」，該公司已經過了這個階段。"
-    why_not_c: "驗證/POC需要先完成方案設計，才會進入模型開發與概念驗證。"
-    why_not_d: "實施/營運是最後階段，該公司距離正式部署還很遠。"
-  keywords:
-    - "方案設計"
-    - "AI導入指引"
-    - "KPI"
-  exam_trap: true
+  - id: L12301-Q23
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 3
+    bloom: apply
+    question: "某公司在構想評估階段發現，原本的客服問題其實只是「FAQ整理不完整」，而非需要AI才能解決。此時應該怎麼做？"
+    options:
+      a: "繼續推進到方案設計，選一個最便宜的AI工具"
+      b: "放棄這個場景，改善FAQ系統即可，不需導入AI"
+      c: "跳過驗證直接實施，因為問題已經很清楚"
+      d: "先做POC測試AI的效果，再決定是否繼續"
+    correct: b
+    explanation:
+      why_correct: "構想評估的核心判斷之一是「這個問題是否真的需要AI解決？」如果改善FAQ就能解決，就不需要導入AI。《AI導入指引》明確指出：不是每個問題都需要AI，避免為了用AI而用AI。"
+      why_not_a: "繼續推進但選便宜工具，仍然是在解決一個不需要AI的問題，屬於資源浪費。"
+      why_not_c: "跳過驗證違反四階段循序漸進的原則，且問題本身就不需要AI。"
+      why_not_d: "做POC仍然是在浪費資源解決一個不需要AI的問題。正確做法是在構想階段就篩掉不適合的場景。"
+    keywords: ["構想評估", "不需要AI", "場景篩選"]
+    exam_trap: false
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L12301-Q24
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 3
+    bloom: apply
+    question: "HR部門想用AI系統自動完成以下流程：掃描履歷→評分排名→安排面試時間→發送邀請信件。這個需求最適合哪種AI形式？"
+    options:
+      a: "一般GenAI工具（例如ChatGPT），依序用提示完成每個步驟"
+      b: "AI Agent，自主執行多步驟跨系統整合的招聘流程"
+      c: "傳統RPA（機器人流程自動化），不需要AI"
+      d: "Excel巨集搭配模板，即可自動化"
+    correct: b
+    explanation:
+      why_correct: "掃描→評分→安排時間→發信這四個步驟需要跨系統（履歷系統、行事曆系統、Email系統）、多步驟、自主決策的能力，這正是AI Agent的核心應用場景。"
+      why_not_a: "一般GenAI工具需要人工在每個步驟輸入提示，無法自主跨系統執行。用ChatGPT需要HR人員一步步手動操作，不是「自動完成」。"
+      why_not_c: "RPA可以處理規則型流程，但無法處理履歷評分等需要AI判斷的任務。"
+      why_not_d: "Excel巨集無法整合外部系統（如Email、行事曆），且無法進行自然語言的履歷評分。"
+    keywords: ["AI Agent", "多步驟", "跨系統整合", "自主執行"]
+    exam_trap: false
 
-- id: "L12301-Q25"
-  topic_code: "L12301"
-  item_code: "L12301-tech"
-  difficulty: 4
-  question: "技術評估（Technical Assessment）與模型評估（Model Evaluation）都涉及「能否支援AI運作」的判斷，兩者的關鍵差異為何？"
-  options:
-    a: "技術評估關注企業端基礎設施，模型評估關注AI模型本身的性能表現"
-    b: "技術評估只看硬體，模型評估只看軟體"
-    c: "技術評估在POC之後進行，模型評估在POC之前進行"
-    d: "技術評估由IT部門負責，模型評估由業務部門負責"
-  correct: "a"
-  explanation:
-    why_correct: "技術評估檢視「企業端」的基礎設施（算力、網路、資料環境等能否支援AI），模型評估則檢視「AI模型本身」的性能（準確率、延遲、成本等是否符合需求），兩者觀察的對象不同。"
-    why_not_b: "技術評估不僅看硬體，也看資料環境和人才；模型評估也涉及硬體需求（如模型對GPU的要求）。過度簡化的二分法不正確。"
-    why_not_c: "兩者的時序沒有固定的先後關係，可以並行或在同一階段進行。"
-    why_not_d: "雖然職責分工可能如此，但這不是兩種評估的「關鍵差異」，核心差異在於評估對象不同。"
-  keywords:
-    - "技術評估"
-    - "模型評估"
-    - "評估差異"
-  exam_trap: false
+  - id: L12301-Q25
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 3
+    bloom: apply
+    question: "公司規劃導入AI文件生成系統，預估API費用每月 NT$20,000，請問這份成本估算是否完整？"
+    options:
+      a: "完整，API費用就是主要成本"
+      b: "不完整，隱藏成本（培訓、整合、維護等）遠大於API費用"
+      c: "不完整，還需要加入顯性成本中的硬體費用"
+      d: "完整，其他成本屬於IT基礎設施成本，不算在導入成本內"
+    correct: b
+    explanation:
+      why_correct: "只計算API費用的成本估算是嚴重不完整的。根據TCO框架，API費用只佔5–15%，還需加入整合開發費、員工培訓費、流程改造成本、持續維護費、資料治理成本等隱藏成本，這些才是真正的大頭。"
+      why_not_a: "API費用只是顯性成本的一部分，且只佔TCO的5–15%，遠非「主要成本」。"
+      why_not_c: "硬體費用確實需要納入，但最大的缺漏是整合開發、培訓等隱藏成本，而非硬體。"
+      why_not_d: "IT基礎設施成本（整合開發、系統維護）應該納入AI導入的TCO估算中，不能分開計算。"
+    keywords: ["成本估算", "隱藏成本", "TCO", "API費用"]
+    exam_trap: true
 
-- id: "L12301-Q26"
-  topic_code: "L12301"
-  item_code: "L12301-cba"
-  difficulty: 4
-  question: "根據產業調查，生成式AI導入的平均投資報酬率（ROI）為3.7倍，但僅約6%的企業能將5%以上的稅前利潤歸因於AI。這個落差最可能的原因是什麼？"
-  options:
-    a: "大多數企業的AI模型準確率不足"
-    b: "多數企業低估了隱性成本，或未能將AI應用擴展至關鍵業務流程"
-    c: "生成式AI技術本身不夠成熟"
-    d: "台灣企業的AI預算普遍不足"
-  correct: "b"
-  explanation:
-    why_correct: "ROI數據高但實際利潤貢獻低，說明多數企業在導入過程中遇到隱性成本（人才、資料治理等）超出預期，或AI只應用在邊緣業務未觸及核心流程，導致整體效益不彰。"
-    why_not_a: "模型準確率已相當成熟，問題不在技術性能而在導入策略與成本控制。"
-    why_not_c: "3.7倍ROI證明技術本身是有效的，問題在於企業導入和運營的過程。"
-    why_not_d: "預算不足是表面原因，根本原因是企業對隱性成本的認知不足和應用場景的選擇不當。"
-  keywords:
-    - "ROI"
-    - "隱性成本"
-    - "成本效益分析"
-  exam_trap: false
+  - id: L12301-Q26
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 3
+    bloom: apply
+    question: "電商公司導入AI推薦系統六個月後，電商主管想了解這套系統是否值得繼續投資。應進行哪種評估？"
+    options:
+      a: "技術面評估：確認伺服器效能是否足夠"
+      b: "工具評估：了解員工是否已習慣新工具介面"
+      c: "模型評估：重新比較市場上的推薦模型"
+      d: "效能評估：分析導入後的銷售成長、點擊率、轉換率"
+    correct: d
+    explanation:
+      why_correct: "「系統是否值得繼續投資」是效能評估的核心問題，且題目強調「導入六個月後」，這是導入後才能做的評估。評估指標應包含業務KPI（銷售成長、轉換率等）。"
+      why_not_a: "技術評估應在導入前確認基礎設施是否足夠，導入六個月後重做技術評估不是正確時機。"
+      why_not_b: "工具評估關注工具使用介面與人員適配問題，不是「是否值得繼續投資」的核心問題。"
+      why_not_c: "重新比較模型屬於再次做模型評估，但主管的問題是「有沒有帶來效益」，應先做效能評估。"
+    keywords: ["效能評估", "導入後", "ROI", "KPI追蹤"]
+    exam_trap: false
 
-- id: "L12301-Q27"
-  topic_code: "L12301"
-  item_code: "L12301-agent"
-  difficulty: 4
-  question: "比較AI代理（AI Agent）和傳統規則引擎（Rule Engine），在處理客戶退貨這個場景中，AI代理的最大優勢是什麼？"
-  options:
-    a: "AI代理在所有退貨量級下的單筆處理成本都低於規則引擎"
-    b: "AI代理不需要任何外部系統整合"
-    c: "AI代理能處理規則引擎無法預先定義的非典型退貨情境"
-    d: "AI代理的處理速度一定比規則引擎快"
-  correct: "c"
-  explanation:
-    why_correct: "規則引擎只能處理預先定義的固定規則，遇到非典型情境（如客戶描述模糊、多重退貨原因交叉）就無法應對。AI代理藉由LLM的推理能力，能理解並處理未預見的複雜情境。"
-    why_not_a: "在大量標準化退貨場景中，規則引擎的單筆處理成本極低（純邏輯運算），而AI代理每筆都需LLM推論+API呼叫。AI代理的成本優勢要在複雜例外情境（需人工介入的case減少）才會顯現，並非所有量級都更便宜。"
-    why_not_b: "AI代理恰恰需要整合外部系統（資料庫、郵件等），tool-calling是其核心能力。"
-    why_not_d: "規則引擎處理固定規則的速度通常比AI代理的多步驟推理更快，速度不是AI代理的優勢。"
-  keywords:
-    - "AI代理"
-    - "規則引擎"
-    - "非典型情境"
-  exam_trap: true
+  - id: L12301-Q27
+    topic_code: L12301
+    subtopic: kpi-design
+    difficulty: 3
+    bloom: apply
+    question: "某團隊在POC前定義了成功標準：「準確率 ≥ 90%（量化標準）且員工回饋正面（質化標準），若六週後未達標則停止（退出標準）」。這個設計的主要目的是什麼？"
+    options:
+      a: "確保AI系統能達到市場上最高的準確率"
+      b: "防止POC無限延伸、明確定義通過和停止條件"
+      c: "向供應商展示公司有清楚的技術要求"
+      d: "滿足《AI導入指引》對文件格式的規定"
+    correct: b
+    explanation:
+      why_correct: "提前定義量化標準、質化標準、Exit Criteria的目的是：①明確「達到什麼叫成功」②明確「達不到什麼就應該停止」③防止POC因為邊界不清而無限延伸，消耗資源。"
+      why_not_a: "目標不是「市場最高」，而是「符合業務需求」。定義成功標準是為了有清楚的決策依據，不是追求極致準確率。"
+      why_not_c: "這個設計的主要目的是內部決策清晰，而非向外部供應商展示。"
+      why_not_d: "《AI導入指引》沒有規定具體的文件格式要求，定義成功標準是最佳實踐，不是規定。"
+    keywords: ["POC成功標準", "Exit Criteria", "量化標準", "質化標準"]
+    exam_trap: false
 
-- id: "L12301-Q28"
-  topic_code: "L12301"
-  item_code: "L12301-tool"
-  difficulty: 4
-  question: "在工具評估中，一家公司正在比較自建（On-Premise）模型部署與雲端API服務。下列哪一項分析最為準確？"
-  options:
-    a: "自建部署適合資料安全要求極高的場景，雲端API適合快速部署且規模彈性需求大的場景"
-    b: "雲端API在資料隱私保護方面一定優於自建部署"
-    c: "自建部署的初始成本低但長期成本高"
-    d: "雲端API的客製化程度受限於供應商提供的微調選項，自建部署則需要投入更多工程資源來實現同等彈性"
-  correct: "a"
-  explanation:
-    why_correct: "自建部署讓資料留在企業內部，適合高安全需求；雲端API免去基礎設施建置，適合快速啟用且需要彈性擴縮的場景。兩者各有適用情境。"
-    why_not_b: "不一定——雲端服務商的資料可能經過多方傳輸，自建部署的資料完全不出企業反而隱私保護更強。"
-    why_not_c: "事實相反——自建部署的初始成本通常較高（需購買硬體、招聘人才），但長期在大量使用下可能更經濟。"
-    why_not_d: "這個描述雖然部分正確，但將選擇簡化為「客製化程度」的單一維度。實際決策的關鍵差異是「資料控制權與部署彈性」——自建部署讓資料留在企業內部且可彈性擴縮，雲端API的核心優勢是快速啟用和低前期成本，客製化只是次要考量。"
-  keywords:
-    - "工具評估"
-    - "on-premise"
-    - "雲端API"
-    - "部署策略"
-  exam_trap: false
+  - id: L12301-Q28
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 3
+    bloom: apply
+    question: "一家傳統零售商想導入AI銷售預測，但對AI技術不熟悉，需求功能相對標準，主要考量是「快速看到效果」。建議的方案是什麼，理由為何？"
+    options:
+      a: "Build：自建能確保系統完全符合需求"
+      b: "Buy：購買現成軟體兼顧功能與客製化"
+      c: "SaaS：快速上線，先驗證AI帶來的價值再考慮深化"
+      d: "不導入AI，傳統統計方法就足夠"
+    correct: c
+    explanation:
+      why_correct: "SaaS 符合此情境的三個關鍵條件：①無技術能力→不需AI開發團隊②需求標準化→SaaS現成功能即可③快速看到效果→SaaS上線最快。先用SaaS驗證AI銷售預測的價值，若有效再評估是否升級。"
+      why_not_a: "Build需要AI工程師和長期開發時間，無法快速看到效果，與傳統零售商的條件不符。"
+      why_not_b: "Buy適合有一定技術能力且需要中度客製化的組織；對技術不熟悉且需求標準的公司，SaaS更快速。"
+      why_not_d: "題目已說明想導入AI，不導入不是選項；且AI銷售預測確實能比傳統統計方法更準確處理複雜因素。"
+    keywords: ["SaaS", "快速驗證", "技術門檻", "標準需求"]
+    exam_trap: false
 
-- id: "L12301-Q29"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 4
-  question: "一家公司有兩個AI解決方案可選：方案A功能強大但需要6個月部署時間和大量客製化，方案B功能較基本但可在2週內上線且支援漸進式擴充。在初次導入AI的情境下，下列哪一項分析最為合理？"
-  options:
-    a: "應選方案A，因為功能越強大，長期ROI越高"
-    b: "應選方案B，因為初次導入應以快速驗證為優先"
-    c: "應同時導入兩個方案進行比較測試"
-    d: "應等到有更好的方案出現再導入"
-  correct: "b"
-  explanation:
-    why_correct: "初次導入AI的企業應優先快速驗證（POC精神），用較低風險的方案先確認AI能帶來價值，再逐步擴展。方案B的快速上線和漸進式擴充完全符合這個原則。"
-    why_not_a: "功能強大不等於ROI高——6個月的部署時間代表高風險，且初次導入的企業缺乏經驗來充分利用複雜功能。"
-    why_not_c: "同時導入兩方案會大幅增加複雜度和成本，對初次導入的企業來說資源負擔過重。"
-    why_not_d: "等待更好方案是常見的拖延陷阱，AI技術持續演進永遠會有更新的，重點是先驗證價值。"
-  keywords:
-    - "解決方案選擇"
-    - "POC"
-    - "漸進式導入"
-  exam_trap: false
+  - id: L12301-Q29
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 3
+    bloom: apply
+    question: "方案設計階段結束後，哪個活動標誌著進入驗證階段？"
+    options:
+      a: "選定AI供應商並簽署合約"
+      b: "全公司員工完成AI工具培訓"
+      c: "啟動小規模POC測試，設定成功標準"
+      d: "完成AI系統的完整功能開發"
+    correct: c
+    explanation:
+      why_correct: "「啟動POC測試並設定成功標準」標誌著進入第三階段（驗證）。方案設計（第二階段）完成後，應立即進入小規模概念驗證，而非直接全面開發或培訓所有員工。"
+      why_not_a: "選定供應商是方案設計階段的產出之一，不標誌進入驗證階段。"
+      why_not_b: "全員培訓是實施階段的活動，在驗證通過前就全員培訓是本末倒置。"
+      why_not_d: "完整功能開發是實施階段的任務，先完整開發再驗證違反循序漸進原則。"
+    keywords: ["驗證階段", "POC啟動", "方案設計", "循序漸進"]
+    exam_trap: false
 
-- id: "L12301-Q30"
-  topic_code: "L12301"
-  item_code: "L12301-perf"
-  difficulty: 4
-  question: "在效能評估中，某企業發現AI客服導入後「平均回應時間」大幅縮短，但「客戶滿意度」反而下降。最可能的分析結論是什麼？"
-  options:
-    a: "AI客服系統的硬體效能不足"
-    b: "效能評估只需看回應時間，滿意度不重要"
-    c: "速度提升但回覆品質下降，顯示需要同時監控效率指標與品質指標"
-    d: "應立即停止使用AI客服並恢復人工服務"
-  correct: "c"
-  explanation:
-    why_correct: "這是效能評估的經典陷阱——單一指標改善不代表整體成功。速度快但回覆不精準會降低滿意度，說明效能評估必須同時涵蓋效率指標（速度）和品質指標（滿意度、準確率）。"
-    why_not_a: "硬體效能不足會導致回應時間變長，但題目說時間縮短了，問題不在硬體。"
-    why_not_b: "只看單一指標是效能評估的常見錯誤，客戶滿意度是衡量服務品質的核心指標。"
-    why_not_d: "立即全面停用過於極端，正確做法是找出品質下降的原因並調整，而非直接放棄。"
-  keywords:
-    - "效能評估"
-    - "KPI"
-    - "多維度評估"
-  exam_trap: true
+  - id: L12301-Q30
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 3
+    bloom: apply
+    question: "客服主管說：「我們要的AI系統，客服問一個問題就給一個回答就好，不需要AI自己主動做事。」這個需求符合哪種AI形式？"
+    options:
+      a: "AI Agent：有記憶功能，回答更準確"
+      b: "一般GenAI工具：一問一答的單次回應模式"
+      c: "AI Agent：能快速回覆，效率更高"
+      d: "一般GenAI工具：因為成本比AI Agent低"
+    correct: b
+    explanation:
+      why_correct: "「問一個問題就給一個回答」是典型的一問一答單次回應模式，符合一般GenAI工具的使用方式。不需要多步驟自主執行，不需要工具呼叫，一般GenAI工具就足夠，而且成本也較低。"
+      why_not_a: "選AI Agent但理由是「記憶功能準確」是錯的——需求不需要多步驟，選AI Agent是過度設計。"
+      why_not_c: "選AI Agent但理由是「效率更高」——對於單次問答場景，一般GenAI工具更直接高效，AI Agent的多步驟能力用不上。"
+      why_not_d: "D的答案（一般GenAI工具）是對的，但理由「因為成本低」只是附帶優點，不是最主要的選擇依據；主要依據應是需求匹配（一問一答的使用模式）。"
+    keywords: ["一般GenAI工具", "一問一答", "使用模式", "AI Agent"]
+    exam_trap: false
 
-- id: "L12301-Q31"
-  topic_code: "L12301"
-  item_code: "L12301-model"
-  difficulty: 4
-  question: "在模型評估中，一家公司需要在「高準確率但高延遲的大型模型」和「中等準確率但低延遲的小型模型」之間做選擇。下列哪一項分析原則最為正確？"
-  options:
-    a: "永遠選擇準確率最高的模型"
-    b: "永遠選擇延遲最低的模型"
-    c: "兩個模型都不選，等待既準確又快速的模型出現"
-    d: "應根據應用場景的優先需求決定——即時互動場景優先延遲，分析報告場景優先準確率"
-  correct: "d"
-  explanation:
-    why_correct: "模型選擇沒有絕對的最佳解，必須根據應用場景的優先需求權衡。客服即時對話需要低延遲，研究報告生成需要高準確率——場景決定取捨。"
-    why_not_a: "準確率優先不適用於所有場景，客戶在線等待的客服場景中，過高延遲會導致糟糕的使用體驗。"
-    why_not_b: "延遲優先也不適用於所有場景，醫療或法律文件生成中準確率比速度重要得多。"
-    why_not_c: "等待完美方案是常見的決策拖延，且準確率與延遲之間的取捨是模型設計的固有限制。"
-  keywords:
-    - "模型評估"
-    - "準確率"
-    - "延遲"
-    - "trade-off"
-  exam_trap: false
+  # ─────────────────────────────────────────────────────────────────────────
+  # D4 — Analyze（分析）| 6 questions
+  # ─────────────────────────────────────────────────────────────────────────
 
-- id: "L12301-Q32"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 4
-  question: "在《AI導入指引》的「驗證/POC」階段，下列哪一項是POC（概念驗證）的最核心目的？"
-  options:
-    a: "訓練出最終上線使用的正式模型"
-    b: "以最小範圍驗證AI方案是否能產生預期的業務價值"
-    c: "完成全公司員工的AI工具培訓"
-    d: "建立完整的AI治理框架與政策"
-  correct: "b"
-  explanation:
-    why_correct: "POC的核心目的是用最小成本和範圍（小規模試驗）來驗證AI方案能否產生預期的業務價值，降低全面部署的風險。"
-    why_not_a: "POC階段的模型是驗證用的原型，不是最終正式版本。正式模型的開發與優化在確認POC成功後才進行。"
-    why_not_c: "全員培訓是實施/營運階段的工作，POC只需要小範圍團隊參與。"
-    why_not_d: "AI治理框架是組織層面的長期建設，不是POC的核心目的。"
-  keywords:
-    - "POC"
-    - "概念驗證"
-    - "驗證階段"
-  exam_trap: true
+  - id: L12301-Q31
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 4
+    bloom: analyze
+    question: "某公司導入AI自動審核合約系統。技術評估發現：伺服器夠用、API可整合、但合約文件的命名規則混亂且有50%是掃描PDF無法直接解析。這個發現對導入決策的影響是什麼？"
+    options:
+      a: "可以繼續，資料品質問題在實施階段再處理即可"
+      b: "需要先解決資料品質問題，再推進到方案設計階段"
+      c: "建議換成AI Agent，因為它能處理非結構化資料"
+      d: "立即否定這個場景，AI無法處理非結構化資料"
+    correct: b
+    explanation:
+      why_correct: "資料品質問題（50%無法解析的掃描PDF）是技術面評估發現的重大障礙，應在進入下一階段前先處理。否則在POC或實施時才發現資料問題，浪費的成本更大。這體現了四階段「循序漸進、問題早發現」的價值。"
+      why_not_a: "「留到實施階段處理」是成本最高的做法——越晚發現問題、修正成本越高。資料問題應盡早解決。"
+      why_not_c: "AI Agent的設計初衷不是解決資料格式問題，這是資料治理問題，需要在導入前整理。"
+      why_not_d: "不需要立即否定整個場景——AI可以處理非結構化資料，但需要先進行資料預處理（OCR、格式統一）。"
+    keywords: ["技術面", "資料品質", "非結構化資料", "循序漸進"]
+    exam_trap: true
 
-# ============================================================
-# Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造)
-# ============================================================
+  - id: L12301-Q32
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 4
+    bloom: analyze
+    question: "以下四種情境，哪一種最適合選擇「Buy（購買授權）」而非Build或SaaS？"
+    options:
+      a: "公司希望AI系統能完全整合專有演算法且不依賴任何外部服務"
+      b: "標準化的倉儲管理需求，需要少量客製化欄位，3個月內上線"
+      c: "新事業，尚不確定AI客服是否值得投資，想用最低成本先測試"
+      d: "需要處理政府機密資料，系統必須完全在私有伺服器內運行"
+    correct: b
+    explanation:
+      why_correct: "「標準化需求 + 少量客製化 + 有時間壓力」是Buy（購買授權）的典型情境：功能需求標準（不適合SaaS的全標準、也不需要Build的全客製），有少量客製化需求（比SaaS靈活、比Build快速），3個月上線有可行性。"
+      why_not_a: "「完全整合專有演算法且不依賴外部服務」是Build的典型場景，需要高度客製和掌控。"
+      why_not_c: "「不確定是否值得投資，用最低成本先測試」是SaaS的典型場景，需要快速低成本驗證。"
+      why_not_d: "「機密資料 + 必須在私有伺服器」是Build（私有部署）的場景，資料主權是最高優先級。"
+    keywords: ["Buy", "購買授權", "標準化", "客製化程度"]
+    exam_trap: false
 
-- id: "L12301-Q33"
-  topic_code: "L12301"
-  item_code: "L12301-cba"
-  difficulty: 5
-  question: "某公司正在進行生成式AI翻譯系統的成本效益分析（CBA），面臨以下情境：帳面ROI為正，但隱性成本項目（資料治理、員工培訓、系統維護）尚未完全量化，且部門主管急於全面部署。下列哪一項CBA決策原則最為合理？"
-  options:
-    a: "帳面ROI為正即可全面部署，隱性成本可在營運後逐步釐清"
-    b: "應先完成隱性成本的量化評估，建立持續性成本的追蹤機制，再決定部署規模"
-    c: "隱性成本無法準確預估，因此CBA對AI專案沒有實質參考價值"
-    d: "只要API呼叫費用可控，其他成本項目對整體ROI影響不大"
-  correct: "b"
-  explanation:
-    why_correct: "CBA的核心價值在於「完整成本可視化」。帳面ROI為正但隱性成本未量化，代表決策基礎不完整。正確做法是先量化所有隱性成本（資料治理是持續性的、培訓可能需重複投入、系統維護隨規模增長），建立追蹤機制後再決定部署規模，避免全面部署後才發現成本失控。"
-    why_not_a: "學生常因「ROI為正」就判斷可行，但未量化的隱性成本可能在營運後大幅侵蝕帳面效益，這是企業AI導入失敗的最常見原因。"
-    why_not_c: "隱性成本確實難以精確預估，但透過產業基準、POC數據和專家估算仍可建立合理範圍，CBA仍是決策的重要依據。"
-    why_not_d: "根據產業調查，API費用僅佔AI導入總成本的5-15%，人才培訓和資料治理才是大宗——忽略這些會嚴重低估總成本。"
-  keywords:
-    - "成本效益分析"
-    - "ROI"
-    - "隱性成本"
-    - "決策原則"
-  exam_trap: false
+  - id: L12301-Q33
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 4
+    bloom: analyze
+    question: "為什麼說「AI Agent的成本通常高於一般GenAI工具」？"
+    options:
+      a: "AI Agent需要使用更貴的語言模型"
+      b: "AI Agent需要更多的硬體設備"
+      c: "AI Agent的授權費用比SaaS更高"
+      d: "AI Agent需要多次LLM呼叫和工具呼叫，累積的Token和API成本較高"
+    correct: d
+    explanation:
+      why_correct: "AI Agent執行一個任務需要多輪LLM推理（觀察-決策-行動循環多次）加上多次工具呼叫（搜尋、資料庫查詢等），每次都消耗Token和API配額，累積成本遠高於一問一答的單次LLM呼叫。"
+      why_not_a: "AI Agent不一定使用更貴的語言模型，可以用相同的LLM；成本差異來自呼叫次數。"
+      why_not_b: "AI Agent的成本增加主要來自多次LLM和工具呼叫，不是因為硬體需求更高。"
+      why_not_c: "授權費用與Agent架構無關，這是商業模式問題而非技術成本問題。"
+    keywords: ["AI Agent成本", "多次LLM呼叫", "Token成本"]
+    exam_trap: false
 
-- id: "L12301-Q34"
-  topic_code: "L12301"
-  item_code: "L12301-tech"
-  difficulty: 5
-  question: "某金融機構要導入生成式AI進行信用風險分析，面臨三項限制：(1)客戶資料不可離開企業內部、(2)模型推論需在3秒內完成、(3)年度AI預算上限NT$500萬。綜合技術評估與解決方案選擇，最合理的方案是什麼？"
-  options:
-    a: "使用OpenAI最新的GPT模型API，因為性能最好"
-    b: "自建開源模型的本地部署，搭配GPU伺服器以滿足速度需求"
-    c: "先用雲端API做POC測試，確認可行後再考慮本地部署"
-    d: "等待法規放寬後再使用雲端服務"
-  correct: "b"
-  explanation:
-    why_correct: "三項限制環環相扣：資料不可外傳排除了雲端API（限制1）、3秒推論需要本地GPU算力（限制2）、NT$500萬預算足以支撐開源模型+GPU伺服器的初期部署（限制3）。自建開源模型本地部署是唯一同時滿足三項限制的方案。"
-    why_not_a: "使用OpenAI API意味著資料必須傳送到外部雲端，直接違反限制1「資料不可離開企業」。"
-    why_not_c: "雲端API同樣違反限制1，即使是POC測試也不能將敏感客戶資料傳到雲端。"
-    why_not_d: "等待是消極策略，且法規可能長期不變。在現有限制下已有可行方案，不需要等待。"
-  keywords:
-    - "技術評估"
-    - "解決方案選擇"
-    - "本地部署"
-    - "資料安全"
-  exam_trap: false
+  - id: L12301-Q34
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 4
+    bloom: analyze
+    question: "企業在AI導入過程中，「可回到前一階段調整」這個機制的設計理念是什麼？"
+    options:
+      a: "表示四個階段可以自由跳躍，不需要依序執行"
+      b: "代表每個階段必須100%完成後才能前進"
+      c: "允許根據新資訊修正決策，但不允許跳過階段"
+      d: "表示整個流程需要循環執行至少三次"
+    correct: c
+    explanation:
+      why_correct: "「可回到前一階段」的機制設計是為了讓流程具有修正彈性——當後續階段發現問題時（如POC失敗、市場需求改變），可以有序地退回上一個階段重新調整，而不是推倒重來。但依然保持「不能跳過階段」的循序漸進原則。"
+      why_not_a: "「可回到前一階段」不等於「可自由跳躍」——只能往回調整，不能跳過必要的中間階段往前。"
+      why_not_b: "要求100%完成才能前進過於僵化；實際上應在準備充分後推進，若發現問題才回退。"
+      why_not_d: "四階段框架沒有規定必須循環幾次；回退是按需要的，不是固定次數。"
+    keywords: ["循序漸進", "回退機制", "四階段框架"]
+    exam_trap: false
 
-- id: "L12301-Q35"
-  topic_code: "L12301"
-  item_code: "L12301-agent"
-  difficulty: 5
-  question: "某公司同時考慮三種AI方案來處理客戶支援：(1)傳統FAQ聊天機器人、(2)單次提示的生成式AI工具、(3)AI代理（AI Agent）。考量到客戶問題的複雜度高（需跨系統查詢）、準確性要求嚴格、且公司AI治理政策要求所有AI決策必須可追溯。最適合的方案組合為何？"
-  options:
-    a: "僅使用方案3，因為AI代理可以處理一切"
-    b: "僅使用方案2，因為生成式AI已經很強大"
-    c: "三個方案同時部署，讓客戶自行選擇"
-    d: "使用方案1處理簡單FAQ，方案3處理複雜問題，並加入人類審核（HITL）機制確保可追溯性"
-  correct: "d"
-  explanation:
-    why_correct: "分層架構最合理：FAQ機器人處理簡單重複問題（成本低、速度快）、AI代理處理需跨系統查詢的複雜問題（多步驟+工具呼叫）、HITL確保準確性和決策可追溯性。三項需求都被滿足。"
-    why_not_a: "AI代理處理所有問題成本過高，且簡單FAQ不需要多步驟推理。同時，僅靠AI代理無法保證決策可追溯性。"
-    why_not_b: "單次提示工具無法處理需要跨系統查詢的複雜問題，也不具備多步驟自主執行能力。"
-    why_not_c: "讓客戶自選方案會造成混亂的使用體驗，且缺乏統一的治理和追溯機制。"
-  keywords:
-    - "AI代理"
-    - "HITL"
-    - "分層架構"
-    - "AI治理"
-  exam_trap: false
+  - id: L12301-Q35
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 4
+    bloom: analyze
+    question: "一個公司只計算了AI導入的第一年成本，下列哪項分析最能說明這個估算的風險？"
+    options:
+      a: "第一年的API費用通常最高，之後會降低"
+      b: "隱藏成本（維護、更新、擴充）通常在第2至5年才大量發生"
+      c: "第一年只需培訓核心用戶，全員培訓費用可以忽略"
+      d: "AI系統第一年通常不穩定，ROI不具參考價值"
+    correct: b
+    explanation:
+      why_correct: "只看第一年成本的風險在於：隱藏成本通常在系統上線後的第2–5年才大量出現（持續維護費、模型更新費、功能擴充費、新員工培訓費），TCO需要至少3–5年的視角才能準確估算。"
+      why_not_a: "API費用通常隨使用量和功能擴充而成長，不一定第一年最高；此選項方向不正確。"
+      why_not_c: "全員培訓費用是隱藏成本的重要組成，不應忽略。且隨組織擴充和新員工加入，培訓費用會持續發生。"
+      why_not_d: "第一年穩定性是技術問題，不是成本估算風險的核心；ROI評估應在足夠的時間視角下進行，但這不等同於第一年ROI無效。"
+    keywords: ["TCO", "長期成本", "隱藏成本", "5年視角"]
+    exam_trap: false
 
-- id: "L12301-Q36"
-  topic_code: "L12301"
-  item_code: "L12301-model"
-  difficulty: 5
-  question: "某醫療機構需要生成式AI協助醫師撰寫病歷摘要，面臨以下條件：(1)輸出必須高度準確（醫療用途零容錯）、(2)需支援繁體中文醫學術語、(3)推論延遲可接受較長（醫師非即時使用）。在模型評估時，下列哪一項策略最為合理？"
-  options:
-    a: "選擇推論速度最快的小型模型以降低成本"
-    b: "選擇參數量最大的通用模型，因為參數越多越準確"
-    c: "選擇在醫療領域經過微調的模型，並搭配RAG系統引用最新醫學文獻"
-    d: "直接使用免費開源模型，因為醫療資料不應傳送到商業API"
-  correct: "c"
-  explanation:
-    why_correct: "醫療場景要求高準確率（條件1），領域微調模型比通用模型更能掌握醫學術語（條件2），RAG引用文獻進一步確保資訊正確性。延遲可接受較長（條件3）表示不需要犧牲品質換速度。三個條件都被最佳化地滿足。"
-    why_not_a: "小型快速模型在醫療術語的理解和準確率上通常不如大型或領域微調模型，且題目說延遲可接受較長，不需要優先速度。"
-    why_not_b: "參數量大不等於準確率高，通用模型在專業醫學術語上可能不如經過微調的較小模型。"
-    why_not_d: "免費開源不等於最適合，且「資料不應傳送到商業API」是個假前提——可以用合規的商業API或本地部署的商業模型。"
-  keywords:
-    - "模型評估"
-    - "醫療AI"
-    - "微調"
-    - "RAG"
-  exam_trap: false
+  - id: L12301-Q36
+    topic_code: L12301
+    subtopic: four-dimensions
+    difficulty: 4
+    bloom: analyze
+    question: "一家公司同時發現：技術評估沒有問題、但工具評估的員工接受度很低。在這種情況下，導入計畫應如何調整？"
+    options:
+      a: "工具評估的問題必須解決，否則即使技術可行也會導入失敗"
+      b: "只要技術可行就繼續推進，員工接受度可以在實施後強制要求"
+      c: "員工問題不重要，以技術可行性為優先"
+      d: "降低AI功能範圍，只保留不需要員工操作的部分"
+    correct: a
+    explanation:
+      why_correct: "四大評估維度需要全面通過，不能只看技術評估。工具評估（使用者介面與人員適配）若出現紅燈，即使技術完全可行，實際導入後員工不使用或抵制使用，AI系統等同白費。必須在進入實施前解決員工接受度問題。"
+      why_not_b: "強制要求員工接受是錯誤做法，會產生抵抗並影響導入效果。工作流程問題應在導入前解決。"
+      why_not_c: "四大評估維度是並列重要的，忽視工具評估中的人員適配是常見的導入失敗原因。"
+      why_not_d: "降低功能範圍是治標不治本；應解決根本的員工接受度問題（說明理由、培訓、納入員工參與設計）。"
+    keywords: ["工具評估", "員工接受度", "四大評估維度", "導入失敗"]
+    exam_trap: true
 
-- id: "L12301-Q37"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 5
-  question: "某企業已完成AI客服的POC驗證，結果顯示客戶滿意度提升15%但成本高於預期30%。根據《AI導入指引》框架精神，最合理的下一步是什麼？"
-  options:
-    a: "POC結果正向就直接全面部署，成本問題之後再處理"
-    b: "立即放棄此AI方案，因為成本超出預期"
-    c: "維持現有POC規模不擴大也不縮小"
-    d: "回到方案設計階段，優化成本結構後再進行第二輪POC驗證"
-  correct: "d"
-  explanation:
-    why_correct: "《AI導入指引》的階段框架允許迭代——POC結果有正面（滿意度提升）也有問題（成本超支），正確做法是回到方案設計重新優化成本結構，再做一輪POC驗證，而非貿然全面部署或直接放棄。"
-    why_not_a: "忽略成本問題直接部署會放大超支問題到全公司規模，風險極高。"
-    why_not_b: "效益面是正向的（滿意度+15%），直接放棄浪費了POC的投資和成果，應嘗試優化成本而非放棄。"
-    why_not_c: "維持現狀不是最合理的進展路徑，POC的目的是為全面部署做準備，需要解決問題後推進。"
-  keywords:
-    - "POC"
-    - "AI導入指引"
-    - "迭代"
-    - "成本優化"
-  exam_trap: false
+  # ─────────────────────────────────────────────────────────────────────────
+  # D5 — Evaluate/Create（評估/創造）| 4 questions
+  # ─────────────────────────────────────────────────────────────────────────
 
-- id: "L12301-Q38"
-  topic_code: "L12301"
-  item_code: "L12301-perf"
-  difficulty: 5
-  question: "某製造業公司導入AI品質檢測系統後，瑕疵檢出率（Defect Detection Rate）從85%提升至97%，但誤報率（False Positive Rate）也從2%增加到12%。綜合效能評估，下列哪一項判斷最為合理？"
-  options:
-    a: "檢出率提升就是成功，誤報率增加是可接受的代價"
-    b: "應立即降低AI的敏感度以減少誤報"
-    c: "AI品質檢測系統不可靠，應恢復人工檢測"
-    d: "需要量化誤報處理的額外成本，與漏檢瑕疵的損失成本進行比較，再決定最佳靈敏度設定"
-  correct: "d"
-  explanation:
-    why_correct: "這是經典的精確率-召回率（Precision-Recall）權衡。正確的效能評估應量化兩端的成本：誤報的額外重檢成本 vs 漏檢瑕疵流入市場的損失成本，找到經濟最優的靈敏度設定點。"
-    why_not_a: "誤報率從2%到12%是6倍增長，如果每次誤報都需要人工覆核，額外成本可能很高，不能輕易忽略。"
-    why_not_b: "盲目降低敏感度可能讓檢出率回落，需要先分析成本再決定，而非憑直覺調整。"
-    why_not_c: "AI系統仍有97%的檢出率（優於原本的85%），放棄過於極端。問題在於找到最佳平衡點。"
-  keywords:
-    - "效能評估"
-    - "precision-recall"
-    - "false positive"
-    - "成本權衡"
-  exam_trap: false
+  - id: L12301-Q37
+    topic_code: L12301
+    subtopic: build-buy-saas
+    difficulty: 5
+    bloom: evaluate
+    question: "一家電信公司正在評估AI客服方案，有以下三個提案：甲提案選SaaS（快速上線，3個月）、乙提案選Buy（6個月，輕度客製）、丙提案選Build（18個月，完全自主）。若公司的最高優先順序是「3年內不被競爭對手超越的客服體驗差異化」，應選哪個提案？"
+    options:
+      a: "甲提案（SaaS）：快速上線才能搶先優勢"
+      b: "乙提案（Buy）：速度和客製化的最佳平衡"
+      c: "丙提案（Build）：只有自建才能建立真正差異化的競爭優勢"
+      d: "三個提案都不適合，應先做POC再決定"
+    correct: c
+    explanation:
+      why_correct: "關鍵條件是「3年內不被競爭對手超越的差異化」——SaaS和Buy提供的功能，競爭對手也能使用相同的服務複製，無法建立持久差異化。唯有自建（Build）才能開發專屬演算法、結合獨特業務數據、創造難以複製的競爭優勢。雖然18個月較長，但3年的差異化優勢值得投資。"
+      why_not_a: "SaaS雖快，但競爭對手可以訂閱同樣的SaaS服務，無法建立「不被超越」的差異化。"
+      why_not_b: "Buy的輕度客製仍然建立在供應商的標準平台上，競爭對手可以購買相同的軟體。"
+      why_not_d: "「先做POC再決定」是通則，但題目已有充分資訊（最高優先：差異化競爭優勢），可以做出決策。"
+    keywords: ["Build", "競爭差異化", "Build vs Buy vs SaaS", "戰略決策"]
+    exam_trap: false
 
-- id: "L12301-Q39"
-  topic_code: "L12301"
-  item_code: "L12301-tool"
-  difficulty: 5
-  question: "某跨國企業需要在5個國家辦公室部署生成式AI文件處理系統，各辦公室的法規環境、語言需求和IT基礎設施差異很大。在工具評估與解決方案選擇中，下列哪一項策略最為合理？"
-  options:
-    a: "選擇單一全球化AI工具統一部署，確保一致性"
-    b: "讓各辦公室自行選擇工具，最大化靈活性"
-    c: "暫緩部署，等到各國法規統一後再進行"
-    d: "採用統一的AI平台架構，但允許各區域根據法規與語言需求選擇不同的底層模型"
-  correct: "d"
-  explanation:
-    why_correct: "統一架構確保管理一致性和資料互通，區域化模型選擇尊重各地法規（如歐盟GDPR）和語言需求——這是「全球化思維、在地化執行」的最佳實踐。"
-    why_not_a: "單一工具無法適應5國不同的法規和語言需求，強制統一可能導致某些國家違規。"
-    why_not_b: "完全放任會造成工具碎片化、資料互通困難、治理成本暴增。"
-    why_not_c: "各國法規統一是不現實的期望，且等待策略會失去競爭優勢。"
-  keywords:
-    - "工具評估"
-    - "解決方案選擇"
-    - "全球化部署"
-    - "法規合規"
-  exam_trap: false
+  - id: L12301-Q38
+    topic_code: L12301
+    subtopic: four-phase-framework
+    difficulty: 5
+    bloom: evaluate
+    question: "以下四種做法，哪一種**最違反**《AI導入指引》四階段框架的設計精神？"
+    options:
+      a: "POC未完全成功，決定回到方案設計階段重新選擇工具"
+      b: "在構想評估後發現問題不適合AI，決定暫停計畫"
+      c: "因競爭對手已上線，跳過POC直接進入實施"
+      d: "方案設計同時進行多個工具的小規模比較測試"
+    correct: c
+    explanation:
+      why_correct: "跳過POC直接實施最嚴重違反四階段精神：POC的存在是為了在小規模投入時先驗證可行性，跳過POC就是在沒有可行性驗證的情況下全面投入資源，一旦失敗損失極大。「競爭對手已上線」是誘導你省略驗證的典型陷阱。"
+      why_not_a: "POC失敗後回到方案設計是四階段允許的「回前一階段調整」機制，完全符合框架精神。"
+      why_not_b: "構想評估後發現不適合AI而暫停，正是構想評估的重要功能之一（篩選不適合的場景）。"
+      why_not_d: "在方案設計階段同時測試多個工具是合理的比較評估，屬於方案設計→驗證過渡期的正常做法。"
+    keywords: ["POC", "跳過驗證", "四階段框架", "常見錯誤"]
+    exam_trap: true
 
-- id: "L12301-Q40"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 5
-  question: "某新創公司的CEO堅持導入最新的AI技術來提升競爭力，但CTO評估認為目前團隊技術能力不足、資料品質不佳、且預算有限。根據導入評估的完整框架，最合理的建議是什麼？"
-  options:
-    a: "尊重CEO的商業直覺，立即導入最新AI技術"
-    b: "支持CTO的技術判斷，完全放棄AI導入計畫"
-    c: "建議從小規模POC開始，同步提升團隊能力與資料品質，以漸進方式驗證AI導入價值"
-    d: "聘請外部AI顧問全權處理，避免內部衝突"
-  correct: "c"
-  explanation:
-    why_correct: "此情境結合了技術評估（能力不足）、成本效益分析（預算有限）和解決方案選擇（需求vs現實落差）。正確做法是從低風險的小規模POC切入，同步投資團隊培訓與資料治理，漸進式驗證，兼顧CEO的發展願景和CTO的風險顧慮。"
-    why_not_a: "忽視技術團隊能力不足和資料品質問題，貿然導入最新技術風險極高，很可能導致失敗。"
-    why_not_b: "完全放棄AI也不合理——AI是趨勢，問題在於導入方式而非是否導入。"
-    why_not_d: "外部顧問可以協助，但不能「全權處理」——企業必須建立自己的AI能力，否則對外依賴是長期風險。"
-  keywords:
-    - "導入評估"
-    - "POC"
-    - "漸進式導入"
-    - "技術評估"
-    - "成本效益"
-  exam_trap: false
+  - id: L12301-Q39
+    topic_code: L12301
+    subtopic: ai-agent
+    difficulty: 5
+    bloom: evaluate
+    question: "以下哪種情境最能說明「選用AI Agent可能得不償失」？"
+    options:
+      a: "一個需要每天自動生成50份個人化週報並發送的系統"
+      b: "需要查詢多個資料庫並自動整合數據的分析任務"
+      c: "只需要幫員工將英文郵件翻譯成繁體中文的需求"
+      d: "需要自動監控網路安全事件並初步分類通報的系統"
+    correct: c
+    explanation:
+      why_correct: "「英文郵件翻譯成繁體中文」是一個明確的單一步驟任務——輸入英文、輸出中文——不需要多步驟、不需要工具呼叫、不需要自主規劃。使用AI Agent處理這個需求會增加不必要的複雜度和成本，一般GenAI工具即可完美勝任。"
+      why_not_a: "每天自動生成並發送週報需要：讀取多人數據→個人化生成→寄送Email，是典型多步驟自動化，適合AI Agent。"
+      why_not_b: "查詢多個資料庫並整合分析需要工具呼叫和多步驟推理，是AI Agent的典型應用場景。"
+      why_not_d: "監控安全事件→分類通報是持續性、多步驟、需要工具呼叫的任務，AI Agent可以發揮自主性優勢。"
+    keywords: ["AI Agent適用場景", "過度設計", "單步驟任務"]
+    exam_trap: false
 
-# ============================================================
-# Coverage Gap Questions (Q41-Q42)
-# ============================================================
-
-- id: "L12301-Q41"
-  topic_code: "L12301"
-  item_code: "L12301-guide"
-  difficulty: 2
-  question: "根據《AI導入指引》的四階段框架，正確的執行順序為何？"
-  options:
-    a: "構想評估→方案設計→驗證/POC→實施/營運"
-    b: "方案設計→構想評估→實施/營運→驗證/POC"
-    c: "驗證/POC→構想評估→方案設計→實施/營運"
-    d: "構想評估→驗證/POC→方案設計→實施/營運"
-  correct: "a"
-  explanation:
-    why_correct: "四階段的正確順序是：構想評估（釐清痛點與AI適配性）→方案設計（定義KPI與規劃場景）→驗證/POC（小規模概念驗證）→實施/營運（全面部署與監控）。記憶口訣：「構方驗實」。"
-    why_not_b: "方案設計不能排在構想評估之前——必須先確認業務痛點和AI適配性，才有設計方案的依據。學生容易因為「設計」聽起來像起點而選錯。"
-    why_not_c: "驗證/POC不可能排在第一步——沒有經過構想評估和方案設計，根本不知道要驗證什麼。"
-    why_not_d: "這個順序跳過了方案設計直接進入POC，但POC需要先有明確的KPI和場景規劃（方案設計的產出）才能進行有效驗證。"
-  keywords:
-    - "AI導入指引"
-    - "四階段框架"
-    - "構方驗實"
-  exam_trap: false
-
-- id: "L12301-Q42"
-  topic_code: "L12301"
-  item_code: "L12301-solution"
-  difficulty: 3
-  question: "在選擇AI解決方案時，企業面臨三種主要路徑：自行開發（Build）、購買現成方案（Buy）、訂閱雲端SaaS服務。下列關於這三種路徑的比較，何者最為準確？"
-  options:
-    a: "自行開發的客製化程度最高但前期投入最大，SaaS啟用最快但客製化受限，購買現成方案介於兩者之間"
-    b: "SaaS服務的總體擁有成本一定最低，因此中小企業應一律選擇SaaS"
-    c: "自行開發只適合科技公司，非科技產業應完全排除此選項"
-    d: "購買現成方案和SaaS本質相同，差別僅在付費方式不同"
-  correct: "a"
-  explanation:
-    why_correct: "Build vs Buy vs SaaS的核心差異在於「客製化程度、前期投入、啟用速度」三個維度的取捨。自行開發（Build）客製化最高但需大量人力與時間投入；SaaS啟用最快、前期成本最低但受限於供應商功能；Buy介於兩者之間，提供一定客製化空間。企業應根據自身需求、技術能力與預算選擇最適路徑。"
-    why_not_b: "SaaS的月費/年費長期累積可能超過一次性購買或自建的成本，尤其在大量使用或需高度客製化的場景。「一定最低」忽略了規模和時間維度的成本分析。"
-    why_not_c: "非科技公司也可以透過招聘或外包來自行開發，關鍵在於需求的獨特性和長期戰略價值，而非產業類別。學生容易將「開發」與「科技公司」畫等號。"
-    why_not_d: "Buy通常是一次性購買+本地部署（資料留在企業內），SaaS是訂閱制+雲端運行（資料在供應商端）。兩者在資料控制權、維護責任、客製化空間上都有本質差異，不只是付費方式不同。"
-  keywords:
-    - "解決方案選擇"
-    - "Build vs Buy vs SaaS"
-    - "solution selection"
-  exam_trap: false
+  - id: L12301-Q40
+    topic_code: L12301
+    subtopic: cost-analysis
+    difficulty: 5
+    bloom: evaluate
+    question: "以下四位主管的陳述，哪一位的觀點最能正確反映AI導入成本效益評估的最佳實踐？"
+    options:
+      a: "A主管：「API費用每月只要 NT$10,000，AI導入成本很低，馬上導入。」"
+      b: "B主管：「我們選了市面上最強的AI模型，效益一定最高。」"
+      c: "C主管：「除了API費用，我還估算了整合開發、培訓、維護三年的成本，並定義了第一年要達到的ROI目標。」"
+      d: "D主管：「POC沒有意義，我們直接大規模上線才能看出真正的效果。」"
+    correct: c
+    explanation:
+      why_correct: "C主管的做法體現了多項最佳實踐：①考慮了顯性+隱藏成本（API費、整合、培訓、維護）②採用多年TCO視角（3年）③定義了可量化的ROI目標——這是完整的成本效益分析框架。"
+      why_not_a: "只看API費用是嚴重忽略隱藏成本的錯誤；「成本很低馬上導入」是衝動決策而非評估決策。"
+      why_not_b: "選最強模型不等於效益最高——需要根據場景需求做模型面評估，最適合才是最好。"
+      why_not_d: "否定POC的價值是違反四階段框架的做法；直接大規模上線一旦失敗代價極高。"
+    keywords: ["成本效益分析", "TCO", "隱藏成本", "ROI目標", "最佳實踐"]
+    exam_trap: true

@@ -87,11 +87,7 @@ Tracks open items across all lessons that need resolution before publishing.
 
 ### L12301 — 生成式AI導入評估
 
-- [ ] **Render 4 Mermaid diagrams** — `.mmd` files in `lessons/L12301-生成式AI導入評估/diagrams/` need rendering to PNG/SVG.
-  - Four-phase framework flowchart (構方驗實)
-  - Four evaluation dimensions (技工模效)
-  - AI Agent vs GenAI tool comparison
-  - Solution selection decision tree (Build vs Buy vs SaaS)
+- [x] **4 ASCII diagram files created** — `diagrams/01-four-phase-framework.md`, `02-evaluation-four-dimensions.md`, `03-build-buy-saas-decision.md`, `04-cost-iceberg.md` (all embedded in study-guide.md)
 - [ ] **Generate 2 Gemini images** — Prompts ready in `lessons/L12301-生成式AI導入評估/diagrams/`. Save generated images to the same folder.
   - Cost iceberg infographic (顯性/隱藏成本)
   - Four-phase journey map infographic
