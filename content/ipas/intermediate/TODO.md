@@ -80,6 +80,9 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23101 — 機率/統計之機器學習基礎應用
 - **Diagram rendering:** 5 Mermaid diagrams (`.md` source) under `lessons/L23101-機率統計之機器學習基礎應用/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23102 — 線性代數之機器學習基礎應用
+- **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23102-線性代數之機器學習基礎應用/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -109,7 +112,7 @@ Tracks open items across all lessons that need resolution before publishing.
 | ~~21~~ | ~~L22403~~ | ~~大數據在生成式AI中的應用~~ | L22 | elective_a (資料分析組) | 1 | ✅ Done | 1 |
 | ~~22~~ | ~~L22404~~ | ~~大數據隱私保護、安全與合規~~ | L22 | elective_a (資料分析組) | 1 | ✅ Done | 1 |
 | 23 | L23101 | 機率/統計之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 24 | L23102 | 線性代數之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| 24 | L23102 | 線性代數之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 25 | L23103 | 數值優化技術與方法 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 26 | L23201 | 機器學習原理與技術 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | Not started | — |
@@ -127,9 +130,9 @@ Tracks open items across all lessons that need resolution before publishing.
 
 **🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
 
-**Next:** `/course-generate-lesson L23102` to continue 機器學習組 SKU.
+**Next:** `/course-generate-lesson L23103` to continue 機器學習組 SKU.
 
-**Remaining lessons:** 11 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 10 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -167,7 +170,8 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 | Priority | Topic Code | Topic Name | Notes |
 |---|---|---|---|
 | ~~23~~ | ~~L23101~~ | ~~機率/統計之機器學習基礎應用~~ | ✅ Done (797-line study guide, 5 diagrams, 0 review findings) |
-| 24 | L23102 | 線性代數之機器學習基礎應用 | Deep, includes code |
+| ~~24~~ | ~~L23102~~ | ~~線性代數之機器學習基礎應用~~ | ✅ Done (1,107-line study guide, 5 diagrams, 3 important fixes applied) |
+| 25 | L23103 | 數值優化技術與方法 | Deep, includes code |
 | 25 | L23103 | 數值優化技術與方法 | Deep, includes code |
 | 26 | L23201 | 機器學習原理與技術 | Deep, includes code |
 | 27 | L23202 | 常見機器學習演算法 | Deep, includes code |
