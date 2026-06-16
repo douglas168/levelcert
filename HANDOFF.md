@@ -1,44 +1,68 @@
-# Handoff — 2026-05-17
+# Handoff — 2026-06-16
 
-## Session Summary
+## Session summary
 
-Single-task session: converted all 22 IPAS 中級 study-guide markdown files to PDF. Also staged and committed accumulated content from the previous session (exams, maps, supplementary files).
+Systematic format audit of the `course-generate-lesson` skill via `/grill-me`, closing the gap between the prompt template and the L21 gold standard study guide. 17 interview questions, 14 resulting template changes. All changes are committed.
 
-## What Was Done
+## What was done
 
-**PDF generation** — converted all 22 `L2*-study-guide.md` files in `content/ipas/intermediate/lessons/` to PDF using pandoc (Markdown → HTML) + Chrome headless (HTML → PDF). PDFs saved flat in the lessons root directory (gitignored via `*.pdf`).
+### `study-guide-writer.md` — major format overhaul
+- **Opening scoped intro paragraph** added (required before Section 1): states exam subject/cluster + names ≥1 out-of-scope topic with lesson code
+- **Section 1 expanded** from 1 line → 6 sub-components: 1a 對應評鑑範圍 / 1b How to Study (numbered reading order) / 1c 標記說明 (3-tier table) / 1d 學習目標 (4–6 observable skills) / 1e 考點權重 table / 1f 先備知識
+- **🔥 markers** corrected to 3-tier: `🔥 = 能認出名詞` / `🔥🔥 = 要能解釋差異` / `🔥🔥🔥 = 要能在情境題中快速判斷`
+- **Visual Diagrams table** added (required between Section 1 and Section 2): `## 📊 視覺化圖表`, 3–5 planned diagrams with placeholder links
+- **Section 2 reading guide** added: "這張圖不是要一次背完。先抓 N 層就好：" before the ASCII tree
+- **Section 3 subsection structure** now requires in strict order per `### 3.N`:
+  1. `**先懂一句話：**` (single sentence mental model, required)
+  2. `**它在流程中的位置：**` (→ chain showing context, required)
+  3. Teaching content
+  4. `#### 情境題 Scenario Bank` (≥3 rows)
+  5. `#### Code Pattern 認識就夠` — subsection-level judgment: only when `includes_code: true` AND natural sklearn/Python pattern exists; else `> 此小節無對應程式 pattern`
+- **Section 4** now requires pulling from `高頻比較題型` in `L23-sample-questions-11409.md` for confirmed exam pairs; `> 考試快判：` line after each table
+- **Section 7** rules added: triggers ≤5 words, no repeating full Scenario Bank sentences
+- **Line target** raised: 500–650 → 600–800 lines
 
-- Tool chain: `pandoc 3.9` + Chrome headless (`--print-to-pdf`) with PingFang SC CSS for CJK rendering
-- Output: 22 PDFs, 1.6M–2.7M each, at `content/ipas/intermediate/lessons/L2*-study-guide.pdf`
+### `researcher.md` — math depth ceiling
+Added rule: for mathematical concepts, research at exam-test level (recognition, formula ID, scenario judgment) — not derivation/proof/implementation. Deeper sources go to Scope Notes.
 
-**Also committed** (accumulated from previous session, not yet in git):
-- `content/ipas/intermediate/exams/` — L21 + L22 mock exams and cheatsheets (v1 + v2)
-- `content/ipas/ipas-ai-grand-map.md`, `ipas-ai-mindmap.md`, `ipas-ai-concept-graph.md`, `ipas-ai-key-terms.csv`
-- `content/ipas/intermediate/lessons/study-method.md`
-- `content/ipas/intermediate/notebooklm-video-prompt.md`
-- `chatgpt-ai-founders20260428.md`, `gemin-ai-founders-20260428.md`
-- `.claude/settings.json`, `AGENTS.md`
+### `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — created
+L23 exam intelligence reference: community exam reports (2026-05-23 sitting), confirmed question types (code step-ordering, confusion-matrix calculation), high-frequency comparison pairs, known errata (Recall formula, `cross_val_score()` return type), sklearn code patterns.
 
-## What's Next
+## What's next
 
-- **中級 exam is 2026-05-23** (6 days away) — all study materials ready; exam prep is the priority
-- Regenerate PDFs if study guides are updated: `pandoc <md> -t html5 --standalone --css=/tmp/study-guide-style.css -o /tmp/<base>.html && /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --print-to-pdf=<output.pdf> file:///tmp/<base>.html`
-- Post-exam: evaluate 中級 content quality vs actual exam, then decide next-cert expansion
+**Immediate:** Generate L23 study guides in sequential order:
 
-## Pending Verification Before 5/23 Exam (carried from 5/16)
+```
+/course-generate-lesson L23101
+```
 
-- **Taiwan AI Basic Law dates** in L21203 — flagged as needing verification against Presidential Office gazette / Legislative Yuan records
-- **ISO/IEC 27701:2025 standalone claim** in L22404 — original is an extension to ISO 27001; 2025 edition standalone status unconfirmed
+L23101 = 機率/統計之機器學習基礎應用 (Deep, includes code). Sequence: L23101 → L23102 → L23103 → L23201 → L23202 → L23203 → L23301 → L23302 → L23303 → L23304 → L23401 → L23402.
 
-## Key File Paths
+**Known errata to watch in L23303 (建模與參數調校):**
+- Recall = TP/(TP+FN) — NOT TP/(TP+FP) (official IPAS guide has wrong formula)
+- `cross_val_score()` returns array, not scalar
 
-- Study guides: `content/ipas/intermediate/lessons/{code}-{topic}/{code}-{topic}-study-guide.md`
-- PDFs (gitignored): `content/ipas/intermediate/lessons/L2*-study-guide.pdf`
-- Exams: `content/ipas/intermediate/exams/`
-- Format template: `study-guide-format-template.md`
+## Key files touched
 
-## Open Items Carried Forward
+- `.claude/skills/course-generate-lesson/prompts/study-guide-writer.md` — complete format overhaul
+- `.claude/skills/course-generate-lesson/prompts/researcher.md` — math depth ceiling added
+- `.claude/skills/course-generate-lesson/SKILL.md` — pipeline updates (prior session)
+- `.claude/skills/course-generate-lesson/prompts/claude-adversarial-reviewer.md` — known errata section (prior session)
+- `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — new
+
+## Open items carried forward
 
 - **Landing page**: `web/app/(marketing)/page.tsx` has fake-claim 92% 通過率 badge + sampleTestimonials — must fix before sending traffic
-- **Mermaid diagrams**: PNG rendering pending across all 22 lessons (non-blocking)
+- **Mermaid diagrams**: PNG rendering pending across all L21/L22 lessons (non-blocking)
+- **Taiwan AI Basic Law dates** in L21203 — flagged for verification against Presidential Office gazette
+- **ISO/IEC 27701:2025 standalone claim** in L22404 — standalone status unconfirmed
 - **L21102** coverage gaps: image-matching and Precision/Recall/F1 each have only 1 question in practice pool
+
+## Before next session
+
+Re-read before implementing L23 content:
+- `content/ipas/intermediate/syllabus/boundary-map.md` — L23 boundary rules
+- `content/ipas/intermediate/syllabus/analysis.md` — L23 exam patterns
+- `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — confirmed exam intelligence
+- `.claude/skills/course-generate-lesson/SKILL.md` — pipeline flow
+- `.claude/skills/course-generate-lesson/prompts/study-guide-writer.md` — updated format requirements
