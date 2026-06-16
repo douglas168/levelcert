@@ -1,821 +1,688 @@
-# L12302 生成式AI導入規劃 — 練習題庫
-# Total: 38 questions
-# Difficulty: D1=7, D2=12, D3=9, D4=2, D5=5, +3=D2/D3/D3
-# Coverage: 目標設置, 資源分配, 導入策略, 因應措施, 測試, 退出準則 (+boundary)
+topic: L12302
+topic_name: 生成式AI導入規劃
+level: beginner
+# Total: 40 questions
+# Difficulty: D1=9, D2=10, D3=11, D4=6, D5=4
+# Answer distribution: A=10, B=10, C=10, D=10
+# Coverage: 四階段策略(8), 出口標準(7), 測試類型(7), 應急規劃(11), 資源規劃(4), 變更管理(3)
 
-- id: "L12302-Q01"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "SMART 原則中的「M」在設定生成式AI（Generative AI）專案目標時代表什麼意義？"
-  options:
-    a: "Measurable（可衡量的）"
-    b: "Meaningful（有意義的）"
-    c: "Manageable（可管理的）"
-    d: "Motivational（具激勵性的）"
-  correct: "a"
-  explanation:
-    why_correct: "SMART 原則中的 M 代表 Measurable（可衡量的），目標必須能以量化數據檢視達成情況，例如「客服首次回應時間由 5 分鐘降至 2 分鐘」。"
-    why_not_b: "Meaningful 是常見的誤解；SMART 強調具體可量化而非主觀的「有意義」。"
-    why_not_c: "Manageable 不是 SMART 的一部分；SMART 為 Specific/Measurable/Achievable/Relevant/Time-bound。"
-    why_not_d: "Motivational 常與 OKR 混淆，不屬於 SMART 框架。"
-  keywords:
-    - "目標設置"
-    - "SMART"
-  exam_trap: false
+questions:
+  - id: L12302-Q01
+    difficulty: 1
+    question: "生成式AI導入的四階段推廣策略，正確的順序為何？"
+    options:
+      a: "POC → Pilot → Rollout → Scale"
+      b: "Pilot → POC → Rollout → Scale"
+      c: "POC → Rollout → Pilot → Scale"
+      d: "Pilot → POC → Scale → Rollout"
+    correct: a
+    explanation:
+      why_correct: "四階段正確順序：POC（概念驗證，2-4週）→ Pilot（試行，1-3個月）→ Rollout（推廣，3-6個月）→ Scale（規模化，持續）。從小範圍技術驗證到全組織部署，每階段規模逐步擴大。"
+      why_not_b: "Pilot 不在 POC 之前；必須先用 POC 驗證技術可行性，才進入 Pilot 試行。"
+      why_not_c: "Rollout 在 Pilot 之後，不在 Pilot 之前；Pilot 驗證業務效益後才進行 Rollout。"
+      why_not_d: "Pilot 不在 POC 之前；Scale 和 Rollout 的順序也錯誤。"
+    keywords: ["四階段策略", "POC", "Pilot", "Rollout", "Scale"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q02"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "生成式AI導入的三階段主流策略「POC → Pilot → Scale」中，Pilot（試點）階段的主要目的為何？"
-  options:
-    a: "驗證技術基本可行性，不追求商業價值"
-    b: "全公司跨部門正式上線並建立標準作業程序"
-    c: "在選定的小範圍單位實際導入並收集使用者回饋，驗證商業價值"
-    d: "進行紅隊攻擊測試，找出資安漏洞"
-  correct: "c"
-  explanation:
-    why_correct: "Pilot 階段在 1–2 個單位實際導入，真實使用者操作以驗證商業價值與流程可行性，是 POC 與 Scale 之間的關鍵驗證。"
-    why_not_a: "這是 POC（Proof of Concept, 概念驗證）階段的目的。"
-    why_not_b: "這是 Scale（擴大/正式上線）階段的定義。"
-    why_not_d: "紅隊測試是測試方法的一種，非 Pilot 階段主要目的。"
-  keywords:
-    - "導入策略"
-    - "Pilot"
-  exam_trap: false
+  - id: L12302-Q02
+    difficulty: 1
+    question: "POC（Proof of Concept，概念驗證）階段的主要目的是什麼？"
+    options:
+      a: "全公司跨部門正式上線並建立標準作業程序"
+      b: "讓業務同仁在真實環境中驗證業務效益"
+      c: "工程師以少量樣本資料驗證技術可行性"
+      d: "進行使用者驗收測試確認功能符合需求"
+    correct: c
+    explanation:
+      why_correct: "POC 由技術團隊（1-2位工程師）以少量樣本資料在2-4週內完成，目標是確認技術可行性——這個AI在公司環境能不能跑起來。"
+      why_not_a: "這是 Scale 規模化階段的目的。"
+      why_not_b: "讓業務同仁在真實環境測試業務效益是 Pilot 試行階段的目的。"
+      why_not_d: "UAT（使用者驗收測試）通常在 Pilot 階段或正式上線前進行，不是 POC 的主要目的。"
+    keywords: ["POC", "概念驗證", "技術可行性"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q03"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "HITL（Human-in-the-Loop, 人工介入迴圈）在生成式AI導入的「因應措施」中，最主要的功能為何？"
-  options:
-    a: "降低模型推論的延遲時間"
-    b: "自動加速 AI 回覆速度"
-    c: "取代模型本身的訓練過程"
-    d: "在高風險決策中保留人工覆核與問責機制"
-  correct: "d"
-  explanation:
-    why_correct: "HITL 的核心價值在於高風險場景（醫療、金融、勞動權益）中由人工最終覆核 AI 輸出並承擔問責，對應 EU AI Act 強制要求、NIST AI RMF 建議（框架性）、行政院 2023 指引規範公部門。"
-    why_not_a: "HITL 反而會增加延遲（多一層人工檢查），而非降低。"
-    why_not_b: "人工介入會降低而非加速回覆速度。"
-    why_not_c: "HITL 與模型訓練無關，是輸出端的把關機制。"
-  keywords:
-    - "因應措施"
-    - "HITL"
-  exam_trap: false
+  - id: L12302-Q03
+    difficulty: 1
+    question: "HITL（Human-in-the-Loop，人機協作回圈）與 Fallback、Rollback、Kill Switch 最大的本質差異是？"
+    options:
+      a: "HITL 只適用於醫療場景，其他三個適用於所有場景"
+      b: "HITL 是事前設計在決策流程中的人工審核節點，其他三個是出問題後的應急措施"
+      c: "HITL 是出問題後才啟動的應急措施，其他三個是事前設計"
+      d: "HITL 需要最高層授權才能啟動，其他三個可自動執行"
+    correct: b
+    explanation:
+      why_correct: "HITL 是在設計階段就規劃好「高風險決策必須經人工審核」的流程節點，不是等問題發生後才介入。Fallback、Rollback、Kill Switch 都是在系統出現故障或問題後才觸發的應急措施。"
+      why_not_a: "HITL 適用於所有高風險決策場景，包含醫療、金融、法律、人事等。"
+      why_not_c: "這說反了——HITL 是事前設計，不是應急措施。"
+      why_not_d: "Kill Switch 的設計要求恰恰相反——必須能在幾秒內執行，不需複雜授權。"
+    keywords: ["HITL", "應急規劃", "Fallback", "Rollback", "Kill Switch"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q04"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "在生成式AI專案資源分配中，「四維度」通常不包括下列哪一項？"
-  options:
-    a: "人力"
-    b: "外部 AI 顧問的授權方案"
-    c: "預算"
-    d: "資料"
-  correct: "b"
-  explanation:
-    why_correct: "資源分配四維度為人力、預算、資料、時間。外部顧問授權方案屬採購/服務選型，不是初級資源規劃的四大維度。"
-    why_not_a: "人力是四維度之一，包含 IT、業務、法遵、資安等跨部門人員。"
-    why_not_b: "外部顧問授權方案屬於採購或服務選型決策（L12301 導入評估的範疇），不是初級資源規劃的四大維度。資源四維度是內部可盤點的人、錢、料、時。"
-    why_not_c: "預算是四維度之一，含一次性開發費與經常性推論費。"
-    why_not_d: "資料是四維度之一，且是台灣企業最常被低估的資源（AIF 2025 調查僅 5–10% 企業備妥資料）。"
-  keywords:
-    - "資源分配"
-    - "四維度"
-  exam_trap: false
+  - id: L12302-Q04
+    difficulty: 1
+    question: "下列哪一個應急措施是指「退回AI系統上一個穩定版本」？"
+    options:
+      a: "Rollback（回滾）"
+      b: "Kill Switch（緊急關閉）"
+      c: "HITL（人機協作回圈）"
+      d: "Fallback（備援）"
+    correct: a
+    explanation:
+      why_correct: "Rollback（回滾）是將 AI 系統撤回到上一個穩定的版本，例如新版本 v2.0 出現問題就退回 v1.5，AI 系統繼續運作但使用舊版本。"
+      why_not_b: "Kill Switch 是緊急停用所有 AI 功能，不是退版。"
+      why_not_c: "HITL 是在決策流程中插入人工審核，與版本管理無關。"
+      why_not_d: "Fallback 是切回原有的舊系統或人工流程，不是退版本號。"
+    keywords: ["Rollback", "回滾", "應急規劃"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q05"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "UAT（User Acceptance Test, 使用者驗收測試）在生成式AI導入中的目的是？"
-  options:
-    a: "由實際使用者在接近正式環境中驗收流程可用性"
-    b: "讓模擬攻擊者找出 Prompt Injection 等資安漏洞"
-    c: "比較兩個版本的量化效果差異"
-    d: "檢查伺服器硬體規格是否達標"
-  correct: "a"
-  explanation:
-    why_correct: "UAT 由業務真實使用者以貼近正式環境的測試資料驗收系統，確認流程符合業務需求。"
-    why_not_b: "這是紅隊測試（Red Team Testing）的目的。"
-    why_not_c: "這是 A/B 測試的目的。"
-    why_not_d: "硬體壓測屬於效能/負載測試，不是 UAT。"
-  keywords:
-    - "測試"
-    - "UAT"
-  exam_trap: false
+  - id: L12302-Q05
+    difficulty: 1
+    question: "資源規劃「人錢料時」四維度中，「料」指的是什麼？"
+    options:
+      a: "AI 應用的使用教材與培訓文件"
+      b: "軟體授權和訂閱費用"
+      c: "建設資料中心的建材"
+      d: "訓練資料、測試資料與評估資料"
+    correct: d
+    explanation:
+      why_correct: "資源規劃四維度：人（人力）、錢（預算）、料（資料）、時（時程）。其中「料」指的是 AI 需要的各種資料，包含訓練資料、測試資料和評估資料。資料是最常被低估的資源維度。"
+      why_not_a: "使用教材和培訓文件屬於培訓費用（錢），不是「料」的內容。"
+      why_not_b: "軟體授權和訂閱費屬於「錢（預算）」維度，不是「料」。"
+      why_not_c: "建材是建築業的概念，與 AI 導入資源規劃無關。"
+    keywords: ["資源規劃", "人錢料時", "資料"]
+    topic_area: 資源規劃
 
-- id: "L12302-Q06"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "下列何者屬於生成式AI導入的「因應措施」四件套？"
-  options:
-    a: "Fine-tuning、RAG、RLHF、Prompt Engineering"
-    b: "POC、Pilot、Scale、Monitoring"
-    c: "HITL、Fallback（降級）、Rollback（回溯）、幻覺偵測"
-    d: "HITL、權限控管、監控儀表板、資料備份"
-  correct: "c"
-  explanation:
-    why_correct: "業界共識的因應措施四件套為 HITL 人工覆核、Fallback 降級、Rollback 版本回溯、幻覺偵測與內容標示。"
-    why_not_a: "這些屬於模型優化技術（中級範圍），不是導入因應措施。"
-    why_not_b: "這些是導入策略的階段，不是因應措施。"
-    why_not_d: "HITL、權限控管、監控儀表板、資料備份 雖然也是實務中常見的控制措施，但不是課程定義的『因應措施四件套』。正確四件套為 HITL、Fallback、Rollback、幻覺偵測，四者各自對應不同失效情境。"
-  keywords:
-    - "因應措施"
-    - "四件套"
-  exam_trap: false
+  - id: L12302-Q06
+    difficulty: 1
+    question: "UAT（User Acceptance Testing，使用者驗收測試）應由誰來執行？"
+    options:
+      a: "安全專家，以攻擊者角度找漏洞"
+      b: "工程師，在實驗室環境中測試"
+      c: "外部小範圍用戶，收集外部真實回饋"
+      d: "終端使用者（業務人員），確認功能符合業務需求"
+    correct: d
+    explanation:
+      why_correct: "UAT 是由終端使用者（業務人員，非 IT 工程師）在接近正式環境中執行，目的是確認系統符合業務需求和使用者期望，通過後簽署驗收。"
+      why_not_a: "安全專家以攻擊者角度找漏洞是 Red Team 測試。"
+      why_not_b: "工程師在實驗室環境測試是 POC 階段的工作。"
+      why_not_c: "外部小範圍用戶測試是 Beta 測試。"
+    keywords: ["UAT", "使用者驗收測試", "測試類型"]
+    topic_area: 測試類型
 
-- id: "L12302-Q07"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 1
-  question: "根據近年業界統計，GenAI 專案失敗的主因通常不是純技術問題，而是下列何者？"
-  options:
-    a: "模型演算法能力不足"
-    b: "雲端費用過高"
-    c: "GPU 算力採購不足，訓練跑不動"
-    d: "變革管理（change management）與跨部門協作問題"
-  correct: "d"
-  explanation:
-    why_correct: "Gartner 2025 指出 GenAI 失敗主因是變革管理與跨部門協作，而非技術；許多組織抱持「set it, forget it」心態導致失敗。"
-    why_not_a: "主流基礎模型已足夠成熟；技術鮮少是失敗主因。 考生常因 AI 題材技術感強而誤把『模型能力不足 / 硬體不夠』當主因，但導入失敗多發生在採用、流程與跨部門協作層面。"
-    why_not_b: "雲端費用是成本面議題，非主要失敗原因。"
-    why_not_c: "多數 GenAI 導入使用雲端 API（ChatGPT Enterprise、Azure OpenAI 等），不需自建 GPU 訓練；算力極少是導入失敗的主因。"
-  keywords:
-    - "因應措施"
-    - "變革管理"
-  exam_trap: true
+  - id: L12302-Q07
+    difficulty: 1
+    question: "Red Team（紅隊）測試的主要目的是什麼？"
+    options:
+      a: "由安全專家以攻擊者角度主動尋找 AI 系統漏洞和有害輸出"
+      b: "讓業務人員確認 AI 功能是否符合工作需求"
+      c: "對比新舊系統同時運行的輸出差異"
+      d: "將小範圍外部用戶納入早期試用計劃"
+    correct: a
+    explanation:
+      why_correct: "Red Team 測試是由安全或品質專家，以「攻擊者」的角度主動尋找 AI 系統的安全漏洞、偏見和有害輸出，是高風險應用上線前的必要驗證步驟。"
+      why_not_b: "業務人員確認功能符合需求是 UAT 的目的。"
+      why_not_c: "新舊系統同時運行比較輸出是平行運行（Parallel Run）。"
+      why_not_d: "小範圍外部用戶早期試用是 Beta 測試。"
+    keywords: ["Red Team", "紅隊測試", "測試類型"]
+    topic_area: 測試類型
 
-- id: "L12302-Q08"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列哪一項目標最符合生成式AI專案的 SMART 原則？"
-  options:
-    a: "3 個月內將客服 FAQ 自動化率由 20% 提升至 60%，並維持滿意度不低於 4.2/5"
-    b: "大幅提升客服滿意度"
-    c: "讓公司變得更有 AI 競爭力"
-    d: "盡快全面導入 GenAI 改變公司文化"
-  correct: "a"
-  explanation:
-    why_correct: "選項 A 同時符合 Specific（FAQ 自動化率）、Measurable（20%→60%）、Achievable（漸進提升）、Relevant（對應客服策略）、Time-bound（3 個月內）。"
-    why_not_b: "「大幅提升」主觀，未定義起始值、目標值與時限。"
-    why_not_c: "「更有競爭力」缺乏量化指標與時限。"
-    why_not_d: "「盡快」「全面」皆非可衡量且不具時限。"
-  keywords:
-    - "目標設置"
-    - "SMART"
-  exam_trap: false
+  - id: L12302-Q08
+    difficulty: 1
+    question: "Fallback（備援）應急措施的正確定義是？"
+    options:
+      a: "退回 AI 系統上一個穩定版本"
+      b: "在 AI 決策流程中插入人工審核節點"
+      c: "緊急停用所有 AI 功能"
+      d: "問題發生時切換回原有的舊系統繼續運作"
+    correct: d
+    explanation:
+      why_correct: "Fallback（備援）是當 AI 系統嚴重故障或效能不符 SLA 時，切換回原有的舊系統/人工流程繼續運作，確保服務不中斷。例如 AI 客服機器人當機後切回人工客服。"
+      why_not_a: "退回上一個穩定版本是 Rollback（回滾）。"
+      why_not_b: "在流程中插入人工審核節點是 HITL（人機協作回圈）。"
+      why_not_c: "緊急停用所有 AI 功能是 Kill Switch（緊急關閉）。"
+    keywords: ["Fallback", "備援", "應急規劃"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q09"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於 POC（Proof of Concept, 概念驗證）階段的敘述，何者最正確？"
-  options:
-    a: "POC 成功即可直接全面推廣到全公司"
-    b: "POC 以小範圍、短時間驗證技術可行性，不追求規模與UI完整度"
-    c: "POC 追求完整 UI 與大規模使用者體驗"
-    d: "POC 必須包含紅隊測試與 UAT"
-  correct: "b"
-  explanation:
-    why_correct: "POC 定義是小範圍、短時間（通常數週）驗證技術可行性，UI 與規模可以簡陋。"
-    why_not_a: "常見陷阱 — POC 成功只代表技術可行，仍需 Pilot 驗證商業價值才能 Scale。"
-    why_not_c: "完整 UI 與使用者體驗是 Pilot/Scale 階段的工作。"
-    why_not_d: "紅隊測試與 UAT 通常在 Pilot 或 Scale 前進行，不是 POC 必備。"
-  keywords:
-    - "導入策略"
-    - "POC"
-  exam_trap: true
+  - id: L12302-Q09
+    difficulty: 1
+    question: "AI 導入通常推薦使用「敏捷（Agile）」方式而非「瀑布（Waterfall）」方式，主要原因是？"
+    options:
+      a: "敏捷方式不需要任何文件，可以節省時間"
+      b: "瀑布方式只能用在傳統軟體，AI 禁止使用"
+      c: "敏捷方式適合 AI 專案的不確定性，可快速迭代調整"
+      d: "敏捷方式保證 AI 專案一定不會失敗"
+    correct: c
+    explanation:
+      why_correct: "AI 專案天生具有高度不確定性——不確定模型效果、使用者接受度、資料品質等。敏捷方式透過每2-4週的迭代，允許快速調整方向，適合這種不確定的環境。"
+      why_not_a: "敏捷方式仍需要文件，只是文件量和形式與瀑布不同；敏捷有每個 Sprint 的計劃和回顧。"
+      why_not_b: "瀑布方式並非被禁止，只是在需求不確定的 AI 項目中不如敏捷適合。"
+      why_not_d: "任何方法論都無法「保證」成功，敏捷只是降低風險、提高適應性的方式。"
+    keywords: ["敏捷", "Agile", "瀑布", "Waterfall"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q10"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於生成式AI導入跨部門協作的敘述，何者正確？"
-  options:
-    a: "AI 導入只需 IT 部門負責，其他部門配合即可"
-    b: "AI 導入只需資料科學團隊即可完成"
-    c: "AI 導入需業務、法遵、資安、HR 與 IT 共同參與"
-    d: "AI 導入由 CEO 一人決策即可，不需部門協作"
-  correct: "c"
-  explanation:
-    why_correct: "AI 導入是跨部門議題：業務提需求、法遵看風險、資安看資料保護、HR 做訓練與變革管理、IT 負責技術落地。"
-    why_not_a: "常見陷阱 — Gartner 與台灣實務均指出「只由 IT 負責」是導入失敗主因。"
-    why_not_b: "資料科學團隊無法單獨處理業務流程、法遵與變革管理。"
-    why_not_d: "單點決策忽略領域需求，實務會導致導入失敗。"
-  keywords:
-    - "導入策略"
-    - "跨部門協作"
-  exam_trap: true
+  - id: L12302-Q10
+    difficulty: 2
+    question: "某公司 AI 客服系統完成 POC 驗證後，下一步應該是什麼？"
+    options:
+      a: "直接進入 Scale 規模化部署"
+      b: "立即在全公司所有部門同時上線"
+      c: "停止導入，等待更成熟的 AI 技術"
+      d: "在 1-2 個部門選定真實使用者進行 Pilot 試行"
+    correct: d
+    explanation:
+      why_correct: "POC 只驗證了技術可行性，下一步應是 Pilot（試行），在1-2個部門選定真實使用者在真實業務環境中測試，驗證業務效益和使用者接受度。不能跳過 Pilot 直接 Scale。"
+      why_not_a: "Scale 是在 Pilot 和 Rollout 都成功後才進行的最後階段。"
+      why_not_b: "跳過 Pilot 直接全公司上線是最常見的導入失敗原因——POC 成功不代表業務流程可行。"
+      why_not_c: "POC 成功代表技術可行，沒有理由停止；下一步是繼續推進到 Pilot。"
+    keywords: ["POC", "Pilot", "四階段策略"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q11"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於「並行運行（parallel run）」的敘述，何者正確？"
-  options:
-    a: "並行運行等同於完全替換舊系統"
-    b: "並行運行是一次性完成切換的快速方法"
-    c: "並行運行是資料備份的一種技術"
-    d: "並行運行指新舊系統同時運作並比對結果，再逐步切換"
-  correct: "d"
-  explanation:
-    why_correct: "並行運行讓新舊系統同時處理相同輸入，比對差異後再決定切換時機，保留舊系統作為 fallback。"
-    why_not_a: "常見陷阱 — 並行運行的精神就是「先不替換」而是比對；完全替換反而失去 fallback 能力。"
-    why_not_b: "一次性切換（big bang）與並行運行相反。"
-    why_not_c: "並行運行與備份技術無關，屬導入切換策略。"
-  keywords:
-    - "導入策略"
-    - "parallel run"
-  exam_trap: true
+  - id: L12302-Q11
+    difficulty: 2
+    question: "Pilot（試行）階段最重要的出口標準（Exit Criteria）包含哪兩項？"
+    options:
+      a: "使用者接受度達標 + 核心 KPI 達標"
+      b: "技術可行性確認 + 基礎準確率達標"
+      c: "無重大故障 + SLA（服務等級協議）達標"
+      d: "全組織部署完成 + 長期預算已核准"
+    correct: a
+    explanation:
+      why_correct: "Pilot 階段的出口標準是驗證業務效益：使用者接受度達到預設門檻 + 核心 KPI 達標。這兩項同時達成才代表業務效益已驗證，可以進入 Rollout。"
+      why_not_b: "技術可行性確認和基礎準確率是 POC 的出口標準，不是 Pilot。"
+      why_not_c: "無重大故障和 SLA 達標是 Rollout 階段的出口標準。"
+      why_not_d: "全組織部署完成和長期預算核准是進入 Scale 的條件，不是 Pilot 出口。"
+    keywords: ["出口標準", "Exit Criteria", "Pilot"]
+    topic_area: 出口標準
 
-- id: "L12302-Q12"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於「幻覺（hallucination）」的敘述，何者最正確？"
-  options:
-    a: "幻覺指模型產生看似合理但實際錯誤的內容，需事實查核與人工覆核"
-    b: "幻覺是模型硬體故障造成"
-    c: "幻覺只會發生在文字模型，不會發生在圖像模型"
-    d: "出現幻覺代表模型訓練失敗，必須全部重訓"
-  correct: "a"
-  explanation:
-    why_correct: "幻覺是大型語言模型的固有特性，輸出看似流暢合理但實際與事實不符；因應措施是事實查核 + HITL 覆核。"
-    why_not_b: "幻覺是模型機率性生成的本質，非硬體問題。"
-    why_not_c: "圖像、影片、程式碼模型也會幻覺（生成不存在的細節）。"
-    why_not_d: "幻覺無法完全消除，只能降低並加上覆核，而非重訓整個模型。"
-  keywords:
-    - "因應措施"
-    - "幻覺"
-  exam_trap: true
+  - id: L12302-Q12
+    difficulty: 2
+    question: "下列哪一個情境最適合使用「平行運行（Parallel Run）」測試策略？"
+    options:
+      a: "比較新版提示詞與舊版提示詞哪個效果更好"
+      b: "找出 AI 系統對特定族群可能存在的偏見"
+      c: "讓業務人員確認 AI 功能是否符合工作需求"
+      d: "銀行系統更換新 AI 核心，在 Rollout 過渡期確保輸出正確"
+    correct: d
+    explanation:
+      why_correct: "平行運行是新舊系統同時處理真實業務，比較輸出結果。在金融機構等高風險環境更換核心系統時，必須讓新舊系統並行一段時間，確認新系統輸出正確後才完全切換，降低切換風險。"
+      why_not_a: "比較新舊版本效果是 A/B 測試（通常用於功能優化，不是系統切換）。"
+      why_not_b: "找出偏見是 Red Team 測試的範疇。"
+      why_not_c: "業務人員確認功能是 UAT（使用者驗收測試）。"
+    keywords: ["平行運行", "Parallel Run", "測試類型"]
+    topic_area: 測試類型
 
-- id: "L12302-Q13"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "某公司主管正在開會討論『要買 ChatGPT Enterprise 還是自己建內部模型』。這個決策屬於 AI 導入流程的哪個階段？"
-  options:
-    a: "屬於規劃階段的資源分配，範圍與 L12302 相同"
-    b: "屬於評估階段（L12301 導入評估），是 Build vs Buy 選型的核心決策"
-    c: "屬於程式實作細節，不屬於初級規劃範圍"
-    d: "屬於目標設置階段，由 SMART 原則決定"
-  correct: "b"
-  explanation:
-    why_correct: "Build vs Buy（自建 vs 採購）屬於解決方案選型，是 L12301 導入評估的核心決策內容。本題情境描述的正是評估階段的判斷，尚未進入目標設置、資源分配、導入策略執行（即 L12302 規劃）。"
-    why_not_a: "Build/Buy 是「要不要做、如何做」的評估決策，不是決定後的資源分配。"
-    why_not_c: "初級都是規劃概念層級，不涉及程式實作細節。"
-    why_not_d: "SMART 處理的是目標量化（L12302 規劃階段），不是 Build/Buy 選型。"
-  keywords:
-    - "邊界釐清"
-    - "scope"
-  exam_trap: false
+  - id: L12302-Q13
+    difficulty: 2
+    question: "某 AI 系統更新至 v3.0 後，發現誤判率明顯上升，IT 部門決定退回 v2.5 版本。這個動作稱為？"
+    options:
+      a: "HITL（人機協作回圈）"
+      b: "Kill Switch（緊急關閉）"
+      c: "Fallback（備援）"
+      d: "Rollback（回滾）"
+    correct: d
+    explanation:
+      why_correct: "Rollback（回滾）是將 AI 系統退回上一個穩定版本（從 v3.0 退回 v2.5），AI 系統繼續運作但使用舊版本。觸發條件是最新版本出現 bug 或效能退化。"
+      why_not_a: "HITL 是在決策流程中設計人工審核節點，與版本退回無關。"
+      why_not_b: "Kill Switch 是緊急停用所有 AI 功能，不只是退版。"
+      why_not_c: "Fallback 是切回完全不同的舊系統或人工流程，不是退版本號。"
+    keywords: ["Rollback", "回滾", "版本退回"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q14"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於紅隊測試（Red Team Testing）的敘述，何者正確？"
-  options:
-    a: "紅隊測試是由一般使用者驗收流程"
-    b: "紅隊測試比較 A/B 版本效果差異"
-    c: "紅隊測試模擬攻擊者找出 Prompt Injection、偏誤與資安漏洞"
-    d: "紅隊測試是測試新舊系統運作差異的並行比較"
-  correct: "c"
-  explanation:
-    why_correct: "紅隊測試由具攻擊思維的團隊模擬對抗性輸入，挖掘 Prompt Injection、資料外洩、偏誤輸出等風險。"
-    why_not_a: "這是 UAT 的定義。"
-    why_not_b: "這是 A/B 測試的定義。"
-    why_not_d: "這是並行運行的定義。"
-  keywords:
-    - "測試"
-    - "紅隊測試"
-  exam_trap: false
+  - id: L12302-Q14
+    difficulty: 2
+    question: "下列關於變更管理（Change Management）在 AI 導入中的描述，何者最正確？"
+    options:
+      a: "變更管理包含利害關係人管理、員工培訓、溝通計劃和成效追蹤"
+      b: "變更管理只需要 IT 部門處理技術文件更新"
+      c: "變更管理是指更新程式碼版本控制的流程"
+      d: "變更管理只在 Scale 規模化階段才需要執行"
+    correct: a
+    explanation:
+      why_correct: "變更管理的四個核心要素：利害關係人管理（識別支持者/中立者/反對者）、員工培訓與阻力管理、溝通計劃（定期說明進度）、成效追蹤與回報。這些要素貫穿整個導入過程，不只在某一階段。"
+      why_not_b: "變更管理不只是技術文件，重點在於「人的改變」——習慣、技能和阻力。"
+      why_not_c: "程式碼版本控制是 IT 工程管理，不是變更管理。"
+      why_not_d: "變更管理應從 Pilot 階段就開始規劃，貫穿 Rollout 和 Scale，不是最後才做。"
+    keywords: ["變更管理", "Change Management", "利害關係人"]
+    topic_area: 變更管理
 
-- id: "L12302-Q15"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某 7-11 便利商店總部想導入生成式AI協助門市人員查詢促銷資訊，資料科學家做完 2 週技術可行性驗證後主管要求馬上全台 6,000 家門市上線。依本課原則，應如何建議？"
-  options:
-    a: "直接全台上線以搶先機"
-    b: "停止此專案，因為 POC 只有 2 週"
-    c: "由 IT 部門自行決定即可"
-    d: "先選 5–10 家門市進行 Pilot，驗證商業價值與操作流程，再擴大規模"
-  correct: "d"
-  explanation:
-    why_correct: "POC 只驗證技術可行性，尚未驗證真實門市的商業價值與操作流程，需先 Pilot 再 Scale。"
-    why_not_a: "跳過 Pilot 直接 Scale 是常見失敗原因（陷阱 1）。"
-    why_not_b: "2 週 POC 成功可以進入 Pilot，不需停止。"
-    why_not_c: "門市業務流程涉及業務、訓練、法遵等部門，非 IT 單點決策。"
-  keywords:
-    - "導入策略"
-    - "Pilot"
-  exam_trap: true
+  - id: L12302-Q15
+    difficulty: 2
+    question: "Rollout（推廣）階段的出口標準，最重要的兩項是？"
+    options:
+      a: "技術可行性確認 + 基礎準確率達標"
+      b: "使用者接受度達標 + 核心 KPI 達標"
+      c: "無重大故障 + SLA（服務等級協議）達標"
+      d: "全組織部署完成 + ROI 已達目標"
+    correct: c
+    explanation:
+      why_correct: "Rollout 階段的出口標準關注「穩定性」：系統是否能在多部門穩定運作（無重大故障）、是否達到事先承諾的服務等級（SLA 達標）。這代表可以進入 Scale 全組織部署。"
+      why_not_a: "這是 POC 的出口標準（技術可行性 + 準確率）。"
+      why_not_b: "這是 Pilot 的出口標準（使用者接受度 + KPI）。"
+      why_not_d: "全組織部署完成是 Scale 階段的結果，不是 Rollout 的出口標準。"
+    keywords: ["Rollout", "出口標準", "SLA"]
+    topic_area: 出口標準
 
-- id: "L12302-Q16"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某地區醫院想導入生成式AI自動撰寫病歷摘要草稿，依本課原則，最關鍵的因應措施為何？"
-  options:
-    a: "強制 HITL 由醫師最終覆核並簽核，並標示 AI 生成內容"
-    b: "全自動化以降低醫師負擔"
-    c: "上線後觀察一年再討論覆核機制"
-    d: "只要模型準確率超過 90% 即可省略人工覆核"
-  correct: "a"
-  explanation:
-    why_correct: "醫療屬高風險領域，EU AI Act 強制要求、NIST AI RMF 建議、行政院 2023 指引規範公部門皆指向 HITL 最終覆核並清楚標示 AI 生成內容。"
-    why_not_b: "高風險場景嚴禁完全自動化。"
-    why_not_c: "覆核機制必須在上線前建立，不能延後。"
-    why_not_d: "準確率高不能取代人工問責；醫療決策須由醫師承擔責任。"
-  keywords:
-    - "因應措施"
-    - "HITL"
-  exam_trap: true
+  - id: L12302-Q16
+    difficulty: 2
+    question: "Beta 測試（Beta Testing）和 UAT（使用者驗收測試）的最大差異是什麼？"
+    options:
+      a: "Beta 測試由外部小範圍用戶執行；UAT 由內部業務人員執行"
+      b: "Beta 測試只能用在行動應用；UAT 用在企業系統"
+      c: "Beta 測試比 UAT 更早執行，通常在 POC 階段"
+      d: "Beta 測試和 UAT 本質相同，只是名稱不同"
+    correct: a
+    explanation:
+      why_correct: "Beta 測試是讓外部小範圍用戶（非公司員工的早期採用者）在正式發布前試用，目的是收集外部真實回饋；UAT 是讓內部終端使用者（業務人員）確認系統符合業務需求並簽署驗收。執行者和目的都不同。"
+      why_not_b: "Beta 和 UAT 都可用於各種類型的系統，不限於特定平台。"
+      why_not_c: "Beta 測試通常在 Rollout 前進行，不是 POC 階段；UAT 通常在 Pilot 階段。"
+      why_not_d: "兩者目的和執行者都不同，不能視為相同。"
+    keywords: ["Beta測試", "UAT", "測試類型差異"]
+    topic_area: 測試類型
 
-- id: "L12302-Q17"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某中小企業的客服部門想用 GenAI 自動回覆客戶訊息，主管希望「客戶滿意度變好」。依 SMART 原則，應如何改寫此目標？"
-  options:
-    a: "盡快提高客戶滿意度"
-    b: "於 6 個月內將 LINE 客服平均回應時間由 8 分鐘降至 3 分鐘，且客戶滿意度由 3.8/5 提升至 4.3/5"
-    c: "滿意度越高越好"
-    d: "先導入再說，觀察一段時間看效果"
-  correct: "b"
-  explanation:
-    why_correct: "選項 B 具體、可量化（回應時間 + 滿意度起訖值）、可達成、對齊客服策略、有時限，完整符合 SMART。"
-    why_not_a: "「盡快」「提高」皆模糊。"
-    why_not_c: "沒有目標值、時限與起始點。"
-    why_not_d: "沒有任何量化目標。"
-  keywords:
-    - "目標設置"
-    - "SMART"
-  exam_trap: false
+  - id: L12302-Q17
+    difficulty: 2
+    question: "在資源規劃「人錢料時」中，「時（時程）」規劃最重要的要素是什麼？"
+    options:
+      a: "計算每小時 API 呼叫費用"
+      b: "確認 AI 模型的版本更新時間表"
+      c: "決定員工上下班時間"
+      d: "里程碑設定、相依性管理和預留緩衝時間"
+    correct: d
+    explanation:
+      why_correct: "時程規劃的核心包含：里程碑（每個階段的預期完成日期）、相依性管理（哪些任務必須按順序執行）、緩衝時間（建議每個里程碑加 20% 緩衝）。良好的時程規劃確保各階段按序完成。"
+      why_not_a: "API 費用計算屬於「錢（預算）」維度，不是「時（時程）」。"
+      why_not_b: "AI 模型版本更新時間表屬於供應商管理，不是項目時程規劃的核心。"
+      why_not_c: "員工工作時間是 HR 管理，不是 AI 導入時程規劃的內容。"
+    keywords: ["時程規劃", "里程碑", "資源規劃"]
+    topic_area: 資源規劃
 
-- id: "L12302-Q18"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某公家機關導入 GenAI 作公文檢索問答。依行政院《使用生成式AI參考指引》，下列哪一項是必要的因應措施？"
-  options:
-    a: "公文可直接以 AI 回覆對外發布，無需審核"
-    b: "公務員可自行選擇是否覆核"
-    c: "保密分級 + 人工覆核 + 清楚標示 AI 生成內容"
-    d: "以 AI 完全取代承辦人員的擬稿工作"
-  correct: "c"
-  explanation:
-    why_correct: "行政院 2023-10 函頒指引要求公部門使用 GenAI 需進行保密分級、產出須人工覆核並清楚標示 AI 生成內容。"
-    why_not_a: "未覆核直接對外將造成錯誤資訊風險。"
-    why_not_b: "指引為強制規範，非自行決定。"
-    why_not_d: "公部門屬高風險應用，嚴禁以 AI 完全取代擬稿責任。"
-  keywords:
-    - "因應措施"
-    - "行政院指引"
-  exam_trap: false
+  - id: L12302-Q18
+    difficulty: 2
+    question: "下列關於 Kill Switch（緊急關閉）的描述，何者最正確？"
+    options:
+      a: "Kill Switch 需要高層核准，流程通常需要兩個工作天"
+      b: "Kill Switch 只能在 AI 系統技術故障時使用"
+      c: "Kill Switch 等同於 Rollback，退回上一個版本"
+      d: "Kill Switch 是緊急停用所有 AI 功能，必須能在幾秒內執行"
+    correct: d
+    explanation:
+      why_correct: "Kill Switch（緊急關閉）的設計要求是能在幾秒內立即執行，不需複雜授權程序。它用於緊急情況：發現嚴重安全問題、法規合規疑慮、或重大倫理事件，需要立即完全停用 AI 功能。"
+      why_not_a: "Kill Switch 必須即時執行，需要複雜授權會讓它失去「緊急」的功能。"
+      why_not_b: "Kill Switch 不只用於技術故障，倫理問題和合規疑慮也是觸發條件。"
+      why_not_c: "Kill Switch 是停用 AI，Rollback 是退版本，兩者完全不同。"
+    keywords: ["Kill Switch", "緊急關閉", "應急規劃"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q19"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某大學研究所學生用 GenAI 協助團隊專案撰寫履歷工具，在進入 10 位助教實測前，最適合進行的測試類型為？"
-  options:
-    a: "紅隊攻擊測試"
-    b: "並行運行測試"
-    c: "硬體壓力測試"
-    d: "Beta 測試 — 邀請真實小範圍使用者提前試用"
-  correct: "d"
-  explanation:
-    why_correct: "Beta 測試正是邀請小範圍真實使用者提前試用、收集回饋，適合 10 位助教這類場景。"
-    why_not_a: "紅隊測試針對資安攻擊面，不是此階段主要目的。"
-    why_not_b: "並行運行需要既有系統可比對，學生專案通常沒有舊系統。"
-    why_not_c: "壓力測試與產品真實使用回饋目標不同。"
-  keywords:
-    - "測試"
-    - "Beta"
-  exam_trap: false
+  - id: L12302-Q19
+    difficulty: 2
+    question: "下列哪一個情境中應使用 A/B 測試？"
+    options:
+      a: "銀行貸款審核 AI 在放款前需要人工確認"
+      b: "評估新版商品推薦提示詞是否比舊版提升點擊率"
+      c: "新 AI 採購系統上線前讓採購人員確認符合工作流程"
+      d: "尋找 AI 聊天機器人對特定族群的歧視性輸出"
+    correct: b
+    explanation:
+      why_correct: "A/B 測試是對比兩個版本（新舊提示詞）的效果差異，通過分流不同用戶到不同版本，比較點擊率、轉換率等量化指標，確定哪個版本更好。"
+      why_not_a: "貸款審核需要人工確認是 HITL（人機協作回圈）的典型場景。"
+      why_not_c: "採購人員確認符合工作流程是 UAT（使用者驗收測試）。"
+      why_not_d: "尋找歧視性輸出是 Red Team 測試的目的。"
+    keywords: ["A/B測試", "測試類型"]
+    topic_area: 測試類型
 
-- id: "L12302-Q20"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某蝦皮商家想導入 GenAI 自動生成商品描述，評估團隊後發現公司商品資料雜亂、SKU 描述格式不一致且僅有 5% 資料完整。下一步最佳建議為何？"
-  options:
-    a: "補強資料品質（清理、補標籤）或縮小試點範圍到資料較完整的品類"
-    b: "硬上 GenAI，讓模型自己處理不完整資料"
-    c: "等台灣 AI 法規通過再說"
-    d: "直接放棄 GenAI 改為人工撰寫"
-  correct: "a"
-  explanation:
-    why_correct: "資料準備不足時，應補強資料或縮小範圍到資料較完整的子集，而非硬上導致幻覺與品質低落。"
-    why_not_b: "常見陷阱 — 資料不足硬上是導入失敗主因之一。"
-    why_not_c: "法規等待不是技術決策的理由；應積極準備資料。"
-    why_not_d: "直接放棄浪費先前評估成本，不符合階段式導入原則。"
-  keywords:
-    - "資源分配"
-    - "資料準備"
-  exam_trap: true
+  - id: L12302-Q20
+    difficulty: 3
+    question: "某醫院計劃導入 AI 輔助診斷系統，系統設計規定所有 AI 給出的診斷建議必須由主治醫師確認後才能進入病歷。這個設計對應哪個概念？"
+    options:
+      a: "Rollback（回滾）——退回上一個穩定版本"
+      b: "Kill Switch（緊急關閉）——緊急停用 AI 診斷功能"
+      c: "HITL（Human-in-the-Loop，人機協作回圈）——事前設計的人工審核節點"
+      d: "Fallback（備援）——切回人工診斷流程"
+    correct: c
+    explanation:
+      why_correct: "這是 HITL 的典型案例：醫療屬於高風險決策場景，系統設計階段就規劃「AI 建議→主治醫師確認→進病歷」的流程，不是等出問題才介入。HITL 是事前設計，確保高風險決策有人工負責。"
+      why_not_a: "Rollback 是版本管理，發現新版問題退回舊版，與診斷確認流程無關。"
+      why_not_b: "Kill Switch 是緊急完全停用，是應急措施，不是常規確認流程。"
+      why_not_d: "Fallback 是系統故障時切回備用方案，不是常規流程中的人工確認機制。"
+    keywords: ["HITL", "醫療", "高風險決策"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q21"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某中小企業導入 GenAI 客服時，想在「切換時刻」保留舊有人工客服作為備援，若 AI 失效可立即接手。最適合的策略為？"
-  options:
-    a: "Big Bang 一次切換"
-    b: "並行運行（parallel run）+ Fallback 降級到人工"
-    c: "直接停用舊客服系統"
-    d: "紅隊測試取代備援"
-  correct: "b"
-  explanation:
-    why_correct: "並行運行讓新舊系統同時處理，AI 失效時立即 Fallback 到人工，是高風險切換的標準做法。"
-    why_not_a: "一次切換失去 fallback 能力，高風險。"
-    why_not_c: "停用舊系統即沒有 fallback 機制。"
-    why_not_d: "紅隊測試是找漏洞的方法，不是備援機制。"
-  keywords:
-    - "導入策略"
-    - "Fallback"
-  exam_trap: false
+  - id: L12302-Q21
+    difficulty: 3
+    question: "Rollout（推廣）階段與 Scale（規模化）階段的主要差異是什麼？"
+    options:
+      a: "Rollout 是技術驗證；Scale 是業務效益驗證"
+      b: "Rollout 只在單一部門進行；Scale 在兩個部門"
+      c: "Rollout 和 Scale 是同義詞，可以互換使用"
+      d: "Rollout 是逐步擴大到多部門（3-6個月）；Scale 是全組織長期部署"
+    correct: d
+    explanation:
+      why_correct: "Rollout（推廣）是在3-6個月內逐步將 AI 部署擴大到多個部門，重點是培訓和問題快速解決；Scale（規模化）是全組織/全產品線的長期部署，建立自動化和長期維運機制。兩者在範圍和重點上都不同。"
+      why_not_a: "技術驗證是 POC，業務效益驗證是 Pilot，這兩者都不是 Rollout 或 Scale 的定義。"
+      why_not_b: "Rollout 針對多部門，不是單一部門；Scale 是全組織，不是兩個部門。"
+      why_not_c: "雖然有些文件用「Scale/Rollout」合稱，但兩者在四階段框架中有明確差異。"
+    keywords: ["Rollout", "Scale", "四階段差異"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q22"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "UAT（使用者驗收測試）與 A/B 測試在目的上的主要差異為何？"
-  options:
-    a: "兩者目的完全相同，只是名稱不同"
-    b: "UAT 由工程師執行；A/B 測試由業務執行"
-    c: "UAT 驗證「可不可用」；A/B 測試比較「哪個版本效果較佳」"
-    d: "UAT 測硬體；A/B 測試測軟體"
-  correct: "c"
-  explanation:
-    why_correct: "UAT 聚焦「流程是否符合使用者驗收標準」；A/B 測試聚焦「兩個版本間的量化效果比較」，用於決定上線版本。"
-    why_not_a: "兩者目的清楚不同，常考辨識題。"
-    why_not_b: "UAT 由真實業務使用者執行，非工程師。"
-    why_not_d: "兩者都針對軟體行為，不分硬體軟體。"
-  keywords:
-    - "測試"
-    - "UAT vs A/B"
-  exam_trap: true
+  - id: L12302-Q22
+    difficulty: 3
+    question: "某公司 AI 推薦系統被發現對特定族群有歧視性推薦，管理層決定立即停用所有 AI 推薦功能，改由人工編輯負責。這個決定對應哪個應急措施？"
+    options:
+      a: "Kill Switch——緊急停用 AI 推薦功能，人工接管"
+      b: "HITL——在推薦流程中加入人工審核"
+      c: "Rollback——退回上一個穩定版本的推薦系統"
+      d: "Pilot——重新進行試行測試"
+    correct: a
+    explanation:
+      why_correct: "因為發現歧視性輸出這個倫理問題，管理層決定「立即停用所有 AI 功能」並由人工接管——這是 Kill Switch（緊急關閉）的典型觸發情境。緊急安全/倫理問題需要最強硬的應急手段。"
+      why_not_b: "HITL 是加入人工審核節點，但題目是「停用 AI」不是「加審核流程」。"
+      why_not_c: "Rollback 是退版本，但題目描述的是完全停用，不是退回舊版本。"
+      why_not_d: "Pilot 是導入階段，不是應急措施。"
+    keywords: ["Kill Switch", "倫理問題", "緊急停用"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q23"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "以下何者最能代表「目標設置與企業策略對齊」的重要性？"
-  options:
-    a: "只要有可量化數字就符合 SMART"
-    b: "目標訂得越高越好，越能激勵團隊"
-    c: "目標只要 CEO 同意即可，不必對齊部門"
-    d: "AI 專案目標必須對應公司年度策略（如提升客戶留存、降低營運成本），才不會落入「為 AI 而 AI」"
-  correct: "d"
-  explanation:
-    why_correct: "SMART 中 R 為 Relevant（相關性），AI 專案目標須對齊公司策略方向，否則即使達標也無法帶來商業價值。"
-    why_not_a: "常見陷阱 — 有數字不代表符合 SMART，也要對齊策略（R）且時限明確（T）。"
-    why_not_b: "目標過高違反 Achievable 原則，可能造成專案失敗。"
-    why_not_c: "不對齊部門需求會造成推動阻力與變革管理失敗。"
-  keywords:
-    - "目標設置"
-    - "策略對齊"
-  exam_trap: true
+  - id: L12302-Q23
+    difficulty: 3
+    question: "某公司在 AI 客服系統的 Rollout 過渡期，讓新的 AI 系統和舊的規則式系統同時處理客戶問題，每天比較兩個系統的回答品質。這個做法屬於？"
+    options:
+      a: "A/B 測試——分流不同用戶到不同版本"
+      b: "Beta 測試——外部小範圍用戶試用"
+      c: "Red Team 測試——以攻擊者角度找漏洞"
+      d: "平行運行（Parallel Run）——新舊系統同時跑，比較輸出"
+    correct: d
+    explanation:
+      why_correct: "平行運行（Parallel Run）的核心特徵是：新舊系統同時處理相同的真實業務，比較兩個系統的輸出差異，確認新系統可以替代舊系統後才完全切換。這在 Rollout 過渡期是降低風險的標準做法。"
+      why_not_a: "A/B 測試是分流不同用戶到不同版本，目的是比較效果優劣，不是在過渡期同時處理同一批業務。"
+      why_not_b: "Beta 測試是外部用戶試用，不是新舊系統並行比較。"
+      why_not_c: "Red Team 是找漏洞，不是比較新舊系統輸出。"
+    keywords: ["平行運行", "Parallel Run", "Rollout過渡"]
+    topic_area: 測試類型
 
-- id: "L12302-Q24"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "關於台灣企業在 GenAI 導入時的資料準備狀況，下列敘述何者最貼近現實？"
-  options:
-    a: "依 AIF 2025 調查，僅 5–10% 企業具備可用資料，資料常是最被低估的資源維度"
-    b: "台灣企業 95% 已備妥完整 AI 資料，資料不是主要問題"
-    c: "只要先開始 POC，資料品質可以在 Scale 階段後再補齊"
-    d: "只要預算足夠，資料問題都能立即解決"
-  correct: "a"
-  explanation:
-    why_correct: "AIF 2025 台灣產業 AI 化大調查指出僅約 5–10% 企業備妥可用資料，與直覺相反 — 資料常被低估且最難短期補齊。"
-    why_not_b: "與實際調查資料方向相反。"
-    why_not_c: "將資料品質問題推遲到 Scale 階段處理是典型的規劃失敗模式。資料準備須在 POC 啟動前就具備最低可用水準，否則 POC 驗證結果會失真，Pilot 與 Scale 階段補資料的成本與時間往往比重做還高。"
-    why_not_d: "資料清理與治理需要時間，不是「錢到位」就能一蹴可幾。"
-  keywords:
-    - "資源分配"
-    - "資料準備"
-  exam_trap: false
+  - id: L12302-Q24
+    difficulty: 3
+    question: "某公司 AI 內容生成系統的 Pilot 階段結束後，評估結果顯示：使用者滿意度 4.2/5（門檻 4.0），內容採用率 68%（門檻 70%）。應該如何處理？"
+    options:
+      a: "因採用率未達 70% 門檻，不應進入 Rollout，需先調整再重新評估"
+      b: "直接進入 Rollout，4.2 分已超過門檻足夠"
+      c: "重新定義門檻，把採用率改為 65% 就可以通過"
+      d: "跳過 Rollout 直接進入 Scale，節省時間"
+    correct: a
+    explanation:
+      why_correct: "出口標準（Exit Criteria）的設計是「所有關鍵指標都必須達標才能進下一關」。雖然滿意度超標，但採用率 68% 未達 70% 門檻，所以不應進入 Rollout，需找出採用率不足的原因（可能是操作複雜、輸出品質問題等）並改善。"
+      why_not_b: "出口標準是所有指標都要達標，不是「一個超過就算通過」。"
+      why_not_c: "事後改變門檻是不誠信的做法，會讓出口標準失去意義。"
+      why_not_d: "跳過 Rollout 直接 Scale 會放大未解決的問題，提高失敗風險。"
+    keywords: ["出口標準", "Exit Criteria", "Pilot"]
+    topic_area: 出口標準
 
-- id: "L12302-Q25"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "Fallback（降級）與 Rollback（回溯）作為因應措施，兩者的主要差異為何？"
-  options:
-    a: "兩者完全相同"
-    b: "Fallback 是「當下失效時切換到備案（如規則引擎、人工）」；Rollback 是「回滾到先前穩定版本」"
-    c: "Fallback 只針對硬體；Rollback 只針對軟體"
-    d: "兩者都是指模型重新訓練"
-  correct: "b"
-  explanation:
-    why_correct: "Fallback 針對「當下」失效提供即時備援；Rollback 針對「版本升級後」出現問題回到前一個穩定版本，兩者都是因應措施四件套之一。"
-    why_not_a: "機制與時機明顯不同。 Fallback ＝ 當下切備案（即時、服務不中斷）；Rollback ＝ 版本往回退（永久、回到上一穩定版），兩者目的與時機不同。"
-    why_not_c: "兩者都是軟體/服務層的降級與回滾概念，非硬體軟體之分。"
-    why_not_d: "因應措施與模型重訓無關。"
-  keywords:
-    - "因應措施"
-    - "Fallback"
-    - "Rollback"
-  exam_trap: false
+  - id: L12302-Q25
+    difficulty: 3
+    question: "在 AI 導入的資源規劃中，哪項資源最常被企業低估，也是導入失敗的常見原因？"
+    options:
+      a: "錢（預算）——API 費用超支"
+      b: "人（人力）——IT 人員不足"
+      c: "料（資料）——缺乏可用的高品質訓練/測試資料"
+      d: "時（時程）——時程排得太緊"
+    correct: c
+    explanation:
+      why_correct: "資料（料）是最常被低估的資源維度。企業往往覺得「有資料」，但實際上資料品質差、數量不足、隱私問題或標註不完整，導致 AI 無法正常訓練或測試。業界調查一致指出資料準備不足是 AI 導入失敗的主要原因之一。"
+      why_not_a: "預算超支是常見問題，但不是最常被低估的。"
+      why_not_b: "IT 人員不足也是問題，但企業通常比較容易意識到人力缺口。"
+      why_not_d: "時程排得太緊也常見，但不如資料問題普遍且難以在規劃初期發現。"
+    keywords: ["資料", "資源規劃", "常被低估"]
+    topic_area: 資源規劃
 
-- id: "L12302-Q26"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 4
-  question: "下列哪一項最能區分「POC 階段退出準則」與「Pilot 階段退出準則」？"
-  options:
-    a: "兩階段退出準則相同：只要模型準確率達 80% 即可"
-    b: "POC 看 ROI；Pilot 看 API latency"
-    c: "POC 以「技術可行性驗證」為退出準則；Pilot 以「在真實用戶/單位中展現商業價值與流程適配」為退出準則"
-    d: "兩階段皆不需退出準則"
-  correct: "c"
-  explanation:
-    why_correct: "POC 驗證「能不能做到」（可行性），Pilot 驗證「做了有沒有商業價值」與流程適配，兩者退出準則截然不同。"
-    why_not_a: "模型準確率只是其中一個技術指標，無法代表商業價值。"
-    why_not_b: "POC 初級不討論 ROI（屬 L12301 或中級）；API latency 是工程指標。"
-    why_not_d: "退出準則是階段推進必要條件，不能省略。"
-  keywords:
-    - "導入策略"
-    - "階段退出"
-  exam_trap: false
+  - id: L12302-Q26
+    difficulty: 3
+    question: "下列哪一個情境最適合在 AI 決策流程中加入 HITL（Human-in-the-Loop）機制？"
+    options:
+      a: "AI 自動生成社群媒體貼文文案"
+      b: "AI 幫助員工查詢公司 FAQ 問題"
+      c: "AI 決定員工薪資調整和晉升建議"
+      d: "AI 自動回答網路商店的商品詢問"
+    correct: c
+    explanation:
+      why_correct: "員工薪資調整和晉升建議屬於高風險的人事決策，直接影響員工的職業和生計。這類決策必須事前設計 HITL 機制，確保有人工審核和最終確認，不能由 AI 自動決定。"
+      why_not_a: "社群媒體文案屬於低風險輔助工作，錯了容易修改，不必強制 HITL。"
+      why_not_b: "FAQ 查詢是標準化低風險任務，HITL 的必要性低。"
+      why_not_d: "商品詢問是一般客服任務，風險較低，不必強制 HITL。"
+    keywords: ["HITL", "高風險決策", "人事"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q27"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列哪一項問題屬於 L12301（導入評估）而非 L12302（導入規劃）的範疇？"
-  options:
-    a: "試點階段應選哪些單位並設定什麼退出準則"
-    b: "導入後如何建立 Fallback 與 Rollback 機制"
-    c: "目標 KPI 應如何對齊 SMART 原則"
-    d: "導入 AI 應自建（Build）、採購套裝（Buy）或採 SaaS 訂閱"
-  correct: "d"
-  explanation:
-    why_correct: "Build/Buy/SaaS 屬於導入前的評估決策（L12301），選定後才進入 L12302 的規劃與執行。"
-    why_not_a: "試點規劃屬於 L12302 導入策略範圍。"
-    why_not_b: "因應措施屬於 L12302 規劃內容。"
-    why_not_c: "SMART 目標設置屬於 L12302 規劃起點。"
-  keywords:
-    - "邊界釐清"
-    - "scope"
-  exam_trap: false
+  - id: L12302-Q27
+    difficulty: 3
+    question: "某銀行的 AI 詐欺偵測系統在深夜發現 API 回應超時，導致所有交易驗證失敗。IT 應立即執行哪個應急措施？"
+    options:
+      a: "Rollback——退回上一個版本的詐欺偵測系統"
+      b: "Fallback——切換回規則式詐欺偵測或人工審核模式"
+      c: "HITL——在每筆交易中加入人工確認"
+      d: "Beta 測試——讓外部用戶幫忙測試新系統"
+    correct: b
+    explanation:
+      why_correct: "API 超時導致服務中斷是系統性故障，需要立即啟動 Fallback（備援），切換回原有的規則式系統或人工審核模式，確保銀行交易服務不中斷。Fallback 的目的就是「AI 掛了，服務繼續」。"
+      why_not_a: "Rollback 是退版本，適用於版本升級後效能退化，不適用於 API 超時故障。"
+      why_not_c: "HITL 是事前設計的流程機制，深夜緊急故障時「加入人工確認」不實際也不是應急方案。"
+      why_not_d: "緊急故障期間進行 Beta 測試完全不合理。"
+    keywords: ["Fallback", "API故障", "銀行"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q28"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 4
-  question: "某金融業者在 Pilot 階段發現 AI 理財建議偶爾出現「幻覺」推薦不存在的產品。最佳因應組合為？"
-  options:
-    a: "事實查核 + HITL 強制人工覆核 + 輸出標示 AI 生成"
-    b: "忽略並持續上線，反正只是偶爾發生"
-    c: "把模型重新從頭訓練"
-    d: "停止所有 AI 服務"
-  correct: "a"
-  explanation:
-    why_correct: "幻覺不可能完全消除，金融屬高風險，需以事實查核接資料來源、HITL 強制覆核、清楚標示 AI 生成內容三件套因應。"
-    why_not_b: "金融決策不能容忍幻覺，會觸發法遵問題。"
-    why_not_c: "重訓成本高且不一定解決幻覺；一般以 RAG/驗證層與 HITL 降低。"
-    why_not_d: "過度反應；應以因應措施控制風險而非全面停用。"
-  keywords:
-    - "因應措施"
-    - "幻覺"
-  exam_trap: true
+  - id: L12302-Q28
+    difficulty: 3
+    question: "下列關於敏捷導入（Agile）與瀑布導入（Waterfall）的比較，何者最準確？"
+    options:
+      a: "AI 專案應該用瀑布，因為瀑布規劃更嚴謹"
+      b: "敏捷適合 AI 的不確定性，但敏捷表示不需要文件和規劃"
+      c: "瀑布和敏捷對 AI 專案效果相同，選擇取決於個人偏好"
+      d: "敏捷透過2-4週迭代快速調整，適合 AI 不確定性；瀑布適合需求完全明確的子項目"
+    correct: d
+    explanation:
+      why_correct: "AI 導入推薦敏捷的原因：AI 專案充滿不確定性（模型效果、使用者接受度），需要快速迭代調整。敏捷每2-4週一個迭代，允許快速修正。瀑布適用於需求完全明確的子項目。敏捷≠無規劃，每個 Sprint 仍有計劃。"
+      why_not_a: "瀑布的嚴謹性在 AI 不確定性環境中反而是弱點——最後才能得到完整回饋。"
+      why_not_b: "敏捷不是無規劃；敏捷有 Sprint 計劃、回顧等，只是允許彈性調整，仍需文件。"
+      why_not_c: "兩者對 AI 專案的適合度有明顯差異；AI 的不確定性讓敏捷更合適。"
+    keywords: ["敏捷", "瀑布", "AI導入方法論"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q29"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 5
-  question: "某地區醫院欲導入 GenAI 協助撰寫病歷摘要，評估後發現：(1) 內部臨床資料格式不一致、可用資料比例約 5%；(2) 醫師對 AI 接受度不一；(3) 醫療法規要求紀錄可追溯。下列最佳導入策略為？"
-  options:
-    a: "跳過 POC 直接全面上線，以節省時間"
-    b: "縮小試點範圍到 1 個科別，同時補強資料品質與變革溝通，強制 HITL 與 AI 標示，先 POC 再 Pilot"
-    c: "全院一次性 big bang 切換，逼使用者適應"
-    d: "只做 POC 即可，不必 Pilot"
-  correct: "b"
-  explanation:
-    why_correct: "此情境同時有資料不足、變革阻力與法遵要求三個挑戰，正解是縮小範圍 + 補資料 + 變革溝通 + HITL + 標示 + POC→Pilot 階段推進。"
-    why_not_a: "高風險場景跳過 POC/Pilot 必然失敗且違反法遵。"
-    why_not_c: "大爆炸式切換在高風險場景等同放棄 fallback。"
-    why_not_d: "POC 只驗證技術，無法處理變革管理與商業價值。"
-  keywords:
-    - "導入策略"
-    - "HITL"
-  exam_trap: true
+  - id: L12302-Q29
+    difficulty: 3
+    question: "POC 階段的出口標準（Exit Criteria）中，哪兩項最關鍵？"
+    options:
+      a: "使用者接受度 > 80% + KPI 達標"
+      b: "無重大故障（7天）+ SLA 達標"
+      c: "全部員工培訓完成 + 長期預算已核准"
+      d: "技術可行性確認 + 基礎準確率達到預設門檻"
+    correct: d
+    explanation:
+      why_correct: "POC 的核心目的是驗證技術可行性，所以出口標準圍繞技術面：（1）技術可行性確認——AI 在公司環境能正常運作、（2）基礎準確率達到預設門檻——模型輸出品質符合最低要求。兩項都確認後才進入 Pilot。"
+      why_not_a: "使用者接受度和 KPI 是 Pilot 的出口標準，POC 時業務使用者尚未參與。"
+      why_not_b: "無重大故障和 SLA 是 Rollout 的出口標準。"
+      why_not_c: "員工培訓完成和預算核准是更後期的要求，不是 POC 的出口標準。"
+    keywords: ["POC", "出口標準", "技術可行性"]
+    topic_area: 出口標準
 
-- id: "L12302-Q30"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 5
-  question: "某電商想導入 GenAI 商品推薦，在 Pilot 階段欲同時回答 (1)「新版推薦是否比舊版帶來更高加購率」與 (2)「新版流程是否被客服接受可上線」兩個問題。最佳測試安排為？"
-  options:
-    a: "只做 UAT 即可"
-    b: "只做紅隊測試"
-    c: "同時進行 A/B 測試（量化比較新舊版加購率）與 UAT（客服驗收流程可用性）"
-    d: "只做並行運行"
-  correct: "c"
-  explanation:
-    why_correct: "兩個問題分別對應量化比較（A/B）與流程驗收（UAT），必須並行使用兩種測試，不能互相替代。"
-    why_not_a: "UAT 只驗收流程，無法比較版本差異。"
-    why_not_b: "紅隊測試處理資安面，不是商業效果比較。"
-    why_not_d: "並行運行用於系統切換比對，不解決驗收問題。 並行運行解決的是『切換時舊/新系統結果是否一致』的風險，不是『哪一版效果較好』（A/B 測試）也不是『使用者是否接受流程』（UAT）。三者解題目的不同，不能互換。"
-  keywords:
-    - "測試"
-    - "A/B"
-    - "UAT"
-  exam_trap: true
+  - id: L12302-Q30
+    difficulty: 3
+    question: "下列哪個情境屬於「變更管理（Change Management）中的阻力管理」？"
+    options:
+      a: "IT 團隊更新 AI 模型的 API 金鑰"
+      b: "資安部門掃描系統漏洞"
+      c: "測試團隊執行 Red Team 攻擊"
+      d: "業務部門主管抵制 AI 導入，擔心取代員工工作"
+    correct: d
+    explanation:
+      why_correct: "變更管理的「阻力管理」正是針對這種情況：部門主管擔心被取代而抵制。需要透過溝通（說明 AI 是輔助工具）、培訓（讓員工掌握新技能）、利害關係人管理（將主管從反對者轉為支持者）來解決。"
+      why_not_a: "更新 API 金鑰是技術操作，與變更管理無關。"
+      why_not_b: "資安掃描是 IT 安全工作，不是變更管理。"
+      why_not_c: "Red Team 測試是測試活動，不是變更管理。"
+    keywords: ["變更管理", "阻力管理", "利害關係人"]
+    topic_area: 變更管理
 
-- id: "L12302-Q31"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 5
-  question: "某人資部門想導入 GenAI 做履歷初篩，評估後知道 (1) 勞動權益屬高風險、(2) 可能有偏誤風險、(3) 法遵要求可解釋性。下列導入原則組合何者最適當？"
-  options:
-    a: "完全自動化，讓 AI 直接決定錄取名單"
-    b: "交由 IT 部門自行決定"
-    c: "只要正確率高就可省略人工覆核"
-    d: "AI 僅作輔助排序 + HITL 強制由 HR 最終決定 + 紅隊測試檢查偏誤 + 操作紀錄可追溯"
-  correct: "d"
-  explanation:
-    why_correct: "勞權屬高風險場景，EU AI Act 強制要求、NIST AI RMF 建議、行政院 2023 指引規範公部門皆指向 HITL 最終決定；偏誤需紅隊測試；可解釋性要求紀錄可追溯。"
-    why_not_a: "完全自動化違反勞權法遵與倫理要求。"
-    why_not_b: "跨部門議題不可由 IT 單點決定。"
-    why_not_c: "正確率無法取代人工問責與倫理責任。"
-  keywords:
-    - "因應措施"
-    - "HITL"
-  exam_trap: true
+  - id: L12302-Q31
+    difficulty: 4
+    question: "某公司同時面臨三個問題：（1）新版 AI 生成品質下降；（2）AI 服務完全中斷；（3）用戶資料外洩疑慮。應分別對應哪三個應急措施？"
+    options:
+      a: "（1）Kill Switch（2）Rollback（3）HITL"
+      b: "（1）Rollback（2）Fallback（3）Kill Switch"
+      c: "（1）Fallback（2）Kill Switch（3）Rollback"
+      d: "（1）HITL（2）Fallback（3）Rollback"
+    correct: b
+    explanation:
+      why_correct: "三個問題對應三個應急措施：（1）新版品質下降→Rollback（退回上一個穩定版本）；（2）服務完全中斷→Fallback（切回舊系統確保服務不中斷）；（3）資料外洩疑慮→Kill Switch（緊急停用 AI 功能，避免繼續洩露）。"
+      why_not_a: "Kill Switch 適用於安全/倫理問題（第3項），不是品質下降（第1項）。"
+      why_not_c: "Fallback 適用於服務中斷（第2項），不是品質下降（第1項）。"
+      why_not_d: "HITL 是事前設計的流程，不是緊急應急措施；且不適用於服務中斷情境。"
+    keywords: ["Rollback", "Fallback", "Kill Switch", "應急措施比較"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q32"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某上市製造商導入 GenAI 撰寫產品說明書，主管評估兩個替代方案：(A) 採 SaaS 訂閱、快速上線；(B) 自建私有模型、成本高但資料不外流。此項評估屬於本課哪一單元範疇？如屬本課，請指出本課應聚焦的問題；若不屬於，請說明為什麼。"
-  options:
-    a: "屬 L12301（導入評估），本課（L12302）應聚焦在決定後的目標設置、資源分配、階段化導入、因應措施與測試"
-    b: "屬 L12302，應在本課決定 Build vs Buy vs SaaS"
-    c: "屬 L12303 風險管理，本課不涉及"
-    d: "屬中級內容，初級不討論"
-  correct: "a"
-  explanation:
-    why_correct: "Build/Buy/SaaS 選擇屬 L12301 的導入評估範疇，L12302 處理「決定之後如何做」的規劃執行面。這是常考的邊界題。"
-    why_not_b: "邊界混淆；Build/Buy/SaaS 不是 L12302 主題。"
-    why_not_c: "L12303 屬風險管理，方案選擇不是風險管理主軸。"
-    why_not_d: "這題屬於初級範圍的邊界辨識，不是中級題。"
-  keywords:
-    - "邊界釐清"
-    - "scope"
-  exam_trap: false
+  - id: L12302-Q32
+    difficulty: 4
+    question: "某製造業計劃導入 AI 品質檢測，POC 完成後正進行 Pilot。Pilot 中期評估：使用者滿意度 3.8/5（門檻 4.0），但檢測準確率已達 95%（門檻 90%）。最佳處理方式是？"
+    options:
+      a: "因準確率超標，直接進入 Rollout"
+      b: "降低滿意度門檻到 3.5，然後進入 Rollout"
+      c: "繼續 Pilot，針對滿意度低的原因改善（如介面或培訓），再評估"
+      d: "因滿意度未達標，立即停止導入"
+    correct: c
+    explanation:
+      why_correct: "Pilot 是中期評估，尚有改善機會。準確率超標是好消息，但使用者滿意度偏低（3.8 vs 4.0 門檻）可能源於介面難用、培訓不足或期待落差，這些都可在 Pilot 期間改善。正確做法是找出原因→改善→再評估，而不是放棄或降低標準。"
+      why_not_a: "出口標準要全部達標；滿意度未達標不能進入 Rollout。"
+      why_not_b: "事後降低門檻不誠信且失去出口標準的意義。"
+      why_not_d: "這只是 Pilot 中期，不是終期評估；且問題是可改善的，不應立即放棄。"
+    keywords: ["Pilot", "出口標準", "中期改善"]
+    topic_area: 出口標準
 
-- id: "L12302-Q33"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 5
-  question: "某中小企業在 Pilot 階段發現：導入成效不佳，使用者抱怨介面難用、業務流程沒改、只有 IT 部門在推。根據業界統計，最可能的主因與最佳補救為？"
-  options:
-    a: "技術模型不夠強，應換更大模型"
-    b: "失敗主因是變革管理與跨部門協作不足；補救為強化業務/HR/法遵參與、流程再造與持續溝通"
-    c: "只需增加 GPU 即可解決"
-    d: "停止專案，等 AI 更成熟再說"
-  correct: "b"
-  explanation:
-    why_correct: "Gartner 2025 指出 GenAI 失敗主因為變革管理而非技術；此情境符合典型「set it, forget it + IT 單打獨鬥」失敗模式。"
-    why_not_a: "換模型無助於跨部門協作與流程問題。"
-    why_not_c: "算力與跨部門協作問題無關。"
-    why_not_d: "放棄不符合階段化導入邏輯，且浪費既有投資。"
-  keywords:
-    - "因應措施"
-    - "變革管理"
-  exam_trap: true
+  - id: L12302-Q33
+    difficulty: 4
+    question: "某 HR AI 系統正式上線後發現：（A）使用者表示操作複雜，（B）某部門主管反對使用 AI 審核員工績效。變更管理應分別採取什麼措施？"
+    options:
+      a: "（A）技術修復 UI（B）強制使用 AI 決策"
+      b: "（A）加強使用者培訓（B）針對主管的顧慮進行溝通和利害關係人管理"
+      c: "（A）降低功能需求（B）解雇反對的主管"
+      d: "（A）重新進行 POC（B）完全停用 AI"
+    correct: b
+    explanation:
+      why_correct: "變更管理針對「人的問題」：（A）操作複雜是技能問題，應加強使用者培訓，讓員工熟悉操作；（B）主管反對是利害關係人阻力，應透過溝通了解顧慮（如工作取代的恐懼）、說明 AI 的輔助定位、將主管納入決策過程，把反對者轉為支持者。"
+      why_not_a: "強制使用 AI 決策會加劇阻力，且員工績效審核必須有 HITL，不能完全由 AI 決定。"
+      why_not_c: "降低功能需求無法解決操作複雜問題；解雇主管是不理性且可能違法的。"
+      why_not_d: "重新 POC 是最後手段；完全停用也過度反應。"
+    keywords: ["變更管理", "培訓", "利害關係人溝通"]
+    topic_area: 變更管理
 
-- id: "L12302-Q34"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某大型零售商在 Scale 階段（全面上線）後，發現新版 AI 推薦系統導致退貨率上升。最佳因應組合為？"
-  options:
-    a: "忽略並持續觀察半年"
-    b: "先以 prompt 微調與人工抽查壓制風險，暫不啟動 rollback"
-    c: "啟動 Rollback 回溯至穩定版本，同時調查退貨率成因，並建立持續監控指標（避免「set it, forget it」）"
-    d: "只重訓模型即可"
-  correct: "c"
-  explanation:
-    why_correct: "上線後出現問題應先 Rollback 到穩定版本保護營運，同時調查成因並建立監控指標；這呼應 Gartner 反對「set it, forget it」的原則。"
-    why_not_a: "退貨率上升是營運重大警訊，不能觀察半年。"
-    why_not_b: "『先做 prompt 微調 + 人工抽查』是低嚴重度問題的合理處置，但題幹的風險已經屬於結構性錯誤（如系統性幻覺或合規違反），此時 prompt 微調無法解決根因，必須 rollback 到前版並重新規劃。判斷關鍵在『是參數問題還是版本問題』。"
-    why_not_d: "重訓模型無法處理短期營運風險，應先回到穩定版本。"
-  keywords:
-    - "因應措施"
-    - "Rollback"
-  exam_trap: false
+  - id: L12302-Q34
+    difficulty: 4
+    question: "在四階段 AI 導入策略中，「敏捷方式的迭代回饋循環」最應該發生在哪個時機？"
+    options:
+      a: "只在 Scale 規模化後才收集回饋"
+      b: "等整個四階段全部完成後才收集一次性回饋"
+      c: "只在 POC 完成後一次性收集回饋"
+      d: "每個 Sprint（2-4週）都收集回饋，並在各階段轉換時進行出口標準評估"
+    correct: d
+    explanation:
+      why_correct: "敏捷方式的核心優勢是快速迭代回饋：每個 Sprint（2-4週）收集使用者和業務回饋，快速調整方向。同時，各階段之間（POC→Pilot→Rollout→Scale）設有出口標準評估點，確保符合條件才進入下一階段。兩層回饋機制結合，最大化靈活性。"
+      why_not_a: "只在 Scale 後收集回饋太晚，無法在早期糾正問題。"
+      why_not_b: "等全部完成後才回饋等同於瀑布方式，失去敏捷的優勢。"
+      why_not_c: "只在 POC 後收集一次回饋，忽略了 Pilot 和 Rollout 的重要回饋。"
+    keywords: ["敏捷", "迭代", "回饋循環"]
+    topic_area: 四階段推廣策略
 
-- id: "L12302-Q35"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 5
-  question: "某壽險公司導入 GenAI 核保輔助工具，Pilot 階段需同時檢查四項風險：(1) Prompt Injection 是否導致資料外洩；(2) 不同族群是否出現偏誤；(3) 實際核保員是否能用；(4) 和舊系統比結果是否一致。最適合的測試組合為？"
-  options:
-    a: "只做 UAT 即可"
-    b: "只做 A/B 測試"
-    c: "只做 Beta 測試"
-    d: "紅隊測試（Prompt Injection + 偏誤） + UAT（核保員驗收） + 並行運行（新舊結果比對），三種測試並用"
-  correct: "d"
-  explanation:
-    why_correct: "四項風險需搭配三種測試：紅隊測試找攻擊與偏誤、UAT 驗收實際使用者可用性、並行運行比對新舊結果。各類測試目的不同不可互換。"
-    why_not_a: "UAT 無法處理資安與偏誤風險。"
-    why_not_b: "A/B 測試是量化版本比較，不能取代紅隊與 UAT。"
-    why_not_c: "Beta 測試範圍有限，無法覆蓋紅隊與並行運行的需求。"
-  keywords:
-    - "測試"
-    - "紅隊測試"
-    - "UAT"
-    - "parallel run"
-  exam_trap: true
+  - id: L12302-Q35
+    difficulty: 4
+    question: "某公司的 AI 合約審查工具已完成 Pilot，現在進入 Rollout 推廣到法律、財務、採購三個部門。Rollout 期間最重要的優先事項是什麼？"
+    options:
+      a: "立即開始 Scale 規模化，讓更多部門同時上線"
+      b: "確保 SLA（服務等級協議）達標、無重大故障，並完成各部門培訓"
+      c: "重新進行 POC 驗證合約審查的準確率"
+      d: "暫停 Rollout，先進行 Beta 測試收集外部回饋"
+    correct: b
+    explanation:
+      why_correct: "Rollout 階段的核心目標是「穩定且有序地擴大覆蓋範圍」。最重要的工作：（1）確保服務穩定符合 SLA；（2）快速解決問題避免重大故障；（3）對各部門進行適當培訓，確保使用者能有效使用工具。這三項直接對應 Rollout 出口標準。"
+      why_not_a: "Rollout 都還沒完成就急著 Scale，是跳過出口標準的危險做法。"
+      why_not_c: "Pilot 已完成驗證，Rollout 階段不需要重新 POC。"
+      why_not_d: "Beta 測試是 Rollout 前或初期進行的，不是 Rollout 進行中的優先事項。"
+    keywords: ["Rollout", "SLA", "培訓"]
+    topic_area: 出口標準
 
-- id: "L12302-Q36"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 2
-  question: "下列關於「退出準則（Exit Criteria）」的敘述，何者最正確？"
-  options:
-    a: "只要 POC 的準確率達到 80%，不論應用場景都可以直接進入 Scale"
-    b: "退出準則應依風險等級設定——高風險場景需要更高門檻，低風險場景可接受較低門檻"
-    c: "退出準則只在 Scale 階段才需要定義"
-    d: "退出準則就是 SMART 目標的時程欄位（Time-bound）"
-  correct: "b"
-  explanation:
-    why_correct: "退出準則（Exit Criteria）是判斷「目前階段是否可以進入下一階段」的客觀門檻，且必須依風險等級設定——醫療/金融/法律等高風險場景常需 95%+ 準確率與 HITL 抽查；內部 FAQ 或創意輔助場景 70–80% 即可接受。"
-    why_not_a: "80% 不是通用門檻；高風險場景 80% 仍可能造成重大傷害。"
-    why_not_c: "退出準則應在每一階段（POC、Pilot）都有明確定義，否則無法決定何時可前進。"
-    why_not_d: "退出準則是階段推進門檻，與 SMART 的時程欄位是不同概念。"
-  keywords:
-    - "退出準則"
-    - "Exit Criteria"
-    - "風險等級"
-  exam_trap: true
+  - id: L12302-Q36
+    difficulty: 4
+    question: "在 AI 導入規劃中，「相依性管理（Dependency Management）」在時程規劃中指的是什麼？"
+    options:
+      a: "確保 AI 系統不依賴外部 API，避免供應商鎖定"
+      b: "管理員工對 AI 系統的心理依賴程度"
+      c: "建立 AI 模型的相依套件清單（requirements.txt）"
+      d: "識別哪些任務必須按先後順序執行，後一個任務依賴前一個的完成"
+    correct: d
+    explanation:
+      why_correct: "時程規劃中的相依性管理是識別任務間的前後關係：例如「資料清理完成」→才能「開始模型訓練」→才能「進行 UAT」。不識別相依性會導致後一個任務的人員空等，或前一個任務延誤導致整個時程崩潰。"
+      why_not_a: "供應商鎖定是採購評估問題（L12301），不是時程規劃中的相依性管理。"
+      why_not_b: "員工心理依賴是變更管理議題，不是時程規劃。"
+      why_not_c: "軟體套件依賴（requirements.txt）是技術開發管理，不是專案時程規劃。"
+    keywords: ["時程規劃", "相依性管理", "資源規劃"]
+    topic_area: 資源規劃
 
-- id: "L12302-Q37"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: "某銀行 POC 階段用 GenAI 自動回覆客戶貸款問題，準確率達到 82%。主管認為「已經達 80% 門檻」想直接 Scale 推向全部分行。從退出準則角度，下列建議何者最妥當？"
-  options:
-    a: "82% 已過 80%，符合常見標準，可直接進入 Scale"
-    b: "金融場景屬高風險，82% 不足；應進入 Pilot 階段擴大測試並補強 HITL 抽查，達 95%+ 且法遵過關再 Scale"
-    c: "應退回 POC 重新設計資料集，再跑一次 POC"
-    d: "只要加入 rollback 機制，82% 就可以 Scale"
-  correct: "b"
-  explanation:
-    why_correct: "金融場景屬高風險，退出準則門檻應遠高於一般情境。82% 只代表 POC 可行性驗證通過，下一步是 Pilot（小規模真實客戶測試 + HITL 抽查），並在達到高門檻（通常 95%+）且法遵（金管會指引）檢核過關後才能 Scale。"
-    why_not_a: "80% 不是通用門檻；對金融這類高風險場景嚴重不足。"
-    why_not_c: "POC 結果符合可行性驗證，不需退回；直接 Pilot 才是正常路徑。"
-    why_not_d: "Rollback 是出事後的補救，不能替代前置的退出準則判斷。"
-  keywords:
-    - "退出準則"
-    - "Exit Criteria"
-    - "金融風險"
-    - "Pilot"
-  exam_trap: false
+  - id: L12302-Q37
+    difficulty: 5
+    question: "某電商平台 AI 個人化推薦系統 Rollout 三個月後，SLA 達標但用戶投訴推薦內容有偏見。此時正確的處理步驟是什麼？"
+    options:
+      a: "先 Kill Switch 停用偏見推薦功能，同時調查偏見根因，並在修復後重新規劃 HITL 流程設計"
+      b: "Rollback 退版 + 修正後重新上線"
+      c: "Fallback 切舊系統 + 等待技術團隊修復"
+      d: "繼續 Rollout + 同時進行 A/B 測試比較偏見程度"
+    correct: a
+    explanation:
+      why_correct: "偏見是倫理問題，需要分三步處理：（1）立即 Kill Switch 停用含偏見的推薦功能，防止持續傷害；（2）調查偏見根因（訓練資料、模型設計等問題）；（3）修復後規劃 HITL 流程——注意：HITL 是事前設計的人工審核機制，屬於後續治理設計，不是緊急措施本身。"
+      why_not_b: "Rollback 只解決版本問題，如果偏見在多個版本都存在，退版無效。"
+      why_not_c: "Fallback 切回舊系統，如果偏見是系統性問題，舊系統可能也有同樣問題。"
+      why_not_d: "繼續 Rollout 且用 A/B 測試「比較偏見程度」是不倫理的——不應讓更多用戶暴露在已知偏見問題中。"
+    keywords: ["Kill Switch", "HITL", "倫理問題", "應急組合"]
+    topic_area: 應急規劃
 
-- id: "L12302-Q38"
-  topic_code: "L12302"
-  item_code: "L12302"
-  difficulty: 3
-  question: |
-    閱讀下列表格，判斷哪一欄的「主要目的」描述錯誤？
+  - id: L12302-Q38
+    difficulty: 5
+    question: "某公司計劃從「POC 完成」到「全面 Scale」用 6 個月完成，時程如下：POC（已完成）→ Pilot（1個月）→ Rollout（1個月）→ Scale（4個月）。哪個環節風險最高？"
+    options:
+      a: "Pilot 1個月偏短，業務效益驗證不充分"
+      b: "Rollout 1個月明顯偏短，多部門推廣和培訓不可能在1個月內完成"
+      c: "Scale 4個月太短，全組織部署需要更多時間"
+      d: "整體時程合理，敏捷方式可以加速各階段"
+    correct: b
+    explanation:
+      why_correct: "標準參考時間：Rollout 需要3-6個月才能逐步推廣到多部門、完成各部門培訓、穩定服務。1個月明顯偏短，是最高風險環節。Pilot 1個月在某些情況下勉強可行（標準是1-3個月），但 Rollout 1個月幾乎不可能在多部門完成所有工作。"
+      why_not_a: "Pilot 1個月偏短但非最大風險；問題更大的是 Rollout。"
+      why_not_c: "Scale 4個月對全組織部署可能偏緊，但 Rollout 1個月是更明顯的問題。"
+      why_not_d: "敏捷可以加速迭代，但 Rollout 1個月涵蓋多部門推廣和培訓在實務上幾乎不可能。"
+    keywords: ["時程規劃", "Rollout時間", "四階段"]
+    topic_area: 四階段推廣策略
 
-    | 測試類型 | 主要目的 |
-    |---------|---------|
-    | (A) UAT | 最終使用者驗收流程是否可用 |
-    | (B) A/B 測試 | 比較兩個版本實務效果的差異 |
-    | (C) 紅隊測試 | 最終使用者滿意度調查 |
-    | (D) 並行運行 | 新舊系統同時運作以降低切換風險 |
-  options:
-    a: "(A) UAT"
-    b: "(B) A/B 測試"
-    c: "(C) 紅隊測試"
-    d: "(D) 並行運行"
-  correct: "c"
-  explanation:
-    why_correct: "紅隊測試（Red Team）是主動攻擊測試——由內部或外部專家扮演攻擊者，找出系統漏洞、prompt injection、越獄 jailbreak 等安全與倫理弱點。它不是使用者滿意度調查。"
-    why_not_a: "UAT 的目的確實是最終使用者驗收流程可用性，描述正確。"
-    why_not_b: "A/B 測試確實用於比較兩版效果差異，描述正確。"
-    why_not_d: "並行運行確實以新舊系統同時運作降低切換風險，描述正確。"
-  keywords:
-    - "紅隊測試"
-    - "Red Team"
-    - "UAT"
-    - "A/B test"
-    - "並行運行"
-  exam_trap: true
+  - id: L12302-Q39
+    difficulty: 5
+    question: "某公司 AI 導入完成 Scale 後 6 個月，AI 模型的業務 KPI 開始下滑（模型漂移/Model Drift）。這個現象提示了什麼規劃要素被遺漏？"
+    options:
+      a: "POC 階段的技術驗證不足"
+      b: "Pilot 階段沒有進行 UAT"
+      c: "Scale 後缺乏持續監控、定期評估和再訓練機制"
+      d: "資源規劃沒有預留足夠的運算資源"
+    correct: c
+    explanation:
+      why_correct: "模型漂移（Model Drift）是指隨著時間推移，真實世界的資料分布改變，導致模型效果下降。Scale 後的 AI 維運需要：（1）持續監控 KPI 指標；（2）定期評估模型效能；（3）當發現漂移時進行再訓練或更新模型。「AI 上線不是結束」——缺乏這個持續維運機制是本題問題所在。"
+      why_not_a: "POC 在6個月前就完成了，且當時 KPI 正常；問題是後來的漂移，不是早期技術驗證問題。"
+      why_not_b: "UAT 是功能驗收，與 Scale 後的模型漂移問題無關。"
+      why_not_d: "運算資源是基礎設施問題，模型漂移是效能退化問題，兩者無直接關聯。"
+    keywords: ["Scale", "模型漂移", "持續監控"]
+    topic_area: 出口標準
+
+  - id: L12302-Q40
+    difficulty: 5
+    question: "某公司計劃同時進行 AI 客服系統的 Pilot 和 Beta 測試，請問這樣的安排是否正確？"
+    options:
+      a: "正確，Pilot 和 Beta 可以同時進行以節省時間"
+      b: "有問題，Beta 測試應在 Scale 完成後才執行"
+      c: "有問題，Beta 測試（外部用戶）應在 Rollout 前進行；Pilot 期間應先做 UAT 確認內部流程無誤再向外開放"
+      d: "有問題，應把 Beta 測試改成 Red Team 測試"
+    correct: c
+    explanation:
+      why_correct: "測試時機順序：Pilot 階段重點是內部使用者（業務人員）的 UAT——確認系統符合業務需求；Beta 測試是讓外部小範圍用戶試用，通常在 Rollout 前進行。在 Pilot 期間就讓外部用戶參與，可能在系統尚未穩定時暴露外部風險，且內部流程問題還沒解決就向外開放不合適。"
+      why_not_a: "雖然時間上可以節省，但在 Pilot（內部驗證）完成前就引入外部用戶有風險——內部流程問題可能影響外部用戶體驗。"
+      why_not_b: "Beta 測試在 Scale 後才做太晚；Beta 的目的是在 Rollout 前的最後外部驗證，不是在 Scale 後。"
+      why_not_d: "Beta 測試和 Red Team 目的不同，不能互換；Red Team 是找漏洞，不是收集用戶回饋。"
+    keywords: ["Beta測試", "UAT", "測試順序", "Pilot"]
+    topic_area: 測試類型

@@ -15,7 +15,15 @@
       "Bash(gemini -p \"Say OK\")",
       "Read(//Users/douglaskuo/.codex/**)",
       "Bash(grep -n \"anchoring bias\\\\|Llama-3\\\\.1\\\\|每萬請求 NT\\\\$2,000\\\\|每萬請求 NT\\\\\\\\\\\\$2,000\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21201-AI導入評估/L21201-AI導入評估-study-guide.md\")",
-      "Bash(grep -n \"Llama-3\\\\.1\\\\|每萬請求 NT\\\\$2,000\\\\|每萬請求 NT\\\\\\\\\\\\$2,000\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21201-AI導入評估/L21201-AI導入評估-study-guide.md\")"
+      "Bash(grep -n \"Llama-3\\\\.1\\\\|每萬請求 NT\\\\$2,000\\\\|每萬請求 NT\\\\\\\\\\\\$2,000\" \"/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L21201-AI導入評估/L21201-AI導入評估-study-guide.md\")",
+      "Bash(gemini --approval-mode auto)",
+      "Bash(echo \"Gemini exit code: $?\")",
+      "Bash(echo \"Codex audit exit code: $?\")",
+      "Bash(tee /tmp/review-codex-raw-L11101.md)",
+      "Bash(awk -F'\"' '{print $2}')",
+      "Bash(awk -F': ' '{print $2}')",
+      "Bash(ruby -e ' *)",
+      "Bash(ruby -e 'require \"yaml\"; qs=YAML.load_file\\(\"content/ipas/beginner/questions/L12301-questions.yaml\"\\)[\"questions\"]; dist=Hash.new\\(0\\); qs.each{|q| dist[q[\"correct\"]]+=1}; puts dist.sort.to_s')"
     ],
     "additionalDirectories": [
       "/Users/douglaskuo/Projects/70-Saas-LevelCert/content/ipas/intermediate/lessons/L22303-數據可視化工具",

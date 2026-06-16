@@ -55,3 +55,5 @@ supabase/.temp/
 *.docx
 *.xlsx
 !web/public/**
+user-input.md
+claude.local.md

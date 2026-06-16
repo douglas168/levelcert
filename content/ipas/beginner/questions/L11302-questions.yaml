@@ -1,754 +1,488 @@
-# L11302 常見的機器學習模型 — Practice Questions
-# Generated: 2026-04-11
-# Total: 35 questions | Difficulty: 7 per level (1-5)
+topic: L11302
+topic_name: 常見的機器學習模型
+level: beginner
+questions:
+  # ── Difficulty 1 (D1 × 9) ─────────────────────────────────────
+  - id: L11302-Q01
+    stem: "下列何者是「線性迴歸（Linear Regression）」的適用任務？"
+    options:
+      a: "預測連續數值，例如房屋成交價格"
+      b: "把顧客分成幾個消費族群"
+      c: "判斷電子郵件是否為垃圾郵件"
+      d: "從圖像中辨識人臉"
+    answer: "a"
+    explanation: "線性迴歸用於預測連續數值（迴歸任務），如房價、銷售額、氣溫。分群屬於非監督式、垃圾郵件判斷屬於分類、人臉辨識屬於深度學習分類任務。"
+    difficulty: 1
+    tags: ["linear-regression", "regression"]
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+  - id: L11302-Q02
+    stem: "下列關於「邏輯迴歸（Logistic Regression）」的敘述，何者正確？"
+    options:
+      a: "它是一種迴歸演算法，輸出連續數值"
+      b: "它雖然名稱含有「迴歸」，但本質上是分類演算法"
+      c: "它是非監督式學習的演算法"
+      d: "它需要大量影像資料才能發揮效果"
+    answer: "b"
+    explanation: "邏輯迴歸（Logistic Regression）名稱易誤導，但任務是分類（尤其是二元分類），輸出機率（0–1）再轉換成類別。這是初級考試最常見的命名陷阱。"
+    difficulty: 1
+    tags: ["logistic-regression", "classification", "naming-trap"]
 
-- id: "L11302-Q01"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列關於「監督式學習（Supervised Learning）」所使用的資料，何者正確？"
-  options:
-    a: "完全沒有標籤的資料"
-    b: "有輸入特徵且已標記正確答案的資料"
-    c: "只有獎勵訊號、沒有具體答案的資料"
-    d: "從資料本身自動產生假標籤的資料"
-  correct: "b"
-  explanation:
-    why_correct: "監督式學習的核心特徵是訓練資料包含「輸入 → 正確輸出」的配對，也就是有標籤（labeled）資料，像老師在旁告訴模型每題的正確答案。"
-    why_not_a: "完全沒有標籤的資料是「非監督式學習」使用的資料型態。"
-    why_not_c: "只有獎勵訊號的是「強化式學習」，屬於試錯學習，不是監督式。"
-    why_not_d: "從資料本身自動產生標籤是「自監督式學習」的做法，雖然看起來像有標籤，但不是人工標註。"
-  keywords:
-    - "監督式學習"
-    - "標籤資料"
-  exam_trap: false
+  - id: L11302-Q03
+    stem: "下列哪一種演算法是「非監督式學習」的分群方法？"
+    options:
+      a: "KNN（K 近鄰演算法）"
+      b: "決策樹（Decision Tree）"
+      c: "K-means"
+      d: "隨機森林（Random Forest）"
+    answer: "c"
+    explanation: "K-means 是非監督式分群演算法，不需要標籤，自動把資料分成 K 個群。KNN、決策樹、隨機森林都是監督式演算法。"
+    difficulty: 1
+    tags: ["k-means", "unsupervised", "clustering"]
 
-- id: "L11302-Q02"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列何者為「非監督式學習」最典型的任務？"
-  options:
-    a: "分類"
-    b: "迴歸"
-    c: "分群"
-    d: "獎勵最大化"
-  correct: "c"
-  explanation:
-    why_correct: "非監督式學習最常見的任務是「分群（Clustering）」與「降維」，其中分群是把相似資料自動歸到同一群，不需要事先有類別標籤。"
-    why_not_a: "分類需要事先已知的類別標籤，是監督式學習的任務。"
-    why_not_b: "迴歸用來預測連續數值，需要標籤，屬於監督式學習。"
-    why_not_d: "獎勵最大化是強化式學習的目標，不是非監督式學習。"
-  keywords:
-    - "非監督式學習"
-    - "分群"
-  exam_trap: false
+  - id: L11302-Q04
+    stem: "「決策樹（Decision Tree）」最主要的缺點是什麼？"
+    options:
+      a: "完全無法處理分類任務"
+      b: "需要大量 GPU 運算資源"
+      c: "容易過擬合（overfitting），尤其當樹的深度增加時"
+      d: "只能用於數值型特徵，不能處理類別型特徵"
+    answer: "c"
+    explanation: "決策樹最著名的缺點是容易過擬合——樹越深就越像是「背答案」，在訓練集表現很好，但對新資料泛化能力差。隨機森林正是為了解決這個問題而被設計出來。"
+    difficulty: 1
+    tags: ["decision-tree", "overfitting"]
 
-- id: "L11302-Q03"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "強化式學習的五大要素中，下列何者代表「做決策的那個角色」？"
-  options:
-    a: "環境（Environment）"
-    b: "狀態（State）"
-    c: "智能體（Agent）"
-    d: "獎勵（Reward）"
-  correct: "c"
-  explanation:
-    why_correct: "智能體（Agent）是強化式學習中實際做決策與行動的主體，它會在環境中觀察狀態、選擇動作，並根據獎勵調整策略。"
-    why_not_a: "環境是智能體所處的世界，而不是做決策的角色。"
-    why_not_b: "狀態是智能體當下看到的情境資訊，不是行動者。"
-    why_not_d: "獎勵是環境回饋給智能體的訊號，用來評估動作好壞，本身不是決策者。"
-  keywords:
-    - "強化式學習"
-    - "智能體"
-    - "五元素"
-  exam_trap: false
+  - id: L11302-Q05
+    stem: "下列哪一個選項是「隨機森林（Random Forest）」所採用的集成學習策略？"
+    options:
+      a: "Boosting（提升法）"
+      b: "Stacking（疊加法）"
+      c: "Pruning（剪枝法）"
+      d: "Bagging（自助聚合法）"
+    answer: "d"
+    explanation: "隨機森林採用 Bagging（Bootstrap Aggregating）：隨機抽樣建出多棵決策樹，預測時讓所有樹投票，多數決定結果。Boosting 是梯度提升（Gradient Boosting/XGBoost）的策略。"
+    difficulty: 1
+    tags: ["random-forest", "bagging", "ensemble"]
 
-- id: "L11302-Q04"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列關於機器學習（ML）與深度學習（DL）關係的敘述，何者正確？"
-  options:
-    a: "ML 與 DL 是兩個互相獨立且不相關的技術"
-    b: "DL 是 ML 的一種方法，屬於 ML 的子集"
-    c: "ML 是 DL 的子集，DL 涵蓋所有 ML 技術"
-    d: "ML 只處理結構化資料，DL 只屬於生成式 AI"
-  correct: "b"
-  explanation:
-    why_correct: "深度學習是機器學習的一種方法（使用多層神經網路），屬於 ML 的子集，常見的層次關係為 AI ⊃ ML ⊃ DL。"
-    why_not_a: "ML 與 DL 並非獨立技術，DL 本身就是 ML 的一種方法。"
-    why_not_c: "方向相反：是 DL ⊂ ML，不是 ML ⊂ DL。"
-    why_not_d: "ML 不限於結構化資料，DL 也用於許多非生成式任務（例如影像分類）。"
-  keywords:
-    - "ML"
-    - "DL"
-    - "層次關係"
-  exam_trap: true
+  - id: L11302-Q06
+    stem: "KNN（K-Nearest Neighbors，K 近鄰演算法）中的「K」代表什麼？"
+    options:
+      a: "要分成幾個群"
+      b: "神經網路的層數"
+      c: "預測時參考最近的幾個訓練資料點（鄰居）"
+      d: "模型訓練的迭代次數"
+    answer: "c"
+    explanation: "KNN 中的 K 代表「最近的 K 個鄰居」——預測時找出距離最近的 K 個訓練資料點，由這 K 個鄰居的類別多數決定答案。這和 K-means 的 K（要分幾群）完全不同。"
+    difficulty: 1
+    tags: ["knn", "k-nearest-neighbors"]
 
-- id: "L11302-Q05"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列何者為「多模態學習（Multimodal Learning）」的定義？"
-  options:
-    a: "同時使用多個不同演算法的機器學習方法"
-    b: "一個模型同時處理文字、圖像、音訊等多種資料型態"
-    c: "同一個模型同時解決多個不同任務（如翻譯與摘要）"
-    d: "使用多台電腦進行分散式訓練的方法"
-  correct: "b"
-  explanation:
-    why_correct: "多模態學習的核心定義是模型能同時處理多種不同型態（模態）的資料，例如文字＋圖像＋音訊，代表模型有 GPT-4V、Gemini、Claude 3 等。"
-    why_not_a: "同時使用多個演算法通常稱為「集成學習」，與多模態無關。"
-    why_not_c: "同一個模型做多個任務稱為「多工學習（Multitask）」，與多模態是不同概念，常被混淆。"
-    why_not_d: "多電腦分散式訓練屬於訓練架構議題，與模態（資料型態）無關。"
-  keywords:
-    - "多模態學習"
-    - "定義"
-  exam_trap: true
+  - id: L11302-Q07
+    stem: "「主成分分析（PCA，Principal Component Analysis）」的主要用途是什麼？"
+    options:
+      a: "把有標籤資料分成多個類別"
+      b: "讓智能體在環境中學習最佳策略"
+      c: "找出資料中的異常值並刪除"
+      d: "把高維資料壓縮到低維，同時保留最多資訊"
+    answer: "d"
+    explanation: "PCA 是非監督式降維技術，目的是把高維資料投影到低維空間，同時盡量保留最多的資料變異（資訊）。常用於資料視覺化、特徵壓縮。"
+    difficulty: 1
+    tags: ["pca", "dimensionality-reduction", "unsupervised"]
 
-- id: "L11302-Q06"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列何者為「召回率（Recall）」直覺上在衡量的事？"
-  options:
-    a: "模型總體上答對幾成的比例"
-    b: "模型「說是正」的案例中，真的是正的有幾成"
-    c: "所有「實際為正」的案例中，模型成功抓到幾成"
-    d: "模型預測值與實際值的平均誤差"
-  correct: "c"
-  explanation:
-    why_correct: "召回率衡量的是「實際為正」的樣本中，模型成功抓到的比例，也就是「漏報有多嚴重」。"
-    why_not_a: "總體答對比例是「準確率（Accuracy）」的意義。"
-    why_not_b: "模型說是正裡真的是正的比例是「精確率（Precision）」，代表「誤報有多嚴重」。"
-    why_not_d: "平均誤差是迴歸指標（如 MAE）的意義，與分類召回率無關。"
-  keywords:
-    - "召回率"
-    - "分類指標"
-  exam_trap: false
+  - id: L11302-Q08
+    stem: "下列關於「隨機森林（Random Forest）」的敘述，何者正確？"
+    options:
+      a: "隨機森林由一棵非常深的決策樹構成"
+      b: "隨機森林使用 Boosting 策略依序修補錯誤"
+      c: "隨機森林屬於非監督式學習"
+      d: "隨機森林是多棵決策樹的集成，透過投票決定最終結果"
+    answer: "d"
+    explanation: "隨機森林由多棵（通常數百棵）決策樹組成，採用 Bagging 策略平行建立，預測時以多數投票決定結果，有效降低單棵決策樹的過擬合問題。"
+    difficulty: 1
+    tags: ["random-forest", "ensemble", "bagging"]
 
-- id: "L11302-Q07"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 1
-  question: "下列哪一個深度學習架構最常被用來處理「影像」相關任務？"
-  options:
-    a: "CNN（卷積神經網路）"
-    b: "RNN（循環神經網路）"
-    c: "LSTM（長短期記憶）"
-    d: "Apriori"
-  correct: "a"
-  explanation:
-    why_correct: "CNN（卷積神經網路）擅長處理具有空間結構的資料，是影像分類、人臉辨識、醫療影像等電腦視覺任務的主流架構。"
-    why_not_b: "RNN 專長是序列資料（文字、語音、時間序列），不是影像。"
-    why_not_c: "LSTM 是 RNN 的進階版，同樣針對長序列資料設計，不是影像。"
-    why_not_d: "Apriori 是非監督式學習中的「關聯規則」演算法，根本不是深度學習。"
-  keywords:
-    - "CNN"
-    - "深度學習架構"
-  exam_trap: false
+  - id: L11302-Q09
+    stem: "下列哪一個激活函數（Activation Function）最常用於深度神經網路的隱藏層（Hidden Layer）？"
+    options:
+      a: "Softmax"
+      b: "Sigmoid"
+      c: "ReLU（Rectified Linear Unit，線性整流函數）"
+      d: "PCA"
+    answer: "c"
+    explanation: "ReLU（Rectified Linear Unit，線性整流函數）是現代深度神經網路隱藏層最常用的激活函數，因為它計算簡單、有效解決梯度消失問題。Softmax 用於多類別分類輸出層，Sigmoid 用於二元分類輸出層，PCA 不是激活函數。"
+    difficulty: 1
+    tags: ["neural-network", "activation-function", "relu"]
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  # ── Difficulty 2 (D2 × 10) ────────────────────────────────────
+  - id: L11302-Q10
+    stem: "下列關於「KNN（K 近鄰演算法）」被稱為「懶惰學習（Lazy Learning）」的原因，何者正確？"
+    options:
+      a: "KNN 在訓練時不建立任何模型，只儲存訓練資料，等到要預測時才計算距離"
+      b: "KNN 只能用在簡單問題上，太難的問題它解決不了"
+      c: "KNN 的準確率通常比其他演算法低"
+      d: "KNN 需要的訓練時間比隨機森林更長"
+    answer: "a"
+    explanation: "KNN 的「懶惰」是指它在訓練階段不做任何學習（不建立模型），只是把所有訓練資料存起來。等到有新資料需要預測時，才去計算新點與所有訓練點的距離，找出最近的 K 個鄰居。這和大多數「積極學習（Eager Learning）」演算法在訓練時就建好模型的方式不同。"
+    difficulty: 2
+    tags: ["knn", "lazy-learning", "eager-learning"]
 
-- id: "L11302-Q08"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列何者是「強化式學習」的典型範例？"
-  options:
-    a: "Gmail 自動過濾垃圾郵件"
-    b: "AlphaGo 透過對弈學會下圍棋"
-    c: "電商將顧客自動分成若干消費族群"
-    d: "從 X 光影像分類良性或惡性腫瘤"
-  correct: "b"
-  explanation:
-    why_correct: "AlphaGo 透過大量對弈試錯、以「贏棋」為長期獎勵來學出下棋策略，是強化式學習的代表案例（有智能體、環境、動作、獎勵）。"
-    why_not_a: "垃圾郵件過濾用人工標記好的「垃圾 / 非垃圾」訓練資料，是監督式分類。"
-    why_not_c: "顧客分群沒有事先類別，是非監督式學習中的分群任務。"
-    why_not_d: "X 光腫瘤良惡性分類有醫師標註的標籤，屬於監督式分類。"
-  keywords:
-    - "強化式學習"
-    - "AlphaGo"
-  exam_trap: false
+  - id: L11302-Q11
+    stem: "下列何者最能描述「K-means」演算法的核心流程？"
+    options:
+      a: "隨機選定 K 個質心，反覆將資料點分配到最近質心、再更新質心，直到穩定"
+      b: "以 Bagging 策略並行建立多個分類樹，再多數投票"
+      c: "從根節點依特徵進行二元分裂，形成樹狀決策流程"
+      d: "找出資料中使邊界距離最大的超平面來分類"
+    answer: "a"
+    explanation: "K-means 的流程：1. 隨機選 K 個質心；2. 把每個點分配到最近質心；3. 重新計算質心（群內平均值）；4. 重複 2–3 直到質心不再移動。這是非監督式分群，不需要標籤。"
+    difficulty: 2
+    tags: ["k-means", "clustering", "centroid"]
 
-- id: "L11302-Q09"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列關於「分類（Classification）」與「迴歸（Regression）」的敘述，何者正確？"
-  options:
-    a: "分類的輸出是連續數值；迴歸的輸出是離散類別"
-    b: "分類的輸出是離散類別；迴歸的輸出是連續數值"
-    c: "兩者都屬於非監督式學習的子任務"
-    d: "兩者都只能使用決策樹演算法"
-  correct: "b"
-  explanation:
-    why_correct: "監督式學習的兩大子任務：分類輸出是離散類別（如貓/狗、垃圾/非垃圾），迴歸輸出是連續數值（如房價、氣溫）。口訣是「離散→分類，連續→迴歸」。"
-    why_not_a: "定義方向剛好相反。"
-    why_not_c: "兩者都屬於監督式學習，不是非監督式。"
-    why_not_d: "可用的演算法非常多，例如線性迴歸、SVM、神經網路、KNN 等，不限於決策樹。"
-  keywords:
-    - "分類"
-    - "迴歸"
-  exam_trap: false
+  - id: L11302-Q12
+    stem: "「SVM（Support Vector Machine，支援向量機）」的核心概念「最大邊界（Maximum Margin）」是指什麼？"
+    options:
+      a: "訓練資料越多，SVM 表現越好"
+      b: "在分類時允許最多的資料點跨越邊界"
+      c: "使用最多特徵維度來建立分類模型"
+      d: "找一個超平面，使得它與兩類資料中最近點的距離總和最大"
+    answer: "d"
+    explanation: "SVM 尋找一個超平面（Hyperplane），使得超平面到兩邊最近的訓練資料點（支援向量，Support Vectors）的距離（Margin）最大化，這樣的邊界泛化能力最強，遇到新資料最不容易分錯。"
+    difficulty: 2
+    tags: ["svm", "maximum-margin", "hyperplane"]
 
-- id: "L11302-Q10"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列何者屬於「非監督式學習」的應用情境？"
-  options:
-    a: "根據歷史房屋成交資料預測房價"
-    b: "從未標註的顧客購物紀錄中找出相似的消費族群"
-    c: "根據標記好的貓狗照片訓練影像分類器"
-    d: "讓自駕車透過試錯學會在模擬環境中行駛"
-  correct: "b"
-  explanation:
-    why_correct: "沒有事先定義好的群組標籤、由模型自己從資料結構找出相似族群，是非監督式學習中「分群」的典型應用。"
-    why_not_a: "預測連續房價是監督式學習中的迴歸任務。"
-    why_not_c: "有標記的貓狗照片屬於監督式分類。"
-    why_not_d: "試錯 + 獎勵的情境是強化式學習，不是非監督式。"
-  keywords:
-    - "非監督式學習"
-    - "分群"
-  exam_trap: false
+  - id: L11302-Q13
+    stem: "下列關於「梯度提升（Gradient Boosting）」和「隨機森林（Random Forest）」的比較，何者正確？"
+    options:
+      a: "隨機森林使用 Bagging 並行建樹；梯度提升使用 Boosting 依序建樹"
+      b: "兩者都使用 Boosting 策略依序建立模型"
+      c: "兩者都使用 Bagging 並行建樹"
+      d: "隨機森林使用 Boosting；梯度提升使用 Bagging"
+    answer: "a"
+    explanation: "隨機森林使用 Bagging（並行建多棵相互獨立的樹，再投票）；梯度提升使用 Boosting（依序建樹，每棵樹專門修補前棵樹的錯誤，累積改進）。這是兩種不同的集成策略。"
+    difficulty: 2
+    tags: ["gradient-boosting", "random-forest", "bagging-vs-boosting"]
 
-- id: "L11302-Q11"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列何者最能代表「多模態學習」的應用？"
-  options:
-    a: "使用者輸入一段文字描述，AI 生成對應的圖片"
-    b: "系統根據訂單資料自動計算每日營收"
-    c: "從結構化表格預測某產品下週的銷量"
-    d: "用決策樹判斷顧客是否會流失"
-  correct: "a"
-  explanation:
-    why_correct: "文字輸入 → 圖像輸出跨越兩種模態（文字與圖像），是多模態學習的代表應用，例如 DALL·E、Midjourney、Stable Diffusion。"
-    why_not_b: "計算每日營收是傳統資料處理，既非 ML 也非多模態。"
-    why_not_c: "單一結構化表格輸入只是單模態的監督式迴歸。"
-    why_not_d: "決策樹處理表格型特徵也是單模態任務，與多模態無關。"
-  keywords:
-    - "多模態學習"
-    - "文字生成圖像"
-  exam_trap: false
+  - id: L11302-Q14
+    stem: "使用「手肘法（Elbow Method）」是為了解決哪一個演算法的什麼問題？"
+    options:
+      a: "解決決策樹容易過擬合的問題"
+      b: "確定隨機森林需要幾棵決策樹"
+      c: "選擇 KNN 中最佳的 K 個鄰居數量"
+      d: "幫助選擇 K-means 中合適的 K 值（要分幾群）"
+    answer: "d"
+    explanation: "手肘法（Elbow Method）是 K-means 的 K 值選擇工具：嘗試不同 K 值，畫出群內誤差曲線，找到曲線「彎折最明顯如手肘」的那個 K 值作為最佳選擇。這解決了 K-means 「需要預先指定 K，但不知道 K 應該是多少」的問題。"
+    difficulty: 2
+    tags: ["k-means", "elbow-method", "k-selection"]
 
-- id: "L11302-Q12"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列關於「半監督式學習」的敘述，何者正確？"
-  options:
-    a: "使用大量人工標註的資料與少量無標註資料進行訓練"
-    b: "使用少量人工標註的資料與大量無標註的資料進行訓練"
-    c: "完全不使用任何標註資料，只靠資料本身生成標籤"
-    d: "完全不使用資料，只靠獎勵訊號訓練"
-  correct: "b"
-  explanation:
-    why_correct: "半監督式學習的核心是「少量標籤 + 大量無標籤」共同訓練，用於實務上標註成本很高但未標註資料充足的情境，例如醫療影像。"
-    why_not_a: "方向相反：是少量標註 + 大量未標註。"
-    why_not_c: "完全不用人工標註、從資料結構自動產生標籤的是「自監督式學習」，常被與半監督混淆。"
-    why_not_d: "只靠獎勵訊號訓練是強化式學習。"
-  keywords:
-    - "半監督式學習"
-    - "定義"
-  exam_trap: true
+  - id: L11302-Q15
+    stem: "下列關於「階層式分群（Hierarchical Clustering）」與「K-means」最重要的差異，何者正確？"
+    options:
+      a: "階層式分群不需要預先指定群數（K），可事後從樹狀圖決定；K-means 必須事先指定 K"
+      b: "K-means 屬於監督式學習，階層式分群屬於非監督式學習"
+      c: "K-means 輸出樹狀圖（Dendrogram），階層式分群輸出質心"
+      d: "兩者沒有差異，只是名稱不同"
+    answer: "a"
+    explanation: "階層式分群最大優勢是不需要預先指定 K，而是建立 Dendrogram（樹狀圖），讓使用者事後選擇切割高度來決定群數。K-means 則必須在開始前就指定要分成幾群。"
+    difficulty: 2
+    tags: ["hierarchical-clustering", "k-means", "dendrogram"]
 
-- id: "L11302-Q13"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列何者是「自監督式學習」最典型的應用場景？"
-  options:
-    a: "AlphaGo 下圍棋"
-    b: "大型語言模型（LLM）的預訓練（例如猜下一個字）"
-    c: "利用醫師標註的少量 X 光片訓練診斷模型"
-    d: "從顧客購物紀錄自動分群"
-  correct: "b"
-  explanation:
-    why_correct: "現代大型語言模型（GPT、BERT 等）的預訓練階段都是自監督式：利用文字本身「遮字」或「猜下一個字」自動產生標籤，不需要人工標註。"
-    why_not_a: "AlphaGo 是強化式學習的代表。"
-    why_not_c: "少量人工標註 + 大量未標註屬於半監督式學習，這是常見混淆陷阱。"
-    why_not_d: "顧客分群是非監督式學習，沒有標籤概念。"
-  keywords:
-    - "自監督式學習"
-    - "LLM 預訓練"
-  exam_trap: true
+  - id: L11302-Q16
+    stem: "「PCA（主成分分析）」中的「解釋方差比（Explained Variance Ratio）」越高，代表什麼？"
+    options:
+      a: "模型的準確率越高"
+      b: "主成分的數量越少越好"
+      c: "過擬合的風險越低"
+      d: "降維後保留的原始資料資訊越多"
+    answer: "d"
+    explanation: "PCA 的解釋方差比衡量每個主成分「解釋了原始資料幾%的變化量」。前幾個主成分的解釋方差比加總越高，代表降維後保留的資訊越完整——通常希望前幾個主成分能解釋 80% 以上的方差。"
+    difficulty: 2
+    tags: ["pca", "explained-variance-ratio"]
 
-- id: "L11302-Q14"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 2
-  question: "下列哪一個演算法屬於「非監督式學習」？"
-  options:
-    a: "KNN（K近鄰）"
-    b: "K-means（K均值分群）"
-    c: "邏輯迴歸"
-    d: "隨機森林"
-  correct: "b"
-  explanation:
-    why_correct: "K-means 是典型的非監督式分群演算法，用來把沒有類別標籤的資料自動分成 K 個群，K 代表「要分成幾群」。"
-    why_not_a: "KNN 雖然名字也有 K，但它是監督式演算法（分類或迴歸），K 指「看最近的幾個鄰居」，與 K-means 完全不同。"
-    why_not_c: "邏輯迴歸雖然名字有「迴歸」，但其實是監督式的分類演算法。"
-    why_not_d: "隨機森林是多棵決策樹的集成，屬於監督式學習。"
-  keywords:
-    - "K-means"
-    - "KNN"
-    - "非監督式"
-  exam_trap: true
+  - id: L11302-Q17
+    stem: "在神經網路中，「前向傳播（Forward Propagation）」和「反向傳播（Backpropagation）」的方向分別是？"
+    options:
+      a: "前向傳播從輸入層到輸出層（計算預測）；反向傳播從輸出層往回傳（調整權重）"
+      b: "兩者都從輸入層到輸出層"
+      c: "前向傳播從輸出層到輸入層；反向傳播從輸入層到輸出層"
+      d: "兩者都從輸出層到輸入層"
+    answer: "a"
+    explanation: "前向傳播（Forward Propagation）是資料從輸入層→隱藏層→輸出層的正向計算，產生預測值。反向傳播（Backpropagation）是把預測誤差從輸出層往回傳遞，調整每個連接的權重。兩者方向相反，是神經網路訓練的核心循環。"
+    difficulty: 2
+    tags: ["neural-network", "forward-propagation", "backpropagation"]
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L11302-Q18
+    stem: "下列關於「Softmax 激活函數」的用途，何者正確？"
+    options:
+      a: "用在深度神經網路的隱藏層，避免梯度消失"
+      b: "把負數輸出設為 0，正數直接通過"
+      c: "用在線性迴歸的最終輸出層"
+      d: "把多個輸出值轉換成各類別的機率分布，且所有類別機率加總為 1"
+    answer: "d"
+    explanation: "Softmax 用於多類別分類任務的輸出層：把神經網路最後一層的多個原始分數轉換成「各類別的機率」，且所有類別的機率加總等於 1（例如：貓 0.7、狗 0.2、鳥 0.1）。ReLU 用在隱藏層，Sigmoid 用在二元分類輸出層。"
+    difficulty: 2
+    tags: ["softmax", "activation-function", "multi-class"]
 
-- id: "L11302-Q15"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某電商公司擁有數十萬筆顧客購買紀錄，但沒有任何族群分類標籤，希望找出不同的顧客群體以利行銷。最適合使用下列哪一種學習方式？"
-  options:
-    a: "監督式學習的分類任務"
-    b: "非監督式學習的分群任務"
-    c: "強化式學習"
-    d: "多模態學習"
-  correct: "b"
-  explanation:
-    why_correct: "情境的關鍵線索是「沒有分類標籤」且想「自動找出族群」，這正是非監督式學習中分群（Clustering）的典型應用情境。"
-    why_not_a: "分類需要事先已知類別標籤，這題明確沒有。"
-    why_not_c: "強化式學習需要智能體、環境與獎勵，與此情境不符。"
-    why_not_d: "多模態學習處理多種資料型態，不是「沒標籤分群」的答案。"
-  keywords:
-    - "顧客分群"
-    - "場景對應"
-  exam_trap: false
+  - id: L11302-Q19
+    stem: "下列何者最能描述「集成學習（Ensemble Learning）」的核心概念？"
+    options:
+      a: "結合多個基礎模型（如多棵決策樹）的預測，以獲得比單一模型更好的結果"
+      b: "只使用一個非常複雜的模型以提升準確度"
+      c: "將資料集分成訓練集和測試集進行評估"
+      d: "使用多種不同特徵同時訓練一個模型"
+    answer: "a"
+    explanation: "集成學習（Ensemble Learning）的核心是「組合多個弱（或一般）模型，使整體效果優於任一單一模型」。隨機森林（Bagging）和 Gradient Boosting（Boosting）都是集成學習的代表，都比單棵決策樹更準確穩定。"
+    difficulty: 2
+    tags: ["ensemble-learning", "random-forest", "gradient-boosting"]
 
-- id: "L11302-Q16"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某房仲業者希望根據坪數、地段、屋齡與樓層等特徵，預測中古屋的合理成交價格。最適合使用下列哪一種學習方式？"
-  options:
-    a: "監督式學習的迴歸任務"
-    b: "監督式學習的分類任務"
-    c: "非監督式學習的降維任務"
-    d: "強化式學習"
-  correct: "a"
-  explanation:
-    why_correct: "有歷史成交資料（含特徵與成交價）可作為標籤，且預測的是連續數值「價格」，是典型的監督式迴歸任務。"
-    why_not_b: "分類輸出是離散類別，不是連續價格。"
-    why_not_c: "降維是把高維資料壓縮到低維，並不是預測任務。"
-    why_not_d: "強化式學習需要智能體在環境中試錯，與歷史資料預測情境不符。"
-  keywords:
-    - "房價預測"
-    - "迴歸"
-  exam_trap: false
+  # ── Difficulty 3 (D3 × 11) ────────────────────────────────────
+  - id: L11302-Q20
+    stem: "某房仲公司希望根據坪數、地段、屋齡預測中古屋的成交價格（具體金額）。下列哪種演算法最適合作為起點？"
+    options:
+      a: "K-means"
+      b: "KNN（K 近鄰演算法）"
+      c: "線性迴歸（Linear Regression）"
+      d: "邏輯迴歸（Logistic Regression）"
+    answer: "c"
+    explanation: "預測「成交價格」是連續數值輸出（迴歸任務），線性迴歸是最直接的起點模型，可解釋性強且易于理解「哪個特徵影響多少」。邏輯迴歸雖名含迴歸但做的是分類，K-means 是分群（非監督式）。"
+    difficulty: 3
+    tags: ["linear-regression", "regression", "scenario"]
 
-- id: "L11302-Q17"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某自駕車團隊想讓車輛在模擬環境中學會加速、煞車與轉向，讓「安全抵達目的地」的行為獲得獎勵。最適合使用下列哪一種學習方式？"
-  options:
-    a: "監督式學習"
-    b: "非監督式學習"
-    c: "強化式學習"
-    d: "半監督式學習"
-  correct: "c"
-  explanation:
-    why_correct: "關鍵線索：有智能體（車輛）、環境（模擬道路）、動作（加速/煞車/轉向）與獎勵（安全抵達），是強化式學習五元素完全對應的情境。"
-    why_not_a: "監督式需要事先標好每一個「正確駕駛動作」，實務上幾乎不可能窮舉。"
-    why_not_b: "非監督式沒有決策與獎勵概念。"
-    why_not_d: "半監督式仍是「有標籤+無標籤」的資料框架，與試錯學習不同。"
-  keywords:
-    - "自駕車"
-    - "強化式學習"
-  exam_trap: false
+  - id: L11302-Q21
+    stem: "某電商平台有 50 萬筆顧客購買紀錄，沒有任何顧客分類標籤，希望自動找出具有相似消費行為的族群以利個性化行銷。最適合的做法是？"
+    options:
+      a: "使用非監督式學習中的 K-means 分群"
+      b: "使用監督式學習中的邏輯迴歸"
+      c: "使用強化式學習讓 AI 逐漸最佳化行銷策略"
+      d: "使用 PCA 把顧客特徵降維後直接作為分類結果"
+    answer: "a"
+    explanation: "沒有標籤且目標是「自動找出族群」，是非監督式分群的典型情境，K-means 適合大型資料且可擴展。PCA 是降維不是分群；邏輯迴歸需要標籤；強化式學習是試錯決策情境。"
+    difficulty: 3
+    tags: ["k-means", "unsupervised", "clustering", "scenario"]
 
-- id: "L11302-Q18"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某醫院只有少量由醫師標註的 X 光影像，但擁有非常大量未標註的影像，希望善用兩者訓練一個疾病分類模型。最適合的學習方式為何？"
-  options:
-    a: "完全只用那少量有標註的資料做監督式學習"
-    b: "把所有影像拿去做非監督式分群"
-    c: "半監督式學習"
-    d: "強化式學習"
-  correct: "c"
-  explanation:
-    why_correct: "情境是「少量標籤 + 大量未標註」，正是半監督式學習的經典場景，透過少量標籤「點燃」大量未標註資料的學習。"
-    why_not_a: "只用少量標註會浪費大量未標註資料，且訓練資料太少效果有限。"
-    why_not_b: "完全非監督式會忽略醫師標註的寶貴資訊。"
-    why_not_d: "影像分類無法以試錯 + 獎勵的方式合理建模。"
-  keywords:
-    - "醫療影像"
-    - "半監督式"
-  exam_trap: false
+  - id: L11302-Q22
+    stem: "某醫療團隊需要對癌症影像（X 光片）建立自動分類模型。他們擁有 20 萬張已標記「良性/惡性」的影像。最適合的技術方向是？"
+    options:
+      a: "PCA（降維）"
+      b: "K-means（非監督式分群）"
+      c: "CNN（卷積神經網路）深度學習"
+      d: "手肘法選擇最佳 K 值"
+    answer: "c"
+    explanation: "有大量已標記影像、任務是影像分類→ 監督式深度學習；影像資料最適合 CNN（Convolutional Neural Network，卷積神經網路）。PCA 是降維、K-means 是無標籤分群、手肘法是選 K-means 的 K 值工具。"
+    difficulty: 3
+    tags: ["cnn", "deep-learning", "image-classification", "scenario"]
 
-- id: "L11302-Q19"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某銀行想從每日數百萬筆交易中找出不尋常、可疑的詐騙交易模式，但事先不知道「詐騙長什麼樣子」，只知道「正常交易大概長怎樣」。下列哪一種方法最適合？"
-  options:
-    a: "監督式分類"
-    b: "非監督式異常偵測"
-    c: "監督式迴歸"
-    d: "多模態學習"
-  correct: "b"
-  explanation:
-    why_correct: "情境關鍵是「不知道異常長怎樣，但知道正常長怎樣」，應該讓模型學出「正常模式」，再把偏離的視為異常，這是非監督式異常偵測的典型應用。"
-    why_not_a: "監督式分類需要事先有詐騙/非詐騙的標籤，這題明確不具備。"
-    why_not_c: "迴歸用來預測連續數值，不是偵測異常模式。"
-    why_not_d: "多模態與多種輸入型態有關，不是這題的重點。"
-  keywords:
-    - "異常偵測"
-    - "非監督式"
-  exam_trap: false
+  - id: L11302-Q23
+    stem: "某金融公司要開發信用評分系統，資料量中等（約 10 萬筆），且需向監管機關解釋「為何拒絕某申請人」。在下列選項中，哪種演算法最能兼顧準確度與解釋性？"
+    options:
+      a: "多層深度神經網路"
+      b: "K-means 分群"
+      c: "決策樹或邏輯迴歸"
+      d: "PCA 降維後直接使用"
+    answer: "c"
+    explanation: "監管需要可解釋的決策理由→決策樹（可讀分支規則）或邏輯迴歸（可看特徵係數）是合適選擇。深度神經網路是「黑盒子」，解釋性差；K-means 是非監督分群；PCA 是降維工具。"
+    difficulty: 3
+    tags: ["decision-tree", "logistic-regression", "interpretability", "scenario"]
 
-- id: "L11302-Q20"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某超市想從長期累積的銷售紀錄中找出「買了 A 商品的人也常買 B 商品」這樣的商品關聯。最適合使用下列哪一種機器學習方法？"
-  options:
-    a: "監督式學習中的分類"
-    b: "非監督式學習中的關聯規則"
-    c: "強化式學習"
-    d: "深度強化學習"
-  correct: "b"
-  explanation:
-    why_correct: "購物籃分析是非監督式學習中「關聯規則（Association Rules）」的經典應用，用來找出物品之間的共現關係，超市與電商常用。"
-    why_not_a: "分類需要事先有類別標籤，這題並不是把交易歸類。"
-    why_not_c: "強化式學習需要智能體、動作與獎勵，不符合此情境。"
-    why_not_d: "深度強化學習更是過度複雜的選擇，與購物籃分析的關聯挖掘不符。"
-  keywords:
-    - "購物籃分析"
-    - "關聯規則"
-  exam_trap: false
+  - id: L11302-Q24
+    stem: "某研究團隊有一個 500 維的基因資料集，每個樣本有 500 個特徵。他們想把這個資料集壓縮到 2 維後畫散佈圖，觀察樣本間的關係。最適合的工具是？"
+    options:
+      a: "KNN（K 近鄰演算法）"
+      b: "決策樹（Decision Tree）"
+      c: "梯度提升（Gradient Boosting）"
+      d: "PCA（主成分分析）"
+    answer: "d"
+    explanation: "PCA（Principal Component Analysis，主成分分析）是最適合的降維工具：把 500 維壓縮到 2 維，同時保留最多方差。降維後便于視覺化探索資料結構。KNN 和決策樹都是分類演算法，不做降維。"
+    difficulty: 3
+    tags: ["pca", "dimensionality-reduction", "scenario"]
 
-- id: "L11302-Q21"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 3
-  question: "某 AI 團隊要開發一個能同時理解使用者上傳的圖片與輸入文字問題、並用文字回答的助理。最符合下列哪一類技術？"
-  options:
-    a: "多模態學習（Multimodal Learning）"
-    b: "半監督式學習"
-    c: "非監督式分群"
-    d: "強化式學習"
-  correct: "a"
-  explanation:
-    why_correct: "系統同時處理圖像與文字兩種輸入型態，是典型的多模態學習應用，代表模型如 GPT-4V、Gemini、Claude 3。"
-    why_not_b: "半監督式學習著重於標籤資料多寡，不是資料型態。"
-    why_not_c: "分群任務並沒有產生答案的能力。"
-    why_not_d: "強化式學習處理決策與獎勵，不是資料型態整合。"
-  keywords:
-    - "多模態"
-    - "圖文助理"
-  exam_trap: false
+  - id: L11302-Q25
+    stem: "某推薦系統工程師想為使用者推薦「和他過去行為最相似的其他用戶所喜歡的內容」，資料量小且特徵維度低。最適合哪種演算法？"
+    options:
+      a: "SVM（支援向量機）"
+      b: "K-means"
+      c: "KNN（K 近鄰演算法）"
+      d: "PCA"
+    answer: "c"
+    explanation: "KNN（K-Nearest Neighbors，K 近鄰演算法）的核心是「找出最相似的 K 個鄰居」，非常適合協作過濾式推薦（找相似用戶）。資料量小、維度低時 KNN 效果穩定。K-means 是無標籤分群，PCA 是降維，SVM 重在邊界分類。"
+    difficulty: 3
+    tags: ["knn", "recommendation", "scenario"]
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L11302-Q26
+    stem: "某數據科學家訓練了一棵決策樹，訓練集準確率 98%，但測試集準確率只有 62%。下列描述何者最正確？"
+    options:
+      a: "這個結果很正常，決策樹本來就要這樣"
+      b: "測試集太小，重新抽樣就可以解決"
+      c: "這是過擬合（overfitting）現象，決策樹樹深太高、把訓練資料背了起來"
+      d: "這是欠擬合（underfitting）現象，模型太過簡單"
+    answer: "c"
+    explanation: "訓練集 98%、測試集 62% 的巨大落差是決策樹過擬合（overfitting）的典型症狀——樹長得太深，把訓練資料中的雜訊都「背」起來了，遇到新資料就失靈。解決方法包括剪枝、限制樹深、或改用隨機森林。"
+    difficulty: 3
+    tags: ["decision-tree", "overfitting", "scenario"]
 
-- id: "L11302-Q22"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「K-means」與「KNN」兩個演算法的比較，何者最正確？"
-  options:
-    a: "兩者都是非監督式學習演算法，差別只在 K 值意義不同"
-    b: "K-means 屬於非監督式分群；KNN 屬於監督式分類（或迴歸）"
-    c: "K-means 屬於監督式分類；KNN 屬於非監督式分群"
-    d: "兩者都是強化式學習演算法"
-  correct: "b"
-  explanation:
-    why_correct: "兩者只是名稱相似：K-means 是非監督式學習的分群演算法（K 代表分成幾群），KNN 則是監督式學習演算法（K 代表看最近的幾個鄰居）。"
-    why_not_a: "兩者分屬不同學習典範，不是都非監督式。"
-    why_not_c: "方向完全相反，KNN 是監督式，K-means 才是非監督式。"
-    why_not_d: "兩者都與強化式學習無關。"
-  keywords:
-    - "K-means vs KNN"
-    - "典範歸類"
-  exam_trap: true
+  - id: L11302-Q27
+    stem: "某業務分析師不知道公司的 1,000 家客戶應該分成幾個族群。他使用 K-means，嘗試了 K=2 到 K=10，畫出了一條曲線，想從曲線找出最佳的 K。他在用哪個方法？"
+    options:
+      a: "交叉驗證（Cross-validation）"
+      b: "PCA 解釋方差比分析"
+      c: "反向傳播（Backpropagation）"
+      d: "手肘法（Elbow Method）"
+    answer: "d"
+    explanation: "手肘法（Elbow Method）是為 K-means 選擇最佳 K 值的工具：嘗試不同 K 值，畫出群內誤差（WCSS）曲線，找到曲線「彎折如手肘」的點，該點即為合理的 K 值。"
+    difficulty: 3
+    tags: ["k-means", "elbow-method", "k-selection", "scenario"]
 
-- id: "L11302-Q23"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「分類（Classification）」與「分群（Clustering）」的主要差異，何者最正確？"
-  options:
-    a: "分類屬於非監督式、分群屬於監督式"
-    b: "分類事先有已知類別且有標籤；分群事先沒有類別，由模型自己把相似資料歸在一起"
-    c: "分類輸出連續數值；分群輸出離散類別"
-    d: "分類只能用決策樹；分群只能用 KNN"
-  correct: "b"
-  explanation:
-    why_correct: "分類是監督式任務，事先已知類別並有標籤；分群是非監督式任務，事先沒有類別，由模型依相似度自動分群。"
-    why_not_a: "方向相反：分類是監督式，分群才是非監督式。"
-    why_not_c: "分類輸出的是離散類別；連續數值屬於迴歸。"
-    why_not_d: "分類可用多種演算法，分群也不用 KNN（KNN 反而是監督式分類演算法）。"
-  keywords:
-    - "分類 vs 分群"
-  exam_trap: true
+  - id: L11302-Q28
+    stem: "某 NLP 工程師想對一批文字資料做情感分析（正面/負面），資料量約 5 萬筆，已有標籤。她在評估 SVM 和 KNN 兩個選項，考量的是「訓練後預測速度快」的需求。哪個更合適？"
+    options:
+      a: "KNN，因為訓練時不建模型、速度最快"
+      b: "兩者預測速度完全相同"
+      c: "SVM，因為訓練後模型已建立，預測速度快"
+      d: "KNN，因為文字分類需要懶惰學習"
+    answer: "c"
+    explanation: "SVM 屬於積極學習（Eager Learning）——訓練時建立好模型，預測時直接套模型計算，速度快。KNN 是懶惰學習——訓練時不建模型，預測時要計算新點與所有訓練資料的距離，資料量大時預測極慢。「需要快速預測」→ SVM 比 KNN 更合適。"
+    difficulty: 3
+    tags: ["svm", "knn", "lazy-vs-eager", "scenario"]
 
-- id: "L11302-Q24"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列哪一項最能區分「半監督式學習」與「自監督式學習」？"
-  options:
-    a: "半監督式完全不用人工標籤，自監督式則需要大量人工標籤"
-    b: "半監督式是少量人工標籤 + 大量無標籤；自監督式完全不用人工標籤，而是從資料本身結構自動產生標籤"
-    c: "兩者其實是同義詞，只是翻譯不同"
-    d: "半監督式用於強化式任務，自監督式用於非監督式任務"
-  correct: "b"
-  explanation:
-    why_correct: "半監督式仍需要「少量人工標籤」加上大量未標註資料；自監督式則完全不需要人工標籤，而是從資料本身（例如遮字、猜下一字）自動產生訓練訊號。"
-    why_not_a: "方向完全相反：半監督式才有人工標籤，自監督式沒有。"
-    why_not_c: "兩者完全不同，是考試常見陷阱。"
-    why_not_d: "兩者都不屬於強化式學習。"
-  keywords:
-    - "半監督 vs 自監督"
-  exam_trap: true
+  - id: L11302-Q29
+    stem: "某公司想了解自家 200 種商品在哪些商品組合間有「一起購買」的關聯（如買 A 也常買 B），資料完全沒有標籤。最適合的機器學習方法是？"
+    options:
+      a: "監督式學習中的決策樹"
+      b: "強化式學習"
+      c: "主成分分析（PCA）"
+      d: "非監督式學習中的關聯規則（如 Apriori）"
+    answer: "d"
+    explanation: "購物籃分析（找商品共現關係）是非監督式學習中「關聯規則（Association Rules）」的典型應用。沒有標籤、目的是找共現模式→關聯規則（如 Apriori 演算法）。決策樹和強化式學習不適用，PCA 是降維工具。"
+    difficulty: 3
+    tags: ["association-rules", "unsupervised", "scenario"]
 
-- id: "L11302-Q25"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「多模態學習」與「多工學習（Multitask Learning）」差別的敘述，何者正確？"
-  options:
-    a: "兩者是同義詞"
-    b: "多模態指輸入資料涵蓋多種型態；多工指同一模型同時學會多個不同任務"
-    c: "多模態指同時做多任務；多工指同時處理多種資料型態"
-    d: "多模態只能用於非監督式；多工只能用於監督式"
-  correct: "b"
-  explanation:
-    why_correct: "多模態 = 輸入有多種資料型態（文字、圖、音訊等）；多工 = 同一個模型同時學會多種任務（例如翻譯＋摘要）。兩者是不同的概念軸，可以同時成立。"
-    why_not_a: "兩者不是同義詞，是常見陷阱題。"
-    why_not_c: "定義方向剛好相反。"
-    why_not_d: "兩者與監督/非監督式學習的分類無直接對應關係。"
-  keywords:
-    - "多模態 vs 多工"
-  exam_trap: true
+  - id: L11302-Q30
+    stem: "某 AI 工程師正在選擇模型。她的資料是結構化表格（約 8 萬筆），任務是預測「客戶是否會購買新產品（是/否）」，且追求高預測準確率。下列何者最適合？"
+    options:
+      a: "PCA（主成分分析）"
+      b: "K-means（分群）"
+      c: "XGBoost（梯度提升）"
+      d: "線性迴歸（Linear Regression）"
+    answer: "c"
+    explanation: "有標籤、二元分類任務、追求高準確率、中型結構化資料 → XGBoost（梯度提升，Gradient Boosting 的高效實作）是業界公認在結構化資料上的最強選手之一。PCA 是降維、K-means 是無標籤分群、線性迴歸是連續值預測。"
+    difficulty: 3
+    tags: ["xgboost", "gradient-boosting", "scenario", "classification"]
 
-- id: "L11302-Q26"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「邏輯迴歸（Logistic Regression）」的敘述，何者最正確？"
-  options:
-    a: "它是用來預測連續數值的迴歸演算法"
-    b: "名字雖然有「迴歸」，但其實是監督式的分類演算法"
-    c: "它屬於非監督式分群演算法"
-    d: "它是一種強化式學習演算法"
-  correct: "b"
-  explanation:
-    why_correct: "邏輯迴歸名稱中有「迴歸」容易誤導，但實際上它處理的是監督式分類任務（例如二元分類），是典型的命名陷阱。"
-    why_not_a: "預測連續數值是「線性迴歸」等真正的迴歸演算法。"
-    why_not_c: "邏輯迴歸需要標籤，屬於監督式，不是分群。"
-    why_not_d: "邏輯迴歸與強化式學習完全無關。"
-  keywords:
-    - "邏輯迴歸"
-    - "命名陷阱"
-  exam_trap: true
+  # ── Difficulty 4 (D4 × 6) ─────────────────────────────────────
+  - id: L11302-Q31
+    stem: "下列關於「KNN（K 近鄰演算法）」與「K-means」的比較，哪一項最正確？"
+    options:
+      a: "兩者都屬於非監督式學習，差別只在 K 值大小"
+      b: "KNN 是監督式分類（有標籤，看鄰居投票）；K-means 是非監督式分群（無標籤，找質心）"
+      c: "K-means 是監督式學習；KNN 是非監督式學習"
+      d: "兩者都使用 Boosting 策略"
+    answer: "b"
+    explanation: "KNN（K-Nearest Neighbors，K 近鄰演算法）是監督式分類，K 代表「看最近的幾個鄰居」，需要標籤；K-means 是非監督式分群，K 代表「要分幾群」，不需要標籤。這是初級考試最常出的混淆陷阱。"
+    difficulty: 4
+    tags: ["knn", "k-means", "confusion-trap", "supervised-vs-unsupervised"]
 
-- id: "L11302-Q27"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「深度學習」與「傳統機器學習」在特性上的比較，何者最正確？"
-  options:
-    a: "深度學習通常需要較少資料與較低運算資源"
-    b: "深度學習通常需要大量資料與較高運算資源，但能自動學出特徵，擅長影像、語音、文字等非結構化資料"
-    c: "傳統機器學習只能處理影像，深度學習只能處理文字"
-    d: "傳統機器學習一定比深度學習準確"
-  correct: "b"
-  explanation:
-    why_correct: "深度學習通常資料量需求大、運算資源需求高，但能從原始資料自動學出特徵，在影像、語音、文字等非結構化資料上特別出色。"
-    why_not_a: "深度學習需求通常相反，而且通常需要 GPU/TPU。"
-    why_not_c: "兩者都可處理多種資料型態，並沒有互斥限制。"
-    why_not_d: "準確度要看任務與資料量；在小資料與結構化表格上，傳統 ML 常更穩定，但並非總是更準確。"
-  keywords:
-    - "DL vs 傳統 ML"
-  exam_trap: false
+  - id: L11302-Q32
+    stem: "某主管問：「為什麼你不用一棵大決策樹，而要用隨機森林？建那麼多棵樹不是浪費資源嗎？」以下哪個回答最準確？"
+    options:
+      a: "因為隨機森林每棵樹都獨立解決不同類型的任務"
+      b: "因為單棵決策樹容易過擬合，隨機森林透過 Bagging 建多棵樹並投票，能大幅降低過擬合風險、提升準確率"
+      c: "因為隨機森林使用 Boosting，每棵樹修補前棵的錯誤，效率更高"
+      d: "因為深度學習需要多棵決策樹才能運作"
+    answer: "b"
+    explanation: "隨機森林的價值在於：單棵決策樹容易過擬合；而 Bagging 策略建出多棵在不同隨機子集上訓練的樹，再取平均/投票，有效降低整體的變異，避免過擬合。雖然計算多，但換來更穩定的高準確率。選 c 錯在「Boosting」——隨機森林用的是 Bagging。"
+    difficulty: 4
+    tags: ["random-forest", "decision-tree", "bagging", "overfitting"]
 
-- id: "L11302-Q28"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 4
-  question: "下列關於「強化式學習」與「監督式學習」的差異，何者最正確？"
-  options:
-    a: "強化式學習其實是監督式學習的一個子類，只是名字不同"
-    b: "監督式學習從事先標好的「輸入→正確答案」資料中學習；強化式學習沒有正確答案標籤，而是透過智能體在環境中試錯、以獎勵訊號學出策略"
-    c: "兩者都需要大量人工標註的答案資料"
-    d: "強化式學習不需要任何資料或回饋"
-  correct: "b"
-  explanation:
-    why_correct: "監督式學習靠「有標籤資料」學習「輸入→輸出」對應關係；強化式學習則靠智能體在環境中試錯，以獎勵訊號逐步學出長期有利的策略，兩者是不同的學習框架。"
-    why_not_a: "強化式學習有自己獨立的 Agent/Env/State/Action/Reward 框架，不是監督式的子類。"
-    why_not_c: "強化式學習沒有事先標好的答案資料。"
-    why_not_d: "強化式學習仍需要環境回饋（獎勵），並非完全沒有資訊。"
-  keywords:
-    - "RL vs 監督式"
-  exam_trap: true
+  - id: L11302-Q33
+    stem: "下列對於「PCA（主成分分析）」的分析，何者最準確？"
+    options:
+      a: "PCA 是非監督式降維，它找出資料中方差最大的方向（主成分）進行投影，不需要任何標籤"
+      b: "PCA 需要標籤資料，是監督式學習的降維工具"
+      c: "PCA 的目的是把資料分成若干個群，每個群代表一個類別"
+      d: "PCA 是強化式學習的一種特殊形式"
+    answer: "a"
+    explanation: "PCA 是非監督式降維方法：不需要標籤，通過找出資料中「解釋最多方差的方向（主成分）」來把高維資料投影到低維空間，同時保留最多資訊。目的是降維，不是分群。"
+    difficulty: 4
+    tags: ["pca", "unsupervised", "dimensionality-reduction"]
 
-# ============================================================
-# Difficulty 5 — Evaluate (Bloom's: 評估)
-# ============================================================
+  - id: L11302-Q34
+    stem: "下列關於「SVM（支援向量機）」的描述，哪一組最完整正確？"
+    options:
+      a: "SVM 屬於非監督式學習，通過找出群之間的超平面來分群"
+      b: "SVM 是監督式分類演算法，核心是找最大邊界超平面，使用核技巧（Kernel Trick）處理非線性資料"
+      c: "SVM 是集成學習方法，由多個決策樹組成"
+      d: "SVM 是懶惰學習演算法，訓練時不建立任何模型"
+    answer: "b"
+    explanation: "SVM（Support Vector Machine，支援向量機）是監督式分類演算法，核心概念是找到使兩類間邊界（Margin）最大的超平面。對於線性不可分的資料，使用核技巧（Kernel Trick）將資料映射到更高維空間後再分類。SVM 是積極學習（建立模型），不是懶惰學習。"
+    difficulty: 4
+    tags: ["svm", "kernel-trick", "hyperplane"]
 
-- id: "L11302-Q29"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某醫院要開發一個癌症篩檢模型，管理者問：「在評估模型時，應該優先關注哪一個分類指標？」下列答案何者最合理？"
-  options:
-    a: "應優先關注準確率，因為總體答對比例最重要"
-    b: "應優先關注召回率，因為漏掉真正的癌症病患代價非常高"
-    c: "應優先關注精確率，避免任何模型說是陽性的誤報"
-    d: "三個指標無差別，挑最容易計算的即可"
-  correct: "b"
-  explanation:
-    why_correct: "癌症篩檢屬於「漏報代價極高」的情境：漏掉真病人（FN）攸關生死，因此應優先優化召回率（Recall），寧可多幾個虛驚複檢，也不能漏掉真病人。"
-    why_not_a: "癌症資料通常極度不平衡，單看準確率會陷入準確率陷阱。"
-    why_not_c: "精確率優先的情境是誤報代價高的場合（如垃圾郵件過濾），癌症篩檢不是。"
-    why_not_d: "不同情境對錯誤類型的容忍度不同，不能「無差別」看待。"
-  keywords:
-    - "癌症篩檢"
-    - "召回率"
-  exam_trap: false
+  - id: L11302-Q35
+    stem: "某資深工程師面試一位候選人，問道：「XGBoost 和隨機森林都是集成學習，請說明兩者最根本的策略差異。」下列哪個回答最準確？"
+    options:
+      a: "兩者策略完全相同，差別只在樹的數量"
+      b: "XGBoost 使用 Boosting（依序建樹，每棵修補前棵錯誤）；隨機森林使用 Bagging（並行建多棵獨立樹再投票）"
+      c: "XGBoost 使用 Bagging；隨機森林使用 Boosting"
+      d: "XGBoost 是非監督式；隨機森林是監督式"
+    answer: "b"
+    explanation: "XGBoost（梯度提升）使用 Boosting：依序建樹，每棵新樹專門修補前棵的預測誤差，最終把所有樹的預測累加。隨機森林使用 Bagging：並行建多棵互相獨立的樹（各自用隨機子集訓練），最後投票。"
+    difficulty: 4
+    tags: ["xgboost", "random-forest", "boosting", "bagging"]
 
-- id: "L11302-Q30"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某團隊開發垃圾郵件過濾器，主管擔心「把重要客戶郵件誤判為垃圾」會造成商務損失。在這個情境下，下列指標優先順序的判斷何者最合理？"
-  options:
-    a: "應優先提高召回率，把所有可疑郵件都攔下"
-    b: "應優先提高精確率，減少誤把重要郵件判為垃圾的情況"
-    c: "應只看準確率，忽略其他指標"
-    d: "應該完全不過濾，避免任何誤判"
-  correct: "b"
-  explanation:
-    why_correct: "誤把重要郵件判為垃圾（FP）代價很高，因此應優先提高精確率，寧可放過少量垃圾，也不能誤殺正常信件。"
-    why_not_a: "優先召回會攔下更多郵件，反而提高誤判風險。"
-    why_not_c: "只看準確率無法反映不同錯誤的商業成本差異。"
-    why_not_d: "完全不過濾會讓系統失去價值，不是合理決策。"
-  keywords:
-    - "垃圾郵件"
-    - "精確率"
-  exam_trap: false
+  - id: L11302-Q36
+    stem: "某學生說：「KNN 不需要訓練，所以是計算成本最低的演算法。」對於這個說法，下列哪個評估最正確？"
+    options:
+      a: "完全正確，KNN 確實是計算成本最低的演算法"
+      b: "部分正確但有誤解：KNN 訓練成本低（只存資料），但預測時需要對每個新資料計算與所有訓練資料的距離，資料量大時預測成本極高"
+      c: "完全錯誤，KNN 是所有演算法中訓練時間最長的"
+      d: "KNN 根本不屬於機器學習演算法"
+    answer: "b"
+    explanation: "KNN 的懶惰學習特性：訓練時成本極低（只是把資料存起來），但代價是預測時成本高——每次預測都要計算新點與所有 N 個訓練資料的距離，時間複雜度 O(N)。資料量大時，預測速度非常慢，這是 KNN 最大的實務缺點。"
+    difficulty: 4
+    tags: ["knn", "lazy-learning", "computational-cost"]
 
-- id: "L11302-Q31"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某詐騙偵測資料集中，99% 的交易是正常、1% 是詐騙。一個工程師訓練出的模型在測試集上拿到 99% 準確率。下列評論何者最合理？"
-  options:
-    a: "準確率 99% 非常高，可直接部署上線"
-    b: "在極度類別不平衡的情境下，單看準確率可能騙人，必須同時參考精確率、召回率或 F1 才能判斷模型是否真的抓到詐騙"
-    c: "準確率越高代表召回率一定也很高，沒問題"
-    d: "只要拿 99% 準確率就代表模型完美"
-  correct: "b"
-  explanation:
-    why_correct: "類別極度不平衡時（例如 99% vs 1%），一個「全部預測為正常」的無用模型也能拿到 99% 準確率，這就是準確率陷阱。必須再看精確率、召回率或 F1 才能判斷模型是否真的能辨識詐騙。"
-    why_not_a: "直接部署會忽略模型可能根本沒抓到任何詐騙的風險。"
-    why_not_c: "高準確率不保證高召回率，尤其在不平衡資料中更常相反。"
-    why_not_d: "單一指標無法代表模型真實能力。"
-  keywords:
-    - "準確率陷阱"
-    - "類別不平衡"
-  exam_trap: false
+  # ── Difficulty 5 (D5 × 4) ─────────────────────────────────────
+  - id: L11302-Q37
+    stem: "某 AI 顧問接到一個任務：客戶有大量文字客訴資料（10 萬筆，無任何標籤），想了解主要有哪些客訴主題。顧問計劃用 K-means 分成 5 群，但不確定 5 是否正確。下列解決策略何者最合理？"
+    options:
+      a: "直接用 K=5 跑 K-means，不需要驗證"
+      b: "先用手肘法（嘗試 K=2 到 K=10，畫出群內誤差曲線找彎折點）確認合理 K 值，再執行 K-means 分群"
+      c: "把資料打標籤後改用監督式學習的決策樹"
+      d: "使用反向傳播來選擇最佳 K 值"
+    answer: "b"
+    explanation: "K-means 最大問題是「不知道 K 應該是多少」。正確流程是先用手肘法：嘗試多個 K 值，繪製 WCSS（群內誤差平方和）曲線，找到彎折最明顯的「手肘」點作為最佳 K——這樣的決策有依據，比憑感覺直接用 K=5 更嚴謹。反向傳播是神經網路概念，與 K-means 無關。"
+    difficulty: 5
+    tags: ["k-means", "elbow-method", "unsupervised", "scenario"]
 
-- id: "L11302-Q32"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某金融公司要預測申請人違約「機率高或低」，資料量中等、需要高度可解釋性，且需向監理機關解釋決策。下列何者為最合理的模型選擇方向？"
-  options:
-    a: "優先選擇大型深度學習模型，因為越複雜越準"
-    b: "選擇決策樹、邏輯迴歸等可解釋性較高的傳統監督式學習模型"
-    c: "使用非監督式分群直接決定是否核准"
-    d: "使用強化式學習，讓系統試錯決定每個人的申請結果"
-  correct: "b"
-  explanation:
-    why_correct: "金融信用評估重視可解釋性與審計，傳統監督式學習模型（如決策樹、邏輯迴歸）在解釋性上明顯優於深度學習黑盒子，且中等資料量下表現穩定。"
-    why_not_a: "大型深度學習在小/中等結構化資料上未必更準，還會失去可解釋性。"
-    why_not_c: "分群無類別標籤，無法提供「違約或不違約」的明確判斷依據。"
-    why_not_d: "在真實申請案上用試錯方式決策會傷害客戶權益，不符合金融合規要求。"
-  keywords:
-    - "模型選擇"
-    - "可解釋性"
-  exam_trap: false
+  - id: L11302-Q38
+    stem: "某新創公司正在建立一個詐騙偵測系統。工程師 A 提議用邏輯迴歸，工程師 B 提議用 XGBoost，工程師 C 提議用深度神經網路。資料量約 30 萬筆有標籤交易，任務是二元分類（詐騙/非詐騙），公司也需要向稽核人員解釋「模型為何認定某筆交易是詐騙」。綜合考量後，哪個建議最優先值得評估？"
+    options:
+      a: "工程師 A（邏輯迴歸）——因為最簡單"
+      b: "工程師 B（XGBoost）——在中大型結構化資料上準確率高，且可透過特徵重要性提供部分解釋"
+      c: "工程師 C（深度神經網路）——因為最複雜通常最準"
+      d: "三者效果完全一樣，隨意選擇"
+    answer: "b"
+    explanation: "綜合評估：30 萬筆結構化資料 + 需要高準確率 + 需要部分可解釋性 → XGBoost 是最均衡選擇，在競賽和業界結構化資料上表現卓越，且可提供特徵重要性（Feature Importance）協助解釋。邏輯迴歸在這種複雜詐騙模式上準確率可能不足；深度神經網路解釋性差且對結構化資料未必勝過 XGBoost。"
+    difficulty: 5
+    tags: ["xgboost", "logistic-regression", "deep-learning", "model-selection", "scenario"]
 
-- id: "L11302-Q33"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某團隊要開發一個從中文翻譯到英文的機器翻譯系統，資料量極大。下列何者為最合理的技術方向？"
-  options:
-    a: "使用 Apriori 關聯規則演算法處理文字翻譯"
-    b: "使用以 Transformer 為代表的深度學習架構"
-    c: "使用 K-means 把句子分群後作為翻譯結果"
-    d: "使用線性迴歸預測翻譯結果"
-  correct: "b"
-  explanation:
-    why_correct: "現代機器翻譯系統主流以 Transformer 架構的深度學習模型為基礎，擅長處理序列資料且可吸收超大規模語料。"
-    why_not_a: "Apriori 是用來找購物籃等關聯規則的非監督式演算法，與翻譯無關。"
-    why_not_c: "K-means 是非監督式分群，不產生翻譯輸出。"
-    why_not_d: "線性迴歸只能預測連續數值，完全不適合序列到序列的翻譯任務。"
-  keywords:
-    - "機器翻譯"
-    - "Transformer"
-  exam_trap: false
+  - id: L11302-Q39
+    stem: "一位資料科學家正在處理一個高維資料集（200 個特徵），想先降維再分群。她計劃先用 PCA 降到 10 維，再用 K-means 分群。下列哪個說法最準確？"
+    options:
+      a: "PCA 和 K-means 都需要標籤，這個流程只適用於監督式學習"
+      b: "這是合理的非監督式學習流程：PCA 先降維保留主要資訊，再用 K-means 在低維空間分群，可有效提升分群品質和效率"
+      c: "應該先 K-means 再 PCA，順序不能反過來"
+      d: "PCA 輸出已經是分群結果，不需要再做 K-means"
+    answer: "b"
+    explanation: "PCA + K-means 的串接是業界常見的非監督式流程：PCA 先去除冗餘維度（高維空間中距離度量容易失真），K-means 在低維空間分群效率更高、品質更好。兩者都是非監督式，不需要標籤。PCA 輸出是新座標（主成分），不是分群結果。"
+    difficulty: 5
+    tags: ["pca", "k-means", "pipeline", "unsupervised"]
 
-- id: "L11302-Q34"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某主管認為：「只要一個模型同時處理翻譯與摘要兩個任務，就叫做多模態學習。」對於這個說法，下列評估何者最合理？"
-  options:
-    a: "完全正確，多模態和多工是同一件事"
-    b: "不正確，同一個模型做多個任務應稱為「多工學習」，多模態指的是輸入資料涵蓋多種型態（如文字、圖像、音訊）"
-    c: "正確，因為翻譯與摘要本質上就是不同模態"
-    d: "不正確，翻譯與摘要都屬於強化式學習"
-  correct: "b"
-  explanation:
-    why_correct: "多模態定義的軸是「輸入資料型態」（文字、圖、音訊…），而同一模型做多個任務稱為「多工學習」。翻譯與摘要都是文字→文字任務，是多工而非多模態。"
-    why_not_a: "兩者是不同概念，常被混淆，是典型陷阱。"
-    why_not_c: "翻譯與摘要都屬於文字模態，並非不同模態。"
-    why_not_d: "兩者都屬於監督式或自監督式文字任務，與強化式學習無直接關係。"
-  keywords:
-    - "多模態 vs 多工"
-  exam_trap: true
-
-- id: "L11302-Q35"
-  topic_code: "L11302"
-  item_code: "L11302"
-  difficulty: 5
-  question: "某公司想從電商評論資料中同時達成三個目標：(1) 把相似評論自動分群找出抱怨主題；(2) 訓練一個能判斷「好評 / 差評」的模型；(3) 讓客服 AI 透過與真實使用者互動試錯來優化回覆策略。下列學習典範組合何者最合理？"
-  options:
-    a: "全部使用監督式學習"
-    b: "(1) 非監督式分群、(2) 監督式分類、(3) 強化式學習"
-    c: "(1) 強化式學習、(2) 非監督式分群、(3) 監督式迴歸"
-    d: "(1) 半監督式、(2) 多模態、(3) 降維"
-  correct: "b"
-  explanation:
-    why_correct: "這題是典型的「多任務典範搭配」：找抱怨主題沒有事先類別 → 非監督式分群；判斷好評/差評有標籤 → 監督式分類；客服 AI 透過與使用者互動試錯優化 → 強化式學習，三者各自對應最合適的典範。"
-    why_not_a: "任務(1)沒有類別標籤、任務(3)是試錯互動，都不是監督式的典型範圍。"
-    why_not_c: "任務(1)與(3)的指派方向錯誤，且任務(2)不是迴歸（輸出為類別）。"
-    why_not_d: "半監督、多模態、降維都與三個任務的本質不對應。"
-  keywords:
-    - "多情境典範選擇"
-  exam_trap: false
+  - id: L11302-Q40
+    stem: "某 AI 應用規劃師在對新人解說「為什麼說邏輯迴歸是分類演算法而不是迴歸演算法？」以下哪個解釋最準確且完整？"
+    options:
+      a: "因為邏輯迴歸不能預測數值，只能輸出 0 或 1"
+      b: "因為邏輯迴歸使用 Sigmoid 函數把輸出壓縮到 0–1 之間表示機率，再根據閾值判斷類別。雖名稱有『迴歸』，但輸出型態和任務目標都是分類，不是預測連續數值"
+      c: "因為邏輯迴歸是從非監督式學習衍生而來的，所以不是真正的迴歸"
+      d: "因為邏輯迴歸的輸入必須是類別型特徵，所以歸類為分類演算法"
+    answer: "b"
+    explanation: "邏輯迴歸的本質：使用 Sigmoid 函數把線性組合壓縮到 0–1（機率），再透過閾值（通常 0.5）轉換成類別判斷。雖然歷史上命名沿用了「迴歸」，但它的輸出目標是類別（分類任務），這正是初級考試最核心的命名陷阱之一。選 a 錯在「只輸出 0 或 1」——邏輯迴歸實際上輸出的是機率，再由閾值轉成 0/1。"
+    difficulty: 5
+    tags: ["logistic-regression", "sigmoid", "classification", "naming-trap"]

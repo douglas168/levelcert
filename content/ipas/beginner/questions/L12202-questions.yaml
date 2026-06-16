@@ -1,900 +1,598 @@
-# L12202 如何善用生成式AI工具 — Practice Question Pool
-# Total: 40 questions | Difficulty: 8×L1, 8×L2, 8×L3, 8×L4, 8×L5
-# Answer distribution: a=10, b=10, c=10, d=10
-# Coverage: Prompt Engineering ~18, RAG ~12, Tool Integration ~10
+topic: L12202
+topic_name: 如何善用生成式AI工具
+level: beginner
+questions:
+  - id: L12202-Q01
+    difficulty: 1
+    question: "CO-STAR 提示框架中的「S」代表什麼？"
+    options:
+      a: "Style（風格）"
+      b: "Statement（陳述）"
+      c: "Source（來源）"
+      d: "Structure（結構）"
+    correct: a
+    explanation:
+      why_correct: "CO-STAR 的六個維度為 Context / Objective / Style / Tone / Audience / Response，「S」代表 Style（風格），用於指定回應的寫作風格。"
+      why_not_b: "Statement 是 CRISPE 框架中的元素，容易與 CO-STAR 混淆。"
+      why_not_c: "Source 不屬於 CO-STAR，學生可能因 RAG 中的「來源」概念而誤選。"
+      why_not_d: "Structure 看似合理但並非 CO-STAR 的組成元素。"
+    keywords: ["CO-STAR", "提示框架"]
+    exam_trap: false
 
-- id: "L12202-Q01"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "CO-STAR 提示框架中的「S」代表什麼？"
-  options:
-    a: "Style（風格）"
-    b: "Statement（陳述）"
-    c: "Source（來源）"
-    d: "Structure（結構）"
-  correct: "a"
-  explanation:
-    why_correct: "CO-STAR 的六個維度為 Context / Objective / Style / Tone / Audience / Response，「S」代表 Style（風格），用於指定回應的寫作風格。"
-    why_not_b: "Statement 是 CRISPE 框架中的元素，容易與 CO-STAR 混淆。"
-    why_not_c: "Source 不屬於任何常見提示框架的核心元素，但學生可能因 RAG 中的「來源」概念而誤選。"
-    why_not_d: "Structure 看似合理但並非 CO-STAR 的組成元素，它屬於提示輸出的格式控制。"
-  keywords:
-    - "CO-STAR"
-    - "提示框架"
-    - "prompt framework"
-  exam_trap: false
+  - id: L12202-Q02
+    difficulty: 1
+    question: "零樣本提示（Zero-Shot Prompting）的特徵是什麼？"
+    options:
+      a: "需要提供大量範例讓模型學習"
+      b: "需要先對模型進行微調才能使用"
+      c: "需要搭配 RAG 才能使用"
+      d: "不提供任何範例，直接給予指令"
+    correct: d
+    explanation:
+      why_correct: "Zero-Shot Prompting 的核心特徵是不提供任何範例，完全依賴大型語言模型的預訓練知識完成任務。"
+      why_not_a: "提供大量範例的做法是 Few-Shot Prompting，不是 Zero-Shot。"
+      why_not_b: "微調是修改模型參數的獨立技術，與提示策略無關。"
+      why_not_c: "RAG 是獨立的知識增強方法，Zero-Shot 不需要依賴外部檢索即可運作。"
+    keywords: ["Zero-Shot", "零樣本提示"]
+    exam_trap: false
 
-- id: "L12202-Q02"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "零樣本提示（Zero-shot Prompting）的特徵是什麼？"
-  options:
-    a: "需要提供大量範例讓模型學習"
-    b: "需要先對模型進行微調"
-    c: "需要搭配檢索增強生成（RAG）才能使用"
-    d: "不提供任何範例，直接給予指令"
-  correct: "d"
-  explanation:
-    why_correct: "Zero-shot Prompting 的核心特徵是不提供任何範例，完全依賴大型語言模型的預訓練知識來完成任務。"
-    why_not_a: "提供大量範例的做法接近 Few-shot Prompting，但 Few-shot 通常只需少量（2-5個）範例，而非大量。"
-    why_not_b: "微調（Fine-tuning）是修改模型參數的獨立技術，與提示策略無關，學生容易混淆這兩個層次。"
-    why_not_c: "RAG 是一種獨立的知識增強方法，Zero-shot 不需要依賴外部檢索即可運作。"
-  keywords:
-    - "零樣本提示"
-    - "zero-shot prompting"
-  exam_trap: false
+  - id: L12202-Q03
+    difficulty: 1
+    question: "RAG（Retrieval-Augmented Generation，檢索增強生成）的核心目的是什麼？"
+    options:
+      a: "降低幻覺（Hallucination），確保回答基於可靠資料"
+      b: "加速模型的訓練過程"
+      c: "減少模型的參數量以節省運算資源"
+      d: "取代所有人工撰寫的知識庫"
+    correct: a
+    explanation:
+      why_correct: "RAG 的核心目的是透過檢索外部知識來降低大型語言模型的幻覺問題，確保生成內容有事實依據。"
+      why_not_b: "RAG 作用於推論階段而非訓練階段。"
+      why_not_c: "RAG 不改變模型本身的參數量。"
+      why_not_d: "RAG 依賴知識庫作為檢索來源，是增強而非取代知識庫。"
+    keywords: ["RAG", "檢索增強生成", "幻覺"]
+    exam_trap: false
 
-- id: "L12202-Q03"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "檢索增強生成（Retrieval-Augmented Generation, RAG）的核心目的是什麼？"
-  options:
-    a: "降低幻覺（Hallucination），確保回答基於可靠資料"
-    b: "加速模型的訓練過程"
-    c: "減少模型的參數量以節省運算資源"
-    d: "取代所有人工撰寫的知識庫"
-  correct: "a"
-  explanation:
-    why_correct: "RAG 的核心目的是透過檢索外部知識來降低大型語言模型的幻覺問題，確保生成內容有事實依據。"
-    why_not_b: "RAG 作用於推論（inference）階段而非訓練階段，學生常混淆 RAG 與 Fine-tuning 的作用時機。"
-    why_not_c: "RAG 不改變模型本身的參數量，而是在提示中注入檢索到的外部資訊。"
-    why_not_d: "RAG 依賴知識庫作為檢索來源，是增強而非取代知識庫。"
-  keywords:
-    - "RAG"
-    - "檢索增強生成"
-    - "幻覺"
-    - "hallucination"
-  exam_trap: false
+  - id: L12202-Q04
+    difficulty: 1
+    question: "CRISPE 提示框架中的「E」代表什麼？"
+    options:
+      a: "Experiment（實驗）"
+      b: "Example（範例）"
+      c: "Evaluation（評估）"
+      d: "Execution（執行）"
+    correct: a
+    explanation:
+      why_correct: "CRISPE 的五個維度為 Capacity & Role / Insight / Statement / Personality / Experiment，「E」代表 Experiment（實驗），強調迭代測試以優化輸出。"
+      why_not_b: "Example 屬於 Few-Shot Prompting 的概念，不是 CRISPE 的元素——這是常見陷阱。"
+      why_not_c: "Evaluation 雖與「實驗」概念相近，但 CRISPE 框架明確使用 Experiment。"
+      why_not_d: "Execution 不是 CRISPE 的元素。"
+    keywords: ["CRISPE", "提示框架", "Experiment"]
+    exam_trap: true
 
-- id: "L12202-Q04"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "MCP（Model Context Protocol）在 AI 工具整合中的角色是什麼？"
-  options:
-    a: "一種訓練大型語言模型的演算法"
-    b: "一種向量資料庫的查詢語言"
-    c: "一種評估 AI 模型準確度的指標"
-    d: "統一 AI 工具與外部資源的連接標準"
-  correct: "d"
-  explanation:
-    why_correct: "MCP（Model Context Protocol）是一種統一的連接標準，讓 AI 模型能以標準化方式存取外部工具和資料來源。"
-    why_not_a: "MCP 不涉及模型訓練，它是一種連接協議，學生可能因「Model」一詞而聯想到訓練。"
-    why_not_b: "向量資料庫有自己的查詢機制，MCP 的範圍更廣，涵蓋各種外部資源連接。"
-    why_not_c: "AI 模型準確度評估有專門的指標（如 F1 Score），MCP 與評估無關。"
-  keywords:
-    - "MCP"
-    - "Model Context Protocol"
-    - "AI工具整合"
-  exam_trap: false
+  - id: L12202-Q05
+    difficulty: 1
+    question: "RTF（Role-Task-Format，角色-任務-格式）框架的三個組成元素是什麼？"
+    options:
+      a: "Role / Task / Format"
+      b: "Role / Tone / Feedback"
+      c: "Research / Task / Finalize"
+      d: "Response / Theme / Format"
+    correct: a
+    explanation:
+      why_correct: "RTF 是最簡潔的提示框架，由 Role（角色）、Task（任務）、Format（格式）三個元素組成，適合簡單任務。"
+      why_not_b: "Tone 是 CO-STAR 框架的元素，Feedback 不屬於任何標準提示框架。"
+      why_not_c: "Research 和 Finalize 不是標準提示框架的術語。"
+      why_not_d: "Response 是 CO-STAR 框架的元素，Theme 不屬於任何標準提示框架。"
+    keywords: ["RTF", "Role-Task-Format", "提示框架"]
+    exam_trap: false
 
-- id: "L12202-Q05"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "CRISPE 提示框架中的「E」代表什麼？"
-  options:
-    a: "Experiment（實驗）"
-    b: "Example（範例）"
-    c: "Evaluation（評估）"
-    d: "Execution（執行）"
-  correct: "a"
-  explanation:
-    why_correct: "CRISPE 的五個維度為 Capacity & Role / Insight / Statement / Personality / Experiment，「E」代表 Experiment（實驗），強調迭代測試以優化輸出。"
-    why_not_b: "Example 屬於 Few-shot Prompting 的概念，不是 CRISPE 框架的組成元素。"
-    why_not_c: "Evaluation 雖與「實驗」概念相近，但 CRISPE 框架明確使用 Experiment 一詞，強調的是嘗試多種提示變體。"
-    why_not_d: "Execution 不是 CRISPE 的元素，學生可能因「做某事」的聯想而誤選。"
-  keywords:
-    - "CRISPE"
-    - "提示框架"
-    - "prompt framework"
-  exam_trap: false
+  - id: L12202-Q06
+    difficulty: 1
+    question: "以下哪個 AI 工具與 Google 生態系（Docs、Sheets、Gmail）整合最為緊密？"
+    options:
+      a: "ChatGPT"
+      b: "Claude"
+      c: "Copilot"
+      d: "Gemini"
+    correct: d
+    explanation:
+      why_correct: "Gemini 是 Google 自家的 AI 助理，與 Google Workspace（Docs、Sheets、Gmail）深度整合。"
+      why_not_a: "ChatGPT 是 OpenAI 的產品，與 Google 生態系的整合不如 Gemini 原生。"
+      why_not_b: "Claude 是 Anthropic 的產品，主要透過 API 和獨立介面使用。"
+      why_not_c: "Copilot 深度整合的是 Microsoft 365（Word、Excel、Outlook），而非 Google 生態系。"
+    keywords: ["Gemini", "Google生態系", "AI工具選擇"]
+    exam_trap: false
 
-- id: "L12202-Q06"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "RTF 提示框架的三個組成元素是什麼？"
-  options:
-    a: "Role / Task / Format"
-    b: "Role / Tone / Feedback"
-    c: "Research / Task / Finalize"
-    d: "Response / Theme / Format"
-  correct: "a"
-  explanation:
-    why_correct: "RTF 是最簡潔的提示框架，由 Role（角色）、Task（任務）、Format（格式）三個元素組成，適合簡單任務。"
-    why_not_b: "Tone 是 CO-STAR 框架的元素，Feedback 不屬於任何標準提示框架。"
-    why_not_c: "Research 和 Finalize 不是標準提示框架的術語，學生可能因字面意思而誤選。"
-    why_not_d: "Response 是 CO-STAR 框架的元素，Theme 不屬於任何標準提示框架。"
-  keywords:
-    - "RTF"
-    - "提示框架"
-    - "prompt framework"
-  exam_trap: false
+  - id: L12202-Q07
+    difficulty: 1
+    question: "零樣本思維鏈（Zero-Shot CoT）的觸發方式是什麼？"
+    options:
+      a: "在提示中加入「讓我們一步一步想」等引導語"
+      b: "對模型進行專門的推理能力微調"
+      c: "提供多個推理範例讓模型模仿"
+      d: "使用特殊的 API 參數啟用推理模式"
+    correct: a
+    explanation:
+      why_correct: "Zero-Shot CoT 的觸發方式非常簡單，只需在提示末尾加上「Let's think step by step」（讓我們一步一步想）等引導語，就能激發模型的推理能力。"
+      why_not_b: "Zero-Shot CoT 不需要微調模型，它是純粹的提示技巧。"
+      why_not_c: "提供推理範例的做法屬於 Few-Shot CoT，不是 Zero-Shot CoT。"
+      why_not_d: "Zero-Shot CoT 是提示層面的技巧，不需要特殊 API 參數。"
+    keywords: ["Zero-Shot CoT", "思維鏈", "chain-of-thought"]
+    exam_trap: false
 
-- id: "L12202-Q07"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "以下哪個 AI 工具與 Google 生態系（Docs、Sheets、Gmail）整合最為緊密？"
-  options:
-    a: "ChatGPT"
-    b: "Claude"
-    c: "Copilot"
-    d: "Gemini"
-  correct: "d"
-  explanation:
-    why_correct: "Gemini 是 Google 自家的 AI 助理，與 Google Workspace（Docs、Sheets、Gmail）深度整合，是 Google 生態系的核心 AI 工具。"
-    why_not_a: "ChatGPT 是 OpenAI 的產品，雖有豐富的外掛生態系，但與 Google 生態系的整合不如 Gemini 原生。"
-    why_not_b: "Claude 是 Anthropic 的產品，目前主要透過 API 和獨立介面使用，尚未深度整合 Google 生態系。"
-    why_not_c: "Copilot 是 Microsoft 的 AI 助理，深度整合的是 Microsoft 365（Word、Excel、Outlook），而非 Google 生態系。"
-  keywords:
-    - "Gemini"
-    - "Google生態系"
-    - "AI工具選擇"
-  exam_trap: false
+  - id: L12202-Q08
+    difficulty: 1
+    question: "向量資料庫（Vector Database）在 RAG 架構中的主要功能是什麼？"
+    options:
+      a: "儲存文本的向量表示（Embedding），支援語義搜尋"
+      b: "執行大型語言模型的推論計算"
+      c: "儲存原始的 PDF 和 Word 文件"
+      d: "管理使用者的帳號和權限"
+    correct: a
+    explanation:
+      why_correct: "向量資料庫儲存文本經過 Embedding 模型轉換後的向量表示，能透過向量相似度計算實現語義搜尋，是 RAG 檢索環節的核心基礎設施。"
+      why_not_b: "LLM 推論計算由 GPU 運算基礎設施負責，向量資料庫只負責檢索。"
+      why_not_c: "原始文件通常儲存在檔案系統或物件儲存中，向量資料庫儲存的是向量化後的數值表示。"
+      why_not_d: "帳號和權限管理是應用層的功能，通常由關聯式資料庫或身份驗證服務處理。"
+    keywords: ["向量資料庫", "embedding", "語義搜尋"]
+    exam_trap: false
 
-- id: "L12202-Q08"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "自動提示工程（Automatic Prompt Engineering, APE）的核心概念是什麼？"
-  options:
-    a: "由模型自動生成、測試並優化提示詞"
-    b: "由人工專家手動撰寫最佳提示詞"
-    c: "將提示詞翻譯成多種語言以提升泛化能力"
-    d: "使用模板固定所有提示詞的格式"
-  correct: "a"
-  explanation:
-    why_correct: "APE 的核心是讓模型自動生成候選提示、進行測試評估，然後選出最優提示，實現提示詞的自動化優化。研究發現 APE 能找到比人工設計更有效的提示。"
-    why_not_b: "人工撰寫是傳統的提示工程方式，APE 正是為了超越人工設計的局限而提出的自動化方法。"
-    why_not_c: "多語言翻譯是自然語言處理的另一個領域，與 APE 的自動優化概念無關。"
-    why_not_d: "模板化是一種固定格式的做法，與 APE 強調的自動搜索最優提示相反。"
-  keywords:
-    - "APE"
-    - "Automatic Prompt Engineering"
-    - "自動提示工程"
-  exam_trap: false
+  - id: L12202-Q09
+    difficulty: 2
+    question: "關於少樣本提示（Few-Shot Prompting），下列敘述何者正確？"
+    options:
+      a: "提供的範例越多，模型表現一定越好"
+      b: "範例品質比範例數量更重要，劣質範例反而有害"
+      c: "只有 GPT 系列模型才支援 Few-Shot Prompting"
+      d: "Few-Shot Prompting 等同於對模型進行微調（Fine-tuning）"
+    correct: b
+    explanation:
+      why_correct: "Few-Shot Prompting 的效果取決於範例品質而非單純數量，品質不佳的範例反而會降低效果。"
+      why_not_a: "範例過多可能導致提示過長、超出上下文窗口限制，且品質不佳的範例有害，「越多越好」是常見誤解。"
+      why_not_c: "Few-Shot Prompting 是通用的提示策略，所有大型語言模型都支援。"
+      why_not_d: "Few-Shot 是在推論時提供範例，不修改模型參數；Fine-tuning 需要修改模型參數，兩者完全不同。"
+    keywords: ["Few-Shot", "少樣本提示", "範例品質"]
+    exam_trap: true
 
-- id: "L12202-Q09"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "關於少樣本提示（Few-shot Prompting），下列敘述何者正確？"
-  options:
-    a: "提供的範例越多，模型表現一定越好"
-    b: "範例品質比範例數量更重要，且需注意領域遷移（Domain Shift）風險"
-    c: "只有 GPT 系列模型才支援 Few-shot Prompting"
-    d: "Few-shot Prompting 等同於對模型進行微調（Fine-tuning）"
-  correct: "b"
-  explanation:
-    why_correct: "Few-shot Prompting 的效果取決於範例品質而非單純數量，且研究顯示若範例與目標任務的領域不匹配（Domain Shift），反而會降低效果。"
-    why_not_a: "範例過多可能導致提示過長、超出模型上下文窗口限制，且品質不佳的範例反而有害，「越多越好」是常見誤解。"
-    why_not_c: "Few-shot Prompting 是一種通用的提示策略，所有大型語言模型（包括 Gemini、Claude 等）都支援。"
-    why_not_d: "Few-shot 是在推論時提供範例，不修改模型參數；Fine-tuning 則需要修改模型參數，兩者是完全不同層次的技術。"
-  keywords:
-    - "少樣本提示"
-    - "few-shot prompting"
-    - "domain shift"
-  exam_trap: true
+  - id: L12202-Q10
+    difficulty: 2
+    question: "思維鏈提示（CoT，Chain of Thought）最適合用於以下哪種任務？"
+    options:
+      a: "簡單的文字翻譯"
+      b: "需要多步推理的複雜問題（如數學、邏輯分析）"
+      c: "固定格式的情緒分類"
+      d: "大量資料的批次處理"
+    correct: b
+    explanation:
+      why_correct: "CoT 的核心價值在於引導模型展示中間推理步驟，特別適合數學推理、邏輯分析等需要多步思考的複雜問題。"
+      why_not_a: "簡單翻譯不需要多步推理，Zero-Shot 就能獲得良好結果。"
+      why_not_c: "固定格式的情緒分類是結構化的單步判斷任務，不需要多步推理。"
+      why_not_d: "批次處理著重效率，CoT 的逐步推理方式會增加每次推論的 token 消耗。"
+    keywords: ["CoT", "思維鏈", "chain-of-thought"]
+    exam_trap: false
 
-- id: "L12202-Q10"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "思維鏈提示（Chain-of-Thought, CoT）最適合用於以下哪種任務？"
-  options:
-    a: "簡單的文字翻譯"
-    b: "需要多步推理的複雜問題"
-    c: "固定格式的情緒分類"
-    d: "大量資料的批次處理"
-  correct: "b"
-  explanation:
-    why_correct: "CoT 的核心價值在於引導模型展示中間推理步驟，特別適合數學推理、邏輯分析等需要多步思考的複雜問題。"
-    why_not_a: "簡單翻譯通常不需要多步推理，使用 Zero-shot 就能獲得良好結果，CoT 反而可能增加不必要的延遲。"
-    why_not_c: "固定格式的情緒分類（如正面/負面/中立）是結構化的單步判斷任務，不需要多步推理，Zero-shot 即可勝任。"
-    why_not_d: "批次處理著重效率和自動化，CoT 的逐步推理方式會增加每次推論的 token 消耗，不適合大量重複任務。"
-  keywords:
-    - "思維鏈"
-    - "chain-of-thought"
-    - "CoT"
-  exam_trap: false
+  - id: L12202-Q11
+    difficulty: 2
+    question: "關於 RAG 的工作流程，以下哪個順序是正確的？"
+    options:
+      a: "用戶提問 → LLM 生成答案 → 檢索資料 → 驗證答案"
+      b: "用戶提問 → 微調模型 → 重新訓練 → 生成答案"
+      c: "資料向量化入庫 → 用戶提問 → 檢索相關段落 → 注入提示 → LLM 生成答案"
+      d: "LLM 生成答案 → 用戶驗證 → 回饋修正 → 重新生成"
+    correct: c
+    explanation:
+      why_correct: "RAG 的標準流程是先將資料向量化建立索引，用戶提問後檢索相關段落，將檢索結果注入提示，最後由 LLM 基於這些資料生成答案。"
+      why_not_a: "這個順序讓 LLM 先生成答案再檢索，失去了 RAG「先查再答」的核心精神。"
+      why_not_b: "微調和重新訓練是 Fine-tuning 的流程，RAG 不需要修改模型參數。"
+      why_not_d: "這是人工驗證後再重新生成的修正流程，不符合 RAG 的概念。"
+    keywords: ["RAG流程", "向量化", "embedding"]
+    exam_trap: true
 
-- id: "L12202-Q11"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "關於 RAG 的工作流程，以下哪個順序是正確的？"
-  options:
-    a: "用戶提問 → LLM生成答案 → 檢索資料 → 驗證答案"
-    b: "用戶提問 → 微調模型 → 重新訓練 → 生成答案"
-    c: "資料向量化 → 用戶提問 → 檢索相關段落 → 注入提示 → LLM生成答案"
-    d: "LLM生成答案 → 用戶驗證 → 回饋修正 → 重新生成"
-  correct: "c"
-  explanation:
-    why_correct: "RAG 的標準流程是先將資料向量化建立索引，用戶提問後檢索相關段落，將檢索結果注入提示，最後由 LLM 基於這些資料生成答案。"
-    why_not_a: "這個順序讓 LLM 先生成答案再檢索，失去了 RAG「先查再答」的核心精神，等同於事後驗證而非增強生成。"
-    why_not_b: "微調和重新訓練是 Fine-tuning 的流程，RAG 不需要修改模型參數，學生常混淆這兩種技術。"
-    why_not_d: "這是人工驗證後再重新生成的修正流程，不是先檢索外部知識再生成，因此不符合 RAG 的『先查再答』核心概念。"
-  keywords:
-    - "RAG流程"
-    - "retrieval-augmented generation"
-    - "向量化"
-    - "embedding"
-  exam_trap: true
+  - id: L12202-Q12
+    difficulty: 2
+    question: "以下關於 RAG 與微調（Fine-tuning）的比較，何者正確？"
+    options:
+      a: "RAG 需要修改模型參數，Fine-tuning 不需要"
+      b: "Fine-tuning 更適合需要即時更新資料的場景"
+      c: "兩者功能完全相同，只是實作方式不同"
+      d: "RAG 類似開卷考試，Fine-tuning 類似閉卷考試"
+    correct: d
+    explanation:
+      why_correct: "RAG 在回答時查詢外部資料（像開卷考試翻書找答案），Fine-tuning 則是將知識內化到模型參數中（像閉卷考試靠記憶作答）。"
+      why_not_a: "恰好相反：Fine-tuning 需要修改模型參數，RAG 不需要。這是最常見的陷阱。"
+      why_not_b: "RAG 更適合即時更新場景，因為只需更新外部知識庫；Fine-tuning 每次更新都需重新訓練。"
+      why_not_c: "兩者在成本、適用場景、是否修改參數上差異顯著，不可能「完全相同」。"
+    keywords: ["RAG", "fine-tuning", "微調"]
+    exam_trap: true
 
-- id: "L12202-Q12"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "角色提示（Role Prompting）的主要作用是什麼？"
-  options:
-    a: "讓模型扮演特定角色，以獲得符合該領域專業風格的回應"
-    b: "限制模型只能回答特定主題的問題"
-    c: "提升模型的運算速度"
-    d: "讓模型自動學習新的專業知識"
-  correct: "a"
-  explanation:
-    why_correct: "Role Prompting 透過指定角色（如「你是一位資深律師」），引導模型產生符合該角色專業風格和知識深度的回應。"
-    why_not_b: "Role Prompting 影響回應的風格和角度，但不會硬性限制模型的回答範圍，模型仍可回答其他主題。"
-    why_not_c: "Role Prompting 不影響運算效能，它是一種提示策略，作用於輸出品質而非速度。"
-    why_not_d: "Role Prompting 不會讓模型學習新知識，它只是激活模型預訓練中已有的相關知識和表達方式。"
-  keywords:
-    - "角色提示"
-    - "role prompting"
-  exam_trap: false
+  - id: L12202-Q13
+    difficulty: 2
+    question: "關於 AI Agent 的概念，下列敘述何者最為正確？"
+    options:
+      a: "AI Agent 能自主規劃任務、呼叫外部工具並完成多步驟目標"
+      b: "AI Agent 就是 ChatGPT 的另一個名稱"
+      c: "AI Agent 需要人工逐步指令才能完成每個步驟"
+      d: "AI Agent 只能執行單一預設任務，無法自主規劃"
+    correct: a
+    explanation:
+      why_correct: "AI Agent 的核心特徵是自主性——能夠自行規劃任務步驟、選擇並呼叫適當的外部工具，以完成複雜的多步驟目標。"
+      why_not_b: "ChatGPT 是一個對話式 AI 工具，AI Agent 是一種更廣泛的概念，可以基於任何 LLM 構建。"
+      why_not_c: "需要人工逐步指令是傳統的人機互動模式，AI Agent 的特點正是減少人工介入。"
+      why_not_d: "「只能執行單一任務」描述的是傳統自動化腳本，不是 AI Agent。"
+    keywords: ["AI Agent", "自主任務規劃", "工具呼叫"]
+    exam_trap: false
 
-- id: "L12202-Q13"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "以下關於 RAG 與微調（Fine-tuning）的比較，何者正確？"
-  options:
-    a: "RAG 需要修改模型參數，Fine-tuning 不需要"
-    b: "Fine-tuning 更適合需要即時更新資料的場景"
-    c: "兩者功能完全相同，只是實作方式不同"
-    d: "RAG 類似開卷考試，Fine-tuning 類似閉卷考試"
-  correct: "d"
-  explanation:
-    why_correct: "RAG 在回答時查詢外部資料（像開卷考試翻書找答案），Fine-tuning 則是將知識內化到模型參數中（像閉卷考試靠記憶作答）。這是經典的比喻。"
-    why_not_a: "恰好相反：Fine-tuning 需要修改模型參數，RAG 不需要。這是最容易搞混的考點。"
-    why_not_b: "RAG 更適合即時更新場景，因為只需更新外部知識庫即可；Fine-tuning 每次更新都需重新訓練模型。"
-    why_not_c: "兩者解決的問題有重疊但方式截然不同：RAG 靠外部檢索，Fine-tuning 靠參數調整，各有適用場景。"
-  keywords:
-    - "RAG"
-    - "fine-tuning"
-    - "微調"
-  exam_trap: true
+  - id: L12202-Q14
+    difficulty: 2
+    question: "思維樹（ToT，Tree of Thought）與思維鏈（CoT，Chain of Thought）的關鍵差異為何？"
+    options:
+      a: "ToT 只能用於數學問題，CoT 適用於所有問題"
+      b: "CoT 沿單一路徑推理，ToT 允許探索多條推理路徑並選擇最佳方案"
+      c: "ToT 是 CoT 的簡化版本，步驟更少"
+      d: "CoT 需要微調模型，ToT 只需提示即可"
+    correct: b
+    explanation:
+      why_correct: "CoT 沿著一條推理鏈逐步思考，ToT 則是 CoT 的延伸，允許模型在每個步驟分支出多條推理路徑，評估各路徑後選擇最佳方案。"
+      why_not_a: "ToT 和 CoT 都不限於數學問題，兩者都適用於需要推理的各類任務。"
+      why_not_c: "恰好相反：ToT 是 CoT 的擴展（更複雜），不是簡化版本。"
+      why_not_d: "CoT 和 ToT 都是提示層面的技術，都不需要微調模型。"
+    keywords: ["ToT", "思維樹", "CoT", "思維鏈"]
+    exam_trap: false
 
-- id: "L12202-Q14"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "關於 AI Agent 的概念，下列敘述何者最為正確？"
-  options:
-    a: "AI Agent 能自主規劃任務、呼叫外部工具並完成多步驟目標"
-    b: "AI Agent 就是 ChatGPT 的另一個名稱"
-    c: "AI Agent 需要人工逐步指令才能完成每個步驟"
-    d: "AI Agent 只能執行單一預設任務，無法自主規劃"
-  correct: "a"
-  explanation:
-    why_correct: "AI Agent 的核心特徵是自主性——能夠自行規劃任務步驟、選擇並呼叫適當的外部工具、根據中間結果調整策略，以完成複雜的多步驟目標。"
-    why_not_b: "ChatGPT 是一個對話式 AI 工具，AI Agent 是一種更廣泛的概念，可以基於任何 LLM 構建，不限於 ChatGPT。"
-    why_not_c: "需要人工逐步指令是傳統的人機互動模式，AI Agent 的特點正是減少人工介入，能自主完成中間步驟。"
-    why_not_d: "「只能執行單一任務」描述的是傳統自動化腳本，AI Agent 的價值正在於能處理多步驟、需要判斷的任務。"
-  keywords:
-    - "AI Agent"
-    - "自主任務規劃"
-    - "工具呼叫"
-  exam_trap: false
+  - id: L12202-Q15
+    difficulty: 2
+    question: "MCP（Model Context Protocol，模型上下文協定）在 AI 工具整合中的角色是什麼？"
+    options:
+      a: "一種訓練大型語言模型的演算法"
+      b: "一種向量資料庫的查詢語言"
+      c: "統一 AI 工具與外部資源的連接標準"
+      d: "一種評估 AI 模型準確度的指標"
+    correct: c
+    explanation:
+      why_correct: "MCP（Model Context Protocol，模型上下文協定）是一種統一的連接標準，讓 AI 模型能以標準化方式存取外部工具和資料來源。"
+      why_not_a: "MCP 不涉及模型訓練，它是一種連接協議。"
+      why_not_b: "向量資料庫有自己的查詢機制，MCP 的範圍更廣，涵蓋各種外部資源連接。"
+      why_not_d: "AI 模型準確度評估有專門的指標（如 F1 Score），MCP 與評估無關。"
+    keywords: ["MCP", "Model Context Protocol", "模型上下文協定"]
+    exam_trap: false
 
-- id: "L12202-Q15"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "零樣本思維鏈（Zero-shot CoT）的觸發方式是什麼？"
-  options:
-    a: "提供多個推理範例讓模型模仿"
-    b: "對模型進行專門的推理能力微調"
-    c: "在提示中加入「讓我們一步一步想」等引導語"
-    d: "使用特殊的 API 參數啟用推理模式"
-  correct: "c"
-  explanation:
-    why_correct: "Zero-shot CoT 的觸發方式非常簡單，只需在提示末尾加上「Let's think step by step」（讓我們一步一步想）等引導語，就能激發模型的推理能力。"
-    why_not_a: "提供推理範例的做法屬於 Few-shot CoT，不是 Zero-shot CoT。Zero-shot 的意思就是不提供範例。"
-    why_not_b: "Zero-shot CoT 不需要微調模型，它是一種純粹的提示技巧，這也是它受歡迎的原因——零成本即可使用。"
-    why_not_d: "Zero-shot CoT 是提示層面的技巧，不需要特殊 API 參數。學生可能誤以為需要技術設定才能啟用。"
-  keywords:
-    - "零樣本思維鏈"
-    - "zero-shot CoT"
-    - "chain-of-thought"
-  exam_trap: false
+  - id: L12202-Q16
+    difficulty: 2
+    question: "自動提示工程（APE，Automatic Prompt Engineering）的核心概念是什麼？"
+    options:
+      a: "由模型自動生成、測試並優化提示詞"
+      b: "由人工專家手動撰寫最佳提示詞"
+      c: "將提示詞翻譯成多種語言以提升泛化能力"
+      d: "使用固定模板鎖定所有提示詞格式"
+    correct: a
+    explanation:
+      why_correct: "APE 的核心是讓模型自動生成候選提示、進行測試評估，然後選出最優提示，實現提示詞的自動化優化。研究發現 APE 能找到比人工設計更有效的提示。"
+      why_not_b: "人工撰寫是傳統的提示工程方式，APE 正是為了超越人工設計的局限而提出的自動化方法。"
+      why_not_c: "多語言翻譯是自然語言處理的另一個領域，與 APE 的自動優化概念無關。"
+      why_not_d: "模板化是固定格式的做法，與 APE 強調的自動搜索最優提示相反。"
+    keywords: ["APE", "Automatic Prompt Engineering", "自動提示工程"]
+    exam_trap: false
 
-- id: "L12202-Q16"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 1
-  question: "向量資料庫（Vector Database）在 RAG 架構中的主要功能是什麼？"
-  options:
-    a: "儲存原始的 PDF 和 Word 文件"
-    b: "執行大型語言模型的推論計算"
-    c: "儲存文本的向量表示（Embedding），支援語義搜尋"
-    d: "管理使用者的帳號和權限"
-  correct: "c"
-  explanation:
-    why_correct: "向量資料庫儲存文本經過 Embedding 模型轉換後的向量表示，能透過向量相似度計算實現語義搜尋，是 RAG 檢索環節的核心基礎設施。"
-    why_not_a: "原始文件通常儲存在檔案系統或物件儲存中，向量資料庫儲存的是經過向量化處理後的數值表示。"
-    why_not_b: "LLM 推論計算由 GPU 運算基礎設施負責，向量資料庫只負責檢索，不負責生成。"
-    why_not_d: "帳號和權限管理是應用層的功能，通常由關聯式資料庫或身份驗證服務處理。"
-  keywords:
-    - "向量資料庫"
-    - "vector database"
-    - "embedding"
-    - "語義搜尋"
-  exam_trap: false
+  - id: L12202-Q17
+    difficulty: 3
+    question: "小明是大學生，需要撰寫 AI 趨勢研究報告，要求引用最新網路資料且附上來源連結。以下哪個工具組合最適合？"
+    options:
+      a: "用 ChatGPT 生成全部內容，不需要其他工具"
+      b: "用 Perplexity 搜尋並彙整最新資料與來源，再用 ChatGPT 潤飾文稿"
+      c: "用 Copilot 在 Word 中直接生成報告"
+      d: "用 Gemini 翻譯英文論文作為報告內容"
+    correct: b
+    explanation:
+      why_correct: "Perplexity 專長是即時網路搜尋並附上來源引用，適合查證最新資料；ChatGPT 擅長長文撰寫和潤飾。兩者搭配滿足「最新資料 + 附來源」的需求。"
+      why_not_a: "ChatGPT 的知識有截止日期，且不一定會附上可靠的來源連結。"
+      why_not_c: "Copilot 在 Word 中可以輔助寫作，但即時搜尋和引用來源的能力不如 Perplexity 專精。"
+      why_not_d: "翻譯英文論文只能取得特定論文的內容，無法涵蓋 AI 趨勢的廣泛最新資訊。"
+    keywords: ["AI工具選擇", "Perplexity", "多工具工作流"]
+    exam_trap: false
 
-- id: "L12202-Q17"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "小明是大學生，需要撰寫一份AI趨勢研究報告。他想用AI工具輔助，但要求內容必須引用最新的網路資料且附上來源連結。以下哪個工具組合最適合？"
-  options:
-    a: "用 ChatGPT 生成全部內容，不需要其他工具"
-    b: "用 Perplexity 搜尋並彙整最新資料與來源，再用 ChatGPT 潤飾文稿"
-    c: "用 Copilot 在 Word 中直接生成報告"
-    d: "用 Gemini 翻譯英文論文作為報告內容"
-  correct: "b"
-  explanation:
-    why_correct: "Perplexity 專長是即時網路搜尋並附上來源引用，適合查證最新資料；ChatGPT 擅長長文撰寫和潤飾。兩者搭配既滿足「最新資料+附來源」的需求，又能產出高品質文稿。"
-    why_not_a: "ChatGPT 的知識有截止日期，且標準版不一定會附上可靠的來源連結，無法滿足「最新資料+附來源」的要求。"
-    why_not_c: "Copilot 在 Word 中可以輔助寫作，但其網路搜尋和引用來源的能力不如 Perplexity 專精。"
-    why_not_d: "翻譯英文論文只能取得特定論文的內容，無法涵蓋「AI趨勢」的廣泛最新資訊，且這不是研究報告的正確做法。"
-  keywords:
-    - "AI工具選擇"
-    - "Perplexity"
-    - "多工具工作流"
-  exam_trap: false
+  - id: L12202-Q18
+    difficulty: 3
+    question: "某公司客服部門想導入 AI 自動回覆常見問題，確保回答基於公司最新的產品手冊。最適合的技術方案是什麼？"
+    options:
+      a: "直接使用 ChatGPT 回覆所有客戶信件"
+      b: "對 LLM 進行微調，把所有產品資訊訓練進模型"
+      c: "建立規則式 FAQ 系統"
+      d: "建立 RAG 系統，將產品手冊作為知識庫，搭配 LLM 生成回覆"
+    correct: d
+    explanation:
+      why_correct: "RAG 系統能將公司產品手冊作為外部知識庫，確保回覆基於最新資料且減少幻覺；產品手冊更新時只需更新知識庫，不需重新訓練模型。"
+      why_not_a: "直接使用 ChatGPT 無法確保回答基於公司特定的產品手冊，且有資料外洩風險。"
+      why_not_b: "微調需要大量標註資料和運算資源，且每次產品手冊更新都需重新微調，成本過高。"
+      why_not_c: "規則式 FAQ 只能處理完全匹配的固定問答，無法理解語義變體或複雜提問。"
+    keywords: ["RAG", "客服自動化", "知識庫"]
+    exam_trap: false
 
-- id: "L12202-Q18"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "一家中小企業的客服部門每天收到上百封重複性問題的 Email。主管想導入AI工具來自動回覆常見問題，同時確保回答基於公司最新的產品手冊。最適合的技術方案是什麼？"
-  options:
-    a: "直接使用 ChatGPT 回覆所有客戶信件"
-    b: "對 LLM 進行微調，把所有產品資訊訓練進模型"
-    c: "建立規則式 FAQ 系統"
-    d: "建立 RAG 系統，將產品手冊作為知識庫，搭配 LLM 自動生成回覆"
-  correct: "d"
-  explanation:
-    why_correct: "RAG 系統能將公司產品手冊作為外部知識庫，確保回覆基於最新資料且減少幻覺；產品手冊更新時只需更新知識庫，不需重新訓練模型，維護成本低。"
-    why_not_a: "直接使用 ChatGPT 無法確保回答基於公司特定的產品手冊，可能產生不準確的資訊，且有資料外洩風險。"
-    why_not_b: "微調需要大量標註資料和運算資源，且每次產品手冊更新都需重新微調，對中小企業來說成本過高且不靈活。"
-    why_not_c: "規則式 FAQ 系統只能處理完全匹配的固定問答，無法理解語義變體或複雜提問；且每次產品更新都需人工維護規則庫，長期維護成本高。"
-  keywords:
-    - "RAG"
-    - "客服自動化"
-    - "知識庫"
-  exam_trap: false
+  - id: L12202-Q19
+    difficulty: 3
+    question: "某行銷團隊成員不熟悉提示工程，希望用最簡單易記的框架快速產出社群貼文內容。最適合推薦哪個提示框架？"
+    options:
+      a: "CO-STAR（六維度框架）"
+      b: "CRISPE（含實驗環節的五維度框架）"
+      c: "APE（自動提示工程）"
+      d: "RTF（Role-Task-Format，角色-任務-格式）"
+    correct: d
+    explanation:
+      why_correct: "RTF 是最簡潔的提示框架，只有三個元素（角色/任務/格式），對不熟悉提示工程的人最容易學習和應用，適合社群貼文這類相對簡單的任務。"
+      why_not_a: "CO-STAR 有六個維度，雖然更全面，但對初學者學習門檻較高，用於簡單的社群貼文可能過於複雜。"
+      why_not_b: "CRISPE 包含五個維度且含有「實驗」環節，更適合需要反覆迭代的創意任務，對初學者不夠簡潔。"
+      why_not_c: "APE 是自動化提示優化技術，需要技術背景才能實施，不是「簡單易記的框架」。"
+    keywords: ["RTF", "Role-Task-Format", "提示框架選擇"]
+    exam_trap: false
 
-- id: "L12202-Q19"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "某行銷團隊要為新產品製作一系列社群貼文。團隊成員不熟悉提示工程，希望用一個簡單易記的框架快速產出內容。最適合推薦哪個提示框架？"
-  options:
-    a: "CO-STAR（六維度框架）"
-    b: "CRISPE（含實驗環節的五維度框架）"
-    c: "APE（自動提示工程）"
-    d: "RTF（Role / Task / Format）"
-  correct: "d"
-  explanation:
-    why_correct: "RTF 是最簡潔的提示框架，只有三個元素（角色/任務/格式），對不熟悉提示工程的團隊成員來說最容易學習和應用，適合社群貼文這類相對簡單的任務。"
-    why_not_a: "CO-STAR 有六個維度，雖然更全面，但對不熟悉提示工程的人來說學習門檻較高，用於簡單的社群貼文可能過於複雜。"
-    why_not_b: "CRISPE 包含五個維度且含有「實驗」環節，更適合需要反覆迭代的創意任務，對初學者而言不夠簡潔。"
-    why_not_c: "APE 是自動化提示優化技術，需要技術背景才能實施，不是一個「簡單易記的框架」。"
-  keywords:
-    - "RTF"
-    - "提示框架選擇"
-    - "prompt framework"
-  exam_trap: false
+  - id: L12202-Q20
+    difficulty: 3
+    question: "某大學教授需要批改 50 份學生期末報告，每份依五個評分標準給分並寫評語。他想用AI輔助，下列哪種提示策略最合適？"
+    options:
+      a: "使用 Zero-Shot，直接要求 AI 批改"
+      b: "使用 Role Prompting，指定 AI 扮演嚴格的教授"
+      c: "使用 Few-Shot，提供 2-3 份已批改的範例報告作為參考"
+      d: "使用 ToT，讓 AI 探索多條評分路徑"
+    correct: c
+    explanation:
+      why_correct: "Few-Shot Prompting 透過提供已批改的範例，讓模型理解評分標準的具體應用方式和評語風格，能有效確保 50 份報告的批改一致性和品質。"
+      why_not_a: "Zero-Shot 不提供範例，AI 可能無法準確理解教授的評分標準和期望的評語風格。"
+      why_not_b: "Role Prompting 能設定角色但無法傳達具體的評分標準應用方式，光說「嚴格」不足以確保批改品質。"
+      why_not_d: "ToT 適合探索多種解法的開放式問題，批改報告是依據明確標準的結構化任務，不需要多路徑探索。"
+    keywords: ["Few-Shot", "少樣本提示", "情境應用"]
+    exam_trap: false
 
-- id: "L12202-Q20"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "一位工程師正在開發一個應用程式，需要將 ChatGPT 的文字生成能力整合進自己的產品中。他應該使用哪種整合方式？"
-  options:
-    a: "每次手動複製貼上 ChatGPT 的回覆"
-    b: "透過 API 串接（API Integration）程式化呼叫 OpenAI 的服務"
-    c: "安裝 ChatGPT 的瀏覽器外掛"
-    d: "透過 No-Code 平台串接 API"
-  correct: "b"
-  explanation:
-    why_correct: "API 串接是將 AI 能力程式化整合進應用程式的標準方式，能實現自動化、穩定且可擴展的服務串接。"
-    why_not_a: "手動複製貼上無法實現自動化，不適合產品級的整合需求，學生可能因為這是最直覺的做法而考慮。"
-    why_not_c: "瀏覽器外掛是給個人用戶的輔助工具，不適合嵌入到自己的應用程式產品中。"
-    why_not_d: "No-Code 平台（如 Zapier、Make）能透過視覺化介面串接 API，適合非技術人員快速建立工作流；但題目明確說是「工程師」要整合進「自己的產品」，直接 API 串接能提供最大的彈性和控制力。"
-  keywords:
-    - "API串接"
-    - "API integration"
-    - "工具整合"
-  exam_trap: false
+  - id: L12202-Q21
+    difficulty: 3
+    question: "某新創公司的產品經理需要快速製作競爭分析簡報給投資人，計畫用多個 AI 工具串聯完成。以下哪個工作流程最合理？"
+    options:
+      a: "Copilot 做簡報 → ChatGPT 搜尋競品資料 → Claude 校對"
+      b: "ChatGPT 做簡報 → Gemini 搜尋競品資料 → Perplexity 校對"
+      c: "Perplexity 搜尋競品資料 → ChatGPT 分析整理 → Copilot 製作簡報"
+      d: "Claude 搜尋競品資料 → Perplexity 分析整理 → Gemini 做簡報"
+    correct: c
+    explanation:
+      why_correct: "Perplexity 擅長即時網路搜尋和引用來源（蒐集競品資料）、ChatGPT 擅長長文分析和結構化整理、Copilot 與 PowerPoint 深度整合（製作簡報）——合理利用各工具強項。"
+      why_not_a: "先做簡報再搜尋資料，順序不合理；且 ChatGPT 的即時搜尋能力不如 Perplexity 專精。"
+      why_not_b: "ChatGPT 不是製作 PowerPoint 簡報的最佳工具；流程順序也不合理。"
+      why_not_d: "Claude 不以即時網路搜尋為強項；Perplexity 的強項是搜尋引用而非深度分析。"
+    keywords: ["多工具工作流", "tool chaining", "AI工具選擇"]
+    exam_trap: false
 
-- id: "L12202-Q21"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "某大學教授需要批改 50 份學生的期末報告，每份報告需要依據五個評分標準給分並寫評語。他想用AI輔助，下列哪種提示策略最合適？"
-  options:
-    a: "使用 Zero-shot，直接要求AI批改"
-    b: "使用 Role Prompting，指定AI扮演嚴格的教授"
-    c: "使用 Few-shot，提供2-3份已批改的範例報告作為參考"
-    d: "使用 Tree-of-Thought，讓AI探索多條評分路徑"
-  correct: "c"
-  explanation:
-    why_correct: "Few-shot Prompting 透過提供已批改的範例，讓模型理解評分標準的具體應用方式和評語風格，能有效確保 50 份報告的批改一致性和品質。"
-    why_not_a: "Zero-shot 不提供範例，AI 可能無法準確理解教授的評分標準和期望的評語風格，導致批改結果不一致。"
-    why_not_b: "Role Prompting 能設定角色但無法傳達具體的評分標準應用方式，光說「嚴格」不足以確保批改品質。"
-    why_not_d: "ToT 適合需要探索多種解法的開放式問題，批改報告是依據明確標準的結構化任務，不需要多路徑探索。"
-  keywords:
-    - "few-shot prompting"
-    - "少樣本提示"
-    - "情境應用"
-  exam_trap: false
+  - id: L12202-Q22
+    difficulty: 3
+    question: "某公司法務部門想用 AI 工具處理合約審閱，合約內容涉及公司機密。在選擇 AI 工具時，以下哪個考量最為重要？"
+    options:
+      a: "工具的生成速度"
+      b: "工具的多語言支援能力"
+      c: "是否支援權限控管與稽核紀錄"
+      d: "工具的資料隱私政策與企業級安全性"
+    correct: d
+    explanation:
+      why_correct: "處理公司機密合約時，資料隱私和安全性是首要考量。必須確認 AI 工具不會將輸入資料用於模型訓練、是否符合企業安全標準，以及資料的傳輸是否加密。"
+      why_not_a: "生成速度雖影響效率，但在涉及機密資料的場景中，安全性遠比速度重要。"
+      why_not_b: "多語言支援可能有用，但不是「最重要」的考量，安全性仍然優先。"
+      why_not_c: "權限控管與稽核紀錄是重要功能，但「資料是否被用於訓練」和「傳輸加密」等隱私政策才是最優先的考量。"
+    keywords: ["AI工具選擇", "資料隱私", "企業安全"]
+    exam_trap: false
 
-- id: "L12202-Q22"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "一家科技公司想建立內部知識管理系統，讓員工能用自然語言查詢公司過去三年的專案文件和技術文檔。系統需要能理解語義相近但用詞不同的查詢。應該採用哪種搜尋技術？"
-  options:
-    a: "混合搜尋（Hybrid Search），結合關鍵字搜尋與語義搜尋"
-    b: "傳統的關鍵字全文搜尋"
-    c: "只使用檔名和標籤進行分類搜尋"
-    d: "讓員工直接瀏覽資料夾目錄"
-  correct: "a"
-  explanation:
-    why_correct: "混合搜尋結合了關鍵字搜尋（精確匹配專有名詞）和語義搜尋（理解語義相近的查詢），能同時滿足「用詞不同但意思相近」的語義理解需求和精確術語匹配需求。"
-    why_not_b: "純關鍵字搜尋無法理解語義，「用詞不同但意思相近」的查詢會漏掉相關結果，不符合題目需求。"
-    why_not_c: "檔名和標籤搜尋的覆蓋面太窄，無法涵蓋文件內容的細節，也無法理解自然語言查詢。"
-    why_not_d: "手動瀏覽資料夾在文件量大時效率極低，且無法滿足「自然語言查詢」的需求。"
-  keywords:
-    - "混合搜尋"
-    - "hybrid search"
-    - "語義搜尋"
-    - "RAG"
-  exam_trap: false
+  - id: L12202-Q23
+    difficulty: 3
+    question: "一家科技公司想建立內部知識管理系統，讓員工能用自然語言查詢公司文件，且需要能理解語義相近但用詞不同的查詢。應該採用哪種搜尋技術？"
+    options:
+      a: "混合搜尋（Hybrid Search），結合關鍵字搜尋與語義搜尋"
+      b: "傳統的關鍵字全文搜尋"
+      c: "只使用檔名和標籤進行分類搜尋"
+      d: "讓員工直接瀏覽資料夾目錄"
+    correct: a
+    explanation:
+      why_correct: "混合搜尋結合了關鍵字搜尋（精確匹配專有名詞）和語義搜尋（理解語義相近的查詢），能同時滿足精確術語匹配和語義理解需求。"
+      why_not_b: "純關鍵字搜尋無法理解語義，「用詞不同但意思相近」的查詢會漏掉相關結果。"
+      why_not_c: "檔名和標籤搜尋的覆蓋面太窄，無法理解自然語言查詢。"
+      why_not_d: "手動瀏覽資料夾在文件量大時效率極低，且無法滿足「自然語言查詢」的需求。"
+    keywords: ["混合搜尋", "hybrid search", "語義搜尋", "RAG"]
+    exam_trap: false
 
-- id: "L12202-Q23"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "某新創公司的產品經理需要快速製作一份競爭分析簡報給投資人。他計畫用多個AI工具串聯完成。以下哪個工作流程最合理？"
-  options:
-    a: "Copilot 做簡報 → ChatGPT 搜尋競品資料 → Claude 校對"
-    b: "ChatGPT 做簡報 → Gemini 搜尋競品資料 → Perplexity 校對"
-    c: "Perplexity 搜尋競品資料 → ChatGPT 分析整理 → Copilot 製作簡報"
-    d: "Claude 搜尋競品資料 → Perplexity 分析整理 → Gemini 做簡報"
-  correct: "c"
-  explanation:
-    why_correct: "這個流程合理利用了各工具的強項：Perplexity 擅長即時網路搜尋和引用來源（蒐集競品資料）、ChatGPT 擅長長文分析和結構化整理、Copilot 與 PowerPoint 深度整合（製作簡報）。"
-    why_not_a: "先做簡報再搜尋資料，順序不合理；且 ChatGPT 的即時搜尋能力不如 Perplexity 專精。"
-    why_not_b: "ChatGPT 不是製作 PowerPoint 簡報的最佳工具；流程順序也不合理（應先搜尋再製作）。"
-    why_not_d: "Claude 不以即時網路搜尋為強項；Perplexity 的強項是搜尋引用而非深度分析；Gemini 製作簡報不如 Copilot 與 Office 的整合。"
-  keywords:
-    - "多工具工作流"
-    - "tool chaining"
-    - "AI工具選擇"
-  exam_trap: false
+  - id: L12202-Q24
+    difficulty: 4
+    question: "某電商公司同時面臨兩個 AI 導入需求：(1) 客服機器人需要根據每日更新的商品庫存回答顧客，(2) 內部分析師需要 AI 理解公司特有的產業術語和分析風格。以下哪種技術組合最合適？"
+    options:
+      a: "兩個需求都用 RAG"
+      b: "兩個需求都用 Fine-tuning"
+      c: "需求(1)用 RAG，需求(2)用 Fine-tuning"
+      d: "需求(1)用 Fine-tuning，需求(2)用 RAG"
+    correct: c
+    explanation:
+      why_correct: "需求(1)的商品庫存每日更新，RAG 只需更新知識庫即可即時反映最新資料。需求(2)的重點在於「分析風格」——這是穩定的回應行為模式，需要透過 Fine-tuning 內化到模型參數中，而非每次查詢外部資料。注意：如果需求(2)只是查詢術語定義（事實性知識），RAG 加上術語表也能處理；這裡判定為 Fine-tuning 的關鍵在於「分析風格」這個行為面向。"
+      why_not_a: "RAG 能處理需求(1)（動態庫存資料），但需求(2)的「分析風格」是模型行為的調整，單純靠外部知識庫檢索無法改變模型的回應方式。"
+      why_not_b: "Fine-tuning 不適合需求(1)：每日更新的庫存資訊若用 Fine-tuning，每天都需重新訓練模型，成本過高且不切實際。"
+      why_not_d: "恰好搞反了：Fine-tuning 不適合頻繁更新的動態資料（庫存），RAG 不適合需要內化模型行為的風格調整——這是考試常見陷阱。"
+    keywords: ["RAG vs Fine-tuning", "技術選擇", "場景分析"]
+    exam_trap: true
 
-- id: "L12202-Q24"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "某公司的法務部門想用AI工具處理合約審閱，合約內容涉及公司機密。在選擇AI工具時，以下哪個考量最為重要？"
-  options:
-    a: "工具的生成速度"
-    b: "工具的多語言支援能力"
-    c: "是否支援權限控管與稽核紀錄"
-    d: "工具的資料隱私政策與企業級安全性"
-  correct: "d"
-  explanation:
-    why_correct: "處理公司機密合約時，資料隱私和安全性是首要考量。必須確認AI工具不會將輸入資料用於模型訓練、是否符合企業安全標準，以及資料的儲存和傳輸是否加密。"
-    why_not_a: "生成速度雖然影響效率，但在涉及機密資料的場景中，安全性遠比速度重要。"
-    why_not_b: "多語言支援可能有用（若涉及外文合約），但不是「最重要」的考量，安全性仍然優先。"
-    why_not_c: "權限控管與稽核紀錄確實是企業級工具的重要功能，但在涉及機密合約時，「資料是否被用於訓練」和「傳輸加密」等隱私政策才是最優先的考量。"
-  keywords:
-    - "AI工具選擇"
-    - "資料隱私"
-    - "企業安全"
-  exam_trap: false
+  - id: L12202-Q25
+    difficulty: 4
+    question: "在設計提示詞時，CO-STAR 和 CRISPE 兩個框架都包含「角色設定」的概念。以下關於兩者差異的分析，何者最準確？"
+    options:
+      a: "CO-STAR 的角色設定更詳細，CRISPE 完全不考慮角色"
+      b: "CRISPE 比 CO-STAR 多了「Experiment」環節，更適合需要迭代優化的創意任務"
+      c: "CO-STAR 適合所有場景，CRISPE 只適合程式開發"
+      d: "兩者完全相同，只是命名不同"
+    correct: b
+    explanation:
+      why_correct: "CRISPE 的 Experiment 環節強調嘗試多種提示變體並比較結果，使它特別適合需要反覆迭代的創意任務。CO-STAR 雖然更全面（六維度），但沒有內建迭代機制。"
+      why_not_a: "CRISPE 的「CR」就是 Capacity & Role（角色設定），並非「完全不考慮角色」。"
+      why_not_c: "CO-STAR 雖通用性強，但不是「適合所有場景」；CRISPE 也不限於程式開發。"
+      why_not_d: "兩者在維度數量、組成元素和設計理念上都有明顯差異，不是「命名不同」。"
+    keywords: ["CO-STAR", "CRISPE", "提示框架比較"]
+    exam_trap: false
 
-- id: "L12202-Q25"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某新創公司想讓客服機器人能回答產品相關問題，目前有兩個方案：(A) 建立 RAG 系統串接產品知識庫，(B) 直接使用 ChatGPT 加上詳細的系統提示（System Prompt）描述產品資訊。以下哪個分析最正確？"
-  options:
-    a: "兩者效果完全相同，選哪個都一樣"
-    b: "方案B永遠優於方案A，因為系統提示更簡單"
-    c: "方案A適合產品資訊量大且頻繁更新的情境；方案B適合產品線簡單且資訊變動少的早期階段"
-    d: "方案A只適合大企業，新創公司應一律選方案B"
-  correct: "c"
-  explanation:
-    why_correct: "這是一道評估判斷題。當產品資訊量超出系統提示的 token 限制或需要頻繁更新時，RAG 的外部知識庫更具彈性；但對早期產品線簡單的新創來說，系統提示成本低、部署快，是務實的起步選擇。關鍵是根據資訊量和更新頻率選擇適當方案。"
-    why_not_a: "兩者在成本、可維護性、資訊容量上差異顯著，不可能「完全相同」。"
-    why_not_b: "當產品資訊量大時，系統提示會超出 token 上限且難以維護，方案A反而更優。「永遠優於」是過度簡化。"
-    why_not_d: "RAG 的建置成本已大幅降低（有許多開源框架），新創公司在資訊量成長後同樣需要 RAG，不是大企業的專利。"
-  keywords:
-    - "RAG"
-    - "系統提示"
-    - "技術選擇"
-    - "評估判斷"
-  exam_trap: false
+  - id: L12202-Q26
+    difficulty: 4
+    question: "某行銷人員使用 Few-Shot Prompting 讓 AI 撰寫產品文案，提供了三個範例，但 AI 的輸出幾乎只是複製範例的句型，缺乏創意。以下哪個分析和改善方案最正確？"
+    options:
+      a: "Few-Shot 本來就會限制創意，應該完全改用 Zero-Shot"
+      b: "增加到十個範例就能解決創意不足的問題"
+      c: "範例過於相似導致模型過度模仿；應提供風格多樣的範例，並明確要求「參考風格但不要照抄句型」"
+      d: "這是模型能力不足的問題，應該換一個更大的模型"
+    correct: c
+    explanation:
+      why_correct: "Few-Shot 範例過於相似時，模型會將句型本身當作「規則」而非「參考」，導致過度模仿。解法是增加範例多樣性並加入明確指令，這考驗對 Few-Shot 機制的深層理解。"
+      why_not_a: "問題出在範例品質而非技術選擇，不需要完全放棄 Few-Shot。Zero-Shot 也會失去引導風格的優勢。"
+      why_not_b: "範例數量不是根本原因；若十個範例風格依然相似，過度模仿反而更嚴重。"
+      why_not_d: "這是提示設計問題而非模型能力問題，換更大的模型無法解決範例設計不當的問題。"
+    keywords: ["Few-Shot", "提示工程陷阱", "過度模仿"]
+    exam_trap: true
 
-- id: "L12202-Q26"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "某電商公司同時面臨兩個AI導入需求：(1) 客服機器人需要根據每日更新的商品庫存回答顧客，(2) 內部分析師需要AI理解公司特有的產業術語和分析風格。以下哪種技術組合最合適？"
-  options:
-    a: "兩個需求都用 RAG"
-    b: "兩個需求都用 Fine-tuning"
-    c: "需求(1)用 RAG，需求(2)用 Fine-tuning"
-    d: "需求(1)用 Fine-tuning，需求(2)用 RAG"
-  correct: "c"
-  explanation:
-    why_correct: "需求(1)的商品庫存每日更新，RAG 只需更新知識庫即可即時反映最新資料；需求(2)要求模型理解特有術語和分析風格，這是需要內化到模型中的領域知識，適合 Fine-tuning。"
-    why_not_a: "RAG 能處理需求(1)但不適合需求(2)：特有術語和分析風格需要模型內化，而非每次查詢外部資料。"
-    why_not_b: "Fine-tuning 不適合需求(1)：每日更新的庫存資訊若用 Fine-tuning，每天都需要重新訓練模型，成本過高且不切實際。"
-    why_not_d: "恰好搞反了：Fine-tuning 不適合頻繁更新的資料（庫存），RAG 不適合需要內化的風格和術語。這是考試常見的陷阱。"
-  keywords:
-    - "RAG vs Fine-tuning"
-    - "技術選擇"
-    - "場景分析"
-  exam_trap: true
+  - id: L12202-Q27
+    difficulty: 4
+    question: "以下哪種情況最不適合使用 RAG，而應考慮 Fine-tuning？"
+    options:
+      a: "企業需要 AI 回答基於內部文件的問題"
+      b: "模型需要學會一種全新的回應風格和語氣"
+      c: "知識庫需要每週更新最新的法規條文"
+      d: "客服系統需要根據最新的產品規格回答顧客"
+    correct: b
+    explanation:
+      why_correct: "學習全新的回應風格和語氣是一種行為模式的改變，需要透過 Fine-tuning 將這種模式內化到模型參數中。RAG 擅長注入事實性知識，但無法改變模型的行為風格。"
+      why_not_a: "這是 RAG 的典型應用場景——將內部文件作為知識庫，讓 AI 基於檢索結果回答問題。"
+      why_not_c: "頻繁更新的知識正是 RAG 的優勢場景，只需更新知識庫而無需重新訓練模型。"
+      why_not_d: "產品規格會隨時間變化，RAG 能確保回答基於最新資料。"
+    keywords: ["RAG適用場景", "RAG vs Fine-tuning", "技術選擇"]
+    exam_trap: true
 
-- id: "L12202-Q27"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "在設計提示詞時，CO-STAR 和 CRISPE 兩個框架都包含「角色設定」的概念。以下關於兩者差異的分析，何者最準確？"
-  options:
-    a: "CO-STAR 的角色設定更詳細，CRISPE 完全不考慮角色"
-    b: "CRISPE 比 CO-STAR 多了「實驗」環節，更適合需要迭代優化的創意任務"
-    c: "CO-STAR 適合所有場景，CRISPE 只適合程式開發"
-    d: "兩者完全相同，只是命名不同"
-  correct: "b"
-  explanation:
-    why_correct: "CRISPE 的 Experiment 環節強調嘗試多種提示變體並比較結果，這使它特別適合需要反覆迭代的創意任務。CO-STAR 雖然更全面（六維度），但沒有內建迭代機制。"
-    why_not_a: "CRISPE 的「C」就是 Capacity & Role（角色設定），並非「完全不考慮角色」。兩者都有角色設定，只是框架結構不同。"
-    why_not_c: "CO-STAR 雖然通用性強，但不是「適合所有場景」（簡單任務用 RTF 更高效）；CRISPE 也不限於程式開發。"
-    why_not_d: "兩者在維度數量、組成元素和設計理念上都有明顯差異，不是「命名不同」而已。"
-  keywords:
-    - "CO-STAR"
-    - "CRISPE"
-    - "提示框架比較"
-  exam_trap: false
+  - id: L12202-Q28
+    difficulty: 4
+    question: "某企業的 RAG 系統上線後，使用者反映：查詢「退貨政策」時能正確回答，但查詢「我買的東西可以退嗎」時卻找不到相關內容。最可能的原因與改善方案是什麼？"
+    options:
+      a: "LLM 模型太小，應該換更大的模型"
+      b: "系統僅使用關鍵字搜尋，無法理解語義相似的查詢；應導入語義搜尋或混合搜尋（Hybrid Search）"
+      c: "知識庫中缺乏退貨相關的資料"
+      d: "使用者的問法有錯，應該教育使用者用正確關鍵字查詢"
+    correct: b
+    explanation:
+      why_correct: "關鍵字搜尋只能比對字面，「退貨政策」和「我買的東西可以退嗎」字面不同但語義相同。導入語義搜尋或混合搜尋能解決此問題，這是 RAG 系統常見的檢索品質瓶頸。"
+      why_not_a: "問題出在檢索環節（找不到相關段落），不是生成環節（LLM 能力）。換更大的模型無法解決「找不到資料」的問題。"
+      why_not_c: "查詢「退貨政策」時能正確回答，說明知識庫有退貨相關資料，問題在於搜尋方式無法匹配不同的表述。"
+      why_not_d: "要求使用者改變查詢習慣是糟糕的使用者體驗設計，系統應能理解自然語言的多種表達方式。"
+    keywords: ["RAG", "語義搜尋", "混合搜尋", "hybrid search"]
+    exam_trap: false
 
-- id: "L12202-Q28"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "某行銷人員使用 Few-shot Prompting 讓 AI 撰寫產品文案，提供了三個範例。結果 AI 的輸出幾乎只是複製範例的句型，缺乏創意。以下哪個分析和改善方案最正確？"
-  options:
-    a: "Few-shot 本來就會限制創意，應該完全改用 Zero-shot"
-    b: "增加到十個範例就能解決創意不足的問題"
-    c: "範例過於相似導致模型過度模仿；應提供風格多樣的範例，並在指令中明確要求「參考風格但不要照抄句型」"
-    d: "這是模型能力不足的問題，應該換一個更大的模型"
-  correct: "c"
-  explanation:
-    why_correct: "Few-shot 範例過於相似時，模型會將句型本身當作「規則」而非「參考」，導致過度模仿。解法是增加範例多樣性並加入明確指令區分「模仿風格」與「照抄格式」，這考驗學生對 Few-shot 機制的深層理解。"
-    why_not_a: "Zero-shot 雖然不會過度模仿，但也失去了 Few-shot 引導風格的優勢；問題出在範例品質而非技術選擇，不需要完全放棄 Few-shot。"
-    why_not_b: "範例數量不是問題的根本原因；若十個範例風格依然相似，過度模仿反而更嚴重，且更多範例會佔用更多 token。"
-    why_not_d: "這是提示設計問題而非模型能力問題。即使使用更大的模型，若範例設計不當，同樣會出現過度模仿的現象。"
-  keywords:
-    - "few-shot prompting"
-    - "提示工程陷阱"
-    - "過度模仿"
-  exam_trap: true
+  - id: L12202-Q29
+    difficulty: 4
+    question: "某金融科技公司要建立 AI 投資研究助理，需求如下：(A) 必須基於最新的財經新聞回答，(B) 回答風格需符合公司內部分析師的專業語氣，(C) 系統必須能自動從多個資料源蒐集資訊。綜合三個需求，最佳的技術架構是什麼？"
+    options:
+      a: "僅使用 RAG 系統即可滿足所有需求"
+      b: "僅使用 Fine-tuning 即可滿足所有需求"
+      c: "RAG（滿足需求A）+ Fine-tuning（滿足需求B）+ AI Agent 架構（滿足需求C）"
+      d: "使用 ChatGPT Plus 訂閱即可滿足所有需求"
+    correct: c
+    explanation:
+      why_correct: "三個需求分別對應不同技術：RAG 處理即時知識檢索（需求A）、Fine-tuning 內化分析師的專業風格（需求B）、AI Agent 實現多資料源的自主蒐集（需求C）。"
+      why_not_a: "RAG 能解決需求A，但無法改變模型的回應風格（需求B），也不具備自主多源蒐集的能力（需求C）。"
+      why_not_b: "Fine-tuning 能解決需求B，但無法即時更新財經資訊（需求A），且不具備自主工具呼叫能力（需求C）。"
+      why_not_d: "ChatGPT Plus 是消費級產品，無法滿足企業級的資料隱私需求和客製化風格需求。"
+    keywords: ["RAG", "fine-tuning", "AI Agent", "技術架構設計"]
+    exam_trap: false
 
-- id: "L12202-Q29"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "以下哪種情況最不適合使用 RAG，而應考慮其他方案？"
-  options:
-    a: "企業需要AI回答基於內部文件的問題"
-    b: "模型需要學會一種全新的回應風格和語氣"
-    c: "知識庫需要每週更新最新的法規條文"
-    d: "客服系統需要根據最新的產品規格回答顧客"
-  correct: "b"
-  explanation:
-    why_correct: "學習全新的回應風格和語氣是一種行為模式的改變，需要透過 Fine-tuning 將這種模式內化到模型參數中。RAG 擅長注入事實性知識，但無法改變模型的行為風格。"
-    why_not_a: "這是 RAG 的典型應用場景——將內部文件作為知識庫，讓 AI 基於檢索結果回答問題。"
-    why_not_c: "頻繁更新的知識正是 RAG 的優勢場景，只需更新知識庫而無需重新訓練模型。"
-    why_not_d: "產品規格會隨時間變化，RAG 能確保回答基於最新資料，是理想的應用場景。"
-  keywords:
-    - "RAG適用場景"
-    - "RAG vs Fine-tuning"
-    - "技術選擇"
-  exam_trap: true
+  - id: L12202-Q30
+    difficulty: 5
+    question: "某新創公司想讓客服機器人回答產品相關問題，目前有兩個方案：(A) 建立 RAG 系統串接產品知識庫，(B) 直接使用 ChatGPT 加上詳細的系統提示描述產品資訊。以下哪個分析最正確？"
+    options:
+      a: "兩者效果完全相同，選哪個都一樣"
+      b: "方案B永遠優於方案A，因為系統提示更簡單"
+      c: "方案A適合產品資訊量大且頻繁更新的情境；方案B適合產品線簡單且資訊變動少的早期階段"
+      d: "方案A只適合大企業，新創公司應一律選方案B"
+    correct: c
+    explanation:
+      why_correct: "當產品資訊量超出系統提示的 token 限制或需要頻繁更新時，RAG 的外部知識庫更具彈性；對早期產品線簡單的新創來說，系統提示成本低、部署快，是務實的起步選擇。關鍵是根據資訊量和更新頻率選擇方案。"
+      why_not_a: "兩者在成本、可維護性、資訊容量上差異顯著，不可能「完全相同」。"
+      why_not_b: "當產品資訊量大時，系統提示會超出 token 上限且難以維護，方案A反而更優。「永遠優於」是過度簡化。"
+      why_not_d: "RAG 的建置成本已大幅降低（有許多開源框架），新創公司在資訊量成長後同樣需要 RAG。"
+    keywords: ["RAG", "系統提示", "技術選擇", "評估判斷"]
+    exam_trap: false
 
-- id: "L12202-Q30"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 2
-  question: "思維樹（Tree-of-Thought, ToT）與思維鏈（Chain-of-Thought, CoT）的關鍵差異為何？"
-  options:
-    a: "ToT 只能用於數學問題，CoT 適用於所有問題"
-    b: "CoT 沿單一路徑推理，ToT 允許探索多條推理路徑並選擇最佳方案"
-    c: "ToT 是 CoT 的簡化版本，步驟更少"
-    d: "CoT 需要微調模型，ToT 只需提示即可"
-  correct: "b"
-  explanation:
-    why_correct: "CoT 沿著一條推理鏈逐步思考，ToT 則是 CoT 的延伸，允許模型在每個步驟分支出多條推理路徑，評估各路徑後選擇最佳方案，適合需要探索和回溯的複雜問題。"
-    why_not_a: "ToT 和 CoT 都不限於數學問題，兩者都適用於需要推理的各類任務，只是複雜度不同。"
-    why_not_c: "恰好相反：ToT 是 CoT 的擴展（更複雜），不是簡化版本。學生可能因為「Tree 比 Chain 簡單」的直覺而誤選。"
-    why_not_d: "CoT 和 ToT 都是提示層面的技術，都不需要微調模型。"
-  keywords:
-    - "思維樹"
-    - "tree-of-thought"
-    - "思維鏈"
-    - "chain-of-thought"
-  exam_trap: false
+  - id: L12202-Q31
+    difficulty: 5
+    question: "某企業的 RAG 系統在回答技術問題時表現良好，但在回答需要綜合判斷的策略性問題時品質不佳。以下哪個分析最可能正確，且對應的改善方案最合適？"
+    options:
+      a: "RAG 系統的 Embedding 模型太小，應該換更大的模型"
+      b: "知識庫中缺乏策略性文件，應該補充更多策略相關的資料來源"
+      c: "技術問題答案集中在特定段落，RAG 檢索即可；策略性問題需要綜合多個段落並推理，應結合 CoT 提示技術引導 LLM 進行多步推理"
+      d: "RAG 系統不適合回答任何類型的問題，應該全部改用 Fine-tuning"
+    correct: c
+    explanation:
+      why_correct: "技術問題通常有明確答案（一個段落即可回答），但策略性問題需要綜合多個資訊來源並進行推理判斷。結合 CoT 提示技術能引導 LLM 在檢索到的多個段落基礎上進行系統性推理。"
+      why_not_a: "Embedding 模型大小主要影響檢索品質，但問題不在於「找不到」而在於「無法綜合判斷」，換模型無法解決推理能力的問題。"
+      why_not_b: "補充資料來源可能有幫助，但核心問題是「綜合判斷能力」而非「資料不足」。"
+      why_not_d: "RAG 在技術問題上表現良好，全部改用 Fine-tuning 是過度反應，且失去了 RAG 即時更新的優勢。"
+    keywords: ["RAG局限性", "CoT", "多步推理", "技術診斷"]
+    exam_trap: false
 
-- id: "L12202-Q31"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 3
-  question: "一個 AI Agent 系統需要完成「幫使用者預訂餐廳」的任務。以下哪個描述最準確反映 AI Agent 的運作方式？"
-  options:
-    a: "Agent 直接生成一段預訂確認的文字給使用者看"
-    b: "Agent 需要使用者逐步指示：先搜尋、再比較、再預訂"
-    c: "Agent 自主規劃步驟（搜尋餐廳→比較評價→確認時間→呼叫預訂API），並根據中間結果調整策略"
-    d: "Agent 把任務轉發給人工客服處理"
-  correct: "c"
-  explanation:
-    why_correct: "AI Agent 的核心能力是自主任務規劃和工具呼叫。它能將複雜任務分解為多個步驟，選擇適當的外部工具（如搜尋API、預訂API），並根據中間結果動態調整後續策略。"
-    why_not_a: "只生成文字是普通 LLM 的行為，Agent 的特點是能實際執行動作（如呼叫 API 完成預訂），而不只是生成文字。"
-    why_not_b: "需要使用者逐步指示的是傳統的對話式 AI，Agent 的自主性正是為了減少使用者介入。"
-    why_not_d: "轉發給人工客服沒有發揮 AI Agent 的自動化能力，違背了 Agent 的設計目的。"
-  keywords:
-    - "AI Agent"
-    - "自主規劃"
-    - "工具呼叫"
-    - "多步驟任務"
-  exam_trap: false
+  - id: L12202-Q32
+    difficulty: 5
+    question: "某跨國企業正在規劃全公司的 AI 工具使用政策。以下四項政策建議中，哪一項在兼顧效率與風險管控上最為周全？"
+    options:
+      a: "僅允許使用企業版 AI 工具，個人版一律禁止"
+      b: "允許所有員工不受限制地使用任何 AI 工具，以最大化生產力"
+      c: "只允許 IT 部門使用 AI 工具，其他部門全部禁止"
+      d: "依據資料敏感度分級：公開資料可自由使用 AI 工具，內部資料須使用企業版（不用於訓練），機密資料禁止輸入任何外部 AI 工具"
+    correct: d
+    explanation:
+      why_correct: "方案D依據資料敏感度進行分級管理，在保護機密資料安全的同時最大化 AI 工具的使用效益。口訣：「公開可自由、內部用企業版、機密禁外送」——這是企業 AI 治理的最佳實踐。"
+      why_not_a: "一律只用企業版對公開資料的低風險任務限制過多，犧牲了靈活性和效率。分級管理比一刀切更務實。"
+      why_not_b: "不設限制會導致機密資料外洩風險，且可能違反資料保護法規。"
+      why_not_c: "只允許 IT 部門使用忽略了業務部門的需求，既不公平也不高效。"
+    keywords: ["AI工具使用政策", "資料分級管理", "風險管控", "AI治理"]
+    exam_trap: false
 
-- id: "L12202-Q32"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "比較外掛生態系（Plugin Ecosystem）和 API 串接（API Integration）兩種AI工具整合方式，以下分析何者最準確？"
-  options:
-    a: "API 串接提供更高的客製化彈性，但需要程式開發能力；外掛生態系使用門檻低，但客製化程度有限"
-    b: "外掛生態系完全可以取代 API 串接，因為外掛更方便"
-    c: "API 串接只適合大企業，中小企業只能用外掛"
-    d: "兩者的技術原理完全不同，無法比較"
-  correct: "a"
-  explanation:
-    why_correct: "API 串接允許開發者完全控制資料流和邏輯，客製化程度最高但需要程式能力；外掛（如 ChatGPT GPTs）提供現成的功能擴展，使用門檻低但受限於平台提供的功能範圍。"
-    why_not_b: "外掛受限於平台生態系的功能範圍，無法實現所有 API 串接能做到的客製化整合，兩者互補而非取代。"
-    why_not_c: "API 串接的門檻是技術能力而非企業規模，許多新創公司也大量使用 API 串接。"
-    why_not_d: "外掛本身通常也是基於 API 建構的，兩者在技術上有共通之處，可以從使用門檻和客製化程度進行有意義的比較。"
-  keywords:
-    - "外掛生態系"
-    - "plugin ecosystem"
-    - "API串接"
-    - "工具整合比較"
-  exam_trap: false
+  - id: L12202-Q33
+    difficulty: 5
+    question: "一位提示工程師需要讓 AI 為律師事務所撰寫法律備忘錄，需控制角色、語氣、受眾、輸出格式，且希望透過反覆實驗找到最佳提示。最適合的框架組合是什麼？"
+    options:
+      a: "只用 RTF 就足夠了"
+      b: "只用 CO-STAR 就足夠了"
+      c: "直接使用 APE 讓模型自動找出最佳提示"
+      d: "用 CO-STAR 的六維度結構化需求，再結合 CRISPE 的 Experiment 環節進行迭代優化"
+    correct: d
+    explanation:
+      why_correct: "題目需要角色/語氣/受眾/格式的多維度控制（CO-STAR 的強項），又需要反覆實驗（CRISPE 的 Experiment 環節）。組合使用兩個框架的優勢能最全面地滿足需求。"
+      why_not_a: "RTF 只有三個維度（角色/任務/格式），缺少語氣和受眾的控制維度，無法滿足全部需求。"
+      why_not_b: "CO-STAR 能覆蓋六個維度，但缺少系統化的實驗迭代機制，無法有效「反覆實驗找最佳提示」。"
+      why_not_c: "APE 是自動優化方法，不是用來明確指定角色/語氣/受眾/格式的框架，無法精準捕捉律師事務所的特定風格需求。"
+    keywords: ["CO-STAR", "CRISPE", "提示框架組合", "提示工程"]
+    exam_trap: false
 
-- id: "L12202-Q33"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 4
-  question: "某金融科技公司要建立AI驅動的投資研究助理，需求如下：(A) 必須基於最新的財經新聞和公司財報回答，(B) 回答風格需要符合公司內部分析師的專業語氣，(C) 系統必須能自動從多個資料源蒐集資訊。綜合考量這三個需求，最佳的技術架構是什麼？"
-  options:
-    a: "僅使用 RAG 系統即可滿足所有需求"
-    b: "僅使用 Fine-tuning 即可滿足所有需求"
-    c: "RAG（滿足需求A）+ Fine-tuning（滿足需求B）+ AI Agent架構（滿足需求C）"
-    d: "使用 ChatGPT Plus 訂閱即可滿足所有需求"
-  correct: "c"
-  explanation:
-    why_correct: "三個需求分別對應不同技術：RAG 處理即時知識檢索（需求A）、Fine-tuning 內化分析師的專業風格（需求B）、AI Agent 實現多資料源的自主蒐集（需求C）。這是一道需要判斷每個需求的最佳匹配技術的綜合題。"
-    why_not_a: "RAG 能解決需求A，但無法改變模型的回應風格（需求B），也不具備自主多源蒐集的能力（需求C）。"
-    why_not_b: "Fine-tuning 能解決需求B，但無法即時更新財經資訊（需求A），且不具備自主工具呼叫能力（需求C）。"
-    why_not_d: "ChatGPT Plus 是消費級產品，無法滿足企業級的資料隱私需求、客製化風格需求，也不具備與公司內部系統整合的能力。"
-  keywords:
-    - "RAG"
-    - "fine-tuning"
-    - "AI Agent"
-    - "技術架構設計"
-  exam_trap: false
+  - id: L12202-Q34
+    difficulty: 5
+    question: "某行銷經理需要 AI 用固定格式撰寫五款新品的社群貼文，每款要有不同的創意角度，且文案風格須符合品牌的年輕活潑調性。以下哪種提示策略組合最能同時滿足「格式一致」「創意多元」「風格控制」三個需求？"
+    options:
+      a: "只用 Zero-Shot 直接下指令"
+      b: "用 Few-Shot 提供範例統一格式，搭配 CO-STAR 控制風格與受眾，再結合 CRISPE 的 Experiment 環節要求多版本創意"
+      c: "只用 RTF 指定角色和格式"
+      d: "用 APE 自動生成最佳提示詞"
+    correct: b
+    explanation:
+      why_correct: "三個需求分別對應不同技術：Few-Shot 提供範例確保「格式一致」、CO-STAR 的 Audience/Tone/Style 維度控制「風格」、CRISPE 的 Experiment 環節要求多版本產出實現「創意多元」。"
+      why_not_a: "Zero-Shot 不提供範例，無法保證五款產品的貼文格式一致，也沒有結構化控制風格的機制。"
+      why_not_c: "RTF 只有三個維度，缺少風格、語氣、受眾的精確控制，也沒有迭代多版本的機制。"
+      why_not_d: "APE 是自動化提示優化，行銷經理需要的是人工可控的框架來精確指定品牌風格，純自動化可能偏離品牌調性。"
+    keywords: ["Few-Shot", "CO-STAR", "CRISPE", "提示策略組合"]
+    exam_trap: false
 
-- id: "L12202-Q34"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某企業的 RAG 系統上線後，使用者反映：查詢「退貨政策」時能正確回答，但查詢「我買的東西可以退嗎」時卻找不到相關內容。最可能的原因與改善方案是什麼？"
-  options:
-    a: "LLM 模型太小，應該換更大的模型"
-    b: "系統僅使用關鍵字搜尋，無法理解語義相似的查詢；應導入語義搜尋或混合搜尋（Hybrid Search）以提升檢索品質"
-    c: "知識庫中沒有退貨相關的資料"
-    d: "使用者的問法有錯，應該教育使用者用正確關鍵字查詢"
-  correct: "b"
-  explanation:
-    why_correct: "關鍵字搜尋只能比對字面，「退貨政策」和「我買的東西可以退嗎」字面不同但語義相同。導入語義搜尋（透過 Embedding 比對意思）或混合搜尋（結合關鍵字+語義）能解決此問題，這是 RAG 系統常見的檢索品質瓶頸。"
-    why_not_a: "問題出在檢索環節（找不到相關段落），不是生成環節（LLM 能力）。換更大的模型無法解決「找不到資料」的問題。"
-    why_not_c: "查詢「退貨政策」時能正確回答，說明知識庫中有退貨相關資料，問題在於搜尋方式無法匹配不同的表述。"
-    why_not_d: "要求使用者改變查詢習慣是糟糕的使用者體驗設計，系統應該能理解自然語言的多種表達方式。"
-  keywords:
-    - "RAG"
-    - "語義搜尋"
-    - "混合搜尋"
-    - "hybrid search"
-    - "檢索品質"
-  exam_trap: false
-
-- id: "L12202-Q35"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "一位提示工程師需要讓AI為一家律師事務所撰寫法律備忘錄。他需要控制：角色（資深律師）、語氣（正式嚴謹）、受眾（合夥人）、輸出格式（備忘錄格式），且希望透過反覆實驗找到最佳提示。他應該如何組合使用提示框架？"
-  options:
-    a: "只用 RTF 就足夠了"
-    b: "只用 CO-STAR 就足夠了"
-    c: "直接使用 APE 讓模型自動找出最佳提示"
-    d: "用 CO-STAR 的六維度結構化需求，再結合 CRISPE 的實驗環節進行迭代優化"
-  correct: "d"
-  explanation:
-    why_correct: "題目需要角色/語氣/受眾/格式的多維度控制（CO-STAR 的強項），又需要反覆實驗（CRISPE 的 Experiment 環節）。組合使用兩個框架的優勢能最全面地滿足需求。"
-    why_not_a: "RTF 只有三個維度（角色/任務/格式），缺少語氣和受眾的控制維度，無法滿足題目的全部需求。"
-    why_not_b: "CO-STAR 能覆蓋六個維度，但缺少系統化的實驗迭代機制，只用 CO-STAR 無法有效地「反覆實驗找最佳提示」。"
-    why_not_c: "APE 是自動優化方法，不是用來明確指定角色/語氣/受眾/格式的框架。題目要的是可控結構加上人工迭代，APE 的自動化特性無法精準捕捉律師事務所的特定風格需求，因此 CO-STAR + CRISPE 的人工框架組合更匹配。"
-  keywords:
-    - "CO-STAR"
-    - "CRISPE"
-    - "提示框架組合"
-    - "提示工程"
-  exam_trap: false
-
-- id: "L12202-Q36"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某行銷經理需要 AI 幫忙完成以下任務：用固定格式撰寫五款新品的社群貼文，每款都要有不同的創意角度，且文案風格須符合品牌的年輕活潑調性。以下哪種提示策略組合最能同時滿足「格式一致」「創意多元」「風格控制」三個需求？"
-  options:
-    a: "只用 Zero-shot 直接下指令"
-    b: "用 Few-shot 提供範例統一格式，搭配 CO-STAR 控制風格與受眾，再結合 CRISPE 的 Experiment 環節要求多版本創意"
-    c: "只用 RTF 指定角色和格式"
-    d: "用 APE 自動生成最佳提示詞"
-  correct: "b"
-  explanation:
-    why_correct: "三個需求分別對應不同技術：Few-shot 提供範例確保「格式一致」、CO-STAR 的 Audience/Tone/Style 維度控制「風格」、CRISPE 的 Experiment 環節要求多版本產出實現「創意多元」。這道題考的是能否根據需求判斷最佳的框架+技術組合。"
-    why_not_a: "Zero-shot 不提供範例，無法保證五款產品的貼文格式一致，也沒有結構化控制風格的機制。"
-    why_not_c: "RTF 只有三個維度（角色/任務/格式），缺少風格、語氣、受眾的精確控制，也沒有迭代多版本的機制。"
-    why_not_d: "APE 是自動化提示優化，適合大量 A/B 測試場景，但行銷經理需要的是人工可控的框架來精確指定品牌風格和創意方向，純自動化可能偏離品牌調性。"
-  keywords:
-    - "few-shot"
-    - "CO-STAR"
-    - "CRISPE"
-    - "提示策略組合"
-    - "prompt engineering"
-  exam_trap: false
-
-- id: "L12202-Q37"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "在企業導入AI工具的過程中，IT部門主張全面採用 API 串接以確保技術控制力，而業務部門希望使用現成的ChatGPT外掛以快速上線。以下哪個決策最能平衡雙方需求？"
-  options:
-    a: "完全採用IT部門的方案，業務部門的需求不重要"
-    b: "完全採用業務部門的方案，快速上線最重要"
-    c: "暫緩所有AI導入計畫，等技術更成熟再決定"
-    d: "核心業務流程用 API 串接確保安全性和客製化，非核心的輔助任務允許使用外掛快速部署，並制定明確的資料治理規範"
-  correct: "d"
-  explanation:
-    why_correct: "這是一道權衡評估題。方案D根據風險層級採用差異化策略：核心流程需要安全性和控制力（API串接），輔助任務需要速度和便利性（外掛），並用資料治理規範管控風險，兼顧了技術面、組織面和效益面。"
-    why_not_a: "忽略業務部門的需求會降低組織接受度，且可能因為開發週期過長而錯失市場機會。"
-    why_not_b: "完全使用外掛可能在安全性和客製化上有風險，核心業務資料透過第三方外掛處理可能違反資料治理要求。"
-    why_not_c: "「等技術成熟」是永遠等不到的，這種態度會讓企業在AI競爭中落後，不是務實的決策。"
-  keywords:
-    - "API串接"
-    - "外掛生態系"
-    - "AI導入決策"
-    - "風險分級"
-  exam_trap: false
-
-- id: "L12202-Q38"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某新創公司的CTO正在設計AI工具整合架構。他需要讓公司的AI系統能夠：存取內部資料庫、呼叫第三方API、連接Slack通知，且未來能輕鬆新增其他工具。以下哪個架構設計最具前瞻性？"
-  options:
-    a: "為每個工具分別寫專用的串接程式碼"
-    b: "使用 MCP（Model Context Protocol）作為統一的連接標準，讓所有工具透過標準化介面接入"
-    c: "只使用 ChatGPT 的外掛生態系來連接所有服務"
-    d: "放棄工具整合，讓使用者手動在不同工具間切換"
-  correct: "b"
-  explanation:
-    why_correct: "MCP 提供統一的連接標準，讓 AI 系統以標準化方式存取各種外部工具和資料源。採用 MCP 意味著新增工具只需實作標準介面，不需修改核心系統，具備最佳的可擴展性和前瞻性。"
-    why_not_a: "為每個工具寫專用程式碼會導致維護成本隨工具數量線性增長，且缺乏統一的介面標準，新增工具需要大量重複開發。"
-    why_not_c: "ChatGPT 外掛生態系受限於 OpenAI 平台，無法直接存取公司內部資料庫，也不適合企業級的客製化整合需求。"
-    why_not_d: "手動切換效率極低，且無法實現自動化工作流，完全不符合「AI工具整合」的目標。"
-  keywords:
-    - "MCP"
-    - "Model Context Protocol"
-    - "工具整合架構"
-    - "可擴展性"
-  exam_trap: false
-
-- id: "L12202-Q39"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某企業的AI團隊發現他們的 RAG 系統在回答技術問題時表現良好，但在回答需要綜合判斷的策略性問題時品質不佳。以下哪個分析最可能解釋這個現象，且對應的改善方案最合適？"
-  options:
-    a: "RAG 系統的 Embedding 模型太小，應該換一個更大的模型"
-    b: "知識庫中缺乏策略性文件，應該補充更多策略相關的資料來源"
-    c: "技術問題的答案通常集中在特定段落中，RAG 檢索即可找到；策略性問題需要綜合多個段落的資訊並進行推理，應結合 CoT 提示技術引導 LLM 進行多步推理"
-    d: "RAG 系統不適合回答任何類型的問題，應該全部改用 Fine-tuning"
-  correct: "c"
-  explanation:
-    why_correct: "這道題考的是 RAG 的局限性分析。技術問題通常有明確答案（一個段落即可回答），但策略性問題需要綜合多個資訊來源並進行推理判斷。結合 CoT 提示技術能引導 LLM 在檢索到的多個段落基礎上進行系統性推理。"
-    why_not_a: "Embedding 模型大小主要影響檢索品質（找到相關段落），但問題不在於「找不到」而在於「無法綜合判斷」，換模型無法解決推理能力的問題。"
-    why_not_b: "補充資料來源可能有幫助，但核心問題是「綜合判斷能力」而非「資料不足」，即使有足夠的策略文件，LLM 仍需要推理引導才能有效綜合。"
-    why_not_d: "RAG 在技術問題上表現良好，說明系統本身有效；全部改用 Fine-tuning 是過度反應，且失去了 RAG 即時更新的優勢。"
-  keywords:
-    - "RAG局限性"
-    - "chain-of-thought"
-    - "多步推理"
-    - "技術診斷"
-  exam_trap: false
-
-- id: "L12202-Q40"
-  topic_code: "L12202"
-  item_code: "L12202"
-  difficulty: 5
-  question: "某跨國企業正在規劃全公司的AI工具使用政策。以下四項政策建議中，哪一項在兼顧效率與風險管控上最為周全？"
-  options:
-    a: "僅允許使用企業版 AI 工具，個人版一律禁止"
-    b: "允許所有員工不受限制地使用任何AI工具，以最大化生產力"
-    c: "只允許IT部門使用AI工具，其他部門全部禁止"
-    d: "依據資料敏感度分級：公開資料可自由使用AI工具，內部資料須使用企業版（不用於訓練），機密資料禁止輸入任何外部AI工具"
-  correct: "d"
-  explanation:
-    why_correct: "方案D依據資料敏感度進行分級管理，在保護機密資料安全的同時最大化AI工具的使用效益。記住口訣：「公開可自由、內部用企業版、機密禁外送」——這是企業AI治理的最佳實踐。"
-    why_not_a: "一律只用企業版看似安全，但對公開資料的低風險任務限制過多，員工處理一般性工作（如翻譯公開新聞、生成簡報大綱）也要受限於企業版的功能，犧牲了靈活性和效率。分級管理比一刀切更務實。"
-    why_not_b: "不設限制會導致機密資料外洩風險，且可能違反資料保護法規（如 GDPR、台灣個資法），長期風險遠大於短期效率。"
-    why_not_c: "只允許IT部門使用忽略了業務部門的需求，且IT部門不一定是最需要AI輔助的單位，這種政策既不公平也不高效。"
-  keywords:
-    - "AI工具使用政策"
-    - "資料分級管理"
-    - "風險管控"
-    - "AI治理"
-  exam_trap: false
+  - id: L12202-Q35
+    difficulty: 5
+    question: "某企業的 IT 部門主張全面採用 API 串接以確保技術控制力，而業務部門希望使用現成的 ChatGPT 外掛以快速上線。以下哪個決策最能平衡雙方需求？"
+    options:
+      a: "完全採用 IT 部門的方案，業務部門的需求不重要"
+      b: "完全採用業務部門的方案，快速上線最重要"
+      c: "暫緩所有 AI 導入計畫，等技術更成熟再決定"
+      d: "核心業務流程用 API 串接確保安全性和客製化，非核心的輔助任務允許使用外掛快速部署，並制定明確的資料治理規範"
+    correct: d
+    explanation:
+      why_correct: "方案D根據風險層級採用差異化策略：核心流程需要安全性和控制力（API串接），輔助任務需要速度和便利性（外掛），並用資料治理規範管控風險，兼顧了技術面、組織面和效益面。"
+      why_not_a: "忽略業務部門的需求會降低組織接受度，且可能因開發週期過長而錯失機會。"
+      why_not_b: "完全使用外掛可能在安全性和客製化上有風險，核心業務資料透過第三方外掛處理可能違反資料治理要求。"
+      why_not_c: "「等技術成熟」是永遠等不到的，這種態度會讓企業在 AI 競爭中落後。"
+    keywords: ["API串接", "外掛生態系", "AI導入決策", "風險分級"]
+    exam_trap: false

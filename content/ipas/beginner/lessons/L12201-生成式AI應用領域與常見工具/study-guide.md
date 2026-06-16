@@ -1,437 +1,565 @@
-# L12201 生成式AI應用領域與常見工具 — 讀書指南
+# L12201 生成式AI應用領域與常見工具 — Study Guide
 
 ---
 
-## 1. 考試對應範圍
+## Section 1 · 考試導覽
 
-> 對應評鑑範圍：**L12201 生成式AI應用領域與常見工具**
->
-> 所屬主題：L122 生成式AI工具 → L12201 應用領域與常見工具
->
-> 關鍵字：文本生成（Text Generation）、圖像生成（Image Generation）、聲音生成（Audio Generation）、OpenAI API、ChatGPT、Midjourney、Copilot Studio、VS Code for Copilot、GitHub Copilot、Cursor、Gemini
->
-> 高頻出題方向：工具 ↔ 功能配對；API vs 產品介面差異；Copilot 生態系辨認；三大生成領域分類；台灣本土 AI 工具辨識
+### 建議閱讀順序
 
-L122 為初級獨有範圍，無中級重疊。考試約出 4–6 題，佔第二科約 10%。題型從早期的「以下何者是○○工具」逐漸演變為實務情境題：「某公司想做○○，應選哪個工具？」因此不只要記住工具名稱，更要理解**每個工具適合什麼場景**。
+1. Section 2（分類總覽圖）→ 2. Section 3（各領域核心概念）→ 3. Section 4（易混淆對照表）→ 4. Section 5（口訣）→ 5. Section 6（考試陷阱）→ 6. Section 7（情境題）→ 7. Section 8（自我檢查）
+
+### 前置知識
+
+本課建立在 **L11401**（鑑別式AI vs 生成式AI基本原理）的基礎上。你必須已知道 GenAI（Generative AI，生成式人工智慧）與鑑別式 AI 的概念差異，才能直接進入本課的「工具應用層」。
+
+### 🔥 考試權重表
+
+| 出題方向 | 頻率 | 典型題型 |
+|---|---|---|
+| 工具 ↔ 領域對應 | 🔥🔥🔥 高 | 某工具屬於哪個生成領域？ |
+| Copilot 生態系辨認 | 🔥🔥🔥 高 | GitHub Copilot vs Copilot Studio vs Cursor |
+| ChatGPT vs OpenAI API | 🔥🔥 中高 | 月費訂閱 vs 按 token 計費 |
+| 開源 vs 閉源工具 | 🔥🔥 中高 | LLaMA / Stable Diffusion 特徵 |
+| 台灣本土工具（TAIDE） | 🔥🔥 中高 | 幾乎每場必考 |
+| TTS vs STT 區分 | 🔥 中 | Whisper = STT（非TTS） |
+| 影片/多模態工具 | 🔥 中 | Sora / GPT-4o 定位 |
+| Token 計費單位 | 🔥 中 | 不是「字數」是「token」 |
+
+本課約出 **4–6 題**，佔第二科（生成式AI應用與規劃）約 10%。
+
+### 課程邊界說明
+
+| 本課（初級 L12201）考什麼 | 中級才考 — 本課不考 |
+|---|---|
+| 工具名稱、所屬公司、適用場景 | 模型架構（Transformer、Diffusion、U-Net） |
+| 開源 vs 閉源、部署方式選擇 | 訓練流程、損失函數 |
+| Token 計費概念 | CLIP 對比損失、注意力機制數學 |
+| 提示工程（基礎用法） | RAG 技術架構細節（屬 L12202） |
+| TTS / STT 概念區分 | 語音辨識模型內部運作 |
 
 ---
 
-## 2. 知識樹（Knowledge Tree）
+## Section 2 · 關鍵概念總覽圖
 
 ```
-🔧 L12201 生成式AI應用領域與常見工具
+GenAI（Generative AI，生成式人工智慧）應用版圖
 │
-├── 📖 三大生成領域（Generation Domains）
-│   ├── ✍️ 文本生成（Text Generation）
-│   │   ├── ChatGPT — 對話式 AI 助手（月費制產品）🔥🔥
-│   │   ├── OpenAI API — 開發者程式介面（按 token 計費）🔥🔥
-│   │   ├── Gemini — Google 多模態 AI（跨文字/圖片/影片）🔥
-│   │   └── 陷阱：ChatGPT ≠ OpenAI API，兩者獨立計費！
-│   │
-│   ├── 🎨 圖像生成（Image Generation）
-│   │   ├── Midjourney — 照片級 AI 繪圖（無免費方案）🔥
-│   │   ├── GPT Image（原 DALL-E）— OpenAI 原生圖像生成（含在 ChatGPT 中）
-│   │   └── 陷阱：Midjourney 無免費方案；GPT Image 非獨立產品
-│   │
-│   └── 🔊 聲音生成（Audio Generation）
-│       ├── ElevenLabs — 語音合成領導品牌
-│       ├── Suno AI — AI 音樂創作（考古題出現過）
-│       └── 陷阱：Sora 是影片生成 ≠ 聲音/程式碼生成（⚠️ 已宣布關閉）
+├── 🔥🔥🔥 文字生成（Text Generation）
+│   ├── ChatGPT（OpenAI，對話介面，月費制）🔥🔥
+│   ├── OpenAI API（開發者介面，按 token 計費）🔥🔥
+│   ├── Gemini（Google，多模態，Google 生態）🔥
+│   ├── Claude（Anthropic，以安全性著稱）
+│   ├── LLM（Large Language Model，大型語言模型）開源代表：
+│   │   └── LLaMA（Meta，可本地部署）🔥
+│   └── TAIDE（台灣國科會，繁中模型，幾乎必考）🔥🔥
 │
-├── 💻 程式碼輔助工具（Code Assistance）
-│   ├── GitHub Copilot — IDE 擴充套件，行內補全 🔥
-│   ├── VS Code for Copilot — Copilot 在 VS Code 的整合介面
-│   ├── Cursor — 獨立 AI IDE，Vibe Coding 代表 🔥
-│   ├── Copilot Studio — 低程式碼 Agent 建置平台 🔥🔥
-│   └── 陷阱：Copilot Studio ≠ GitHub Copilot！名字像但用途完全不同
+├── 🔥🔥 圖像生成（Image Generation）
+│   ├── Midjourney（付費，照片級品質，Discord/Web）🔥
+│   ├── DALL-E 3（OpenAI，整合於 ChatGPT）
+│   ├── Stable Diffusion（開源，可本地部署）🔥  ⚠️ 開源
+│   └── Adobe Firefly（企業版，整合 Adobe 生態）
 │
-├── 🇹🇼 台灣本土工具
-│   └── TAIDE — 國科會主導開發繁中 LLM（幾乎必考）🔥🔥
+├── 🔥🔥 聲音生成（Audio Generation）
+│   ├── TTS（Text-to-Speech，文字轉語音）：
+│   │   └── ElevenLabs（語音合成，高品質）🔥
+│   ├── STT（Speech-to-Text，語音轉文字）：
+│   │   └── Whisper（OpenAI，STT工具，非TTS）🔥  ⚠️ 容易混淆
+│   └── AI 音樂生成：
+│       └── Suno（音樂創作）
 │
-└── 📊 考試延伸工具
-    ├── NotebookLM — RAG 文件問答
-    ├── Perplexity — 附來源的 AI 搜尋
-    └── DeepSeek — 開源模型代表
+├── 💻 程式碼輔助（Code Assistance）
+│   ├── GitHub Copilot（IDE擴充套件，行內補全）🔥🔥  ⚠️ 非Copilot Studio
+│   ├── VS Code for Copilot（GitHub Copilot在VS Code的整合介面）
+│   ├── Copilot Studio（低程式碼Agent建置平台）🔥🔥  ⚠️ 非GitHub Copilot
+│   ├── Cursor（獨立AI IDE，VS Code fork，Vibe Coding）🔥
+│   └── Amazon Q Developer（原Amazon CodeWhisperer）
+│
+├── 🎬 影片生成（Video Generation）
+│   ├── Sora（OpenAI，文生影片 Text-to-Video）
+│   ├── Runway
+│   └── Pika
+│
+└── 🌐 多模態AI（Multimodal AI，文字+圖像+音頻整合）
+    ├── GPT-4o（OpenAI，ChatGPT背後模型）
+    └── Gemini Ultra（Google，影片理解強項）
 ```
+
+**圖例：** 🔥 = 高頻考點；🔥🔥 = 非常高頻；⚠️ = 易混淆陷阱
 
 ---
 
-## 3. 核心概念
+## Section 3 · 核心概念
 
-### 3.1 三大生成領域概覽 🔥🔥
+### 3.1 文字生成（Text Generation）
 
-生成式 AI（Generative AI）的應用可依**輸出類型**分為三大領域：
+**先懂一句話：** 文字生成工具接受文字（或多模態）輸入，輸出文章、程式碼、摘要、翻譯或對話回覆。
 
-| 領域 | 輸出 | 核心能力 | 代表工具 |
-|------|------|----------|----------|
-| 文本生成（Text Generation） | 文字 | 對話、摘要、翻譯、寫作 | ChatGPT, Gemini, OpenAI API |
-| 圖像生成（Image Generation） | 圖片 | 文生圖、風格轉換、編輯 | Midjourney, GPT Image |
-| 聲音生成（Audio Generation） | 語音/音樂 | 文字轉語音、音樂創作 | ElevenLabs, Suno AI |
+**主要應用：** 文案撰寫、程式碼生成、文件摘要、多語言翻譯、客服對話自動化
 
-🗣️ 白話說明：就像 7-11 裡有食品區、飲料區、生活用品區一樣，生成式 AI 也按照「它能產出什麼」分成三個區域。你要文字就去文本區找 ChatGPT，要圖片就去圖像區找 Midjourney，要配音就去聲音區找 ElevenLabs。
+**核心工具：**
 
-```
-生成式 AI 三大領域
+| 工具 | 公司 | 特色 | 計費方式 |
+|---|---|---|---|
+| ChatGPT | OpenAI | 對話介面，一般使用者 | 月費訂閱（Free/Plus/Pro） |
+| OpenAI API | OpenAI | 開發者程式介面 | 按 token 計費 |
+| Gemini | Google | 多模態，Google 生態整合 | Free / Advanced 月費 |
+| Claude | Anthropic | 安全性、長文本處理 | Free / 月費 |
+| LLaMA | Meta | 開源，可本地部署 | 免費（自行架設） |
+| TAIDE | 台灣國科會 | 繁體中文，台灣本土化 | 公開使用 |
 
-  輸入（Prompt / 指令）
-         │
-    ┌────┼────────────┐
-    ▼    ▼            ▼
- ✍️文本  🎨圖像      🔊聲音
- ChatGPT Midjourney  ElevenLabs
- Gemini  GPT Image   Suno AI
- API     (原DALL-E)
-    │    │            │
-    ▼    ▼            ▼
- 文章/   圖片/       語音/
- 對話/   插畫/       音樂/
- 程式碼  海報        配音
-```
+🗣️ **白話說明：** ChatGPT 像去超商買現沖咖啡——有店面、有服務員、月繳固定費。OpenAI API 像去咖啡批發商叫豆子——沒有店面，你要自己設計杯型和包裝，但能做出自己品牌的咖啡，按你用多少豆子付錢。TAIDE 則像台灣自己種的咖啡豆——不依賴進口，適合不想把資料傳到國外的政府機關。
 
-🔥 **考試重點：** 題目常給一個任務情境，要你選「該用哪類工具」。看到「寫文案」→ 文本生成；看到「設計海報」→ 圖像生成；看到「做 Podcast 配音」→ 聲音生成。
+**Quick check：**
+- 補習班要把 AI 整合進自有系統 → OpenAI API（非ChatGPT）
+- 想直接用 AI 寫報告的個人使用者 → ChatGPT
+- 台灣政府機關要處理公文 → TAIDE
 
 ---
 
-### 3.2 文本生成工具 🔥🔥
+### 3.2 圖像生成（Image Generation）
 
-#### ChatGPT vs OpenAI API — 最重要的對比 🔥🔥
+**先懂一句話：** 圖像生成工具接受文字提示詞（Text-to-Image，文字轉圖像），輸出靜態圖片，可用於行銷素材、插圖、產品設計概念圖。
 
-這是本課最高頻考點。兩者都來自 OpenAI，但定位完全不同：
+**主要應用：** 行銷素材製作、插圖繪製、產品設計概念圖、室內設計示意
 
-```
-ChatGPT vs OpenAI API
+**核心工具：**
 
-  ChatGPT（產品）              OpenAI API（介面）
-  ┌──────────────┐            ┌──────────────┐
-  │  月費訂閱制   │            │ 按 token 計費  │
-  │  $20/月 Plus  │            │ $1.75/M input │
-  │              │            │              │
-  │  有對話介面   │            │  無介面       │
-  │  直接使用     │            │  需寫程式呼叫  │
-  │              │            │              │
-  │  終端使用者   │            │  開發者       │
-  └──────────────┘            └──────────────┘
-        │                           │
-    「我自己用」               「做進我的產品裡」
-```
+| 工具 | 公司 | 開源？ | 免費方案？ |
+|---|---|---|---|
+| Midjourney | Midjourney | 閉源 | ❌ 無（Basic $10/月起） |
+| DALL-E 3 | OpenAI | 閉源 | ✅ 整合於 ChatGPT Free |
+| Stable Diffusion | Stability AI | ✅ 開源 | ✅ 可免費本地部署 |
+| Adobe Firefly | Adobe | 閉源 | 部分功能免費 |
 
-🗣️ 白話說明：ChatGPT 就像你去全家買一杯咖啡，店面裝潢好、杯子幫你裝好，掃描付錢直接喝。OpenAI API 就像你跟咖啡豆批發商叫貨——沒有店面、沒有杯子，你要自己開店、自己決定裝潢和杯型，但可以做出自己品牌的咖啡。
+🗣️ **白話說明：** Midjourney 是 AI 圖像生成界的 iPhone——高品質、需付費、封閉生態。Stable Diffusion 像 Android 開源版本——你可以免費下載到自己的電腦上跑，技術門檻較高但完全免費且資料不離開本地。DALL-E 3 則內嵌在 ChatGPT 裡，你在對話視窗直接說「幫我畫一張圖」就可以用。
 
-🔥🔥 **必考情境判斷：**
-- 「個人想用 AI 寫報告」→ ChatGPT
-- 「公司想在自家 App 內建 AI 客服」→ OpenAI API
-- 「補習班想做 AI 評鑑系統」→ OpenAI API（需整合進系統）
-
-#### Gemini（Google）🔥
-
-Gemini（前身 Bard）是 Google 的 AI 助手，考試定位強調兩個關鍵字：
-
-1. **多模態（Multimodal）**：同時理解文字、圖片、影片（不只是文字）
-2. **Google 生態整合**：與 Gmail、Google Docs、Google Drive 深度連動
-
-🗣️ 白話說明：如果 ChatGPT 像一個很會聊天的朋友，Gemini 就像一個住在你 Google 帳號裡的助理——它能看你的 Google Drive 檔案、讀你的 Gmail、幫你改 Google Docs，而且不只看得懂文字，圖片和影片也能理解。
+**Quick check：**
+- 行銷團隊（無技術背景）要快速生成高品質圖 → Midjourney
+- 公司有資料隱私顧慮，不想上傳到雲端 → Stable Diffusion（開源，本地部署）
+- 開發者要透過 API 呼叫圖像生成 → OpenAI API（含DALL-E）
 
 ---
 
-### 3.3 圖像生成工具 🔥
+### 3.3 聲音生成（Audio Generation）
 
-#### Midjourney
+**先懂一句話：** 聲音生成分兩大子類——TTS（Text-to-Speech，文字轉語音）將文字轉成人聲，STT（Speech-to-Text，語音轉文字）則是辨識語音轉成文字。
 
-Midjourney 是目前最知名的 AI 圖像生成工具，以**照片級真實感**聞名。
+**⚠️ 最重要的考試陷阱在這裡：Whisper（OpenAI）是 STT 工具（語音「辨識」），不是 TTS 工具（語音「合成」）！**
 
-**考試必記三特徵：**
-1. 純圖像生成工具（不做文字、不做聲音）
-2. 透過 **Discord** 或 Web 介面操作
-3. **無免費方案**（最低 $10/月起）
+**主要應用：** 有聲書製作、廣告配音、Podcast 配音、語音客服
 
-🗣️ 白話說明：Midjourney 就像一個超強的 AI 畫師，你用文字描述「一隻穿西裝的柴犬坐在台北 101 前」，它就能畫出來。但跟 Instagram 濾鏡不同，它是從零開始「畫」出一張全新圖片，不是修改你的照片。
+**核心工具：**
 
-#### GPT Image（原 DALL-E，OpenAI）
+| 工具 | 類型 | 功能 |
+|---|---|---|
+| ElevenLabs | TTS | 文字 → 人聲（語音合成，情感控制） |
+| Suno | AI音樂 | 文字描述 → 完整歌曲（旋律+歌詞） |
+| Whisper（OpenAI） | STT ⚠️ | 語音 → 文字（語音辨識，非生成） |
 
-GPT Image 是 OpenAI 的原生圖像生成功能（2025 年 3 月起取代 DALL-E 3，基於 4o 原生圖像生成）。**內建於 ChatGPT 中**，Free 和 Go 使用者也可使用（有每日次數限制），Plus 以上額度更高。
+🗣️ **白話說明：** ElevenLabs 像一個 AI 配音演員——你把文稿交給它，它用各種聲線唸給你聽，可以控制開心、悲傷、興奮等情緒。Suno 更厲害，你說「幫我做一首台語嘻哈歌」，它直接生出一首有旋律有歌詞的完整歌曲。Whisper 則完全反過來——它是「聽」的，把會議錄音轉成逐字稿。
 
-🔥 **考試注意：** GPT Image 不是獨立的付費產品，而是 ChatGPT 的內建功能。使用者在 ChatGPT 對話中就能直接生成圖片。考題若仍出現 DALL-E 名稱，視為同一工具。
-
----
-
-### 3.4 聲音生成工具
-
-聲音生成（Audio Generation）涵蓋兩大子領域：
-
-| 子領域 | 說明 | 代表工具 |
-|--------|------|----------|
-| 文字轉語音 TTS（Text-to-Speech） | 文字 → 人聲朗讀 | ElevenLabs, Azure AI Speech |
-| AI 音樂生成（AI Music Generation） | 文字描述 → 完整歌曲 | Suno AI |
-
-🗣️ 白話說明：TTS 就像你在 YouTube 上看到的「AI 配音」影片——把文字稿丟進去，AI 用擬真人聲唸出來。Suno AI 更誇張，你告訴它「幫我做一首台語嘻哈歌，歌詞關於加班」，它真的能生出一首完整的歌，有旋律、有歌詞、有編曲。
-
-**ElevenLabs** 是目前語音合成（Voice Synthesis）品質最高的工具，TTS 品質評分 MOS 4.14 為業界最高。
+**Quick check：**
+- Podcast 創作者要將文字腳本轉語音 → ElevenLabs（TTS）
+- 需要把會議錄音轉成文字逐字稿 → Whisper（STT）
+- 想做一首 AI 生成的歌曲 → Suno
 
 ---
 
-### 3.5 程式碼輔助工具 🔥🔥
+### 3.4 程式碼輔助工具（Code Assistance）
 
-這是考試最容易混淆的區塊。三個名字裡都有「Copilot」或與 VS Code 相關的工具，定位完全不同：
+**先懂一句話：** 程式碼輔助工具幫助開發者更快寫出程式碼，分為 IDE 擴充套件（裝進現有編輯器）和獨立 IDE（完整的程式碼編輯環境）兩類。
+
+**🔥🔥 Copilot 三兄弟是考試最高頻混淆點：**
 
 ```
-程式碼輔助工具關係圖
+Microsoft 生態系
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│  GitHub Copilot              Copilot Studio             │
+│  ┌─────────────────┐        ┌─────────────────────┐     │
+│  │ IDE 擴充套件     │        │ 低程式碼 Agent 平台  │     │
+│  │ 幫你「寫程式碼」 │        │ 幫你「建聊天機器人」 │     │
+│  │ 安裝在 IDE 裡   │        │ 獨立 Web 平台       │     │
+│  │ Pro $10/月      │        │ Microsoft 365 生態  │     │
+│  └────────┬────────┘        └─────────────────────┘     │
+│           │ 安裝於                                       │
+│           ▼                                             │
+│  ┌─────────────────┐                                    │
+│  │  VS Code（編輯器）│  ← VS Code for Copilot           │
+│  └─────────────────┘    = Copilot 在 VS Code 的介面     │
+└─────────────────────────────────────────────────────────┘
 
-  Microsoft 生態系
-  ┌─────────────────────────────────────────────┐
-  │                                             │
-  │  GitHub Copilot          Copilot Studio     │
-  │  ┌────────────┐         ┌────────────┐      │
-  │  │ IDE 擴充套件 │         │ 低程式碼平台 │      │
-  │  │ 寫程式碼    │         │ 建聊天機器人 │      │
-  │  │ $10/月     │         │ $200/pack   │      │
-  │  └─────┬──────┘         └────────────┘      │
-  │        │ 安裝於                               │
-  │        ▼                                     │
-  │  ┌────────────┐                              │
-  │  │  VS Code   │  ← VS Code for Copilot      │
-  │  └────────────┘    = Copilot + VS Code       │
-  │                                             │
-  └─────────────────────────────────────────────┘
-
-  獨立生態
-  ┌─────────────┐
-  │   Cursor     │ ← VS Code 的 fork（完整獨立 IDE）
-  │  AI IDE      │    Vibe Coding 代表工具
-  │  $20/月      │    內建 AI 對話 + 多模型切換
-  └─────────────┘
+獨立生態
+┌─────────────────────────────────────────┐
+│  Cursor                                 │
+│  ┌─────────────────────────────────┐    │
+│  │ 獨立 AI IDE（VS Code fork）      │    │
+│  │ Vibe Coding 代表工具             │    │
+│  │ 自然語言 → 生成完整程式碼         │    │
+│  │ Pro $20/月                       │    │
+│  └─────────────────────────────────┘    │
+└─────────────────────────────────────────┘
 ```
 
-#### GitHub Copilot 🔥
+| 工具 | 形式 | 使用者 | 核心功能 | 考試關鍵字 |
+|---|---|---|---|---|
+| GitHub Copilot | IDE 擴充套件 | 開發者 | 行內補全 + AI Chat | 擴充套件、行內補全 |
+| VS Code for Copilot | — | 開發者 | GitHub Copilot 在 VS Code 的介面 | 非獨立產品 |
+| Copilot Studio | Web 平台 | 非技術人員 | 建聊天機器人 | 低程式碼、Agent |
+| Cursor | 獨立 IDE | 開發者 | 自然語言→程式碼 | Vibe Coding、fork |
+| Amazon Q Developer | 雲端/IDE | 開發者 | AWS 生態程式碼輔助 | 原名 CodeWhisperer ⚠️ |
 
-- **定位：** IDE 內的 AI 程式碼自動補全**擴充套件**（Extension / Plugin）
-- 安裝在 VS Code、JetBrains 等 IDE 裡使用
-- 主要功能：行內自動補全 + AI Chat + 多檔案上下文理解（workspace indexing）
-- Pro $10/月，Pro+ $39/月
+🗣️ **白話說明：** GitHub Copilot 像坐在你旁邊幫你補字的助手——你在 VS Code 裡打 code，它自動補完下半行。Copilot Studio 完全不同，它是做聊天機器人的「組裝工廠」，你用拖拉就能組出客服機器人，完全不用寫程式。Cursor 更激進，它讓你直接說「做一個登入頁面」，AI 把整段程式碼都生出來——這就是 Vibe Coding（氛圍程式設計）。
 
-#### VS Code for Copilot
-
-- **不是獨立產品！** 就是 GitHub Copilot 安裝在 VS Code 編輯器中的使用方式
-- VS Code 是微軟的免費程式碼編輯器，Copilot 是裝在裡面的 AI 擴充套件
-
-#### Copilot Studio（Microsoft）🔥🔥
-
-- **定位：** 低程式碼（Low-Code）AI Agent 建置平台
-- 用來**建立聊天機器人**和**自動化流程**，**不是**寫程式碼的工具
-- 屬於 Microsoft 365 / Power Platform 生態系
-- 與 Power Automate、Power Apps 同系列
-
-🗣️ 白話說明：GitHub Copilot 就像你寫報告時旁邊坐了一個很會打字的助教，你打了上半句它自動幫你補完下半句。Copilot Studio 則像是一個聊天機器人的「工廠」——你在裡面拖拖拉拉就能組裝出一個客服機器人，完全不用寫程式。兩個都叫 Copilot，但一個幫你「寫 code」，一個幫你「不寫 code 就做出聊天機器人」。
-
-#### Cursor 🔥
-
-- **定位：** 獨立 AI 程式碼編輯器，**Vibe Coding（氛圍程式設計）** 代表工具
-- 基於 VS Code 的 **fork**（分支複製），是完整獨立 IDE
-- 特色：用自然語言描述你想做什麼，AI 生成完整程式碼
-
-🗣️ 白話說明：如果 GitHub Copilot 像是「你在寫，AI 在旁邊補」，那 Cursor 的 Vibe Coding 更像是「你用說的，AI 整段寫」。你只要告訴它「幫我做一個登入頁面，要有 Google 登入和忘記密碼功能」，它就直接生出來。
-
-🔥 **Vibe Coding（氛圍程式設計）** 由 Andrej Karpathy 於 2025 年 2 月提出，為 2026 考試新增考點：用自然語言下達架構意圖，搭配 Cursor 等工具讓 AI 生成完整程式碼。
+**Quick check：**
+- 想在不換編輯器前提下給 VS Code 加 AI 補全 → GitHub Copilot（擴充套件）
+- 非技術客服主管要建聊天機器人 → Copilot Studio（低程式碼）
+- 想用自然語言描述就生出完整程式碼 → Cursor（Vibe Coding）
 
 ---
 
-### 3.6 台灣本土：TAIDE 🔥🔥
+### 3.5 工具選擇考量
 
-TAIDE（Trustworthy AI Dialogue Engine）是**國家科學及技術委員會（國科會, NSTC）**主導開發的台灣繁體中文大型語言模型（LLM），由學術團隊（陽明交大李育杰教授領軍）執行研發，國研院國網中心提供算力。數位發展部負責評測環境建置。
+**先懂一句話：** 選工具時需考量四個維度——開放性、部署方式、成本、資料隱私。
 
-**考試必記三特徵：**
-1. **台灣政府推動**（國科會主導）
-2. **反映本地語言文化**（繁體中文最佳化）
-3. **強調數位主權**（資料不需送到國外處理）
+| 維度 | 選項 A | 選項 B | 選 A 的情境 | 選 B 的情境 |
+|---|---|---|---|---|
+| 開放性 | 開源（Open Source）：LLaMA、Stable Diffusion | 閉源（Proprietary）：ChatGPT、Midjourney | 資料不能離境、需要客製化訓練 | 不想維護基礎設施、要高品質立即可用 |
+| 部署 | 本地部署（On-premise） | 雲端 API | 高敏感資料（醫療、政府） | 快速上線、彈性擴展 |
+| 計費 | 訂閱制（月費固定） | 按量計費（Token-based） | 高頻使用、量大固定 | 低頻使用、量少不確定 |
+| 隱私 | 企業版（資料不用於訓練） | 消費者版（預設可能用於訓練） | 公司機密資料 | 一般個人用途 |
 
-🗣️ 白話說明：就像台灣有自己的健保系統而不完全依賴外國保險一樣，TAIDE 的意義在於台灣要有自己的 AI 模型，不能所有 AI 都依賴美國公司。它特別懂繁體中文和台灣的用語習慣。
+🗣️ **白話說明：** 就像選通訊軟體：LINE Pay 很方便但你的消費記錄在他們的伺服器；自建內網則隱私高但維護麻煩。選 AI 工具也一樣，方便和控制權通常是取捨的兩端。
 
----
+**資料隱私選工具口訣：**
+- 「資料不能離境」→ 優先選**可本地部署**的工具（TAIDE、LLaMA、Stable Diffusion）
+- 開源 / open-weight 只是讓本地部署更可行（你能下載模型到自己機器），不等於「資料自動安全」
+- 雲端 API 工具（ChatGPT、Midjourney）：資料必然傳到海外伺服器
 
-### 3.7 多模態工具（Multimodal Tools）
-
-多模態（Multimodal）意指一個工具能處理**多種類型的輸入或輸出**（文字、圖片、影片、語音）。
-
-```
-單一模態 vs 多模態
-
-  Midjourney（單一模態）     Gemini / ChatGPT Plus（多模態）
-  ┌──────┐                 ┌──────────────────────┐
-  │文字→圖│                 │文字→文字              │
-  │      │                 │文字→圖片（GPT Image） │
-  │      │                 │圖片→文字（圖片理解）   │
-  │      │                 │語音→文字（語音模式）   │
-  └──────┘                 └──────────────────────┘
-```
-
-🔥 **考試判斷：** 看到「多模態」關鍵字 → 想到 Gemini（最強調多模態定位的工具）。
-
-> 📖 **延伸閱讀：** 各工具詳細定價方案、功能比較與考試延伸工具
-> → 詳見 [supplement-工具詳細介紹.md](supplement-工具詳細介紹.md)
+**Quick check：**
+- 醫療機構要 AI 分析病歷，資料絕對不能傳海外 → 本地部署（LLaMA 或 TAIDE），不用 ChatGPT API
+- 個人使用者寫報告，不在意隱私 → ChatGPT（方便，免費版可用）
 
 ---
 
-## 4. 易混淆概念比較
+### 3.6 多模態與影片生成（補充認識）
+
+**先懂一句話：** 多模態 AI（Multimodal AI）能同時處理文字、圖像、音頻等多種輸入/輸出形式；影片生成（Video Generation）是生成式AI的新興應用領域。
+
+**核心工具：**
+
+| 工具 | 公司 | 類型 | 初級考試重點 |
+|---|---|---|---|
+| GPT-4o | OpenAI | 多模態 LLM | ChatGPT 的底層模型之一；文字+圖像+語音整合 |
+| Gemini | Google | 多模態 AI | Google 生態整合；影片理解能力強項 |
+| Sora | OpenAI | 文生影片（Text-to-Video） | 考試辨識用；非 Stable Diffusion 家族 |
+| Runway / Pika | 第三方 | 影片生成 | 了解即可，非核心考點 |
+
+**考試邊界：**
+- 多模態工具考「定位辨識」，不考技術原理（cross-attention、token merge 等）
+- Sora 考點：OpenAI 出品的文生影片工具，不是圖像生成工具（非 Midjourney / SD）
+
+🗣️ **白話說明：** 早期 AI 工具各自為政（文字歸文字、圖像歸圖像）；GPT-4o 和 Gemini 則像全能選手，同一次對話可以讀圖、聽音、回文字。Sora 則把這個整合再延伸——直接生成動態影片。
+
+**Quick check：**
+- 「想讓 AI 同時看圖片又回答問題」→ 多模態工具，Gemini 或 ChatGPT（含GPT-4o）
+- 「文字描述生成影片」→ Sora（OpenAI），不要答 Stable Diffusion
+
+---
+
+## Section 4 · 易混淆概念對照表
 
 ### 4.1 ChatGPT vs OpenAI API 🔥🔥
 
-| 比較項目 | ChatGPT | OpenAI API |
-|----------|---------|------------|
-| 使用者 | 一般人、終端使用者 | 開發者 |
-| 計費方式 | 月費訂閱（$0–$200/月） | 按 token 計費（用多少付多少） |
-| 操作介面 | 網頁/App 對話視窗 | 程式碼呼叫（HTTP Request） |
-| 客製化 | Custom GPTs（有限） | 完整參數控制 |
-| 適用情境 | 個人使用、日常問答 | 整合進自家產品/系統 |
-| 互通性 | ❌ 獨立計費，互不相通 | ❌ 獨立計費，互不相通 |
+| 比較項目 | ChatGPT | OpenAI API（Application Programming Interface，應用程式介面） |
+|---|---|---|
+| 適用對象 | 終端使用者（一般人） | 開發者（程式設計師） |
+| 計費方式 | 月費訂閱（$0–$200/月） | 按 token 用量計費 |
+| 操作方式 | 網頁/App 對話視窗 | 程式碼呼叫（HTTP Request） |
+| 資料隱私 | 消費者版預設可能用於訓練 | API 呼叫資料預設不用於訓練 |
+| 整合能力 | 僅能使用 OpenAI 介面 | 可嵌入任何自有系統 |
+
+**考題判斷：** 看到「整合進自有系統/App」→ 選 OpenAI API；看到「個人直接使用」→ 選 ChatGPT。
+
+---
 
 ### 4.2 GitHub Copilot vs Copilot Studio vs Cursor 🔥🔥
 
 | 比較項目 | GitHub Copilot | Copilot Studio | Cursor |
-|----------|---------------|----------------|--------|
-| 定位 | 程式碼補全助手 | 低程式碼 Agent 平台 | AI 程式碼編輯器 |
+|---|---|---|---|
 | 形式 | IDE 擴充套件 | 獨立 Web 平台 | 獨立 IDE |
-| 使用者 | 程式開發者 | 業務/IT 人員 | 程式開發者 |
-| 功能 | 行內補全 + Chat + 多檔案上下文 | 建聊天機器人 | 全程式碼生成 |
-| 價格 | $10/月起 | $200/pack/月 | $20/月 |
-| 生態系 | GitHub | Microsoft 365 | 獨立（VS Code fork） |
-| 考試關鍵字 | Extension、行內補全 | 低程式碼、Agent | Vibe Coding、fork |
+| 功能 | 程式碼補全 | 建聊天機器人 | AI 生成程式碼 |
+| 使用者 | 開發者 | 非技術人員 | 開發者 |
+| 生態系 | GitHub（Microsoft） | Microsoft 365 | 獨立（VS Code fork） |
+| 考試關鍵字 | Extension、行內補全 | 低程式碼、Agent 平台 | Vibe Coding、fork |
 
-### 4.3 三大領域 × 工具配對表
-
-| 工具 | 文本 | 圖像 | 聲音 | 程式碼 | 多模態 |
-|------|:----:|:----:|:----:|:------:|:------:|
-| ChatGPT (Plus) | ✅ | ✅* | ✅* | ✅ | ✅ |
-| OpenAI API | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Gemini | ✅ | ✅ | — | — | ✅ |
-| Midjourney | — | ✅ | — | — | — |
-| ElevenLabs | — | — | ✅ | — | — |
-| GitHub Copilot | — | — | — | ✅ | — |
-| Cursor | — | — | — | ✅ | — |
-| Copilot Studio | — | — | — | —** | — |
-| TAIDE | ✅ | — | — | — | — |
-
-\* ChatGPT Plus 透過 GPT Image（原 DALL-E）生成圖像、透過進階語音模式處理聲音
-\** Copilot Studio 是低程式碼平台，不是程式碼生成工具
-
-### 4.4 免費 vs 付費速查
-
-| 工具 | 有免費方案？ | 付費起價 |
-|------|:----------:|----------|
-| ChatGPT | ✅ | $8/月（Go） |
-| Gemini | ✅ | $20/月（Advanced） |
-| Midjourney | ❌ | $10/月（Basic） |
-| GitHub Copilot | ✅* | $10/月（Pro） |
-| Cursor | ✅ | $20/月（Pro） |
-| ElevenLabs | ✅ | 有 Free 方案，Pro $99/月 |
-
-\* GitHub Copilot 有個人免費額度（功能受限）
+**考題判斷：** 看到「低程式碼建機器人」→ Copilot Studio；看到「IDE程式碼補全」→ GitHub Copilot；看到「Vibe Coding/自然語言寫程式」→ Cursor。
 
 ---
 
-## 5. 口訣 / Mnemonics
+### 4.3 TTS vs STT（Whisper 特別注意）🔥
 
-### 三大領域口訣：「文圖聲」
+| 縮寫 | 全名 | 方向 | 代表工具 |
+|---|---|---|---|
+| TTS | Text-to-Speech，文字轉語音 | 文字 → 聲音 | ElevenLabs |
+| STT | Speech-to-Text，語音轉文字 | 聲音 → 文字 | Whisper（OpenAI）⚠️ |
 
-> **「文」**本生成 → ChatGPT、Gemini
-> **「圖」**像生成 → Midjourney、GPT Image（原 DALL-E）
-> **「聲」**音生成 → ElevenLabs、Suno AI
+**考題判斷：** Whisper 是 STT（語音「辨識」），不是語音「合成」。
+
+---
+
+### 4.4 LLaMA vs Stable Diffusion（開源工具辨識）🔥
+
+| 工具 | 開發商 | 類型 | 開源？ | 本地部署？ |
+|---|---|---|---|---|
+| LLaMA（Large Language Model Meta AI） | Meta | 文字生成 LLM | ✅ 開源 | ✅ 可 |
+| Stable Diffusion | Stability AI | 圖像生成 | ✅ 開源 | ✅ 可 |
+| ChatGPT | OpenAI | 文字生成 | ❌ 閉源 | ❌ 不可 |
+| Midjourney | Midjourney | 圖像生成 | ❌ 閉源 | ❌ 不可 |
+
+**考題判斷：** 看到「開源LLM可本地部署」→ LLaMA（Meta）；看到「開源圖像生成可免費使用」→ Stable Diffusion。
+
+---
+
+### 4.5 Microsoft Copilot vs GitHub Copilot 🔥
+
+| 工具 | 定位 | 整合點 |
+|---|---|---|
+| Microsoft 365 Copilot | Microsoft 365 AI 助手（Word、Excel、Teams） | Microsoft 365 文件應用 |
+| GitHub Copilot | IDE 程式碼補全擴充套件 | VS Code / JetBrains 等 IDE |
+| Copilot Studio | 低程式碼聊天機器人建置平台 | Microsoft 365 / Power Platform |
+
+**考題判斷：** 三者都叫 Copilot，但場景完全不同——Office文件用 Microsoft 365 Copilot；寫程式用 GitHub Copilot；建聊天機器人用 Copilot Studio。
+
+---
+
+## Section 5 · 口訣
+
+### 三大領域：「文、圖、聲」
+
+> **文**字生成 → ChatGPT、OpenAI API、Gemini、LLaMA（開源）
+> **圖**像生成 → Midjourney、DALL-E 3、Stable Diffusion（開源）
+> **聲**音生成 → ElevenLabs（TTS）、Whisper（STT）、Suno（音樂）
 >
-> 記法：**文圖聲，像點餐：要文字找 ChatGPT，要圖片找 MJ，要聲音找 EL。**
+> **記法：「文圖聲，像點餐：要文字找 ChatGPT，要圖片找 MJ，要聲音找 EL。」**
 
-### Copilot 三兄弟口訣：「寫、建、編」
+---
 
-> GitHub Copilot = **寫**（寫程式碼的助手）
-> Copilot Studio = **建**（建聊天機器人的平台）
-> Cursor = **編**（AI 編輯器，Vibe Coding）
+### Copilot 三兄弟：「寫、建、編」
+
+> GitHub Copilot = **寫**（寫程式碼的 IDE 助手）
+> Copilot Studio = **建**（建聊天機器人的低程式碼平台）
+> Cursor = **編**（AI 程式碼編輯器，Vibe Coding）
 >
-> 記法：**「寫建編」— Copilot 寫 code、Studio 建 bot、Cursor 編程式。**
+> **記法：「寫建編 — Copilot 寫code、Studio 建bot、Cursor 編程式。」**
 
-### API vs 產品口訣：「批發 vs 零售」
+---
 
-> OpenAI API = **批發**（按量計費、開發者自己包裝）
-> ChatGPT = **零售**（月費固定、直接使用）
+### 開源雙雄：「Meta文 + SD圖」
+
+> LLaMA = Meta 開源**文**字模型（可本地跑）
+> Stable Diffusion = 開源**圖**像模型（免費本地跑）
 >
-> 記法：**API 批發，ChatGPT 零售。看到「整合進系統」→ API；看到「自己用」→ ChatGPT。**
-
-### 台灣必考口訣：「台灣 AI 找 TAIDE」
-
-> 看到「台灣自主研發」、「繁體中文模型」、「國科會」→ 答案 **TAIDE**
+> **記法：「開源找 Meta（文字）或 SD（圖像）」**
 
 ---
 
-## 6. 考試陷阱
+### TTS vs STT：「S在前=說話，S在後=聽話」
 
-❌ **陷阱：** ChatGPT Pro ($200/月) 包含 API 存取權，所以不需要另外付 API 費用。
-✅ **正解：** ChatGPT 訂閱與 OpenAI API 是**完全獨立**的計費系統，即使買了 Pro $200/月也不包含 API 存取。要用 API 必須另外在 OpenAI Platform 儲值。
-
----
-
-❌ **陷阱：** Copilot Studio 是 GitHub Copilot 的進階版本。
-✅ **正解：** 兩者**完全不同**。GitHub Copilot 是寫程式碼的 IDE 擴充套件；Copilot Studio 是建聊天機器人的低程式碼平台，屬於 Microsoft 365 / Power Platform 生態系。名字都有 Copilot 但用途天差地別。
+> TTS = Text → Speech（你輸入文字，AI「說」出來）
+> STT = Speech → Text（AI「聽」語音轉成文字）
+>
+> **記法：「Whisper（耳語）= 聽語音（STT）；ElevenLabs = 說語音（TTS）」**
 
 ---
 
-❌ **陷阱：** Cursor 是 GitHub Copilot 的競品，所以也是 IDE 擴充套件。
-✅ **正解：** Cursor 是**完整獨立 IDE**（VS Code 的 fork），不是擴充套件。GitHub Copilot 裝在別人的 IDE 裡，Cursor 本身就是一個 IDE。
+## Section 6 · 考試陷阱
+
+❌ **陷阱：** Whisper（OpenAI）是語音合成工具（TTS），可用來生成語音。
+✅ **正解：** Whisper 是 STT（Speech-to-Text，語音轉文字）工具，功能是將語音「辨識」成文字，而不是生成語音。TTS 代表工具是 ElevenLabs。
 
 ---
 
-❌ **陷阱：** Midjourney 有免費試用方案。
-✅ **正解：** Midjourney **沒有免費方案**，最低從 Basic $10/月起跳。（早期曾有免費試用，但已取消。）
+❌ **陷阱：** LLaMA 是 OpenAI 開發的開源模型。
+✅ **正解：** LLaMA 是 **Meta** 開發的開源 LLM（Large Language Model，大型語言模型）。OpenAI 開發的是 GPT 系列（ChatGPT），屬閉源模型，不能本地部署。
 
 ---
 
-❌ **陷阱：** Sora 是程式碼生成工具。
-✅ **正解：** Sora（OpenAI）是**影片生成**工具，與程式碼完全無關。考過「以下何者不是程式碼生成 AI？」陷阱選項就是 Sora。（⚠️ Sora 已宣布關閉：App 於 2026/4/26 停止、API 於 2026/9 關閉，考試僅作為歷史工具辨識。）
+❌ **陷阱：** Stable Diffusion 是付費圖像生成工具，類似 Midjourney。
+✅ **正解：** Stable Diffusion 是**開源**圖像生成模型，可完全免費下載並在本地電腦運行。Midjourney 才是付費閉源工具（無免費方案）。
 
 ---
 
-❌ **陷阱：** TAIDE 是由 OpenAI 或 Google 開發的台灣版 AI。
-✅ **正解：** TAIDE 是由**國家科學及技術委員會（國科會）**主導開發的自主繁體中文模型，與 OpenAI 和 Google 無關，強調的是台灣數位主權。
+❌ **陷阱：** Amazon CodeWhisperer 是現在的工具名稱。
+✅ **正解：** Amazon CodeWhisperer 已於 2024 年更名為 **Amazon Q Developer**。考試若出現兩者，應視為同一工具。
 
 ---
 
-❌ **陷阱：** Vibe Coding 是一種程式語言。
-✅ **正解：** Vibe Coding（氛圍程式設計）是一種**開發方式**——用自然語言描述架構意圖，讓 AI 工具（如 Cursor）生成完整程式碼。它不是語言，是方法論。
+❌ **陷阱：** Copilot Studio 是 GitHub Copilot 的進階版（Pro 版）。
+✅ **正解：** 兩者是**完全不同**的產品線。GitHub Copilot = 程式碼補全 IDE 擴充套件；Copilot Studio = 低程式碼 AI Agent 建置平台（屬 Microsoft 365/Power Platform 生態系）。名字相似是最大陷阱。
 
 ---
 
-❌ **陷阱：** 以為免費方案就能無限使用所有功能。
-✅ **正解：** 免費方案有次數限制、模型較低階、功能較少（如 ChatGPT Free 有訊息數上限、無法使用進階模型）。
+❌ **陷阱：** ChatGPT Pro 方案（$200/月）包含 OpenAI API 的使用額度。
+✅ **正解：** ChatGPT 訂閱與 OpenAI API 是**完全獨立**的計費系統。即使購買了 Pro $200/月，仍需另外在 OpenAI Platform 儲值才能使用 API。
 
 ---
 
-❌ **陷阱：** 用 ChatGPT 網頁版和用 API 的資料隱私政策相同。
-✅ **正解：** ChatGPT 網頁/App 的對話內容**預設可能被用於模型訓練**（除非手動關閉），但 **API 呼叫的資料預設不會用於訓練**。企業評估工具時，這是選擇 API 而非網頁版的重要考量。
+❌ **陷阱：** API 計費的單位是「字數」（中文字數 / 英文字數）。
+✅ **正解：** API 計費的單位是 **Token**（不是字數）。Token 是 AI 語言模型的基本計算單位，一個 token 不等於一個字或一個詞，確切換算比例依模型而異，不需記具體數字——記住「按 token 計費，不是按字數計費」即可。
 
 ---
 
-## 7. 情境題快速判斷
+❌ **陷阱：** Microsoft Copilot（Office 365 裡的 AI 助手）和 GitHub Copilot（IDE 程式碼補全）是同一個工具。
+✅ **正解：** 兩者名稱相似但定位不同。Microsoft 365 Copilot 整合在 Word、Excel、Teams 等 Microsoft 365 應用中，幫助一般辦公室工作；GitHub Copilot 則是開發者用的 IDE 程式碼補全擴充套件。
 
-### 🔑 看到關鍵字 → 選這個答案
+---
 
-**依任務選工具：**
-- 「寫文案 / 翻譯 / 摘要 / 日常問答」→ **ChatGPT**
-- 「整合進自家 App / 按量計費 / 開發者」→ **OpenAI API**
-- 「Google 整合 / 多模態 / 同時理解文字和圖片」→ **Gemini**
-- 「設計海報 / AI 繪圖 / 照片級圖像」→ **Midjourney**
-- 「配音 / 文字轉語音 / Voice」→ **ElevenLabs**
-- 「AI 作曲 / 音樂生成」→ **Suno AI**
-- 「程式碼補全 / IDE 擴充 / 行內自動完成」→ **GitHub Copilot**
-- 「低程式碼 / 建聊天機器人 / Agent 平台」→ **Copilot Studio**
-- 「Vibe Coding / 自然語言寫程式 / AI IDE」→ **Cursor**
-- 「台灣 / 繁中模型 / 國科會」→ **TAIDE**
+❌ **陷阱：** 使用 ChatGPT 網頁版和使用 OpenAI API 的資料隱私政策相同。
+✅ **正解：** ChatGPT 網頁/App（消費者版）的對話內容**預設可能被用於模型訓練**（除非手動關閉）；**API 呼叫的資料預設不會用於訓練**。企業部署時，這個差異是選擇 API 而非網頁版的重要理由。
 
-**依概念選答案：**
-- 「月費 vs 按 token」→ **ChatGPT vs OpenAI API**
-- 「擴充套件 vs 獨立 IDE」→ **GitHub Copilot vs Cursor**
-- 「寫程式碼 vs 建聊天機器人」→ **GitHub Copilot vs Copilot Studio**
-- 「無免費方案的圖像工具」→ **Midjourney**
-- 「RAG / 文件問答」→ **NotebookLM**
-- 「有來源引用的搜尋」→ **Perplexity**
-- 「開源模型」→ **DeepSeek**
-- 「影片生成（非程式碼/非聲音）」→ **Sora**（已關閉，僅供歷史辨識）
+---
 
-**排除法速查：**
-- 「以下何者不是程式碼生成工具？」→ 排除 **Sora**（影片）、**Midjourney**（圖像）、**ElevenLabs**（語音）
-- 「以下何者沒有免費方案？」→ **Midjourney**
-- 「以下何者不屬於 Microsoft 生態系？」→ **Cursor**（獨立）、**Midjourney**（獨立）
+## Section 7 · 情境題快速判斷
+
+### 決策流程圖
+
+```
+使用者遇到情境題時的判斷步驟：
+
+STEP 1：輸出是什麼類型？
+  ├── 文字/程式碼 → 進 STEP 2
+  ├── 圖片 → 圖像生成領域 → Midjourney / DALL-E / Stable Diffusion
+  ├── 聲音/音樂 → 聲音生成領域 → ElevenLabs（TTS）/ Suno（音樂）/ Whisper（STT）
+  └── 影片 → 影片生成領域 → Sora（已關閉）/ Runway
+
+STEP 2（文字輸出）：誰在用？怎麼用？
+  ├── 個人直接使用（對話）→ ChatGPT / Gemini
+  ├── 開發者整合進系統 → OpenAI API
+  ├── 寫程式碼（在IDE裡） → GitHub Copilot（擴充套件）/ Cursor（獨立IDE）
+  └── 非技術人員建機器人 → Copilot Studio（低程式碼）
+
+STEP 3（額外篩選條件）：
+  ├── 「台灣自主 / 繁體中文 / 不傳海外」→ TAIDE
+  ├── 「開源 / 本地部署 / 免費下載」→ LLaMA（文字）/ Stable Diffusion（圖像）
+  └── 「語音辨識 / 錄音轉文字 / STT」→ Whisper（非 ElevenLabs）
+```
+
+### 關鍵字速查表
+
+| 情境關鍵字 | 正確答案 |
+|---|---|
+| 「整合進自有App / 系統」 | OpenAI API |
+| 「個人日常問答 / 寫報告」 | ChatGPT |
+| 「多模態 / 同時處理文字圖片影片」 | Gemini |
+| 「照片級 AI 繪圖 / 行銷素材」 | Midjourney |
+| 「文生圖 + API 呼叫」 | OpenAI API（含DALL-E） |
+| 「開源圖像 / 本地部署」 | Stable Diffusion |
+| 「文字轉語音 / 有聲書配音」 | ElevenLabs（TTS） |
+| 「語音轉文字 / 會議錄音逐字稿」 | Whisper（STT） |
+| 「AI 作曲 / 音樂生成」 | Suno |
+| 「程式碼補全 / 不換IDE」 | GitHub Copilot（擴充套件） |
+| 「低程式碼 / 建聊天機器人」 | Copilot Studio |
+| 「Vibe Coding / 自然語言寫程式」 | Cursor |
+| 「台灣本土AI / 繁中模型 / 國科會」 | TAIDE |
+| 「開源LLM / Meta / 本地部署」 | LLaMA |
+| 「原Amazon CodeWhisperer」 | Amazon Q Developer |
+| 「文件問答 / RAG 應用 / 上傳PDF問答」 | NotebookLM（Google） |
+| 「AI 搜尋 / 附來源引用」 | Perplexity |
+| 「開源模型代表 / 中文大模型」 | DeepSeek |
+
+### 情境判斷練習（3 題）
+
+**情境 A：** 某電商公司想讓工程師不需更換現有 VS Code 就能獲得 AI 程式碼補全支援，同時非技術的客服部門想建立自動回覆的聊天機器人。應分別選哪個工具？
+
+→ 工程師用 **GitHub Copilot**（VS Code 擴充套件，不換 IDE）；客服部門用 **Copilot Studio**（低程式碼，建聊天機器人）。
+
+---
+
+**情境 B：** 一家台灣政府機關要將業務資料交給 AI 分析，資料不能傳到海外伺服器，且需要支援繁體中文。最優先評估的工具是？
+
+→ **TAIDE**（台灣國科會主導，繁體中文優化，可搭配本地部署確保資料不離境）。
+
+---
+
+**情境 C：** 音頻製作公司需要兩個功能：（1）將會議錄音轉成文字逐字稿；（2）將文字稿轉成自然人聲供播放。應分別選哪個工具？
+
+→ （1）會議錄音→文字：**Whisper**（STT，語音轉文字）；（2）文字→語音：**ElevenLabs**（TTS，文字轉語音）。
+
+---
+
+**情境 D：** 一家新創公司開發者想用 AI 快速開發一個 MVP（最小可行產品），他偏好「說一句話，AI 生整個功能的程式碼」的方式。他應該用哪個工具？GitHub Copilot 和 Cursor 的差別在哪？
+
+→ 「說一句話生整段程式碼」= **Vibe Coding（氛圍程式設計）**，代表工具是 **Cursor**（獨立 AI IDE，VS Code fork）。
+GitHub Copilot 是「行內補全」——你已經在寫程式，它幫你補下半行；Cursor 是「自然語言驅動」——你描述需求，AI 生成完整功能，更適合快速 MVP。
+
+---
+
+**情境 E：** 電商公司研究部門想建立一個工具，讓分析師可以把競品報告（PDF）上傳後直接對文件提問、取得有來源引用的摘要。這是哪種應用模式？有哪些代表工具？
+
+→ 這是 **RAG 應用（Retrieval-Augmented Generation，檢索增強生成）/ 文件問答**模式。
+- **NotebookLM**（Google）：上傳文件後直接問答，自動摘要並標示來源頁碼
+- **Perplexity**：AI 搜尋引擎，每個答案都附帶來源連結
+- 技術架構細節（RAG 向量資料庫等）屬中級 / L12202，初級只需認識工具定位
+
+---
+
+## Section 8 · 結尾：快速自我檢查
+
+在考試前，確認你能回答以下每一項：
+
+**工具 ↔ 領域對應**
+- [ ] 說出「文圖聲」三大領域各自的代表工具（至少各2個）
+- [ ] 說出 Whisper 是 STT（語音辨識）不是 TTS（語音合成）
+- [ ] 說出 ElevenLabs 是 TTS（語音合成），Suno 是 AI 音樂生成
+- [ ] 說出 Sora 是文生影片（Text-to-Video），不是圖像生成工具
+
+**工具 ↔ 公司對應**
+- [ ] 說出 LLaMA 是 Meta 的開源 LLM（不是 OpenAI）
+- [ ] 說出 Stable Diffusion 是 Stability AI 的開源圖像模型
+- [ ] 說出 Whisper 是 OpenAI 出品（但開源 STT，非ChatGPT）
+- [ ] 說出 TAIDE 是台灣國科會主導的繁體中文 LLM
+- [ ] 說出 Amazon Q Developer 的前身是 Amazon CodeWhisperer
+
+**計費 & 隱私**
+- [ ] 說出 ChatGPT 月費訂閱 ≠ OpenAI API 按 token 計費（完全獨立計費）
+- [ ] 說出 Token 是 API 計費單位（不是字數）
+- [ ] 說出「資料不能離境」→ 本地部署工具（TAIDE / LLaMA / Stable Diffusion）
+
+**Copilot 生態系**
+- [ ] 區分 GitHub Copilot（IDE擴充套件）vs Copilot Studio（低程式碼平台）vs Cursor（獨立IDE）
+- [ ] 說出 VS Code for Copilot 不是獨立產品，就是 GitHub Copilot 在 VS Code 裡的介面
+- [ ] 說出 Microsoft 365 Copilot（Office助手）≠ GitHub Copilot（程式碼補全）
+
+**本課工具主要公司速查：**
+
+| 公司 | 旗下工具（考試常出現） |
+|---|---|
+| OpenAI | ChatGPT、OpenAI API、DALL-E 3、Whisper、Sora |
+| Google | Gemini、NotebookLM |
+| Meta | LLaMA |
+| Anthropic | Claude |
+| Stability AI | Stable Diffusion |
+| Adobe | Adobe Firefly |
+| ElevenLabs | ElevenLabs（TTS） |
+| Suno AI | Suno（AI音樂） |
+| GitHub / Microsoft | GitHub Copilot、Copilot Studio、Microsoft 365 Copilot |
+| Anysphere | Cursor |
+| AWS / Amazon | Amazon Q Developer（原 CodeWhisperer） |
+| 台灣國科會 | TAIDE |
+
+📌 **本課不考：**
+- Transformer、Diffusion、U-Net 等模型架構內部細節
+- GAN 生成器/鑑別器訓練原理
+- CLIP 對比損失函數
+- 提示詞框架詳細設計（屬 L12202）
+- RAG 的技術架構（屬 L12202）
+- 模型微調（Fine-tuning）方法（屬中級）
+
+---
+
+**圖表參考：**
+- 領域分類樹狀圖 → [diagrams/01-genai-domain-taxonomy.md](diagrams/01-genai-domain-taxonomy.md)
+- 工具對照表（12+ 工具）→ [diagrams/02-tool-comparison-table.md](diagrams/02-tool-comparison-table.md)
+- Copilot 生態系辨別圖 → [diagrams/03-microsoft-copilot-clarification.md](diagrams/03-microsoft-copilot-clarification.md)
+- 工具選擇決策流程 → [diagrams/04-tool-selection-guide.md](diagrams/04-tool-selection-guide.md)

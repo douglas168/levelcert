@@ -394,7 +394,7 @@
 - id: "L11101-Q17"
   topic_code: "L11101"
   item_code: "L11101"
-  difficulty: 5
+  difficulty: 1
   question: "依據台灣《人工智慧基本法》，AI 的中央主管機關是下列哪一個單位？"
   options:
     a: "數位發展部"
@@ -489,7 +489,7 @@
   exam_trap: true
 
 # ============================================================
-# Top-up questions Q21-Q30 (added to reach 30-question pool)
+# Additional questions Q21-Q25
 # ============================================================
 
 # ============================================================
@@ -621,135 +621,3 @@
     - "電商應用"
   exam_trap: false
 
-- id: "L11101-Q26"
-  topic_code: "L11101"
-  item_code: "L11101"
-  difficulty: 3
-  question: "AI 的技術子領域（subfields）涵蓋多個專門方向。某台灣科技公司的產品線包括：(1) 中文語音助理、(2) 工廠瑕疵品自動檢測、(3) 倉庫自主搬運機器人。這三項產品分別對應哪些 AI 子領域？"
-  options:
-    a: "自然語言處理（NLP）、電腦視覺（Computer Vision）、機器人學（Robotics）"
-    b: "深度學習（Deep Learning）、機器學習（Machine Learning）、強化學習（Reinforcement Learning）"
-    c: "電腦視覺（Computer Vision）、自然語言處理（NLP）、專家系統（Expert Systems）"
-    d: "知識表示（Knowledge Representation）、資料探勘（Data Mining）、自動規劃（Automated Planning）"
-  correct: "a"
-  explanation:
-    why_correct: "中文語音助理涉及語音辨識與語言理解，屬於自然語言處理（NLP）；工廠瑕疵品檢測需要分析影像以識別缺陷，屬於電腦視覺（Computer Vision）；倉庫自主搬運機器人需要感知環境並自主導航，屬於機器人學（Robotics）。"
-    why_not_b: "深度學習、機器學習和強化學習是「學習方法」的分類，不是 AI 的應用子領域。三項產品可能都使用深度學習，但題目問的是子領域。"
-    why_not_c: "順序錯誤且類型錯配：語音助理不屬於電腦視覺，瑕疵檢測不屬於 NLP，倉庫機器人也不是專家系統。"
-    why_not_d: "知識表示、資料探勘和自動規劃可能在這些產品中扮演輔助角色，但不是最直接對應的核心子領域。"
-  keywords:
-    - "NLP"
-    - "Computer Vision"
-    - "Robotics"
-    - "AI 子領域"
-    - "自然語言處理"
-    - "電腦視覺"
-    - "機器人學"
-  exam_trap: false
-
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
-
-- id: "L11101-Q27"
-  topic_code: "L11101"
-  item_code: "L11101"
-  difficulty: 4
-  question: "深度學習（Deep Learning）是機器學習（Machine Learning）的子集。分析兩者的核心差異，下列何者最正確？"
-  options:
-    a: "機器學習需要大量資料，深度學習只需少量資料即可運作"
-    b: "機器學習通常需要人工設計特徵（Feature Engineering），深度學習能透過多層神經網路自動學習特徵表示"
-    c: "深度學習一定比機器學習準確，因此應在所有場景優先使用深度學習"
-    d: "機器學習只能處理數值資料，深度學習才能處理影像和文字"
-  correct: "b"
-  explanation:
-    why_correct: "傳統機器學習（如決策樹、SVM）通常需要人工進行特徵工程（Feature Engineering）——由人類專家從原始資料中提取有意義的特徵。深度學習的核心優勢在於透過多層神經網路自動從原始資料中學習階層式的特徵表示（Representation Learning），減少了對人工特徵工程的依賴。"
-    why_not_a: "恰好相反。深度學習因為模型參數量龐大，通常需要比傳統機器學習更多的訓練資料，才能避免過擬合（Overfitting）。"
-    why_not_c: "深度學習不一定比傳統機器學習準確。在資料量少或結構化資料的場景中，傳統模型（如 XGBoost）表現可能更好，且更具可解釋性。"
-    why_not_d: "傳統機器學習也能處理影像和文字（如使用 TF-IDF 處理文字、HOG 特徵處理影像），只是需要更多人工特徵工程。"
-  keywords:
-    - "深度學習"
-    - "機器學習"
-    - "特徵工程"
-    - "Feature Engineering"
-    - "Representation Learning"
-  exam_trap: false
-
-- id: "L11101-Q28"
-  topic_code: "L11101"
-  item_code: "L11101"
-  difficulty: 4
-  question: "專家系統（Expert Systems）在 1980 年代引發 AI 第二波熱潮，卻在 1980 年代末走向衰落，導致第二次 AI 寒冬。分析專家系統衰落的根本原因，下列何者最完整？"
-  options:
-    a: "硬體運算能力不足，專家系統無法在當時的電腦上運行"
-    b: "知識獲取瓶頸（Knowledge Acquisition Bottleneck）——規則需人工編寫且難以維護，系統無法自動學習，擴展成本極高"
-    c: "政府全面禁止專家系統的商業應用"
-    d: "深度學習技術在 1980 年代已經成熟，完全取代了專家系統"
-  correct: "b"
-  explanation:
-    why_correct: "專家系統衰落的根本原因是「知識獲取瓶頸（Knowledge Acquisition Bottleneck）」：(1) 領域知識需要人類專家手動編碼為 if-then 規則，過程緩慢且昂貴；(2) 規則庫龐大後難以維護且容易互相矛盾；(3) 系統無法自動從數據中學習新知識，適應性差。此外，日本第五代計算機計畫（FGCS）的失敗也加速了信心崩潰。"
-    why_not_a: "1980 年代的硬體已足以運行專家系統（如 LISP 專用工作站）。問題不在運算能力，而在知識獲取和維護的成本。"
-    why_not_c: "政府並未禁止專家系統。衰落是因為技術侷限和商業預期落空，導致資金和研究熱度驟降。"
-    why_not_d: "1980 年代深度學習尚未成熟。雖然反向傳播演算法（Backpropagation）在 1986 年被重新推廣，但受限於計算資源和數據量，深度學習要到 2012 年 AlexNet 之後才真正崛起。"
-  keywords:
-    - "專家系統"
-    - "Expert Systems"
-    - "知識獲取瓶頸"
-    - "Knowledge Acquisition Bottleneck"
-    - "AI 寒冬"
-    - "第五代計算機"
-  exam_trap: false
-
-# ============================================================
-# Difficulty 5 — Evaluate / Create (Bloom's: 評鑑 / 創造)
-# ============================================================
-
-- id: "L11101-Q29"
-  topic_code: "L11101"
-  item_code: "L11101"
-  difficulty: 5
-  question: "在 Hintze 的 AI 功能分類中，「心智理論（Theory of Mind）」型 AI 和「自我意識（Self-Aware）」型 AI 目前皆尚未實現。若未來某系統能在對話中察覺用戶的挫折情緒並主動調整回應策略，但該系統並不具備對自身存在的認知，此系統最可能被歸類為何？評估其與現有 AI 的關鍵差異。"
-  options:
-    a: "Limited Memory——因為它利用過去的對話資料來回應"
-    b: "Theory of Mind——因為它能推測用戶的情緒狀態並據此調整行為，但不具備自我意識"
-    c: "Self-Aware——因為它能調整自己的行為策略"
-    d: "Reactive Machines——因為它即時回應用戶的輸入"
-  correct: "b"
-  explanation:
-    why_correct: "Theory of Mind 型 AI 的核心定義是能理解他人的情緒、信念和意圖，並據此調整自身行為。該系統能「察覺用戶挫折情緒」並「主動調整回應策略」，展示的正是 Theory of Mind 能力。它與現有 Limited Memory AI 的關鍵差異在於：Limited Memory 僅利用歷史資料做統計預測，而 Theory of Mind 能推測用戶的內在心理狀態。"
-    why_not_a: "Limited Memory AI 雖然也利用歷史資料，但它只是做模式匹配和統計預測，無法真正理解用戶的「挫折」情緒。題目描述的系統展現了超越 Limited Memory 的心理推測能力。"
-    why_not_c: "Self-Aware AI 需要具備對「自身存在」的認知——知道自己是一個 AI、能反思自己的運算過程。題目明確指出該系統「不具備對自身存在的認知」，排除了 Self-Aware。"
-    why_not_d: "Reactive Machines 不利用任何歷史資料，只根據當前輸入反應。該系統明顯使用了對話上下文並能推測情緒，遠超 Reactive Machines 的層次。"
-  keywords:
-    - "心智理論"
-    - "Theory of Mind"
-    - "Self-Aware"
-    - "Hintze 分類"
-    - "情緒識別"
-  exam_trap: false
-
-- id: "L11101-Q30"
-  topic_code: "L11101"
-  item_code: "L11101"
-  difficulty: 5
-  question: "2022 年 ChatGPT 的發布被視為生成式 AI（Generative AI）時代的里程碑。從 AI 發展史的角度，綜合評估 ChatGPT 的出現與 1980 年代專家系統熱潮的異同。下列分析何者最完整？"
-  options:
-    a: "兩者完全相同——都是短暫的 AI 熱潮，ChatGPT 也將像專家系統一樣導致 AI 寒冬"
-    b: "兩者完全不同——ChatGPT 基於深度學習且能從數據自動學習，已完全解決了 AI 的所有挑戰"
-    c: "相似點：都引發大眾對 AI 的高度期待與商業投資。差異點：專家系統依賴人工編碼規則且無法自動學習，而 ChatGPT 基於 Transformer 架構的深度學習能從大量資料自動學習。但兩者都面臨過度期待可能導致失望的風險"
-    d: "兩者無法比較，因為專家系統不算是 AI 技術"
-  correct: "c"
-  explanation:
-    why_correct: "此題要求跨時代的綜合評估能力。相似點：兩次浪潮都引發了巨大的商業期待和資金投入。差異點：(1) 專家系統是規則式 AI，需人工編碼知識；ChatGPT 基於 Transformer 深度學習，能從數據自動學習語言模式。(2) 專家系統受限於知識獲取瓶頸；ChatGPT 受限於幻覺（Hallucination）等不同挑戰。共同風險：若市場期待過高而技術無法完全兌現承諾，可能導致類似 AI 寒冬的信心回落。"
-    why_not_a: "過度類比。雖然過度期待的風險存在，但直接斷言「將導致 AI 寒冬」過於武斷。ChatGPT 背後的技術基礎（資料驅動、自動學習）與專家系統的規則式基礎根本不同，商業化程度和應用廣度也遠超當年。"
-    why_not_b: "過度樂觀。雖然 ChatGPT 確實基於深度學習且能自動學習，但它並未解決 AI 的所有挑戰——幻覺、偏見、推理能力不足等問題仍然存在。忽略了兩者的相似之處。"
-    why_not_d: "專家系統明確屬於 AI 技術的一個重要分支（規則式 AI / 知識驅動 AI），在 AI 發展史上扮演了關鍵角色。否定其 AI 地位是錯誤的。"
-  keywords:
-    - "ChatGPT"
-    - "專家系統"
-    - "生成式 AI"
-    - "Transformer"
-    - "AI 寒冬"
-    - "深度學習"
-    - "歷史比較"
-  exam_trap: false

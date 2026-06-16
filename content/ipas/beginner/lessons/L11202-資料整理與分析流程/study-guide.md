@@ -1,23 +1,37 @@
-# L11202 資料整理與分析流程 — 讀書指南
+# L11202 資料整理與分析流程 — Study Guide
 
 ---
 
-## 1. 考試對應範圍
+## Section 1 · 考試導覽
 
 > 對應評鑑範圍：**L11202 資料整理與分析流程**
->
-> 關鍵字：資料收集（Data Collection）、資料清理（Data Cleaning）、資料分析（Data Analysis）、資料呈現（Data Presentation）、特徵工程（Feature Engineering）、資料標準化（Data Standardization）
->
+
+| 知識點 | 出題比重 | 重點說明 |
+|--------|---------|---------|
+| 資料收集（Data Collection） | 🔥 低 | 概念與來源，L11201 延伸 |
+| 資料清理（Data Cleaning） | 🔥🔥 高 | 四大問題類型必考 |
+| 資料分析四類型（Analytics Types） | 🔥🔥 高 | 情境對應題核心 |
+| 資料呈現（Data Presentation） | 🔥 中 | 圖表選擇題 |
+| 特徵工程（Feature Engineering） | 🔥🔥 高 | 三大類型 + 獨熱編碼 |
+| 資料標準化（Data Normalization） | 🔥🔥 高 | 標準化 vs 正規化 |
+
 > 預估出題數：**3–5 題**（情境題為主，給定場景問你該用哪種處理方式、哪個步驟優先、什麼分析類型適合）
+>
+> **L11202 vs 中級 L22 邊界：** 初級 = 了解流程各步驟的定義與目的；中級 = 執行具體操作（Python/SQL、統計公式、演算法選擇）。看到公式、程式碼 → 超出範圍。
 
 ---
 
-## 2. 關鍵概念總覽圖（Knowledge Tree）
+## Section 2 · 關鍵概念總覽圖
+
+> 詳細流程圖見 [diagrams/01-data-pipeline-flow.md](diagrams/01-data-pipeline-flow.md)
+> 分析類型金字塔見 [diagrams/02-analytics-types-pyramid.md](diagrams/02-analytics-types-pyramid.md)
+> 特徵工程分類樹見 [diagrams/03-feature-engineering-taxonomy.md](diagrams/03-feature-engineering-taxonomy.md)
+> 圖表選擇指南見 [diagrams/04-chart-type-guide.md](diagrams/04-chart-type-guide.md)
 
 ```
 🌳 L11202 資料整理與分析流程
 │
-├── 🔄 資料處理流程（Data Pipeline）— 核心框架
+├── 🔄 資料處理流程（Data Pipeline）— 核心框架 🔥🔥
 │   ├── 📥 Step 1：資料收集（Data Collection）
 │   │   ├── 內部資料（Internal Data）— 企業自有系統
 │   │   └── 外部資料（External Data）— 第三方/開放資料
@@ -26,26 +40,32 @@
 │   │   ├── 重複值（Duplicates）— 資料重複出現
 │   │   ├── 異常值（Outliers）— 極端離譜的值
 │   │   └── 不一致（Inconsistency）— 格式/內容矛盾
-│   ├── 📊 Step 3：資料分析（Data Analysis）🔥
-│   │   ├── 描述性分析（Descriptive）— 發生了什麼？
-│   │   ├── 診斷性分析（Diagnostic）— 為什麼發生？
-│   │   ├── 預測性分析（Predictive）— 未來會怎樣？
-│   │   └── 指示性分析（Prescriptive）— 該怎麼做？
+│   │   ⚠️ 陷阱：清理 ≠ 前處理（前處理範圍更廣）
+│   ├── 📊 Step 3：資料分析（Data Analysis）🔥🔥
+│   │   ├── 描述性分析（Descriptive）— 發生了什麼？ What?
+│   │   ├── 診斷性分析（Diagnostic）— 為什麼發生？ Why?
+│   │   ├── 預測性分析（Predictive）— 未來會怎樣？ What will?
+│   │   └── 規範性分析（Prescriptive）— 該怎麼做？ What should?
+│   │   ⚠️ 陷阱：「指示性」是舊譯，現行正名為「規範性」
 │   └── 📈 Step 4：資料呈現（Data Presentation）
 │       ├── 比較 → 長條圖（Bar Chart）
 │       ├── 趨勢 → 折線圖（Line Chart）
 │       ├── 組成 → 圓餅圖（Pie Chart）
-│       └── 分佈 → 散佈圖/直方圖（Scatter/Histogram）
+│       ├── 分佈 → 散佈圖/直方圖（Scatter/Histogram）
+│       └── 關聯熱度 → 熱力圖（Heatmap）
+│       ⚠️ 陷阱：做圖表屬於「呈現」不屬於「分析」
 │
 ├── 🔧 特徵工程（Feature Engineering）🔥🔥
 │   ├── 特徵選擇（Feature Selection）— 挑出有用的
 │   ├── 特徵萃取（Feature Extraction）— 壓縮出精華
 │   └── 特徵轉換（Feature Transformation）— 換個表達方式
 │       └── 🔥🔥 獨熱編碼（One-Hot Encoding）— 類別→二元
+│       ⚠️ 陷阱：有順序的類別不能用獨熱編碼
 │
 ├── 📏 資料標準化與正規化 🔥🔥
-│   ├── 標準化（Standardization）— 以平均值為中心
-│   └── 正規化（Normalization）— 縮放到固定範圍
+│   ├── 標準化（Standardization）— 以平均值為中心（對異常值穩健）
+│   └── 正規化（Normalization）— 縮放到固定範圍（對異常值敏感）
+│   ⚠️ 陷阱：有異常值時選標準化，不是正規化
 │
 └── ⚠️ 資料洩漏（Data Leakage）— 2026 新考點
     └── 訓練時不小心用到未來資料 → 模型過度樂觀
@@ -53,7 +73,7 @@
 
 ---
 
-## 3. 核心概念（Core Concepts）
+## Section 3 · 核心概念
 
 ### 3-1. 全景圖 — 資料從「原料」到「成果」的四步旅程
 
@@ -170,6 +190,15 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 收集完資料、清理乾淨之後，就進入分析階段。根據分析的「深度」和「方向」，分為四大類型：
 
+🔑 **先懂一句話：** 四種分析類型依深度遞進排列：看事實→找原因→看未來→給對策。
+
+| 類型 | 英文 | 核心問題 | 白話比喻 |
+|-----|------|---------|---------|
+| 描述性分析 | Descriptive Analytics | 發生了什麼？ | 看後照鏡 |
+| 診斷性分析 | Diagnostic Analytics | 為什麼發生？ | 找原因 |
+| 預測性分析 | Predictive Analytics | 未來會怎樣？ | 看水晶球 |
+| 規範性分析 | Prescriptive Analytics | 該怎麼做？ | 給導航 |
+
 #### 類型 1：描述性分析（Descriptive Analytics）
 
 > **回答：「發生了什麼？」（What happened?）**
@@ -200,13 +229,13 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ---
 
-#### 類型 4：指示性分析（Prescriptive Analytics）
+#### 類型 4：規範性分析（Prescriptive Analytics）
 
 > **回答：「應該怎麼做？」（What should we do?）**
 
 不只預測未來，還進一步**建議最佳行動方案**。
 
-🗣️ **白話說明：** Uber Eats 不只預測你想吃什麼，還會告訴你「現在這家店免外送費、預計 20 分鐘送達」——幫你做決定，這就是指示性分析。
+🗣️ **白話說明：** Uber Eats 不只預測你想吃什麼，還會告訴你「現在這家店免外送費、預計 20 分鐘送達」——幫你做決定，這就是規範性分析。
 
 ---
 
@@ -216,7 +245,7 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
        分析深度/難度 →
 
   ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐
-  │  描述性   │→ │  診斷性   │→ │  預測性   │→ │  指示性   │
+  │  描述性   │→ │  診斷性   │→ │  預測性   │→ │  規範性   │
   │Descriptive│  │Diagnostic│  │Predictive│  │Prescriptive│
   │ 發生了什麼 │  │ 為什麼    │  │ 會怎樣    │  │ 該怎麼做  │
   │   What?   │  │   Why?   │  │ What will?│  │  How?    │
@@ -240,30 +269,39 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 | **趨勢**（Trend） | 折線圖（Line Chart） | 蝦皮月營收走勢 |
 | **組成**（Composition） | 圓餅圖（Pie Chart） | 公司支出各項佔比 |
 | **分佈**（Distribution） | 散佈圖（Scatter Plot）、直方圖（Histogram） | 員工薪資分佈 |
+| **關聯熱度**（Correlation） | 熱力圖（Heatmap） | 各特徵之間的相關性矩陣 |
 
-🗣️ **白話說明：** 就像你做大學報告的簡報一樣——教授不想看一堆數字，你要用圖表讓他一眼就看出重點。長條圖比大小、折線圖看趨勢、圓餅圖看佔比，選對圖表 = 讓你的報告加分。
+🗣️ **白話說明：** 就像你做大學報告的簡報一樣——教授不想看一堆數字，你要用圖表讓他一眼就看出重點。長條圖比大小、折線圖看趨勢、圓餅圖看佔比，選對圖表 = 讓你的報告加分。熱力圖則像是溫度地圖，顏色深淺代表關聯強弱，一眼就看出哪兩個變數最有關聯。
 
 ```
-  比較用長條      趨勢用折線      組成用圓餅      分佈用散佈
+  比較用長條      趨勢用折線      組成用圓餅      分佈用散佈     關聯用熱力
 
-   █              ·              ┌──┐            ·  ·
-   █  █         ·   ·           │  │ ·       ·  ·  ·
-   █  █  █    ·       ·         │──│       ·  · ·
-   ─────      ─────────         └──┘         ─────
-  Bar Chart   Line Chart      Pie Chart   Scatter Plot
+   █              ·              ┌──┐            ·  ·        ▓▒░
+   █  █         ·   ·           │  │ ·       ·  ·  ·        ▒▓▒
+   █  █  █    ·       ·         │──│       ·  · ·           ░▒▓
+   ─────      ─────────         └──┘         ─────          ───
+  Bar Chart   Line Chart      Pie Chart   Scatter Plot   Heatmap
 ```
 
-🔥 **考試重點：** 給你一個場景（如「想知道各區域銷售額的高低」），問你該選哪種圖表。關鍵字「比較」→ 長條圖，「趨勢」→ 折線圖，「佔比」→ 圓餅圖，「關聯/分佈」→ 散佈圖。
+🔥 **考試重點：** 給你一個場景（如「想知道各區域銷售額的高低」），問你該選哪種圖表。關鍵字「比較」→ 長條圖，「趨勢」→ 折線圖，「佔比」→ 圓餅圖，「關聯/分佈」→ 散佈圖，「相關性矩陣/特徵關聯」→ 熱力圖。
 
 ---
 
 ### 🔥🔥 3-6. 特徵工程（Feature Engineering）
 
-`特徵工程（Feature Engineering）` 是把原始資料轉換成**對 AI 模型更有用的形式**的過程。這是讓模型從「普通」變「厲害」的關鍵步驟。
+`特徵工程（Feature Engineering）` 是把原始資料轉換成**對 AI（Artificial Intelligence，人工智慧）模型更有用的形式**的過程。這是讓 ML（Machine Learning，機器學習）模型從「普通」變「厲害」的關鍵步驟。
 
 🗣️ **白話說明：** 你要做一份漂亮的簡報，不會直接把從網路抓到的所有原始資料貼上去吧？你會**挑選重點、整理格式、轉換呈現方式**——特徵工程做的就是這件事，只不過對象是 AI 模型需要的資料。
 
 #### 三大類別
+
+🔑 **先懂一句話：** 特徵工程 = 整理資料讓 AI 讀得懂。選→萃→轉，三種不同的整理方式。
+
+| 類別 | 英文 | 做什麼 | 結果 | 白話 |
+|-----|------|------|------|------|
+| 特徵選擇 | Feature Selection | 從現有特徵挑有用的 | 特徵數↓（保留原格式） | 只填重要欄位 |
+| 特徵萃取 | Feature Extraction | 創造/壓縮出新特徵 | 特徵形式改變 | 長文濃縮成摘要 |
+| 特徵轉換 | Feature Transformation | 改變特徵表示方式 | 格式/尺度改變 | 把文字轉成數字 |
 
 ##### 1. 特徵選擇（Feature Selection）🔥
 
@@ -368,7 +406,7 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ---
 
-## 4. 易混淆概念比較表（Comparison Tables）
+## Section 4 · 易混淆概念對照表
 
 ### 表 4-1：資料清理 vs 資料轉換
 
@@ -418,11 +456,11 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 | 描述性 | Descriptive | 發生了什麼？ | 看過去 | 看後照鏡 | ⭐ |
 | 診斷性 | Diagnostic | 為什麼發生？ | 挖過去 | 找原因 | ⭐⭐ |
 | 預測性 | Predictive | 會怎樣？ | 看未來 | 看水晶球 | ⭐⭐⭐ |
-| 指示性 | Prescriptive | 該怎麼做？ | 決定未來 | 給導航 | ⭐⭐⭐⭐ |
+| 規範性 | Prescriptive | 該怎麼做？ | 決定未來 | 給導航 | ⭐⭐⭐⭐ |
 
 ---
 
-## 5. 口訣 / Mnemonics
+## Section 5 · 口訣
 
 ### 口訣 1：資料處理流程四步驟
 
@@ -448,14 +486,16 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ### 口訣 3：四種分析類型
 
-> **「描診預指」（醫生看診四步驟）**
+> **「描診預規」（醫生看診四步驟）**
 >
 > - **描** → 描述性（Descriptive）— 描述症狀：「哪裡不舒服？」
 > - **診** → 診斷性（Diagnostic）— 診斷原因：「為什麼不舒服？」
 > - **預** → 預測性（Predictive）— 預測發展：「不治療會怎樣？」
-> - **指** → 指示性（Prescriptive）— 開處方：「該吃什麼藥？」
+> - **規** → 規範性（Prescriptive）— 開處方：「該吃什麼藥？」
 >
-> 記法：「看醫生四步驟——**描**述症狀、**診**斷原因、**預**測病情、**指**示治療。」
+> 記法：「看醫生四步驟——**描**述症狀、**診**斷原因、**預**測病情、**規**劃治療。」
+>
+> ⚠️ 舊版口訣「描診預指」的「指」對應的是舊譯「指示性分析」，現行考試正名為「規範性分析（Prescriptive Analytics）」。
 
 ### 口訣 4：特徵工程三大類
 
@@ -469,7 +509,7 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ---
 
-## 6. 考試陷阱（Exam Traps）
+## Section 6 · 考試陷阱
 
 ### 陷阱 1：資料清理和資料前處理是不同步驟
 
@@ -513,13 +553,13 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ### 陷阱 6：四種分析類型可以跳著做
 
-❌ **錯誤觀念：** 描述性、診斷性、預測性、指示性分析是各自獨立的，想做哪個都可以。
+❌ **錯誤觀念：** 描述性、診斷性、預測性、規範性分析是各自獨立的，想做哪個都可以。
 
 ✅ **正確理解：** 四種分析類型呈**遞進關係**——先有描述（知道發生了什麼），才能診斷（找出為什麼），才能預測（推測未來），最後才能指示（建議行動）。你不可能在不知道「發生了什麼」的情況下回答「為什麼發生」。
 
 ---
 
-## 7. 情境題快速判斷（Scenario Quick-Judge）
+## Section 7 · 情境題快速判斷
 
 ### 快查表 A：看到問題 → 判斷清理類型
 
@@ -537,7 +577,7 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 | 「統計上個月的銷售額」 | 描述性（Descriptive） | 「統計」「彙總」「報表」看**過去** |
 | 「為什麼這個月退貨率突然上升？」 | 診斷性（Diagnostic） | 「為什麼」「原因」「歸因」 |
 | 「預測下季度的營收」 | 預測性（Predictive） | 「預測」「推估」「未來」 |
-| 「建議最佳的庫存補貨策略」 | 指示性（Prescriptive） | 「建議」「最佳」「應該怎麼做」 |
+| 「建議最佳的庫存補貨策略」 | 規範性（Prescriptive） | 「建議」「最佳」「應該怎麼做」 |
 
 ### 快查表 C：看到需求 → 判斷圖表類型
 
@@ -578,9 +618,19 @@ Data Collection → Data Cleaning → Data Analysis → Data Presentation
 
 ---
 
-> **最後提醒：** L11202 的考題核心是「情境判斷」——給你一個企業場景，問你該做什麼。記住三件事：
-> 1. 四步流程的**順序**（收清分呈）和每步的**目的**
-> 2. 四種分析各自回答的**問題**（What/Why/What will/What should）
-> 3. 標準化 vs 正規化的**差異**（異常值 → 標準化）
->
-> 把口訣和快查表記熟，考場上就能快速定位答案。加油！
+## Section 8 · 快速自我檢查
+
+用下面這張清單自我盤點，每項要能在 30 秒內口頭回答出來。全部勾完 → 直接上考場。任一題卡住 → 回對應小節重讀。
+
+- [ ] 我能說出資料處理四步驟的正確順序，並說明「為什麼清理一定在分析之前」
+- [ ] 我能列出資料清理的四大問題類型（缺失值、重複值、異常值、不一致），各舉一個生活例子
+- [ ] 看到「為什麼退貨率上升」→ 我能立刻判斷這是**診斷性分析（Diagnostic Analytics）**
+- [ ] 看到「預測下季營收」→ 我能立刻判斷這是**預測性分析（Predictive Analytics）**
+- [ ] 看到「建議最佳補貨策略」→ 我能立刻判斷這是**規範性分析（Prescriptive Analytics）**
+- [ ] 我能說出特徵工程三大類型（選擇、萃取、轉換）的差異，並舉例區分
+- [ ] 我能解釋獨熱編碼（One-Hot Encoding）的概念，以及它「不適用有順序類別」的原因
+- [ ] 看到「資料有異常值，數值範圍差異大」→ 我能判斷要用**標準化（Standardization）**，不是正規化
+- [ ] 看到「需要佔比圖表」→ 我能判斷用**圓餅圖（Pie Chart）**，看趨勢→折線圖，看相關→熱力圖
+- [ ] 我能解釋資料洩漏（Data Leakage）的定義：訓練時混入不該出現的資訊，導致效能被高估
+
+> 📌 **本課程出題範圍邊界：** 以下內容超出 IPAS AI 應用規劃師初級範圍，不需要記憶——Z-score 公式與 Min-Max 計算式、Python/pandas/sklearn 程式碼、PCA 等進階降維演算法、SQL 查詢操作、MLOps 模型維運流程。看到這些出現在選項中，通常不是正確答案。

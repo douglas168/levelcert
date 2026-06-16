@@ -1,632 +1,327 @@
-# L12101 — No Code / Low Code的基本概念
-# Question pool for adaptive testing
-# Generated: 2026-04-16
-# Total: 27 questions (5-6 per difficulty level, 2 trap-concept questions added)
+topic: L12101
+topic_name: No Code / Low Code的基本概念
+level: beginner
+generated: "2026-05-22"
+total: 25
+# Answer distribution: a=6, b=6, c=7, d=6
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+questions:
+  # ─────────────────────────────────────────
+  # D1 — Remember（記憶）× 6
+  # ─────────────────────────────────────────
 
-- id: "L12101-Q01"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 1
-  question: "No Code（無程式碼）開發工具的核心特點為何？"
-  options:
-    a: "需要撰寫少量程式碼來處理複雜邏輯"
-    b: "完全不需要撰寫程式碼，透過拖放（drag-and-drop）與視覺化配置建構應用"
-    c: "僅適用於機器學習模型的自動化訓練流程"
-    d: "必須由專業軟體工程師操作才能使用"
-  correct: "b"
-  explanation:
-    why_correct: "No Code 的定義就是「零程式碼」，使用者透過拖放元件與視覺化配置即可建構應用程式，無需任何程式撰寫能力。"
-    why_not_a: "撰寫少量程式碼是 Low Code（低程式碼）的特徵，不是 No Code。這是考試最常見的混淆點。"
-    why_not_c: "機器學習模型的自動化訓練流程是 AutoML（自動化機器學習）的範疇，與 No Code/Low Code 是不同概念。"
-    why_not_d: "No Code 的目標用戶恰恰是非技術背景的業務人員，不需要專業軟體工程師才能操作。"
-  keywords:
-    - "No Code"
-    - "無程式碼"
-    - "拖放"
-  exam_trap: false
+  - id: L12101-Q01
+    stem: "No Code（無程式碼）開發工具的核心特徵為何？"
+    options:
+      a: "完全不需要撰寫程式碼，透過拖放（Drag-and-Drop）與視覺化配置建構應用"
+      b: "需要撰寫少量程式碼來處理複雜邏輯"
+      c: "僅適用於機器學習模型的自動化訓練流程"
+      d: "必須由專業軟體工程師操作才能使用"
+    answer: "a"
+    explanation: "No Code 的定義就是「零程式碼」，使用者透過拖放元件與視覺化配置即可建構應用程式。撰寫少量程式碼（選項 b）是 Low Code 的特徵；自動化 ML 訓練（選項 c）是 AutoML；NC 的目標用戶恰恰是非技術業務人員（否定選項 d）。"
+    difficulty: 1
+    tags: ["no-code", "definition"]
 
-- id: "L12101-Q02"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 1
-  question: "下列哪一個平台屬於 Low Code（低程式碼）開發工具？"
-  options:
-    a: "Zapier"
-    b: "Airtable"
-    c: "Bubble"
-    d: "Power Apps（Microsoft）"
-  correct: "d"
-  explanation:
-    why_correct: "Power Apps 是 Microsoft Power Platform 的一部分，屬於 Low Code 平台，可深度整合 M365/Azure/Dynamics，支援以視覺化開發為主並加入少量程式碼。"
-    why_not_a: "Zapier 是 No Code 平台，專注於跨應用的流程自動化（workflow automation），不需要撰寫程式碼。"
-    why_not_b: "Airtable 是 No Code 平台，提供試算表式關聯資料庫功能，主要用於內部工具與資料管理。"
-    why_not_c: "Bubble 是 No Code 平台，用於建構全功能 Web App，如 MVP 和 SaaS 產品。"
-  keywords:
-    - "Low Code"
-    - "Power Apps"
-    - "平台辨認"
-  exam_trap: true
+  - id: L12101-Q02
+    stem: "下列哪一個平台屬於 Low Code（低程式碼）開發工具？"
+    options:
+      a: "Zapier"
+      b: "Airtable"
+      c: "Bubble"
+      d: "Power Apps（Microsoft）"
+    answer: "d"
+    explanation: "Power Apps 是 Microsoft Power Platform 的 Low Code 平台，支援視覺化開發為主並可加入少量程式碼，深度整合 M365/Azure。Zapier、Airtable、Bubble 均為 No Code 平台。"
+    difficulty: 1
+    tags: ["low-code", "platform-recognition"]
 
-- id: "L12101-Q03"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 1
-  question: "Gartner 定義的「公民開發者（Citizen Developer）」是指什麼角色？"
-  options:
-    a: "在 IT 部門以外，使用組織核可的 No Code/Low Code 工具建構應用的非專業開發人員"
-    b: "政府機關中負責開放資料平台維運的公務員"
-    c: "專門負責程式碼審查（code review）的資深工程師"
-    d: "參與開源社群貢獻程式碼的志願者"
-  correct: "a"
-  explanation:
-    why_correct: "Gartner 定義公民開發者為在 IT 部門以外，使用組織核可的 NC/LC 工具建構應用的非專業開發人員。這個角色是 NC/LC 生態的核心推動力。"
-    why_not_b: "「公民」一詞容易讓人聯想到政府或公共服務，但 Citizen Developer 中的 citizen 是指「非專業的一般組織成員」，與政府無關。"
-    why_not_c: "程式碼審查是傳統軟體工程的流程，公民開發者的重點恰恰是不需要深入的程式技術知識。"
-    why_not_d: "開源貢獻者通常具備專業程式能力，而公民開發者的定義是「非專業開發人員」，兩者不同。"
-  keywords:
-    - "公民開發者"
-    - "Citizen Developer"
-    - "Gartner"
-  exam_trap: false
+  - id: L12101-Q03
+    stem: "Gartner 定義的「公民開發者（Citizen Developer）」是指什麼角色？"
+    options:
+      a: "在 IT 部門以外，使用組織核可的 NC/LC 工具建構應用的非專業開發人員"
+      b: "政府機關中負責開放資料平台維運的公務員"
+      c: "專門負責程式碼審查（Code Review）的資深工程師"
+      d: "參與開源社群貢獻程式碼的志願者"
+    answer: "a"
+    explanation: "Gartner 定義公民開發者為在 IT 部門以外，使用組織核可工具建構應用的非專業開發人員。「公民」指「非 IT 專業的組織成員」，與政府無關（否定選項 b），與程式碼審查和開源貢獻者無關（否定選項 c/d）。"
+    difficulty: 1
+    tags: ["citizen-developer", "definition"]
 
-- id: "L12101-Q04"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 1
-  question: "「視覺化開發（Visual Development）」在 No Code/Low Code 中扮演什麼角色？"
-  options:
-    a: "僅用於製作行銷用的視覺化圖表"
-    b: "是一種額外的進階功能，非核心開發方式"
-    c: "以圖形介面（拖放元件、流程圖、表單設計器）取代傳統程式碼撰寫的核心開發範式"
-    d: "專指使用 Tableau 或 Power BI 進行資料視覺化"
-  correct: "c"
-  explanation:
-    why_correct: "視覺化開發是 NC/LC 的核心範式，透過圖形介面取代傳統程式碼撰寫，讓非技術人員也能建構應用。即使在 No Code 背後仍有隱藏的程式碼在運行。"
-    why_not_a: "視覺化開發不是指製作圖表，而是以圖形介面來「開發軟體」，兩者是完全不同的概念。"
-    why_not_b: "視覺化開發不是附加功能，而是 NC/LC 平台最核心的開發方式，沒有視覺化介面就不算 NC/LC。"
-    why_not_d: "Tableau 和 Power BI 是資料視覺化（data visualization）工具，與軟體開發的視覺化開發（visual development）是不同概念。考生容易混淆這兩者。"
-  keywords:
-    - "視覺化開發"
-    - "Visual Development"
-  exam_trap: true
+  - id: L12101-Q04
+    stem: "根據 Gartner 預測，公民開發者（Citizen Developer）的數量將達到專業軟體工程師的幾倍？"
+    options:
+      a: "2 倍"
+      b: "4 倍"
+      c: "10 倍"
+      d: "與專業工程師相同"
+    answer: "b"
+    explanation: "Gartner 預測公民開發者數量將達到專業工程師的 4 倍。這個數據反映 NC/LC 工具讓非技術人員也能開發應用的廣大潛力。記憶法：4 倍——不是 2 倍（太少），不是 10 倍（太多），4 倍是 Gartner 的具體預測值。"
+    difficulty: 1
+    tags: ["citizen-developer", "gartner", "market-data"]
 
-- id: "L12101-Q05"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 1
-  question: "根據 Gartner 預測，2026 年新應用開發將使用低代碼（Low Code）技術的比例約為多少？"
-  options:
-    a: "25%"
-    b: "50%"
-    c: "75%"
-    d: "95%"
-  correct: "c"
-  explanation:
-    why_correct: "Gartner 預測 2026 年 75% 的新應用開發將使用低代碼技術。記住：75% = 主流趨勢但非完全取代，考試看到接近但非 100% 的數字就選這個。刪去法：25% 太低、95% 太極端、50% 是「保守陷阱」，75% 剛好反映高速滲透但仍有傳統開發空間。"
-    why_not_a: "25% 遠低於實際預測值，低估了低代碼的市場滲透速度。"
-    why_not_b: "50% 看似合理但仍低於 Gartner 的預測值。學生容易因為「保守估計」而選此。"
-    why_not_d: "95% 過於極端。雖然低代碼增長迅速，但仍有大量複雜系統需要傳統開發方式。"
-  keywords:
-    - "市場趨勢"
-    - "Gartner"
-    - "低代碼市場"
-  exam_trap: false
+  - id: L12101-Q05
+    stem: "下列哪一個平台屬於 No Code（無程式碼）工具，且主要用於「試算表直接轉換為行動/網頁 App」？"
+    options:
+      a: "AppSheet（Google）"
+      b: "OutSystems"
+      c: "Power Apps"
+      d: "Mendix"
+    answer: "a"
+    explanation: "AppSheet 是 Google 旗下的 No Code 平台，核心功能是從 Google Sheets 等試算表直接轉換為行動或網頁 App。Power Apps、OutSystems、Mendix 均為 Low Code 平台，且面向企業級複雜應用，不以「試算表轉 App」為主打功能。"
+    difficulty: 1
+    tags: ["no-code", "platform-recognition", "appsheet"]
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  - id: L12101-Q06
+    stem: "「視覺化開發（Visual Development）」在 No Code / Low Code 中的角色為何？"
+    options:
+      a: "僅用於製作行銷圖表，不用於應用開發"
+      b: "以圖形介面（拖放元件、流程圖、表單設計器）取代傳統程式碼撰寫的核心開發方式"
+      c: "是額外進階功能，不是核心開發方式"
+      d: "專指使用 Tableau 或 Power BI 進行資料視覺化"
+    answer: "b"
+    explanation: "視覺化開發是 NC/LC 的核心開發範式，透過圖形介面取代傳統程式碼撰寫，讓非技術人員也能建構應用。Tableau/Power BI 是資料視覺化（data visualization）工具（選項 d），與軟體開發的視覺化開發（visual development）是不同概念。"
+    difficulty: 1
+    tags: ["visual-development", "definition"]
 
-- id: "L12101-Q06"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "關於 No Code 與 Low Code 的差異，下列哪個敘述最正確？"
-  options:
-    a: "No Code 的客製化程度較低且受限於平台模板，Low Code 可透過撰寫程式碼擴展功能"
-    b: "No Code 和 Low Code 完全相同，只是名稱不同"
-    c: "No Code 適合建構企業級複雜應用，Low Code 只能做簡單表單"
-    d: "No Code 需要在 IT 部門監督下使用，Low Code 則無需任何技術管理"
-  correct: "a"
-  explanation:
-    why_correct: "No Code 的客製化受限於平台提供的模板和元件，而 Low Code 允許開發者撰寫程式碼來擴展功能，客製化程度更高。這是兩者的關鍵差異之一。"
-    why_not_b: "兩者雖然都屬於視覺化開發，但在編碼需求、目標用戶、應用複雜度、客製化程度上都有明確差異。"
-    why_not_c: "恰好相反：No Code 適合簡單的戰術型應用（表單、報表），Low Code 才適合企業級中高複雜度應用。"
-    why_not_d: "恰好相反：No Code 因為非技術人員自行建構應用，容易產生「影子 IT」風險；Low Code 通常在 IT 監督下使用，治理風險較低。"
-  keywords:
-    - "No Code vs Low Code"
-    - "客製化"
-    - "差異比較"
-  exam_trap: false
+  # ─────────────────────────────────────────
+  # D2 — Understand（理解）× 7
+  # ─────────────────────────────────────────
 
-- id: "L12101-Q07"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "為什麼公民開發者（Citizen Developer）的興起被認為能緩解軟體人才缺口？"
-  options:
-    a: "因為公民開發者能取代所有專業軟體工程師"
-    b: "因為公民開發者使用 NC/LC 工具即可建構應用，減少對專業程式人力的依賴"
-    c: "因為公民開發者都是從 IT 部門轉職而來的"
-    d: "因為公民開發者開發的應用不需要維護"
-  correct: "b"
-  explanation:
-    why_correct: "NC/LC 讓非技術背景的業務人員也能建構應用，將部分開發工作從專業程式人力轉移到業務單位，從而緩解人才缺口。美國缺少 140 萬軟體開發者，NC/LC 被視為解方之一。"
-    why_not_a: "公民開發者無法取代所有專業工程師。複雜的企業級系統、底層架構、安全關鍵系統仍需專業開發者。這種說法過於極端。"
-    why_not_c: "公民開發者的定義是在 IT 部門「以外」的人員，他們是業務人員而非 IT 轉職者。"
-    why_not_d: "所有軟體應用都需要維護。公民開發者建構的應用同樣需要更新和管理，這也是影子 IT 風險的來源之一。"
-  keywords:
-    - "公民開發者"
-    - "Citizen Developer"
-    - "人才缺口"
-  exam_trap: false
+  - id: L12101-Q07
+    stem: "關於 No Code 與 Low Code 的主要差異，下列哪個敘述最正確？"
+    options:
+      a: "No Code 客製化受限於平台模板，Low Code 可透過撰寫程式碼擴展功能"
+      b: "No Code 和 Low Code 完全相同，只是不同廠商的不同命名"
+      c: "No Code 適合企業核心系統，Low Code 只適合簡單表單"
+      d: "No Code 需要 IT 部門全程監督，Low Code 則無需技術管理"
+    answer: "a"
+    explanation: "NC 的客製化受限於平台提供的模板和元件；LC 允許開發者撰寫程式碼擴展功能，客製化程度更高。選項 c 恰好相反（NC 適合簡單場景，LC 才適合複雜應用）；選項 d 也相反（NC 因門檻低反而有更高的影子 IT 風險）。"
+    difficulty: 2
+    tags: ["nc-vs-lc", "comparison"]
 
-- id: "L12101-Q08"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "小美想自動化她的工作流程，每當 Google 表單收到新回覆就自動寄通知信給主管。她完全沒有程式背景。以下哪個工具最適合？"
-  options:
-    a: "Power Apps — 建構企業級表單應用並設定通知"
-    b: "Zapier — 設定 Google Forms → Gmail 的自動化流程"
-    c: "OutSystems — 開發完整的表單管理系統"
-    d: "Python 腳本 — 用 Google API 撰寫自動寄信程式"
-  correct: "b"
-  explanation:
-    why_correct: "Zapier 是典型的 No Code 流程自動化工具，專門處理「當 A 事件發生 → 自動執行 B 動作」的跨應用串接。小美不需要程式背景，只要在 Zapier 介面設定觸發條件和動作即可。"
-    why_not_a: "Power Apps 是 Low Code 平台，主要用於建構企業應用，對於單純的「表單觸發 → 寄信」自動化來說過於複雜，且需要一定技術背景。"
-    why_not_c: "OutSystems 是企業級 Low Code 平台，用來開發完整系統，不適合單純的流程自動化需求，且學習門檻遠高於 No Code 工具。"
-    why_not_d: "撰寫 Python 腳本需要程式能力，違背「完全沒有程式背景」的前提。NC/LC 的價值正是讓非技術人員免寫程式完成自動化。"
-  keywords:
-    - "Zapier"
-    - "No Code"
-    - "workflow automation"
-  exam_trap: true
+  - id: L12101-Q08
+    stem: "為什麼 No Code 工具比 Low Code 工具更容易引發「影子 IT（Shadow IT）」風險？"
+    options:
+      a: "因為所有 Low Code 平台都有內建資安審計功能，No Code 則完全沒有"
+      b: "因為 No Code 目標用戶是非技術業務人員，更可能繞過 IT 部門自行部署未經核可的應用"
+      c: "因為 No Code 工具的安全設計本質上比 Low Code 差"
+      d: "因為 No Code 只能建構網頁，無法建構行動 App"
+    answer: "b"
+    explanation: "影子 IT 的核心風險來自「使用者行為」——非技術業務人員在不知會 IT 的情況下自行部署工具。No Code 門檻低，更容易發生這種情況。安全設計缺陷（選項 c）和平台能力限制（選項 d）都不是影子 IT 風險的成因；一概而論說所有 LC 都有資安審計（選項 a）也不正確。"
+    difficulty: 2
+    tags: ["shadow-it", "no-code", "governance"]
 
-- id: "L12101-Q09"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "關於 Low Code 的目標用戶，下列敘述何者正確？"
-  options:
-    a: "Low Code 主要針對無技術背景的行銷與企劃人員設計"
-    b: "Low Code 專供雲端架構師進行底層基礎設施部署"
-    c: "Low Code 的目標用戶是具備一定技術知識的開發者或公民開發者"
-    d: "Low Code 的目標用戶與 No Code 完全相同，沒有差異"
-  correct: "c"
-  explanation:
-    why_correct: "Low Code 的目標用戶是具備一定技術知識的開發者或公民開發者（有基礎技術能力的業務人員），他們可以透過視覺化開發並在需要時加入少量程式碼。"
-    why_not_a: "無技術背景的行銷與企劃人員更適合使用 No Code 工具。Low Code 雖然降低了門檻，但仍期望使用者有基礎的程式邏輯或技術理解能力。"
-    why_not_b: "雲端架構師負責的是底層基礎設施（如 AWS、Azure 架構設計），這與 Low Code 的應用層開發定位不同。Low Code 面向的是業務應用開發，不是基礎設施部署。"
-    why_not_d: "No Code 面向完全非技術的業務人員，Low Code 面向有一定技術背景的人。兩者目標用戶有明確差異。"
-  keywords:
-    - "Low Code"
-    - "目標用戶"
-  exam_trap: false
+  - id: L12101-Q09
+    stem: "AutoML（自動化機器學習）與 No Code / Low Code 開發工具的關係為何？"
+    options:
+      a: "AutoML 是 No Code 工具的一種，兩者同屬視覺化開發類別"
+      b: "AutoML 是 Low Code 平台的核心功能模組"
+      c: "AutoML 專注於自動化 ML 模型的建構，與 NC/LC 應用開發工具是不同概念"
+      d: "AutoML 和 NC/LC 完全相同，只是應用在不同產業"
+    answer: "c"
+    explanation: "AutoML 的目標產物是機器學習模型（Model），NC/LC 的目標產物是應用程式（App）。兩者雖然都降低技術門檻，但解決的問題完全不同。考試常把 AutoML 混入 NC/LC 選項作為陷阱——不能因為「都不需要太多程式碼」就歸為同類。"
+    difficulty: 2
+    tags: ["automl", "trap", "nc-lc-definition"]
 
-- id: "L12101-Q10"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "AutoML（自動化機器學習）與 No Code/Low Code 開發工具的關係為何？"
-  options:
-    a: "AutoML 是 No Code 工具的一種，兩者屬於同一類別"
-    b: "AutoML 是 Low Code 平台的核心功能模組"
-    c: "AutoML 和 No Code/Low Code 完全相同，只是應用在不同產業"
-    d: "AutoML 是機器學習管線（ML pipeline）的自動化，與 NC/LC 應用開發工具是不同概念"
-  correct: "d"
-  explanation:
-    why_correct: "AutoML 專注於自動化機器學習的流程（資料預處理、特徵工程、模型選擇、超參數調整等），而 NC/LC 是應用程式開發工具。兩者解決的問題完全不同。"
-    why_not_a: "這是考試的高頻陷阱。AutoML 雖然也降低了技術門檻，但它自動化的是 ML pipeline，不是應用開發。不能因為「都不需要太多程式碼」就歸為同類。"
-    why_not_b: "AutoML 不是 Low Code 平台的功能模組。部分 LC 平台可能整合 AI 功能，但 AutoML 本身是獨立的 ML 工具類別。"
-    why_not_c: "兩者自動化的對象不同：AutoML 自動化 ML 管線，NC/LC 簡化應用開發。不是同一件事在不同產業的應用。"
-  keywords:
-    - "AutoML"
-    - "No Code/Low Code"
-    - "差異辨別"
-  exam_trap: true
+  - id: L12101-Q10
+    stem: "有人說：「No Code 平台背後完全沒有程式碼在運行，所以叫 No Code。」這個說法正確嗎？"
+    options:
+      a: "正確，「No Code」代表系統內部也沒有程式碼"
+      b: "正確。No Code 平台從前端到後端都是純圖形化運算"
+      c: "不正確。No Code 平台其實需要使用者撰寫少量 Python 腳本"
+      d: "不正確。使用者不需要撰寫程式碼，但平台背後仍自動產生程式碼執行應用邏輯"
+    answer: "d"
+    explanation: "「No Code」中的「No」是指使用者不需撰寫程式碼，而非平台內部沒有程式碼。No Code 平台背後仍將使用者的拖放操作自動轉換為程式碼執行。「沒有程式碼」是最常見的名稱誤解；說需要 Python 腳本（選項 c）混淆了 LC 的定義。"
+    difficulty: 2
+    tags: ["no-code", "misconception", "trap"]
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L12101-Q11
+    stem: "小美想自動化工作流程：每當 Google 表單收到新回覆，就自動寄通知信給主管。她完全沒有程式背景。以下哪個工具最適合？"
+    options:
+      a: "OutSystems — 開發完整的表單管理系統"
+      b: "Python 腳本 — 用 Google API 撰寫自動寄信程式"
+      c: "Zapier — 設定 Google Forms → Gmail 的自動化流程"
+      d: "Power Apps — 建構企業級表單應用並設定通知"
+    answer: "c"
+    explanation: "Zapier 是 No Code 流程自動化工具，專門處理「當 A 事件發生 → 自動執行 B 動作」的跨應用串接。對無程式背景的使用者最佳。Power Apps 和 OutSystems 是 Low Code，需要技術背景；Python 腳本需要程式能力，違背「完全沒有程式背景」的前提。"
+    difficulty: 2
+    tags: ["zapier", "no-code", "scenario"]
 
-- id: "L12101-Q11"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "某大學社團需要管理社員名冊、追蹤繳費狀態，並自動發送提醒通知。社團幹部完全沒有程式背景。下列哪個工具組合最適合？"
-  options:
-    a: "OutSystems + 自建 SQL 資料庫"
-    b: "Airtable（管理資料）+ Zapier（自動發送通知）"
-    c: "Mendix + Azure DevOps"
-    d: "Python Flask + PostgreSQL"
-  correct: "b"
-  explanation:
-    why_correct: "Airtable 是 No Code 的試算表式關聯資料庫，適合管理名冊和繳費資料；Zapier 是 No Code 的流程自動化工具，可設定自動通知。兩者都不需要程式能力，完全符合社團幹部的需求。"
-    why_not_a: "OutSystems 是企業級 Low Code 平台，對完全沒有程式背景的社團幹部來說過於複雜，且自建 SQL 資料庫需要資料庫知識。"
-    why_not_c: "Mendix 是企業級 Low Code 平台，Azure DevOps 是專業 CI/CD 工具。這個組合適合企業開發團隊，不適合零程式背景的社團幹部。"
-    why_not_d: "Python Flask 和 PostgreSQL 都需要程式撰寫能力，完全違背「無程式背景」的前提條件。"
-  keywords:
-    - "Airtable"
-    - "Zapier"
-    - "No Code"
-    - "情境應用"
-  exam_trap: false
+  - id: L12101-Q12
+    stem: "下列關於 Low Code 目標用戶的敘述，何者正確？"
+    options:
+      a: "Low Code 的目標用戶是具備一定技術知識的開發者或公民開發者"
+      b: "Low Code 的目標用戶與 No Code 完全相同，沒有差異"
+      c: "Low Code 主要針對無技術背景的行銷與企劃人員設計"
+      d: "Low Code 專供雲端架構師進行底層基礎設施部署"
+    answer: "a"
+    explanation: "Low Code 的目標用戶是具備基礎技術知識的開發者或公民開發者，他們可透過視覺化開發並在需要時加入程式碼。無技術背景的業務人員更適合 No Code（否定選項 c）；LC 和 NC 有明確的目標用戶差異（否定選項 b）；雲端架構師負責底層基礎設施，不是 LC 的主要用戶（否定選項 d）。"
+    difficulty: 2
+    tags: ["low-code", "target-user"]
 
-- id: "L12101-Q12"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "一家中型企業的 IT 部門需要開發一套客戶關係管理系統（CRM），需求包含複雜的審批流程、與現有 Microsoft 365 深度整合、以及自訂報表。下列哪個平台最適合？"
-  options:
-    a: "Bubble"
-    b: "Zapier"
-    c: "Airtable"
-    d: "Power Apps（Microsoft Power Platform）"
-  correct: "d"
-  explanation:
-    why_correct: "Power Apps 是 Low Code 平台，可深度整合 M365/Azure/Dynamics，支援複雜業務邏輯和自訂報表，且開發者可加入程式碼處理複雜審批流程，完全符合需求。"
-    why_not_a: "Bubble 是 No Code 平台，主要用於建構 Web App（MVP/SaaS），缺乏與 M365 的深度整合能力，且客製化程度不如 Low Code。"
-    why_not_b: "Zapier 是流程自動化工具，不是用來建構完整的 CRM 系統。它可以連接應用，但無法建構複雜的業務應用。"
-    why_not_c: "Airtable 是試算表式資料庫，適合簡單的內部工具，但對複雜審批流程和深度 M365 整合的支援不足。"
-  keywords:
-    - "Power Apps"
-    - "Low Code"
-    - "企業應用"
-    - "M365整合"
-  exam_trap: false
+  - id: L12101-Q13
+    stem: "根據 Gartner 預測，2026 年新應用開發將使用低程式碼（Low Code）技術的比例約為多少？"
+    options:
+      a: "95%"
+      b: "50%"
+      c: "75%"
+      d: "25%"
+    answer: "c"
+    explanation: "Gartner 預測 2026 年 75% 的新應用開發將使用低程式碼技術。記憶法：75% 反映高速滲透但非完全取代傳統開發——25% 太低（選項 d），95% 太極端（選項 a），50% 是保守陷阱（選項 b），75% 是正確數值。"
+    difficulty: 2
+    tags: ["market-data", "gartner", "low-code"]
 
-- id: "L12101-Q13"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "大學社團幹部想用試算表做一個社團內部活動管理 App，讓幹部們可以在手機上新增活動、登記器材借用、查詢過往紀錄。他沒有任何程式設計經驗。以下哪個作法最符合 No Code 開發的精神？"
-  options:
-    a: "請資工系同學用 React + Node.js 從頭開發"
-    b: "使用 OutSystems 建構，並請有程式背景的同學協助撰寫後端邏輯"
-    c: "使用 AppSheet 從 Google Sheets 建立管理 App，搭配 Zapier 在新增活動時自動通知幹部群組"
-    d: "自學 Python Django 後自行開發"
-  correct: "c"
-  explanation:
-    why_correct: "AppSheet 的核心功能是從 Google Sheets 直接轉換為行動 App（No Code），幹部無需程式能力即可建構內部管理工具。搭配 Zapier 自動化通知，整個流程完全體現 No Code 精神。AppSheet 以登入使用者為主的內部工具場景正是其強項。"
-    why_not_a: "從頭用 React + Node.js 開發是傳統開發方式，不是 No Code 精神。而且需要有程式能力的人投入開發，時間成本高。"
-    why_not_b: "OutSystems 是企業級 Low Code 平台，且需要有程式背景的人協助，不符合「沒有程式設計經驗」和「No Code 精神」的前提。大學社團用企業級平台也大材小用。"
-    why_not_d: "自學程式語言後自行開發違背了 No Code 的核心價值——讓非技術人員無需學習程式即可建構應用。"
-  keywords:
-    - "AppSheet"
-    - "Zapier"
-    - "No Code"
-    - "情境應用"
-  exam_trap: false
+  # ─────────────────────────────────────────
+  # D3 — Apply（應用）× 7
+  # ─────────────────────────────────────────
 
-- id: "L12101-Q14"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "某新創團隊的 CEO 想快速驗證商業構想，需要在兩週內做出一個可互動的 Web App MVP（最小可行產品）。團隊目前沒有前端工程師。下列哪個平台最適合？"
-  options:
-    a: "Mendix"
-    b: "Bubble"
-    c: "Power Apps"
-    d: "Zapier"
-  correct: "b"
-  explanation:
-    why_correct: "Bubble 是 No Code 平台，專長是建構全功能 Web App，特別適合 MVP 和 SaaS 產品的快速原型開發，不需要前端工程師即可完成。"
-    why_not_a: "Mendix 是企業級 Low Code 平台，雖然功能強大但學習曲線較高、部署流程較複雜，不適合兩週內快速建構 MVP 的場景。"
-    why_not_c: "Power Apps 主要面向企業內部應用，深度綁定 Microsoft 生態系，不是建構面向外部用戶的 Web App MVP 的最佳選擇。"
-    why_not_d: "Zapier 是流程自動化工具，無法建構完整的 Web App 介面。它可以串接應用，但不是用來建構產品。"
-  keywords:
-    - "Bubble"
-    - "MVP"
-    - "No Code"
-    - "Web App"
-  exam_trap: false
+  - id: L12101-Q14
+    stem: "某大學社團需要管理社員名冊、追蹤繳費狀態，並自動發送提醒通知。社團幹部完全沒有程式背景。下列哪個工具組合最適合？"
+    options:
+      a: "Airtable（管理資料）+ Zapier（自動發送通知）"
+      b: "OutSystems + 自建 SQL 資料庫"
+      c: "Mendix + Azure DevOps"
+      d: "Python Flask + PostgreSQL"
+    answer: "a"
+    explanation: "Airtable 是 No Code 試算表式資料庫（管理名冊與繳費狀態），Zapier 是 No Code 流程自動化工具（自動通知）。兩者都不需要程式能力，完全符合零程式背景的需求。OutSystems/Mendix 是企業級 LC 且學習曲線高；Python Flask 需要程式能力。"
+    difficulty: 3
+    tags: ["no-code", "airtable", "zapier", "scenario"]
 
-- id: "L12101-Q15"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "一位大學教授想用試算表管理學生成績，同時希望學生能透過手機 App 查詢自己的成績。他聽說可以用 No Code 工具實現。下列哪個平台最能滿足「從試算表轉換為行動 App」的需求？"
-  options:
-    a: "OutSystems"
-    b: "Zapier"
-    c: "Mendix"
-    d: "AppSheet（Google）"
-  correct: "d"
-  explanation:
-    why_correct: "AppSheet 的核心功能正是「從試算表（如 Google Sheets）自動轉換為行動/網頁 App」，完全符合教授的需求。考試記憶口訣：試算表直接變 App → 想到 AppSheet。這是 AppSheet 與其他 NC/LC 平台最大的差異化定位。"
-    why_not_a: "OutSystems 是企業級 Low Code 平台，面向專業開發團隊建構大型系統，不以「試算表轉 App」為核心功能。大學教授的校園場景用企業級平台是殺雞用牛刀。"
-    why_not_b: "Zapier 是流程自動化工具，專長是串接不同應用之間的工作流程，不能建構 App 介面。它可以補充 AppSheet（如自動通知），但無法取代。"
-    why_not_c: "Mendix 是企業級 Low Code 平台，同樣不以「試算表轉 App」為主打功能，且學習門檻較高。校園場景不需要 Mendix 的企業級擴展性。"
-  keywords:
-    - "AppSheet"
-    - "Google"
-    - "試算表轉App"
-  exam_trap: false
+  - id: L12101-Q15
+    stem: "某新創團隊需要在兩週內做出可互動的 Web App MVP（最小可行產品），團隊目前沒有前端工程師。下列哪個平台最適合？"
+    options:
+      a: "Mendix"
+      b: "Bubble"
+      c: "Power Apps"
+      d: "Zapier"
+    answer: "b"
+    explanation: "Bubble 是 No Code 平台，專長是快速建構全功能 Web App，特別適合 MVP 和 SaaS 產品的原型開發，不需要前端工程師。Mendix 是企業級 LC，學習曲線高；Power Apps 綁定 Microsoft 生態系，不適合對外 Web App；Zapier 是流程自動化工具，無法建構 App 介面。"
+    difficulty: 3
+    tags: ["bubble", "no-code", "mvp", "scenario"]
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L12101-Q16
+    stem: "一家中型企業的 IT 部門需要開發客戶關係管理系統（CRM），包含複雜審批流程與 Microsoft 365 深度整合。下列哪個平台最適合？"
+    options:
+      a: "Bubble"
+      b: "Zapier"
+      c: "Airtable"
+      d: "Power Apps（Microsoft Power Platform）"
+    answer: "d"
+    explanation: "Power Apps 是 Low Code 平台，可深度整合 M365/Azure，支援複雜業務邏輯和客製報表，開發者可加入程式碼處理複雜審批流程。Bubble 是 NC，缺乏深度 M365 整合；Zapier 是流程自動化工具，無法建構完整 CRM；Airtable 不適合複雜審批邏輯。"
+    difficulty: 3
+    tags: ["power-apps", "low-code", "enterprise", "scenario"]
 
-- id: "L12101-Q16"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 4
-  question: "在企業數位轉型的脈絡下，No Code 工具較 Low Code 工具更容易引發「影子 IT（Shadow IT）」風險。下列哪個分析最能解釋這個現象？"
-  options:
-    a: "因為 No Code 工具的安全性設計本質上就比 Low Code 差"
-    b: "因為 No Code 的目標用戶是非技術業務人員，他們更可能繞過 IT 部門自行建構未經核可的應用"
-    c: "因為 Low Code 平台全部都有內建的資安審計功能，而 No Code 完全沒有"
-    d: "因為 No Code 只能建構網頁，而 Low Code 可以建構行動 App"
-  correct: "b"
-  explanation:
-    why_correct: "影子 IT 的核心風險在於「未經 IT 部門核可的應用」。No Code 讓非技術業務人員可以自行建構應用，他們更可能繞過 IT 治理流程，直接部署解決方案，這增加了影子 IT 的風險。"
-    why_not_a: "影子 IT 風險不是來自工具本身的安全性設計缺陷，而是來自使用者行為（繞過 IT 審批）。把原因歸結為技術缺陷是過度簡化。"
-    why_not_c: "不能一概而論說所有 LC 都有資安審計而所有 NC 都沒有。影子 IT 的重點在於使用行為和組織治理，不是平台功能有無。"
-    why_not_d: "No Code 不僅限於網頁，也可建構行動 App（如 AppSheet）。這個選項混淆了平台能力，且與影子 IT 風險無關。"
-  keywords:
-    - "影子IT"
-    - "Shadow IT"
-    - "治理風險"
-    - "No Code"
-  exam_trap: false
+  - id: L12101-Q17
+    stem: "大學教授想從 Google Sheets 直接做一個讓學生用手機查詢成績的 App。他沒有程式設計經驗。以下哪個平台最符合需求？"
+    options:
+      a: "Zapier"
+      b: "OutSystems"
+      c: "Mendix"
+      d: "AppSheet（Google）"
+    answer: "d"
+    explanation: "AppSheet 的核心功能是「從試算表（如 Google Sheets）直接轉換為行動/網頁 App」，是 No Code 平台，無需程式能力。OutSystems 和 Mendix 是企業級 LC，大材小用（選項 b/c）；Zapier 是流程自動化工具，無法建構 App 介面（選項 a）。"
+    difficulty: 3
+    tags: ["appsheet", "no-code", "scenario"]
 
-- id: "L12101-Q17"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 4
-  question: "比較 No Code 平台 Bubble 與 Low Code 平台 OutSystems，以下哪個差異分析最準確？"
-  options:
-    a: "Bubble 適合快速建構 Web App MVP，OutSystems 強調企業級安全性、擴展性與 IT 治理"
-    b: "Bubble 的視覺化程度較高但客製化受限於模板，OutSystems 雖然也有視覺化介面但主要靠程式碼開發"
-    c: "兩者都是 No Code 平台，差別在於 Bubble 面向新創而 OutSystems 面向企業"
-    d: "Bubble 和 OutSystems 的目標用戶相同，主要差異在於定價模式不同"
-  correct: "a"
-  explanation:
-    why_correct: "Bubble（No Code）定位於快速建構 Web App，特別是 MVP 和 SaaS 產品；OutSystems（Low Code）定位於企業級應用，強調安全性、擴展性和 IT 治理。這反映了 NC vs. LC 的核心差異。"
-    why_not_b: "這個選項的前半句接近事實但後半句有誤：OutSystems 作為 Low Code 平台，視覺化開發仍是主要方式，只在需要時加入少量程式碼，而非「主要靠程式碼開發」。NC 和 LC 都以視覺化為核心，差異在於 LC 允許程式碼擴展。"
-    why_not_c: "OutSystems 是 Low Code 而非 No Code 平台，兩者的根本差異在於編碼需求和客製化程度，不僅是面向客群不同。將 OutSystems 歸為 NC 是分類錯誤。"
-    why_not_d: "兩者的目標用戶有明確差異：Bubble 面向非技術創業者和設計師，OutSystems 面向有技術背景的企業開發團隊。差異遠不止定價模式。"
-  keywords:
-    - "Bubble"
-    - "OutSystems"
-    - "平台比較"
-  exam_trap: false
+  - id: L12101-Q18
+    stem: "行銷部門同事未知會 IT 部門，就自行下載免費第三方工具追蹤客戶資料，並存放在個人雲端帳號。這個行為屬於什麼問題？"
+    options:
+      a: "影子 IT（Shadow IT），帶來資安與合規風險"
+      b: "Low Code 開發，屬於正常的企業數位化做法"
+      c: "公民開發者（Citizen Developer）行為，受組織治理保護"
+      d: "AutoML 應用，需要額外的機器學習資源"
+    answer: "a"
+    explanation: "影子 IT 是指員工在未知會 IT 部門的情況下，使用未經核可的工具部署應用或存放資料，帶來資安漏洞和合規風險。公民開發者（選項 c）使用的是組織核可的工具，兩者的關鍵差異在於「是否核可」。"
+    difficulty: 3
+    tags: ["shadow-it", "citizen-developer", "governance", "scenario"]
 
-- id: "L12101-Q18"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 4
-  question: "Gartner 預測公民開發者數量將達到專業工程師的 4 倍。從企業 IT 治理的角度分析，這個趨勢帶來的最核心挑戰為何？"
-  options:
-    a: "專業工程師會全部失業"
-    b: "企業需要建立機制來管理大量非 IT 人員建構的應用，避免資安漏洞與資料孤島"
-    c: "公民開發者太多會導致伺服器負載過重"
-    d: "Gartner 的預測不準確，實際數量不會達到 4 倍"
-  correct: "b"
-  explanation:
-    why_correct: "當非 IT 人員大量建構應用時，IT 部門面臨的核心挑戰是如何治理這些應用——包括資安管理、資料一致性、避免資料孤島、以及確保合規性。這是影子 IT 風險的直接延伸。"
-    why_not_a: "公民開發者處理的是簡單的業務應用，複雜系統仍需專業工程師。NC/LC 是補充而非取代專業開發。說「全部失業」過於極端。"
-    why_not_c: "伺服器負載是技術運維問題，不是公民開發者增加帶來的核心挑戰。核心挑戰在於治理和管理層面。"
-    why_not_d: "質疑數據來源不是分析題的合理回答方向。題目要求分析趨勢帶來的挑戰，而非質疑趨勢是否真實。"
-  keywords:
-    - "公民開發者"
-    - "IT治理"
-    - "Gartner"
-  exam_trap: false
+  - id: L12101-Q19
+    stem: "相較於傳統軟體開發，No Code / Low Code 在哪個維度的表現最差？"
+    options:
+      a: "開發速度"
+      b: "維護成本"
+      c: "彈性（Flexibility）與客製化程度"
+      d: "技術門檻"
+    answer: "c"
+    explanation: "NC/LC 在彈性與客製化程度上不如傳統開發——NC/LC 受限於平台功能，無法完全自由地實作任意邏輯。傳統開發可完全客製化，這是它的核心優勢。NC/LC 在速度（最快）、門檻（最低）、維護成本（最低）上都優於傳統開發。"
+    difficulty: 3
+    tags: ["nc-lc-vs-traditional", "comparison", "flexibility"]
 
-- id: "L12101-Q19"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "某科技公司面臨以下挑戰：(1) 業務團隊需要快速建立客戶管理工具，不想等 IT 排程；(2) IT 部門擔心業務自行開發會產生影子 IT 風險；(3) 未來可能需要串接現有 ERP 系統的 API。考量以上三個條件，以下哪個策略最適合？"
-  options:
-    a: "全面導入 No Code 平台（如 Airtable），讓業務團隊自由建構所有工具，IT 不介入"
-    b: "由 IT 部門用傳統程式碼開發客戶管理系統，業務團隊提需求排隊等候"
-    c: "導入 Low Code 平台（如 Power Apps），由 IT 建立治理框架與 API 整合層，業務團隊在框架內用視覺化方式建構前端工具"
-    d: "先用 No Code 快速上線，等業務量成長後再全部用傳統程式碼重寫"
-  correct: "c"
-  explanation:
-    why_correct: "Low Code 平台兼顧三個限制：業務團隊可透過視覺化方式快速建構工具（解決限制 1），IT 建立治理框架管控開發行為（解決限制 2），平台原生支援 API 串接 ERP（解決限制 3）。這是唯一同時滿足速度、治理、整合三個面向的策略。"
-    why_not_a: "純 No Code 讓業務自由建構可滿足速度需求（限制 1），但 IT 不介入會直接加劇影子 IT 風險（違反限制 2），且 No Code 的 API 深度整合能力有限（無法滿足限制 3）。"
-    why_not_b: "傳統開發可確保品質和整合性，但業務團隊必須排隊等候 IT 排程，完全違反「不想等 IT 排程」的需求（違反限制 1），且沒有利用 NC/LC 賦能業務團隊。"
-    why_not_d: "「先上線再重寫」策略看似務實，但忽略了影子 IT 風險（限制 2）——No Code 階段沒有治理機制，且全部重寫的成本和風險極高，不如一開始就用 Low Code 兼顧三個需求。"
-  keywords:
-    - "NC/LC策略選擇"
-    - "影子IT"
-    - "API整合"
-    - "多條件評估"
-  exam_trap: false
+  - id: L12101-Q20
+    stem: "某企業 IT 部門用 Power Apps 開發了一個採購審批 App，業務人員可在手機上提交採購申請。這個場景最符合以下哪個概念？"
+    options:
+      a: "No Code 開發，因為業務人員不需要寫程式就能提交申請"
+      b: "影子 IT，因為業務人員繞過了傳統的採購流程"
+      c: "Low Code 開發，IT 部門用 LC 平台建構企業應用，賦能業務流程"
+      d: "AutoML 應用，因為系統會自動批准合適的採購申請"
+    answer: "c"
+    explanation: "Power Apps 是 Low Code 平台，IT 部門用它建構企業應用屬於 LC 開發。業務人員使用該 App 不代表開發方式是 NC（選項 a 混淆了使用者和開發者的角色）；IT 主導開發且有完整治理，不是影子 IT（選項 b）；AutoML 與採購審批無關（選項 d）。"
+    difficulty: 3
+    tags: ["low-code", "power-apps", "scenario"]
 
-- id: "L12101-Q20"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 4
-  question: "從市場發展趨勢分析，Gartner 預測 2026 年低代碼市場達 445 億美元（CAGR 19%），而 Forrester 預測 LC/NC + DPA 市場 2028 年可達 500 億美元。這兩個預測之間的差異最可能反映什麼？"
-  options:
-    a: "Gartner 和 Forrester 的數據完全矛盾，兩者不可能同時正確"
-    b: "Forrester 的預測範圍更廣（納入 DPA 數位流程自動化），且預測時間更遠，所以金額更高"
-    c: "低代碼市場在 2026 到 2028 年之間幾乎沒有成長"
-    d: "Forrester 的預測一定比 Gartner 更準確"
-  correct: "b"
-  explanation:
-    why_correct: "Gartner 聚焦低代碼市場（$44.5B, 2026），Forrester 則將 LC/NC 與 DPA（Digital Process Automation）合併計算且預測到 2028 年（$50B）。涵蓋範圍和時間點不同，導致金額差異，兩者並不矛盾。"
-    why_not_a: "兩個預測並不矛盾，它們定義的市場範圍和時間點不同。直接比較數字而忽略定義差異是常見的分析錯誤。"
-    why_not_c: "從 $44.5B（2026）到 $50B（2028），即使考慮 Forrester 範圍更廣，市場仍在高速成長（CAGR 19%）。「幾乎沒有成長」的判斷是錯誤的。"
-    why_not_d: "不能僅因為金額不同就判斷哪個更準確。兩個研究機構的方法論和市場定義不同，沒有單一的「更準確」。"
-  keywords:
-    - "Gartner"
-    - "Forrester"
-    - "市場趨勢"
-    - "LCAP"
-  exam_trap: false
+  # ─────────────────────────────────────────
+  # D4 — Analyze（分析）× 3
+  # ─────────────────────────────────────────
 
-# ============================================================
-# Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造)
-# ============================================================
+  - id: L12101-Q21
+    stem: "比較 No Code 平台 Bubble 與 Low Code 平台 OutSystems，下列分析哪個最準確？"
+    options:
+      a: "兩者都是 No Code 平台，差別在 Bubble 面向新創、OutSystems 面向企業"
+      b: "Bubble 適合快速建構 Web App MVP，OutSystems 強調企業級安全性、擴展性與 IT 治理"
+      c: "OutSystems 是 No Code 平台，Bubble 是 Low Code 平台"
+      d: "Bubble 和 OutSystems 目標用戶相同，差異只在定價模式"
+    answer: "b"
+    explanation: "Bubble（No Code）定位於快速建構 Web App 和 MVP；OutSystems（Low Code）定位於企業級應用，強調安全性、擴展性和 IT 治理。選項 a 錯誤分類 OutSystems；選項 c 把兩者搞反了；選項 d 忽視了目標用戶的本質差異。"
+    difficulty: 4
+    tags: ["bubble", "outsystems", "platform-comparison", "analysis"]
 
-- id: "L12101-Q21"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "某中型零售企業的 CTO 面臨以下三個限制：(1) IT 部門只有 3 名工程師，人力有限；(2) 業務部門有 20 多位店長需要自行管理各分店庫存；(3) 需要與現有 ERP 系統進行 API 整合。在兼顧開發效率、業務自主性與系統整合能力的前提下，最佳策略為何？"
-  options:
-    a: "全部使用 No Code 平台，讓 20 位店長自行建構所有應用"
-    b: "全部由 IT 部門使用傳統程式碼開發，確保品質與安全"
-    c: "IT 部門用 Low Code 平台建構核心系統並完成 ERP 整合，店長用 No Code 工具管理日常庫存作業"
-    d: "外包給軟體公司，完全不使用 NC/LC 工具"
-  correct: "c"
-  explanation:
-    why_correct: "這是 NC + LC 混合策略：Low Code 由 IT 處理需要 API 整合的核心系統（解決限制 3），No Code 讓店長自主管理日常作業（解決限制 2），3 名工程師只需維護核心系統（解決限制 1）。三個限制全部兼顧。"
-    why_not_a: "純 No Code 無法滿足 ERP API 整合需求（限制 3），且 20 位非技術人員自建所有系統會引發嚴重的影子 IT 風險和資料一致性問題。"
-    why_not_b: "只有 3 名工程師（限制 1），無法同時開發核心系統又為 20 多間分店客製庫存工具，人力嚴重不足。且業務人員被動等待 IT 排程，喪失自主性（違反限制 2）。"
-    why_not_d: "外包耗時且成本高，不能快速回應業務需求變化。且題目考的是 NC/LC 策略選擇，外包不在 NC/LC 範疇內。"
-  keywords:
-    - "NC/LC混合策略"
-    - "企業應用"
-    - "情境評估"
-  exam_trap: false
+  - id: L12101-Q22
+    stem: "Gartner 預測公民開發者將達到專業工程師的 4 倍。從企業 IT 治理角度分析，這個趨勢帶來的最核心挑戰為何？"
+    options:
+      a: "伺服器負載會因大量公民開發者的應用而過重"
+      b: "企業需要建立機制管理大量非 IT 人員建構的應用，避免資安漏洞與資料孤島"
+      c: "Gartner 的預測不準確，數量不會達到 4 倍"
+      d: "專業工程師會全部被公民開發者取代而失業"
+    answer: "b"
+    explanation: "公民開發者大量增加的核心治理挑戰是：IT 部門如何管理散佈在各業務單位的應用，確保資安、資料一致性和合規性，避免影子 IT 擴散。伺服器負載是技術運維問題，不是核心挑戰（選項 a）；專業工程師不會被取代（選項 d）；質疑 Gartner 數據不是分析題方向（選項 c）。"
+    difficulty: 4
+    tags: ["citizen-developer", "it-governance", "analysis"]
 
-- id: "L12101-Q22"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "某大學資訊管理系的畢業專題中，學生團隊需要在 8 週內完成一個「校園二手交易平台」Web App，功能包含商品刊登、搜尋、即時聊天、金流串接。團隊成員有 1 名會寫前端 JavaScript、3 名只懂商業邏輯。以下哪個開發策略的風險最低、最可能按時完成？"
-  options:
-    a: "全部使用 Bubble（No Code），因為可以最快上手"
-    b: "全部使用 React + Firebase，由那位前端工程師帶領開發"
-    c: "使用 Mendix 企業級平台，確保系統擴展性"
-    d: "使用 Bubble 建構主要介面和商品管理，將即時聊天和金流整合交由會寫 JavaScript 的成員用 API 串接"
-  correct: "d"
-  explanation:
-    why_correct: "混合策略降低了最大風險：Bubble（NC）讓 3 名非技術成員能貢獻主要功能開發（商品刊登、搜尋），即時聊天和金流等需要 API 串接的複雜功能由具備程式能力的成員處理。分工合理、風險分散、最可能按時完成。"
-    why_not_a: "Bubble 雖然上手快，但即時聊天和金流串接涉及複雜的 API 整合，純 No Code 的客製化能力可能不足，遇到瓶頸時團隊中無人能解決技術問題。"
-    why_not_b: "只有 1 人會寫程式，其他 3 人無法有效貢獻程式開發。一人扛全部開發工作，8 週內完成四項功能的風險極高，且是單點故障。"
-    why_not_c: "Mendix 是企業級平台，學習曲線較高，8 週的畢專時程中花大量時間學新平台不划算。擴展性對畢專來說也非首要考量。"
-  keywords:
-    - "Bubble"
-    - "混合策略"
-    - "風險評估"
-    - "專題開發"
-  exam_trap: false
+  - id: L12101-Q23
+    stem: "某科技公司業務團隊需要快速建立客戶管理工具（不想等 IT 排程），IT 部門擔心影子 IT 風險，且未來可能需要串接現有 ERP 的 API。考量這三個條件，哪個策略最適合？"
+    options:
+      a: "由 IT 部門用傳統程式碼開發，業務提需求排隊等候"
+      b: "全面導入 No Code 平台，讓業務團隊自由建構所有工具，IT 不介入"
+      c: "導入 Low Code 平台，IT 建立治理框架與 API 整合層，業務在框架內視覺化建構工具"
+      d: "先用 No Code 快速上線，等業務量成長後全部用傳統程式碼重寫"
+    answer: "c"
+    explanation: "Low Code 同時解決三個問題：業務可視覺化快速建構（解決條件 1）；IT 治理框架管控行為（解決條件 2）；平台原生支援 API 串接 ERP（解決條件 3）。傳統開發太慢（選項 a）；純 NC 無法深度整合 API（選項 b）；先 NC 再重寫成本極高（選項 d）。"
+    difficulty: 4
+    tags: ["nc-lc-strategy", "shadow-it", "api", "multi-condition"]
 
-- id: "L12101-Q23"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "某金融科技公司正在評估導入 NC/LC 工具。以下四位主管各自提出一個觀點，哪位主管的觀點最具有分析深度且最正確？"
-  options:
-    a: "行銷長：『No Code 和 Low Code 沒有差別，我們只要選最便宜的就好。』"
-    b: "技術長：『我們應該全面用 Low Code 開發所有系統，不需要任何治理規範，因為 Low Code 本身就比傳統開發安全。』"
-    c: "營運長：『我們應該讓業務團隊用 No Code 處理日常自動化，IT 團隊用 Low Code 建構需要合規審計的核心系統，並建立治理機制管理公民開發者產出的應用。』"
-    d: "財務長：『導入 NC/LC 的唯一好處就是省錢，沒有其他策略價值。』"
-  correct: "c"
-  explanation:
-    why_correct: "營運長的觀點涵蓋了 NC/LC 的核心面向：NC vs LC 的適用場景區分（日常自動化 vs 核心系統）、合規需求對工具選擇的影響、以及公民開發者的治理機制。這是唯一同時考慮技術、業務、治理三個維度的觀點。"
-    why_not_a: "行銷長忽略了 NC 和 LC 的本質差異（編碼需求、目標用戶、客製化程度），只用價格做決策是過度簡化。不同場景需要不同工具。"
-    why_not_b: "技術長的前半段「用 Low Code 開發」方向正確，但「不需要任何治理規範」是嚴重疏漏。金融科技業有合規要求，即使用 Low Code 也需要建立治理機制來管理應用品質、資安、資料存取權限。工具選對但缺治理 = 半對半錯。"
-    why_not_d: "NC/LC 的價值不僅在於省錢，還包括加速開發（開發時間縮短至傳統方式的 10%）、賦能業務團隊、降低 IT 瓶頸等多重策略價值。"
-  keywords:
-    - "NC/LC策略"
-    - "IT治理"
-    - "公民開發者"
-    - "綜合評估"
-  exam_trap: false
+  # ─────────────────────────────────────────
+  # D5 — Evaluate（評鑑）× 2
+  # ─────────────────────────────────────────
 
-- id: "L12101-Q24"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "Forrester 報告指出 87% 的企業開發者已在部分工作中使用低代碼平台，且開發時間可縮短至傳統方式的 10%。然而某企業導入 Low Code 平台一年後，開發效率僅提升 20%。下列哪個原因最可能解釋這個落差？"
-  options:
-    a: "效率提升高度依賴場景匹配：該企業可能將 LC 套用於不適合的複雜系統開發，而非 LC 最擅長的標準化業務應用快速建構"
-    b: "該企業選擇了 No Code 工具而非 Low Code 工具，導致客製化不足"
-    c: "該企業的開發者對 Low Code 平台的培訓不足，仍然用傳統寫程式的思維操作 LC 工具"
-    d: "該企業的 IT 治理流程過於繁瑣，每個 LC 應用都需要經過與傳統開發相同的審批週期"
-  correct: "a"
-  explanation:
-    why_correct: "「縮短 90%」的效率數據是在最適場景（標準化業務應用、表單流程等）下的表現。如果企業將 LC 用於高度客製化或架構複雜的系統，反而可能因為平台限制而降低效率。工具選對場景才能發揮最大價值。這是「場景匹配」的核心概念。"
-    why_not_b: "題目明確說該企業導入的是 Low Code 平台，不是 No Code。即使真的選錯工具類型，核心問題仍是場景匹配——什麼樣的任務適合什麼層級的工具。"
-    why_not_c: "培訓不足確實可能影響效率，但這只是導入執行層面的問題。即使培訓充分，將 LC 用於錯誤場景仍然無法達到 90% 的效率提升。場景匹配才是根因，培訓是次因。"
-    why_not_d: "治理流程確實可能拖慢速度，但 Forrester 的效率數據指的是「開發時間」而非「審批時間」。即使審批快速，用 LC 開發不適合的複雜系統本身就不會快。治理是組織問題，不是效率落差的主因。"
-  keywords:
-    - "效率評估"
-    - "場景匹配"
-    - "Low Code"
-    - "Forrester"
-  exam_trap: false
+  - id: L12101-Q24
+    stem: "某中型零售企業 CTO 面臨：① IT 只有 3 名工程師；② 20 多位店長需要自行管理分店庫存；③ 需要與現有 ERP 系統 API 整合。兼顧三個限制的最佳策略為何？"
+    options:
+      a: "全部由 IT 用傳統程式碼開發，確保品質"
+      b: "外包給軟體公司，不使用 NC/LC 工具"
+      c: "IT 用 Low Code 建構核心系統並完成 ERP 整合，店長用 No Code 工具管理日常庫存作業"
+      d: "全部使用 No Code，讓 20 位店長自行建構所有應用"
+    answer: "c"
+    explanation: "NC + LC 混合策略同時解決三個限制：Low Code 由 IT 處理 API 整合的核心系統（限制 ③），No Code 讓店長自主管理日常作業（限制 ②），3 名工程師只需維護核心系統（限制 ①）。只有 3 人的 IT 無法用傳統開發服務 20+ 分店（否定選項 a）；純 NC 無法滿足 ERP API 整合（否定選項 d）。"
+    difficulty: 5
+    tags: ["nc-lc-hybrid", "enterprise", "multi-condition", "evaluate"]
 
-- id: "L12101-Q25"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 5
-  question: "隨著 AI 技術融入 NC/LC 平台（如自然語言轉應用、AI 輔助邏輯生成），有人認為「未來 No Code 和 Low Code 的界線將消失」。以下哪個評估最具說服力？"
-  options:
-    a: "同意——AI 讓所有人都能用自然語言開發，No Code 和 Low Code 將完全合併為一種工具"
-    b: "不同意——No Code 和 Low Code 永遠不可能有任何交集"
-    c: "界線會模糊但不會消失：AI 降低了 Low Code 的程式門檻，同時提升了 No Code 的客製化能力，但企業級治理、API 深度整合等需求仍會區分兩類工具的定位"
-    d: "這個問題不重要，企業不需要區分 NC 和 LC"
-  correct: "c"
-  explanation:
-    why_correct: "AI 確實在模糊 NC/LC 的界線（如 AI 生成程式碼讓 NC 用戶也能實現複雜功能），但企業級需求（治理、合規、深度整合、擴展性）仍需要不同層級的工具支援。界線會模糊但底層定位差異短期不會消失。"
-    why_not_a: "「完全合併」過於絕對。即使 AI 降低了所有門檻，企業治理需求、系統架構複雜度、合規要求等因素仍會讓市場維持不同層級的工具。"
-    why_not_b: "「永遠不可能有交集」也過於絕對。兩者已經有交集（許多 LC 平台也提供 NC 模式），且 AI 正在加速融合趨勢。"
-    why_not_d: "區分 NC 和 LC 對企業的工具選型、人才配置和治理策略都有實際影響。迴避問題不是有效的評估。"
-  keywords:
-    - "AI融合"
-    - "NC/LC趨勢"
-    - "市場演進"
-    - "綜合評鑑"
-  exam_trap: false
-
-# ============================================================
-# Additional coverage questions (trap concepts)
-# ============================================================
-
-- id: "L12101-Q26"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 2
-  question: "有人說：「No Code 平台背後完全沒有程式碼在運行，所以叫 No Code。」這個說法正確嗎？"
-  options:
-    a: "不正確。No Code 平台其實需要使用者撰寫少量 Python 腳本"
-    b: "正確。No Code 平台完全不涉及任何程式碼，從前端到後端都是純圖形化運算"
-    c: "正確。No Code 的「No」就是指系統內部也沒有程式碼"
-    d: "不正確。使用者不需要撰寫程式碼，但平台背後仍會自動生成程式碼來執行應用邏輯"
-  correct: "d"
-  explanation:
-    why_correct: "「No Code」中的「No」是指使用者不需要撰寫程式碼，而非平台內部沒有程式碼。No Code 平台背後仍會將使用者的拖放操作和視覺化配置轉換為程式碼來執行。這是常見的誤解，也是考試陷阱。"
-    why_not_a: "No Code 平台不需要使用者撰寫任何程式碼（包括 Python），這是 No Code 的核心定義。需要撰寫少量程式碼的是 Low Code。"
-    why_not_b: "「純圖形化運算」不存在——所有軟體最終都需要程式碼執行。No Code 平台只是將程式碼的撰寫過程隱藏在視覺化介面之後。"
-    why_not_c: "這個選項的解讀是錯誤的。No Code 的命名重點是「使用者端」不需要寫程式碼，不代表系統內部沒有程式碼在運行。"
-  keywords:
-    - "No Code"
-    - "背後有程式碼"
-    - "常見誤解"
-  exam_trap: true
-
-- id: "L12101-Q27"
-  topic_code: "L12101"
-  item_code: "L12101"
-  difficulty: 3
-  question: "小華說：「Excel 有拖放功能和圖表視覺化，Photoshop 也有圖形介面操作，所以它們都算是 No Code/Low Code 工具。」這個推論有什麼問題？"
-  options:
-    a: "NC/LC 工具的定義是「用視覺化方式建構軟體應用」，而 Excel 和 Photoshop 雖有視覺化操作，但它們的目的不是建構軟體應用程式"
-    b: "Excel 確實是 No Code 工具，但 Photoshop 不是"
-    c: "只要有拖放介面就算 NC/LC 工具，所以小華的說法完全正確"
-    d: "Excel 和 Photoshop 都屬於 Low Code 工具，因為它們支援巨集和腳本擴展"
-  correct: "a"
-  explanation:
-    why_correct: "NC/LC 的關鍵定義是「用視覺化方式建構軟體應用程式」，不是「有視覺化介面的軟體」。Excel 是試算表工具、Photoshop 是影像編輯工具，雖然都有拖放和圖形介面，但它們的目的不是讓使用者建構應用程式。不是所有視覺化工具都是 NC/LC。"
-    why_not_b: "Excel 有視覺化操作但它的核心功能是試算表運算，不是建構軟體應用。不能因為 Airtable（NC）也長得像試算表就把 Excel 也歸為 NC。"
-    why_not_c: "「有拖放介面就算 NC/LC」是過度簡化的推論。NC/LC 的定義核心是「建構軟體應用」，不是「有拖放功能」。很多非 NC/LC 工具都有拖放介面。"
-    why_not_d: "支援巨集和腳本不等於是 Low Code 平台。Low Code 平台的核心是以視覺化方式開發應用程式並支援少量程式碼擴展，而非單純「有腳本功能的軟體」。"
-  keywords:
-    - "NC/LC定義"
-    - "視覺化工具"
-    - "常見誤解"
-    - "Excel"
-  exam_trap: true
+  - id: L12101-Q25
+    stem: "以下四位主管各自提出一個關於 NC/LC 導入的觀點，哪位主管的觀點最完整且正確？"
+    options:
+      a: "行銷長：『No Code 和 Low Code 沒有差別，我們只要選最便宜的就好。』"
+      b: "財務長：『導入 NC/LC 的唯一好處就是省錢，沒有其他策略價值。』"
+      c: "技術長：『我們應該全面用 Low Code 開發所有系統，不需要任何治理規範，因為 Low Code 本身比傳統開發安全。』"
+      d: "營運長：『讓業務團隊用 No Code 處理日常自動化，IT 團隊用 Low Code 建構需要合規審計的核心系統，並建立治理機制管理公民開發者產出的應用。』"
+    answer: "d"
+    explanation: "營運長的觀點涵蓋了核心面向：NC vs LC 的適用場景區分、合規需求對工具選擇的影響、以及公民開發者的治理機制，是唯一同時考慮技術、業務、治理三個維度的觀點。行銷長忽略 NC/LC 本質差異（選項 a）；財務長低估了 NC/LC 的速度和賦能價值（選項 b）；技術長「不需要治理規範」是嚴重疏漏（選項 c）。"
+    difficulty: 5
+    tags: ["nc-lc-strategy", "it-governance", "citizen-developer", "evaluate"]

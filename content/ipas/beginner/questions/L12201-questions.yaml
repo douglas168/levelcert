@@ -1,922 +1,725 @@
-# L12201 — 生成式AI應用領域與常見工具
-# Question pool for adaptive testing
-# Generated: 2026-04-16
-# Total: 40 questions
-# Answer distribution: a=10, b=10, c=10, d=10
-# Difficulty distribution: D1=8, D2=8, D3=10, D4=9, D5=5
-# Reviewed: 2026-04-16 — TAIDE attribution, stale facts, difficulty recal, distractors
+topic: L12201
+topic_name: 生成式AI應用領域與常見工具
+level: beginner
+questions:
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+  # ============================================================
+  # D1 — 記憶（Remember）× 8
+  # ============================================================
 
-- id: "L12201-Q01"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "Midjourney 屬於生成式 AI（Generative AI）的哪個應用領域？"
-  options:
-    a: "文本生成（Text Generation）"
-    b: "圖像生成（Image Generation）"
-    c: "程式碼生成（Code Generation）"
-    d: "聲音生成（Audio Generation）"
-  correct: "b"
-  explanation:
-    why_correct: "Midjourney 是專門的圖像生成工具，使用者透過文字提示詞（prompt）生成高品質圖像。它是目前最知名的 AI 圖像生成平台之一。"
-    why_not_a: "文本生成工具的代表是 ChatGPT、Gemini 等，Midjourney 不處理文字內容生成。"
-    why_not_c: "程式碼生成的代表工具是 GitHub Copilot、Cursor 等，Midjourney 與程式碼無關。"
-    why_not_d: "聲音生成的代表工具是 ElevenLabs、Azure AI Speech 等，Midjourney 專注於圖像。"
-  keywords:
-    - "Midjourney"
-    - "圖像生成"
-    - "Image Generation"
-  exam_trap: false
+  - id: L12201-Q01
+    difficulty: D1
+    question: "Midjourney 屬於生成式AI的哪個應用領域？"
+    options:
+      a: "文字生成（Text Generation）"
+      b: "圖像生成（Image Generation）"
+      c: "程式碼生成（Code Generation）"
+      d: "聲音生成（Audio Generation）"
+    correct: b
+    explanation:
+      why_correct: "Midjourney 是專門的圖像生成工具，使用者透過文字提示詞生成高品質圖像。"
+      why_not_a: "文字生成的代表是 ChatGPT、Gemini，Midjourney 不處理文字內容。"
+      why_not_c: "程式碼生成的代表是 GitHub Copilot、Cursor，Midjourney 與程式碼無關。"
+      why_not_d: "聲音生成的代表是 ElevenLabs（TTS）、Whisper（STT），Midjourney 專注圖像。"
+    keywords:
+      - Midjourney
+      - 圖像生成
+    exam_trap: false
 
-- id: "L12201-Q02"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "ElevenLabs 主要的 AI 應用定位為下列何者？"
-  options:
-    a: "語音合成與聲音生成（Text-to-Speech）"
-    b: "圖像風格轉換（Image Style Transfer）"
-    c: "文本摘要生成（Text Summarization）"
-    d: "程式碼自動補全（Code Completion）"
-  correct: "a"
-  explanation:
-    why_correct: "ElevenLabs 是語音 AI 領域的領導品牌，其 TTS（Text-to-Speech）技術 MOS 評分達 4.14，為業界領先。主要應用為語音合成、聲音克隆等。"
-    why_not_b: "圖像風格轉換屬於圖像生成領域，與 ElevenLabs 的語音技術無關。"
-    why_not_c: "文本摘要生成是 ChatGPT、Gemini 等文本生成工具的功能，非 ElevenLabs 的定位。"
-    why_not_d: "程式碼自動補全是 GitHub Copilot、Cursor 等工具的功能。"
-  keywords:
-    - "ElevenLabs"
-    - "語音合成"
-    - "Text-to-Speech"
-  exam_trap: false
+  - id: L12201-Q02
+    difficulty: D1
+    question: "ElevenLabs 的主要AI應用定位為下列何者？"
+    options:
+      a: "語音合成（Text-to-Speech，TTS）"
+      b: "圖像風格轉換"
+      c: "文字摘要生成"
+      d: "程式碼自動補全"
+    correct: a
+    explanation:
+      why_correct: "ElevenLabs 是語音合成（TTS）領域的領導品牌，提供高品質的文字轉語音服務。"
+      why_not_b: "圖像風格轉換屬於圖像生成領域，與 ElevenLabs 的語音技術無關。"
+      why_not_c: "文字摘要是 ChatGPT 等文字生成工具的功能。"
+      why_not_d: "程式碼補全是 GitHub Copilot 等工具的功能。"
+    keywords:
+      - ElevenLabs
+      - TTS
+      - 語音合成
+    exam_trap: false
 
-- id: "L12201-Q03"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "TAIDE 是由台灣哪個政府機關主導開發的大型語言模型（LLM）？"
-  options:
-    a: "經濟部"
-    b: "教育部"
-    c: "國家科學及技術委員會（國科會）"
-    d: "數位發展部"
-  correct: "c"
-  explanation:
-    why_correct: "TAIDE（Trustworthy AI Dialogue Engine）由國家科學及技術委員會（國科會, NSTC）主導開發，目的是建立能反映台灣本地語言與文化的可信賴 AI 對話引擎。"
-    why_not_a: "經濟部負責產業政策，iPAS 能力鑑定由經濟部產業發展署推動，但 TAIDE 非其專案。"
-    why_not_b: "教育部負責教育政策，與 TAIDE 開發無關。"
-    why_not_d: "數位發展部負責數位治理與資通安全等政策，但 TAIDE 是國科會主導的專案。"
-  keywords:
-    - "TAIDE"
-    - "國科會"
-    - "台灣 LLM"
-  exam_trap: false
+  - id: L12201-Q03
+    difficulty: D1
+    question: "TAIDE 是由台灣哪個政府機關主導開發的大型語言模型？"
+    options:
+      a: "經濟部"
+      b: "教育部"
+      c: "國家科學及技術委員會（國科會）"
+      d: "數位發展部"
+    correct: c
+    explanation:
+      why_correct: "TAIDE（Trustworthy AI Dialogue Engine）由國科會（NSTC）主導開發，目的是建立台灣本土可信賴繁體中文AI對話引擎。"
+      why_not_a: "經濟部負責產業政策，iPAS 鑑定由經濟部產業發展署推動，但 TAIDE 非其專案。"
+      why_not_b: "教育部負責教育政策，與 TAIDE 開發無關。"
+      why_not_d: "數位發展部負責數位治理，但 TAIDE 是國科會主導的研發專案。"
+    keywords:
+      - TAIDE
+      - 國科會
+      - 台灣LLM
+    exam_trap: false
 
-- id: "L12201-Q04"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "OpenAI API 的計費方式為下列何者？"
-  options:
-    a: "月費訂閱制"
-    b: "一次性買斷制"
-    c: "按 token 用量計費"
-    d: "免費開放使用"
-  correct: "c"
-  explanation:
-    why_correct: "OpenAI API 採用按 token 計費模式，依模型等級不同費率各異（如 input/output tokens 分開計價）。開發者依照實際用量付費，不需月費訂閱。"
-    why_not_a: "月費訂閱制是 ChatGPT 產品的計費方式（如 Plus $20/月），API 則是按用量計費，兩者獨立。"
-    why_not_b: "AI API 服務幾乎都採用持續性計費模式（訂閱或用量制），不會一次買斷。"
-    why_not_d: "OpenAI API 有免費額度供試用，但正式使用需付費，並非完全免費。"
-  keywords:
-    - "OpenAI API"
-    - "token 計費"
-    - "API Pricing"
-  exam_trap: true
+  - id: L12201-Q04
+    difficulty: D1
+    question: "OpenAI API 的計費方式為下列何者？"
+    options:
+      a: "按 Token 用量計費"
+      b: "一次性買斷制"
+      c: "月費訂閱制"
+      d: "完全免費開放"
+    correct: a
+    explanation:
+      why_correct: "OpenAI API 採用按 Token 計費模式，依模型等級不同費率各異，開發者依實際用量付費。"
+      why_not_b: "AI API 服務採持續性計費，不會一次買斷。"
+      why_not_c: "月費訂閱制是 ChatGPT 產品的計費方式，API 則按用量計費，兩者獨立。"
+      why_not_d: "OpenAI API 有初始免費額度，但正式使用需付費，並非完全免費。"
+    keywords:
+      - OpenAI API
+      - Token 計費
+    exam_trap: true
 
-- id: "L12201-Q05"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "GitHub Copilot 在 IDE 中提供的核心功能為下列何者？"
-  options:
-    a: "建置低程式碼聊天機器人"
-    b: "生成照片級真實感圖片"
-    c: "自動化企業工作流程"
-    d: "程式碼行內自動補全與 AI 對話"
-  correct: "d"
-  explanation:
-    why_correct: "GitHub Copilot 整合於 VS Code、JetBrains 等 IDE，提供行內自動補全（inline completion）和 AI chat 功能，協助開發者更快撰寫程式碼。"
-    why_not_a: "建置低程式碼聊天機器人是 Copilot Studio 的功能，非 GitHub Copilot。兩者名稱相似但定位完全不同。"
-    why_not_b: "生成照片級真實感圖片是 Midjourney 等圖像生成工具的功能。"
-    why_not_c: "自動化企業工作流程屬於 Power Automate 或 Copilot Studio 的範疇。"
-  keywords:
-    - "GitHub Copilot"
-    - "程式碼補全"
-    - "Code Completion"
-  exam_trap: false
+  - id: L12201-Q05
+    difficulty: D1
+    question: "LLaMA（Large Language Model Meta AI）大型語言模型是由哪家公司開發？"
+    options:
+      a: "OpenAI"
+      b: "Google"
+      c: "Meta"
+      d: "Microsoft"
+    correct: c
+    explanation:
+      why_correct: "LLaMA 是 Meta（Facebook 母公司）開發的開源大型語言模型，可免費下載並在本地部署。"
+      why_not_a: "OpenAI 開發的是 GPT 系列（ChatGPT 背後的模型），屬閉源模型。"
+      why_not_b: "Google 開發的是 Gemini 系列。"
+      why_not_d: "Microsoft 開發的是 Copilot 系列工具，使用 OpenAI 模型。"
+    keywords:
+      - LLaMA
+      - Meta
+      - 開源LLM
+    exam_trap: true
 
-- id: "L12201-Q06"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "Suno AI 主要的生成式 AI 應用為下列何者？"
-  options:
-    a: "文本翻譯"
-    b: "音樂創作"
-    c: "3D 模型生成"
-    d: "影片剪輯"
-  correct: "b"
-  explanation:
-    why_correct: "Suno AI 是 AI 音樂創作平台，使用者可透過文字描述生成完整的音樂作品，屬於聲音生成領域。iPAS 考古題曾出現此工具。"
-    why_not_a: "文本翻譯是 ChatGPT、Google Translate 等工具的功能，非 Suno AI 的定位。"
-    why_not_c: "3D 模型生成屬於不同的 AI 應用領域，Suno AI 專注於音樂。"
-    why_not_d: "影片剪輯屬於影片處理領域，與 Suno AI 的音樂生成無關。"
-  keywords:
-    - "Suno AI"
-    - "音樂生成"
-    - "Audio Generation"
-  exam_trap: false
+  - id: L12201-Q06
+    difficulty: D1
+    question: "Suno 主要的生成式AI應用為下列何者？"
+    options:
+      a: "文字翻譯"
+      b: "AI 音樂創作"
+      c: "3D模型生成"
+      d: "影片剪輯"
+    correct: b
+    explanation:
+      why_correct: "Suno 是 AI 音樂創作平台，使用者可透過文字描述生成完整音樂作品，屬聲音生成領域。"
+      why_not_a: "文字翻譯是 ChatGPT、DeepL 等工具的功能。"
+      why_not_c: "3D 模型生成屬不同的 AI 應用領域。"
+      why_not_d: "影片剪輯屬影片處理領域，Suno 專注音樂生成。"
+    keywords:
+      - Suno
+      - 音樂生成
+      - 聲音生成
+    exam_trap: false
 
-- id: "L12201-Q07"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "Copilot Studio 屬於 Microsoft 哪個生態系的產品？"
-  options:
-    a: "Microsoft 365 / Power Platform 生態系"
-    b: "GitHub 開發者生態系"
-    c: "Azure AI 開發者雲端生態系"
-    d: "Azure DevOps 生態系"
-  correct: "a"
-  explanation:
-    why_correct: "Copilot Studio 屬於 Microsoft 365 / Power Platform 生態系，定位為低程式碼 AI Agent 建置平台，用於建立聊天機器人和自動化流程。"
-    why_not_b: "GitHub 開發者生態系的產品是 GitHub Copilot（程式碼補全），非 Copilot Studio。名稱易混淆是常見考試陷阱。"
-    why_not_c: "Azure AI 是 Microsoft 的雲端 AI 服務平台（如 Azure OpenAI Service），但 Copilot Studio 屬於 Microsoft 365 / Power Platform 產品線，兩者定位不同。"
-    why_not_d: "Azure DevOps 是開發營運工具，Copilot Studio 定位為低程式碼平台，兩者不同。"
-  keywords:
-    - "Copilot Studio"
-    - "Power Platform"
-    - "Low Code"
-  exam_trap: true
+  - id: L12201-Q07
+    difficulty: D1
+    question: "Stable Diffusion 是一種什麼類型的AI工具？"
+    options:
+      a: "閉源付費的圖像生成工具"
+      b: "開源可免費本地部署的圖像生成模型"
+      c: "語音合成工具"
+      d: "程式碼補全工具"
+    correct: b
+    explanation:
+      why_correct: "Stable Diffusion 是 Stability AI 開發的開源圖像生成模型，可免費下載在本地電腦運行，是開源圖像生成的代表。"
+      why_not_a: "Midjourney 才是閉源付費圖像工具；Stable Diffusion 是開源免費的。"
+      why_not_c: "ElevenLabs、Whisper 才是聲音相關工具。"
+      why_not_d: "GitHub Copilot、Cursor 才是程式碼補全工具。"
+    keywords:
+      - Stable Diffusion
+      - 開源
+      - 圖像生成
+    exam_trap: false
 
-- id: "L12201-Q08"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 1
-  question: "生成式 AI 的三大應用領域中，下列何者不屬於其中之一？"
-  options:
-    a: "文本生成（Text Generation）"
-    b: "圖像生成（Image Generation）"
-    c: "影片生成（Video Generation）"
-    d: "聲音生成（Audio Generation）"
-  correct: "c"
-  explanation:
-    why_correct: "生成式 AI 三大應用領域為「文、圖、聲」— 文本生成、圖像生成、聲音生成。口訣記憶：文圖聲。影片生成雖然也是 AI 應用（如 Sora），但在 iPAS 考試架構中歸屬於進階應用，不列入基礎三大領域。解題策略：看到四選一去掉不屬於「文圖聲」的即可。"
-    why_not_a: "文本生成是三大領域之一，代表工具有 ChatGPT、Gemini 等。"
-    why_not_b: "圖像生成是三大領域之一（「圖」），代表工具有 Midjourney、GPT Image 等。"
-    why_not_d: "聲音生成是三大領域之一，代表工具有 ElevenLabs、Azure AI Speech 等。"
-  keywords:
-    - "生成式AI"
-    - "三大領域"
-    - "Generative AI"
-  exam_trap: false
+  - id: L12201-Q08
+    difficulty: D1
+    question: "生成式AI的「三大」基礎應用領域，下列何者不屬於其中？"
+    options:
+      a: "文字生成（Text Generation）"
+      b: "圖像生成（Image Generation）"
+      c: "影片生成（Video Generation）"
+      d: "聲音生成（Audio Generation）"
+    correct: c
+    explanation:
+      why_correct: "生成式AI三大基礎應用領域為「文、圖、聲」—文字生成、圖像生成、聲音生成。影片生成雖存在（如 Sora），但在 iPAS 考試架構中歸屬進階應用。"
+      why_not_a: "文字生成是三大領域之一，代表工具有 ChatGPT、Gemini 等。"
+      why_not_b: "圖像生成是三大領域之一，代表工具有 Midjourney、Stable Diffusion 等。"
+      why_not_d: "聲音生成是三大領域之一，代表工具有 ElevenLabs（TTS）、Whisper（STT）等。"
+    keywords:
+      - 三大領域
+      - 生成式AI
+    exam_trap: false
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  # ============================================================
+  # D2 — 理解（Understand）× 9
+  # ============================================================
 
-- id: "L12201-Q09"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "關於 ChatGPT 與 OpenAI API 的差異，下列敘述何者正確？"
-  options:
-    a: "ChatGPT Pro $200/月 方案已包含 API 存取額度"
-    b: "OpenAI API 只提供舊版模型，最新模型僅限 ChatGPT 使用"
-    c: "ChatGPT 與 OpenAI API 使用相同的付費帳號與額度"
-    d: "ChatGPT 採月費訂閱制，OpenAI API 採按 token 用量計費，兩者獨立計費"
-  correct: "d"
-  explanation:
-    why_correct: "ChatGPT 是面向終端使用者的月費訂閱產品（Free/Plus/Pro），OpenAI API 則是面向開發者的按 token 計費平台。兩者完全獨立計費，即使 Pro $200/月也不含 API 額度。"
-    why_not_a: "ChatGPT Pro $200/月不包含 API 存取，兩者獨立計費。這是常見的混淆點。"
-    why_not_b: "OpenAI API 同樣提供最新模型（如 GPT-5.2），並非只有舊版模型。"
-    why_not_c: "ChatGPT 與 API 使用不同的計費系統，帳號可能相同但額度互不影響。"
-  keywords:
-    - "ChatGPT"
-    - "OpenAI API"
-    - "計費差異"
-  exam_trap: true
+  - id: L12201-Q09
+    difficulty: D2
+    question: "關於 ChatGPT 與 OpenAI API 的差異，下列敘述何者正確？"
+    options:
+      a: "ChatGPT Pro $200/月方案已包含 API 存取額度"
+      b: "OpenAI API 只提供舊版模型，最新模型僅限 ChatGPT"
+      c: "兩者使用相同的付費帳號與額度"
+      d: "ChatGPT 採月費訂閱制，OpenAI API 採按 Token 計費，兩者獨立計費"
+    correct: d
+    explanation:
+      why_correct: "ChatGPT 是終端使用者月費訂閱產品，OpenAI API 是開發者按 Token 計費平台，兩者完全獨立計費，Pro $200/月不含 API 額度。"
+      why_not_a: "ChatGPT Pro 不包含 API 存取，兩者獨立計費——這是最常見的考試陷阱。"
+      why_not_b: "OpenAI API 同樣可用最新模型，並非只有舊版。"
+      why_not_c: "兩者使用不同計費系統，額度互不影響。"
+    keywords:
+      - ChatGPT
+      - OpenAI API
+      - 計費差異
+    exam_trap: true
 
-- id: "L12201-Q10"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "關於 Cursor 的描述，下列何者最為正確？"
-  options:
-    a: "Cursor 是一個獨立的 AI 程式碼編輯器，基於 VS Code 分支（fork）開發"
-    b: "Cursor 是 VS Code 的擴充套件（Extension）"
-    c: "Cursor 主要用於圖像生成與設計"
-    d: "Cursor 是 Microsoft 開發的低程式碼平台"
-  correct: "a"
-  explanation:
-    why_correct: "Cursor 是基於 VS Code fork 的獨立 AI 程式碼編輯器，內建 AI 對話與多模型切換功能。它是完整的 IDE，不是外掛。"
-    why_not_b: "GitHub Copilot 才是 VS Code 的擴充套件，Cursor 則是獨立的 IDE。這是 Copilot 與 Cursor 最關鍵的差異。"
-    why_not_c: "Cursor 專注於程式碼撰寫與 AI 輔助開發，與圖像生成無關。"
-    why_not_d: "Microsoft 開發的低程式碼平台是 Copilot Studio / Power Platform，非 Cursor。"
-  keywords:
-    - "Cursor"
-    - "VS Code fork"
-    - "AI 編輯器"
-  exam_trap: true
+  - id: L12201-Q10
+    difficulty: D2
+    question: "關於 Cursor 的正確描述，下列何者最準確？"
+    options:
+      a: "Cursor 是 VS Code 的擴充套件（Extension）"
+      b: "Cursor 是基於 VS Code 分支（fork）的獨立 AI 程式碼編輯器"
+      c: "Cursor 主要用於圖像生成與設計"
+      d: "Cursor 是 Microsoft 開發的低程式碼平台"
+    correct: b
+    explanation:
+      why_correct: "Cursor 是基於 VS Code fork 的獨立 AI 程式碼編輯器，支援用自然語言描述需求（Vibe Coding），是完整 IDE 而非外掛。"
+      why_not_a: "GitHub Copilot 才是 VS Code 擴充套件，Cursor 是獨立 IDE——這是最關鍵差異。"
+      why_not_c: "Cursor 專注程式碼撰寫，與圖像生成無關。"
+      why_not_d: "Microsoft 的低程式碼平台是 Copilot Studio，非 Cursor。"
+    keywords:
+      - Cursor
+      - VS Code fork
+      - Vibe Coding
+    exam_trap: true
 
-- id: "L12201-Q11"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "Google Gemini 在考試中最常被強調的特色為下列何者？"
-  options:
-    a: "僅支援純文字輸入與輸出"
-    b: "專為程式碼生成設計的開發者工具"
-    c: "多模態能力（文字、圖片、影片理解）與 Google 生態系整合"
-    d: "僅限企業用戶使用的付費服務"
-  correct: "c"
-  explanation:
-    why_correct: "Gemini 的考試定位為多模態 AI（能理解文字、圖片、影片等多種輸入）以及與 Google 生態系（Gmail、Drive、Docs 等）的深度整合。"
-    why_not_a: "Gemini 正是以多模態能力著稱，能處理文字、圖片、影片等多種格式，並非僅限文字。"
-    why_not_b: "Gemini 是通用型多模態 AI，雖然能輔助寫程式，但並非專為程式碼生成設計。"
-    why_not_d: "Gemini 提供免費方案（Gemini 2.5 Flash），並非僅限企業付費使用。"
-  keywords:
-    - "Gemini"
-    - "多模態"
-    - "Multimodal"
-  exam_trap: false
+  - id: L12201-Q11
+    difficulty: D2
+    question: "Whisper（OpenAI）的功能定位是下列何者？"
+    options:
+      a: "語音轉文字（STT，Speech-to-Text）"
+      b: "AI 音樂創作"
+      c: "文字轉語音（TTS，Text-to-Speech）"
+      d: "圖像生成"
+    correct: a
+    explanation:
+      why_correct: "Whisper 是 OpenAI 的 STT（語音轉文字）工具，功能是將語音「辨識」成文字，常用於會議錄音轉逐字稿。它是語音「辨識」不是語音「合成」。"
+      why_not_b: "AI 音樂創作是 Suno 的功能。"
+      why_not_c: "TTS（文字轉語音）是 ElevenLabs 等工具的功能，Whisper 恰好相反——它是 STT。"
+      why_not_d: "圖像生成是 Midjourney、Stable Diffusion 等工具的功能。"
+    keywords:
+      - Whisper
+      - STT
+      - Speech-to-Text
+    exam_trap: true
 
-- id: "L12201-Q12"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "「Vibe Coding」這個概念的核心含義為下列何者？"
-  options:
-    a: "使用傳統程式語言搭配音樂節奏來寫程式"
-    b: "用自然語言描述架構意圖，由 AI 工具生成完整程式碼"
-    c: "完全不使用任何 AI 工具，回歸手動編碼"
-    d: "專門針對遊戲開發的一種設計方法論"
-  correct: "b"
-  explanation:
-    why_correct: "Vibe Coding 是 2026 年新興概念，指開發者用自然語言下達架構意圖，搭配 Cursor 等 AI 工具自動生成程式碼，大幅降低程式碼撰寫門檻。"
-    why_not_a: "Vibe Coding 的「Vibe」指的是以直覺和意圖驅動開發，與音樂無關。"
-    why_not_c: "Vibe Coding 恰好相反，它高度依賴 AI 工具來生成程式碼。"
-    why_not_d: "Vibe Coding 適用於各種軟體開發場景，並非僅限遊戲開發。"
-  keywords:
-    - "Vibe Coding"
-    - "自然語言開發"
-    - "Cursor"
-  exam_trap: false
+  - id: L12201-Q12
+    difficulty: D2
+    question: "關於 Midjourney 的使用方式，下列敘述何者正確？"
+    options:
+      a: "Midjourney 提供免費方案，每月可生成 25 張圖片"
+      b: "Midjourney 是開源工具，可以免費下載本地使用"
+      c: "Midjourney 無免費方案，需付費訂閱才能使用"
+      d: "Midjourney 主要透過獨立桌面應用程式使用"
+    correct: c
+    explanation:
+      why_correct: "Midjourney 無免費方案，最低 Basic $10/月起。透過 Discord 或官方 Web 介面操作。"
+      why_not_a: "Midjourney 目前沒有免費方案，早期曾短暫開放已取消。"
+      why_not_b: "Midjourney 是閉源付費服務；Stable Diffusion 才是開源免費可本地部署的圖像工具。"
+      why_not_d: "Midjourney 沒有獨立桌面應用，主要透過 Discord 伺服器或官方 Web 介面操作。"
+    keywords:
+      - Midjourney
+      - 付費方案
+      - 無免費方案
+    exam_trap: true
 
-- id: "L12201-Q13"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "關於 Midjourney 的使用方式，下列敘述何者正確？"
-  options:
-    a: "Midjourney 提供免費方案，每月可生成 25 張圖片"
-    b: "Midjourney 透過手機 App 直接操作"
-    c: "Midjourney 主要透過獨立桌面應用程式使用"
-    d: "Midjourney 無免費方案，需付費訂閱才能使用"
-  correct: "d"
-  explanation:
-    why_correct: "Midjourney 無免費方案，最低為 Basic $10/月。使用者透過 Discord 或 Web 介面操作，以文字提示詞生成圖像。"
-    why_not_a: "Midjourney 目前沒有免費方案，所有方案皆需付費。部分學生可能將早期短暫開放的免費試用與現行方案混淆。"
-    why_not_b: "Midjourney 主要透過 Discord 伺服器或官方 Web 介面操作，並非手機 App。"
-    why_not_c: "Midjourney 沒有獨立桌面應用程式，主要透過 Discord 伺服器或官方 Web 介面操作，是雲端服務。"
-  keywords:
-    - "Midjourney"
-    - "付費方案"
-    - "Discord"
-  exam_trap: true
+  - id: L12201-Q13
+    difficulty: D2
+    question: "Google Gemini 在考試中最常被強調的特色為下列何者？"
+    options:
+      a: "僅支援純文字輸入輸出"
+      b: "專為程式碼生成設計的開發者工具"
+      c: "僅限企業用戶使用的付費服務"
+      d: "多模態能力（文字、圖片、影片理解）與 Google 生態系整合"
+    correct: d
+    explanation:
+      why_correct: "Gemini 的考試定位為多模態 AI（同時理解文字、圖片、影片），以及與 Gmail、Drive、Docs 等 Google 生態系的深度整合。"
+      why_not_a: "Gemini 正是以多模態能力著稱，能處理多種格式輸入，並非僅限文字。"
+      why_not_b: "Gemini 是通用多模態 AI，雖能輔助寫程式，但並非專為程式碼設計。"
+      why_not_c: "Gemini 提供免費方案（Gemini 2.5 Flash），並非只有企業付費。"
+    keywords:
+      - Gemini
+      - 多模態
+      - Google生態
+    exam_trap: false
 
-- id: "L12201-Q14"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "下列哪一組工具分類是正確的？"
-  options:
-    a: "文本生成：ChatGPT；圖像生成：Midjourney；聲音生成：ElevenLabs"
-    b: "文本生成：Midjourney；圖像生成：ChatGPT；聲音生成：Cursor"
-    c: "文本生成：ElevenLabs；圖像生成：Suno AI；聲音生成：Gemini"
-    d: "文本生成：GitHub Copilot；圖像生成：ElevenLabs；聲音生成：Midjourney"
-  correct: "a"
-  explanation:
-    why_correct: "ChatGPT 是文本生成代表工具、Midjourney 是圖像生成代表工具、ElevenLabs 是聲音生成代表工具，分類完全正確。"
-    why_not_b: "Midjourney 是圖像生成而非文本生成，ChatGPT 是文本生成而非圖像生成，Cursor 是程式碼輔助而非聲音生成。"
-    why_not_c: "ElevenLabs 是聲音生成而非文本生成，Suno AI 是音樂/聲音生成而非圖像生成。"
-    why_not_d: "GitHub Copilot 主要是程式碼輔助工具，ElevenLabs 是聲音生成而非圖像生成，Midjourney 是圖像生成而非聲音生成。"
-  keywords:
-    - "工具分類"
-    - "三大領域"
-    - "工具配對"
-  exam_trap: false
+  - id: L12201-Q14
+    difficulty: D2
+    question: "「Vibe Coding（氛圍程式設計）」的核心含義為下列何者？"
+    options:
+      a: "使用傳統程式語言搭配音樂節奏來寫程式"
+      b: "用自然語言描述架構意圖，由 AI 工具生成完整程式碼"
+      c: "完全不使用任何 AI 工具，回歸手動編碼"
+      d: "專門針對遊戲開發的一種設計方法論"
+    correct: b
+    explanation:
+      why_correct: "Vibe Coding 由 Andrej Karpathy 於 2025 年 2 月提出，指開發者用自然語言下達架構意圖，搭配 Cursor 等工具自動生成程式碼。"
+      why_not_a: "Vibe Coding 的「Vibe」指直覺和意圖驅動開發，與音樂節奏無關。"
+      why_not_c: "Vibe Coding 恰好相反，高度依賴 AI 工具生成程式碼。"
+      why_not_d: "Vibe Coding 適用於各種軟體開發，並非僅限遊戲。"
+    keywords:
+      - Vibe Coding
+      - Cursor
+      - 自然語言開發
+    exam_trap: false
 
-- id: "L12201-Q15"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "VS Code for Copilot 指的是下列何者？"
-  options:
-    a: "一個全新的獨立 IDE 產品"
-    b: "微軟推出的圖像生成外掛"
-    c: "GitHub Copilot 在 VS Code 中的整合介面"
-    d: "Copilot Studio 在 VS Code 中的版本"
-  correct: "c"
-  explanation:
-    why_correct: "VS Code for Copilot 就是 GitHub Copilot 在 VS Code 編輯器中的整合介面，並非一個獨立產品。它讓開發者直接在 VS Code 中使用 Copilot 的功能。"
-    why_not_a: "VS Code for Copilot 不是獨立 IDE，而是 GitHub Copilot 在 VS Code 中的整合方式。Cursor 才是獨立 IDE。"
-    why_not_b: "VS Code for Copilot 是程式碼輔助功能，與圖像生成無關。"
-    why_not_d: "Copilot Studio 是 Microsoft 365 / Power Platform 的低程式碼 AI Agent 平台，與 VS Code for Copilot（GitHub Copilot 在 VS Code 的整合介面）是完全不同的產品。名稱中都有「Copilot」容易混淆。"
-  keywords:
-    - "VS Code for Copilot"
-    - "GitHub Copilot"
-    - "IDE 整合"
-  exam_trap: false
+  - id: L12201-Q15
+    difficulty: D2
+    question: "VS Code for Copilot 指的是下列何者？"
+    options:
+      a: "一個全新的獨立 AI IDE 產品"
+      b: "微軟推出的圖像生成外掛"
+      c: "GitHub Copilot 在 VS Code 中的整合介面"
+      d: "Copilot Studio 在 VS Code 中的版本"
+    correct: c
+    explanation:
+      why_correct: "VS Code for Copilot 就是 GitHub Copilot 在 VS Code 編輯器中的整合介面，並非獨立產品。"
+      why_not_a: "VS Code for Copilot 不是獨立 IDE；Cursor 才是獨立 IDE（VS Code fork）。"
+      why_not_b: "VS Code for Copilot 是程式碼輔助功能，與圖像生成無關。"
+      why_not_d: "Copilot Studio 是 Microsoft 365/Power Platform 的低程式碼平台，與 VS Code for Copilot 完全不同。"
+    keywords:
+      - VS Code for Copilot
+      - GitHub Copilot
+      - IDE整合
+    exam_trap: false
 
-- id: "L12201-Q16"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 2
-  question: "關於 ChatGPT 的免費方案，下列敘述何者正確？"
-  options:
-    a: "免費方案無任何使用限制"
-    b: "免費方案可使用但有限制：模型較低階、對話次數有上限"
-    c: "免費方案僅能使用純文字，不支援任何進階功能"
-    d: "ChatGPT 沒有免費方案，所有功能皆需付費"
-  correct: "b"
-  explanation:
-    why_correct: "ChatGPT 免費方案的核心概念是「可用但有限制」：使用較低階的模型（非最新旗艦模型）、對話次數有上限。具體的模型名稱和限額可能隨版本調整，但「免費 = 功能受限的入門體驗」是不變的產品策略。"
-    why_not_a: "免費方案有明確的使用限制，包括模型等級較低和對話次數上限。"
-    why_not_c: "免費方案雖然功能受限，但並非僅限純文字，基本的多模態功能也有部分支援。"
-    why_not_d: "ChatGPT 確實提供免費方案，這是其快速普及的重要原因之一。"
-  keywords:
-    - "ChatGPT"
-    - "免費方案"
-    - "GPT-4o-mini"
-  exam_trap: false
+  - id: L12201-Q16
+    difficulty: D2
+    question: "Amazon CodeWhisperer 現在的正式名稱為何？"
+    options:
+      a: "Amazon AI Coder"
+      b: "AWS Copilot"
+      c: "AWS CodeAssist"
+      d: "Amazon Q Developer"
+    correct: d
+    explanation:
+      why_correct: "Amazon CodeWhisperer 已於 2024 年更名為 Amazon Q Developer，是 AWS 生態的 AI 程式碼輔助工具。考試若出現兩個名稱，視為同一工具。"
+      why_not_a: "Amazon AI Coder 並非官方名稱。"
+      why_not_b: "AWS Copilot 是容器部署工具，與程式碼 AI 輔助無關。"
+      why_not_c: "AWS CodeAssist 並非官方產品名稱。"
+    keywords:
+      - Amazon Q Developer
+      - CodeWhisperer
+      - 更名
+    exam_trap: true
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L12201-Q17
+    difficulty: D2
+    question: "關於開源（Open Source）與閉源（Proprietary）AI工具，下列配對何者正確？"
+    options:
+      a: "ChatGPT（開源）、LLaMA（閉源）"
+      b: "Midjourney（開源）、Stable Diffusion（閉源）"
+      c: "所有主流AI工具均為閉源"
+      d: "LLaMA（開源，Meta）、Stable Diffusion（開源，Stability AI）"
+    correct: d
+    explanation:
+      why_correct: "LLaMA 是 Meta 發布的開源 LLM（可本地部署），Stable Diffusion 是 Stability AI 的開源圖像生成模型（可本地免費使用）——兩者都是開源代表。"
+      why_not_a: "完全相反：ChatGPT 是閉源，LLaMA 是開源。"
+      why_not_b: "完全相反：Midjourney 是閉源付費，Stable Diffusion 才是開源免費。"
+      why_not_c: "LLaMA 和 Stable Diffusion 都是知名開源 AI 工具。"
+    keywords:
+      - 開源
+      - LLaMA
+      - Stable Diffusion
+    exam_trap: false
 
-- id: "L12201-Q17"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "小明是大學資工系學生，想用自然語言描述需求來快速建立一個個人作品集網站。下列哪個工具最符合「Vibe Coding」的開發方式？"
-  options:
-    a: "Midjourney"
-    b: "ElevenLabs"
-    c: "Copilot Studio"
-    d: "Cursor"
-  correct: "d"
-  explanation:
-    why_correct: "Cursor 是 Vibe Coding 的代表工具，支援用自然語言描述架構意圖，由 AI 生成完整程式碼。小明可以直接用中文或英文描述網站需求，Cursor 會自動產生程式碼。"
-    why_not_a: "Midjourney 是圖像生成工具，可以生成網站設計圖，但無法生成網站程式碼。"
-    why_not_b: "ElevenLabs 是語音合成工具，與建立網站無關。"
-    why_not_c: "Copilot Studio 是低程式碼 AI Agent 建置平台，適合建聊天機器人，不是用自然語言寫前端網站的工具。"
-  keywords:
-    - "Vibe Coding"
-    - "Cursor"
-    - "自然語言開發"
-  exam_trap: false
+  # ============================================================
+  # D3 — 應用（Apply）× 10
+  # ============================================================
 
-- id: "L12201-Q18"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "一家台灣補習班想建立一個線上評鑑平台，需要將 AI 功能整合進自有系統，讓學生輸入問題後自動產生解答。最適合使用下列何者？"
-  options:
-    a: "OpenAI API"
-    b: "ChatGPT Plus 訂閱方案"
-    c: "Midjourney Standard 方案"
-    d: "ElevenLabs Pro 方案"
-  correct: "a"
-  explanation:
-    why_correct: "補習班需要將 AI 整合進自有系統（非直接讓學生用 ChatGPT），OpenAI API 正是為開發者設計的，可以透過程式碼將 AI 功能嵌入自有產品。按 token 計費也適合不確定用量的初期開發。"
-    why_not_b: "ChatGPT Plus 是面向個人終端使用者的介面，無法直接整合進補習班的自有系統。學生會看到 OpenAI 的介面而非補習班品牌。"
-    why_not_c: "Midjourney 是圖像生成工具，與文字問答系統無關。"
-    why_not_d: "ElevenLabs 是語音合成工具，不適合文字問答的評鑑系統。"
-  keywords:
-    - "OpenAI API"
-    - "系統整合"
-    - "開發者工具"
-  exam_trap: false
+  - id: L12201-Q18
+    difficulty: D3
+    question: "一家台灣補習班想建立線上評鑑平台，需要將AI功能整合進自有系統，讓學生輸入問題後自動產生解答。最適合使用下列何者？"
+    options:
+      a: "OpenAI API"
+      b: "ChatGPT Plus 訂閱方案"
+      c: "Midjourney Standard 方案"
+      d: "ElevenLabs Pro 方案"
+    correct: a
+    explanation:
+      why_correct: "補習班需要將AI整合進自有系統（非直接讓學生用 ChatGPT），OpenAI API 正是為開發者設計的程式介面，可嵌入任何系統，按 Token 計費適合不確定用量的初期開發。"
+      why_not_b: "ChatGPT Plus 是終端使用者月費訂閱，無法整合進補習班自有系統。"
+      why_not_c: "Midjourney 是圖像生成工具，與文字問答系統無關。"
+      why_not_d: "ElevenLabs 是語音合成工具，不適合文字問答評鑑系統。"
+    keywords:
+      - OpenAI API
+      - 系統整合
+      - 開發者工具
+    exam_trap: false
 
-- id: "L12201-Q19"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "某企業行銷團隊需要為社群媒體快速產生大量高品質產品情境圖。團隊成員不具備程式設計能力。下列哪個工具最適合？"
-  options:
-    a: "GitHub Copilot"
-    b: "OpenAI API"
-    c: "Azure AI Speech"
-    d: "Midjourney"
-  correct: "d"
-  explanation:
-    why_correct: "Midjourney 專長於生成照片級真實感的高品質圖像，透過 Discord/Web 操作不需程式能力，非常適合行銷團隊快速產生產品情境圖。"
-    why_not_a: "GitHub Copilot 是程式碼輔助工具，無法生成圖像。"
-    why_not_b: "OpenAI API 雖然可以呼叫 DALL-E 生成圖像，但需要程式設計能力，不適合不具備技術能力的行銷團隊直接使用。"
-    why_not_c: "Azure AI Speech 是語音相關工具，無法生成圖像。"
-  keywords:
-    - "Midjourney"
-    - "圖像生成"
-    - "行銷應用"
-  exam_trap: false
+  - id: L12201-Q19
+    difficulty: D3
+    question: "某企業行銷團隊需要快速產生大量高品質產品情境圖用於社群媒體。團隊成員不具備程式設計能力。下列哪個工具最適合？"
+    options:
+      a: "GitHub Copilot"
+      b: "OpenAI API"
+      c: "Azure AI Speech"
+      d: "Midjourney"
+    correct: d
+    explanation:
+      why_correct: "Midjourney 專長照片級真實感圖像，透過 Discord/Web 操作不需程式能力，非常適合行銷團隊快速產生產品情境圖。"
+      why_not_a: "GitHub Copilot 是程式碼輔助工具，無法生成圖像。"
+      why_not_b: "OpenAI API 雖可呼叫 DALL-E 生成圖像，但需程式設計能力，不適合非技術行銷團隊直接使用。"
+      why_not_c: "Azure AI Speech 是語音工具，無法生成圖像。"
+    keywords:
+      - Midjourney
+      - 圖像生成
+      - 行銷應用
+    exam_trap: false
 
-- id: "L12201-Q20"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "小華在公司擔任客服部門主管，想建立一個 AI 聊天機器人來自動回覆常見客戶問題，但團隊沒有工程師。下列哪個工具最適合？"
-  options:
-    a: "Cursor"
-    b: "Copilot Studio"
-    c: "GitHub Copilot"
-    d: "Gemini Advanced"
-  correct: "b"
-  explanation:
-    why_correct: "Copilot Studio 是低程式碼 AI Agent 建置平台，專門用於建立聊天機器人和自動化流程，不需要程式設計背景。非常適合非技術團隊建立客服 AI 機器人。"
-    why_not_a: "Cursor 是程式碼編輯器，雖然可以用自然語言驅動，但仍需基本的開發知識，且產出是程式碼而非直接可用的聊天機器人。"
-    why_not_c: "GitHub Copilot 是程式碼補全工具，需要在 IDE 中使用，不適合無工程師的客服團隊。"
-    why_not_d: "Gemini Advanced 是通用型 AI 助手，可以對話但無法直接建立獨立的客服聊天機器人。"
-  keywords:
-    - "Copilot Studio"
-    - "聊天機器人"
-    - "Low Code"
-  exam_trap: false
+  - id: L12201-Q20
+    difficulty: D3
+    question: "客服部門主管（無工程師）想建立AI聊天機器人自動回覆客戶常見問題。下列哪個工具最適合？"
+    options:
+      a: "Cursor"
+      b: "Copilot Studio"
+      c: "GitHub Copilot"
+      d: "Gemini Advanced"
+    correct: b
+    explanation:
+      why_correct: "Copilot Studio 是低程式碼 AI Agent 建置平台，專門用於建立聊天機器人和自動化流程，不需程式設計背景，最適合非技術客服團隊。"
+      why_not_a: "Cursor 是程式碼編輯器，仍需基本開發知識，產出是程式碼而非直接可用的聊天機器人。"
+      why_not_c: "GitHub Copilot 是程式碼補全工具，需在 IDE 中使用，不適合無工程師的客服團隊。"
+      why_not_d: "Gemini Advanced 是通用型 AI 助手，無法直接建立獨立部署的客服聊天機器人。"
+    keywords:
+      - Copilot Studio
+      - 低程式碼
+      - 聊天機器人
+    exam_trap: false
 
-- id: "L12201-Q21"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "一位 Podcast 創作者想將文字腳本轉換為自然流暢的語音內容，並希望能控制語音的情感表達。下列哪個工具最適合？"
-  options:
-    a: "ElevenLabs"
-    b: "Suno AI"
-    c: "ChatGPT Plus"
-    d: "Midjourney"
-  correct: "a"
-  explanation:
-    why_correct: "ElevenLabs 的 V3 模型支援行內情感標籤控制，TTS 品質業界領先（MOS 4.14），最適合需要精細情感控制的語音內容製作。"
-    why_not_c: "ChatGPT 的語音模式主要用於對話互動，不適合大量文字腳本的專業語音轉換。"
-    why_not_b: "Suno AI 專注於音樂創作，不是語音/旁白生成工具。"
-    why_not_d: "Midjourney 是圖像生成工具，與語音內容完全無關。"
-  keywords:
-    - "ElevenLabs"
-    - "Text-to-Speech"
-    - "情感控制"
-  exam_trap: false
+  - id: L12201-Q21
+    difficulty: D3
+    question: "Podcast 創作者想將文字腳本轉換為自然流暢的語音內容，並希望控制語音的情感表達。下列哪個工具最適合？"
+    options:
+      a: "ElevenLabs"
+      b: "Suno"
+      c: "Whisper"
+      d: "Midjourney"
+    correct: a
+    explanation:
+      why_correct: "ElevenLabs 是 TTS（文字轉語音）領域的領導品牌，支援情感標籤控制，品質業界領先，最適合需要精細情感控制的語音製作。"
+      why_not_b: "Suno 是 AI 音樂創作平台，生成有旋律的歌曲，不是語音/旁白生成工具。"
+      why_not_c: "Whisper 是 STT（語音轉文字）工具，方向相反——它是「聽」語音，不是「說」語音。"
+      why_not_d: "Midjourney 是圖像生成工具，與語音完全無關。"
+    keywords:
+      - ElevenLabs
+      - TTS
+      - 語音合成
+    exam_trap: false
 
-- id: "L12201-Q22"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "某新創公司的開發團隊正在評估 AI 程式碼輔助工具。團隊成員已經在使用 VS Code，希望在不更換編輯器的前提下加入 AI 輔助。下列何者最適合？"
-  options:
-    a: "Cursor"
-    b: "GitHub Copilot"
-    c: "Copilot Studio"
-    d: "ChatGPT"
-  correct: "b"
-  explanation:
-    why_correct: "GitHub Copilot 是 VS Code 的擴充套件，團隊不需更換編輯器即可安裝使用，提供行內自動補全和 AI 對話功能。Pro 方案 $10/月（另有 Free 及 Pro+ $39/月），性價比高。"
-    why_not_a: "Cursor 是獨立的 IDE（VS Code fork），需要更換編輯器才能使用，不符合「不更換編輯器」的需求。"
-    why_not_c: "Copilot Studio 是低程式碼 Agent 平台，不是程式碼輔助工具。"
-    why_not_d: "ChatGPT 可以回答程式碼問題，但不能直接在 IDE 中提供行內補全等整合體驗。"
-  keywords:
-    - "GitHub Copilot"
-    - "VS Code"
-    - "擴充套件"
-  exam_trap: false
+  - id: L12201-Q22
+    difficulty: D3
+    question: "某新創公司開發團隊已使用 VS Code，希望在不更換編輯器的前提下加入 AI 程式碼輔助。下列何者最適合？"
+    options:
+      a: "Cursor"
+      b: "GitHub Copilot"
+      c: "Copilot Studio"
+      d: "ChatGPT"
+    correct: b
+    explanation:
+      why_correct: "GitHub Copilot 是 VS Code 的擴充套件，團隊不需更換編輯器即可安裝，提供行內自動補全和 AI Chat 功能。"
+      why_not_a: "Cursor 是獨立 IDE（VS Code fork），需更換編輯器才能使用，不符合「不更換編輯器」的需求。"
+      why_not_c: "Copilot Studio 是低程式碼 Agent 平台，不是程式碼輔助工具。"
+      why_not_d: "ChatGPT 可回答程式碼問題，但無法在 IDE 中提供行內補全等整合體驗。"
+    keywords:
+      - GitHub Copilot
+      - VS Code
+      - 擴充套件
+    exam_trap: false
 
-- id: "L12201-Q23"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "一位老師想要讓學生理解台灣本土的 AI 發展成果，計劃使用由台灣自主開發的大型語言模型進行教學示範。他應該選擇下列何者？"
-  options:
-    a: "TAIDE"
-    b: "ChatGPT"
-    c: "Gemini"
-    d: "GitHub Copilot"
-  correct: "a"
-  explanation:
-    why_correct: "TAIDE 是國科會主導的台灣自主大型語言模型，目的是反映台灣本地語言與文化。最適合作為台灣本土 AI 發展的教學示範。"
-    why_not_b: "ChatGPT 由美國 OpenAI 開發，雖支援繁體中文但並非台灣本土產品。"
-    why_not_c: "Gemini 由 Google 開發，同樣非台灣本土開發的 AI。"
-    why_not_d: "GitHub Copilot 是程式碼輔助工具，由 Microsoft/GitHub 開發，與台灣本土 AI 發展無關。"
-  keywords:
-    - "TAIDE"
-    - "台灣本土 AI"
-    - "國科會"
-  exam_trap: false
+  - id: L12201-Q23
+    difficulty: D3
+    question: "一位老師想使用由台灣自主開發的大型語言模型進行教學示範，展示台灣本土的AI發展成果。應選擇下列何者？"
+    options:
+      a: "TAIDE"
+      b: "ChatGPT"
+      c: "Gemini"
+      d: "GitHub Copilot"
+    correct: a
+    explanation:
+      why_correct: "TAIDE 是國科會主導的台灣自主 LLM，反映台灣本地語言與文化，最適合作為台灣本土 AI 發展的教學示範。"
+      why_not_b: "ChatGPT 由美國 OpenAI 開發，雖支援繁體中文但並非台灣本土產品。"
+      why_not_c: "Gemini 由 Google 開發，非台灣本土。"
+      why_not_d: "GitHub Copilot 是程式碼工具，由 Microsoft/GitHub 開發，與台灣本土 AI 發展無關。"
+    keywords:
+      - TAIDE
+      - 台灣本土AI
+      - 國科會
+    exam_trap: false
 
-- id: "L12201-Q24"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "某大學教授需要一個 AI 工具來同時處理學生上傳的文字報告、圖片素材和影片內容。下列哪個工具的多模態能力最適合此需求？"
-  options:
-    a: "ChatGPT"
-    b: "Gemini"
-    c: "ElevenLabs"
-    d: "Suno AI"
-  correct: "b"
-  explanation:
-    why_correct: "Gemini 以多模態理解能力著稱，能同時理解文字、圖片、影片等多種格式的輸入，且影片理解是其差異化強項。注意「多模態」分為「理解」與「生成」：此題需要的是理解多種輸入格式，而非生成。"
-    why_not_a: "ChatGPT 也具備多模態能力（理解文字與圖片），但在影片理解方面不如 Gemini 深入。Gemini 原生支援長影片理解，是此需求的更佳選擇。這是常見的近似選項陷阱——兩者都有多模態能力，但強項不同。"
-    why_not_c: "ElevenLabs 專注於語音合成（生成），不具備理解圖片或影片的多模態能力。注意區分「生成」型工具與「理解」型工具。"
-    why_not_d: "Suno AI 專注於音樂生成，無法理解或處理文字報告、圖片或影片。"
-  keywords:
-    - "Gemini"
-    - "多模態"
-    - "Multimodal"
-  exam_trap: false
+  - id: L12201-Q24
+    difficulty: D3
+    question: "某公司有資料隱私顧慮，圖像生成需求不能將圖像訓練資料傳到雲端，且預算有限。下列哪個工具最符合需求？"
+    options:
+      a: "Midjourney"
+      b: "Adobe Firefly"
+      c: "Stable Diffusion（本地部署）"
+      d: "DALL-E 3（透過 ChatGPT）"
+    correct: c
+    explanation:
+      why_correct: "Stable Diffusion 是開源圖像生成模型，可完全免費下載在本地電腦運行，資料不離開本地，完全符合隱私顧慮和預算限制。"
+      why_not_a: "Midjourney 是雲端服務，資料需傳到其伺服器，且需付費訂閱。"
+      why_not_b: "Adobe Firefly 是雲端服務，資料需上傳到 Adobe 伺服器。"
+      why_not_d: "DALL-E 3 透過 ChatGPT 使用，資料同樣傳到 OpenAI 伺服器。"
+    keywords:
+      - Stable Diffusion
+      - 本地部署
+      - 開源
+      - 隱私
+    exam_trap: false
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L12201-Q25
+    difficulty: D3
+    question: "音頻製作公司需要兩項功能：(1) 將會議錄音轉成文字逐字稿；(2) 將文字稿轉成自然人聲播放。應分別選哪組工具？"
+    options:
+      a: "ElevenLabs + Suno"
+      b: "Whisper + ElevenLabs"
+      c: "Suno + Whisper"
+      d: "ElevenLabs + ElevenLabs"
+    correct: b
+    explanation:
+      why_correct: "Whisper（OpenAI）是 STT（語音轉文字）工具，用於將錄音辨識成逐字稿；ElevenLabs 是 TTS（文字轉語音）工具，用於合成自然人聲。兩者功能互補。"
+      why_not_a: "ElevenLabs 是 TTS（文字→語音），Suno 是 AI 音樂創作，無法完成錄音→文字的需求。"
+      why_not_c: "Suno 是音樂創作，不是語音轉文字工具；組合不正確。"
+      why_not_d: "考試主要定位 ElevenLabs = TTS（文字→語音）；本課 STT 的代表工具是 Whisper，不是 ElevenLabs。"
+    keywords:
+      - Whisper
+      - ElevenLabs
+      - TTS
+      - STT
+    exam_trap: false
 
-- id: "L12201-Q25"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "比較 GitHub Copilot 與 Cursor 這兩個 AI 程式碼輔助工具，下列敘述何者最能描述兩者的關鍵差異？"
-  options:
-    a: "Copilot 使用 GPT 模型，Cursor 使用 Google 模型，因此效能完全不同"
-    b: "Copilot 免費而 Cursor 付費，這是唯一差異"
-    c: "Copilot 是 IDE 擴充套件可搭配多種編輯器，Cursor 是獨立 IDE（VS Code fork）"
-    d: "Copilot 只支援 Python，Cursor 支援所有程式語言"
-  correct: "c"
-  explanation:
-    why_correct: "最關鍵的差異在於產品形態：GitHub Copilot 是 IDE 擴充套件，可安裝在 VS Code、JetBrains 等多種編輯器；Cursor 則是基於 VS Code fork 的獨立 IDE。這影響了使用者的工作流程選擇。"
-    why_not_a: "Copilot 和 Cursor 都支援多種 AI 模型（GPT-4o、Claude 等），並非綁定單一模型。"
-    why_not_b: "兩者都有付費方案（Copilot Pro $10/月，Cursor Pro $20/月），Copilot 有免費方案但這不是唯一差異。"
-    why_not_d: "Copilot 和 Cursor 都支援多種程式語言，並無語言限制的差異。"
-  keywords:
-    - "GitHub Copilot"
-    - "Cursor"
-    - "IDE vs Extension"
-  exam_trap: false
+  - id: L12201-Q26
+    difficulty: D3
+    question: "台灣政府機關要導入AI處理公文撰寫，考量資料不能傳到海外伺服器，且需繁體中文支援。最優先評估的方案是？"
+    options:
+      a: "直接使用 ChatGPT Free 方案"
+      b: "購買 Midjourney Enterprise 方案"
+      c: "使用 GitHub Copilot 處理公文"
+      d: "評估 TAIDE 搭配本地部署方案"
+    correct: d
+    explanation:
+      why_correct: "政府機關有資料安全需求（不宜將公文傳海外）。TAIDE 由國科會主導開發，可搭配本地部署，且針對繁體中文和台灣文化優化，最符合需求。"
+      why_not_a: "ChatGPT Free 資料傳到 OpenAI 美國伺服器，政府公文涉及敏感資訊，不適合。"
+      why_not_b: "Midjourney 是圖像生成工具，與公文撰寫完全無關。"
+      why_not_c: "GitHub Copilot 是程式碼輔助工具，不適合公文撰寫。"
+    keywords:
+      - TAIDE
+      - 資料安全
+      - 本地部署
+      - 政府應用
+    exam_trap: false
 
-- id: "L12201-Q26"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "在 Microsoft 的 AI 工具生態系中，GitHub Copilot、Copilot Studio 與 VS Code for Copilot 三者的關係，下列分析何者正確？"
-  options:
-    a: "三者是同一產品的不同名稱，功能完全相同"
-    b: "GitHub Copilot 是程式碼補全擴充套件，Copilot Studio 是低程式碼 Agent 平台，VS Code for Copilot 是 Copilot 在 VS Code 的整合介面"
-    c: "Copilot Studio 是 GitHub Copilot 的進階版，適合專業開發者"
-    d: "VS Code for Copilot 是 Copilot Studio 在 VS Code 中的版本"
-  correct: "b"
-  explanation:
-    why_correct: "三者定位完全不同：GitHub Copilot = IDE 程式碼補全擴充套件；Copilot Studio = Microsoft 365/Power Platform 低程式碼 AI Agent 建置平台；VS Code for Copilot = GitHub Copilot 在 VS Code 中的整合介面（非獨立產品）。"
-    why_not_a: "三者名稱相似但定位完全不同，這是考試常見的混淆陷阱。"
-    why_not_c: "Copilot Studio 不是 GitHub Copilot 的進階版，兩者屬於不同產品線。Studio 面向非技術人員建置 AI Agent，Copilot 面向開發者寫程式。"
-    why_not_d: "VS Code for Copilot 是 GitHub Copilot 在 VS Code 的介面，與 Copilot Studio 無關。"
-  keywords:
-    - "GitHub Copilot"
-    - "Copilot Studio"
-    - "VS Code for Copilot"
-    - "Copilot 生態系"
-  exam_trap: true
+  - id: L12201-Q27
+    difficulty: D3
+    question: "想用自然語言描述「幫我做一個含 Google 登入的登入頁面」並讓 AI 自動生成完整程式碼，最符合 Vibe Coding 概念的工具是？"
+    options:
+      a: "Midjourney"
+      b: "ElevenLabs"
+      c: "Copilot Studio"
+      d: "Cursor"
+    correct: d
+    explanation:
+      why_correct: "Cursor 是 Vibe Coding 的代表工具，使用者可用自然語言描述架構意圖，AI 直接生成完整程式碼，不需逐行撰寫。"
+      why_not_a: "Midjourney 是圖像生成工具，可生成網站設計圖，但無法生成可運行的程式碼。"
+      why_not_b: "ElevenLabs 是語音合成工具，與建立網站無關。"
+      why_not_c: "Copilot Studio 是低程式碼聊天機器人建置平台，不是用自然語言寫前端網站的工具。"
+    keywords:
+      - Vibe Coding
+      - Cursor
+      - 自然語言開發
+    exam_trap: false
 
-- id: "L12201-Q27"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "從商業模式的角度分析，ChatGPT（月費訂閱）與 OpenAI API（按 token 計費）分別適合哪類使用者？"
-  options:
-    a: "ChatGPT 適合開發者整合，API 適合一般使用者對話"
-    b: "兩者適用對象相同，差別僅在價格"
-    c: "ChatGPT 僅供企業使用，API 僅供學術研究"
-    d: "ChatGPT 適合終端使用者直接使用，API 適合開發者整合進自有產品"
-  correct: "d"
-  explanation:
-    why_correct: "ChatGPT 提供友善的對話介面，適合終端使用者直接使用；OpenAI API 是程式化接口，適合開發者將 AI 功能整合進自己的應用程式。這是考試反覆出現的核心對比。"
-    why_not_a: "完全反過來了。ChatGPT 是終端使用者產品，API 才是開發者工具。"
-    why_not_b: "兩者不僅價格不同，目標用戶、使用方式、功能範圍都有本質差異。"
-    why_not_c: "ChatGPT 提供個人到企業各種方案，API 也可用於商業產品，兩者都不限定單一用途。"
-  keywords:
-    - "ChatGPT"
-    - "OpenAI API"
-    - "商業模式"
-    - "產品 vs 平台"
-  exam_trap: false
+  # ============================================================
+  # D4 — 分析（Analyze）× 5
+  # ============================================================
 
-- id: "L12201-Q28"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "分析「以下何者不是程式碼生成 AI 工具？」此類考題時，下列哪個選項最可能是正確答案（即「不是」程式碼生成 AI）？"
-  options:
-    a: "Cursor"
-    b: "GitHub Copilot"
-    c: "OpenAI Codex"
-    d: "Sora"
-  correct: "d"
-  explanation:
-    why_correct: "Sora 是 OpenAI 的文生影片（Text-to-Video）模型，屬於影片生成領域，不是程式碼生成工具。其餘三者（Cursor、GitHub Copilot、OpenAI Codex）都是程式碼生成/輔助工具。這是考古題出現過的題型。"
-    why_not_a: "Cursor 是 AI 程式碼編輯器，屬於程式碼生成工具。"
-    why_not_b: "GitHub Copilot 是 IDE 程式碼補全擴充套件，屬於程式碼生成工具。"
-    why_not_c: "OpenAI Codex 是專為程式碼生成設計的模型，是 GitHub Copilot 早期使用的底層模型。"
-  keywords:
-    - "程式碼生成"
-    - "Sora"
-    - "工具辨識"
-    - "考古題"
-  exam_trap: true
+  - id: L12201-Q28
+    difficulty: D4
+    question: "比較 GitHub Copilot 與 Cursor 這兩個 AI 程式碼輔助工具，下列何者最能描述兩者的關鍵差異？"
+    options:
+      a: "Copilot 使用 GPT 模型，Cursor 使用 Google 模型，效能完全不同"
+      b: "Copilot 免費而 Cursor 付費，這是唯一差異"
+      c: "Copilot 是 IDE 擴充套件（可搭配多種編輯器），Cursor 是獨立 IDE（VS Code fork）"
+      d: "Copilot 只支援 Python，Cursor 支援所有程式語言"
+    correct: c
+    explanation:
+      why_correct: "最關鍵的差異在產品形態：GitHub Copilot 是 IDE 擴充套件，可安裝在 VS Code、JetBrains 等多種編輯器；Cursor 是基於 VS Code fork 的獨立 IDE，需更換開發環境。"
+      why_not_a: "兩者都支援多種 AI 模型（GPT-4o、Claude 等），並非綁定單一模型。"
+      why_not_b: "兩者都有付費方案（Copilot Pro $10/月，Cursor Pro $20/月），且 Copilot 也有免費方案，但這不是「唯一差異」。"
+      why_not_d: "兩者都支援多種程式語言，並無語言限制的差異。"
+    keywords:
+      - GitHub Copilot
+      - Cursor
+      - IDE vs Extension
+    exam_trap: false
 
-- id: "L12201-Q29"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 5
-  question: "比較 Gemini 與 ChatGPT 這兩個多模態 AI 工具，下列分析何者最為準確？"
-  options:
-    a: "Gemini 與 Google 生態系深度整合，ChatGPT 擁有較早建立的使用者基礎與完整的外掛生態"
-    b: "Gemini 僅支援文字，ChatGPT 支援文字與圖片"
-    c: "ChatGPT 完全免費，Gemini 全部需要付費"
-    d: "兩者功能完全相同，差異僅在品牌名稱"
-  correct: "a"
-  explanation:
-    why_correct: "Gemini 的差異化優勢在於與 Google 生態系（Gmail、Drive、Docs 等）的深度整合；ChatGPT 則擁有先發優勢、龐大使用者基礎和完整的 Custom GPTs/外掛生態。"
-    why_not_b: "Gemini 和 ChatGPT 都具備多模態能力，能處理文字、圖片等多種輸入。"
-    why_not_c: "兩者都有免費方案和付費方案，並非一個全免費另一個全付費。"
-    why_not_d: "兩者在生態系整合、模型架構、定價策略等方面都有明顯差異。"
-  keywords:
-    - "Gemini"
-    - "ChatGPT"
-    - "多模態比較"
-    - "生態系整合"
-  exam_trap: false
+  - id: L12201-Q29
+    difficulty: D4
+    question: "在 Microsoft 的 AI 工具生態中，GitHub Copilot、Copilot Studio 與 VS Code for Copilot 三者的關係，下列分析何者正確？"
+    options:
+      a: "GitHub Copilot = 程式碼補全擴充套件；Copilot Studio = 低程式碼 Agent 平台；VS Code for Copilot = Copilot 在 VS Code 的整合介面"
+      b: "三者是同一產品的不同名稱，功能完全相同"
+      c: "Copilot Studio 是 GitHub Copilot 的進階版，適合專業開發者"
+      d: "VS Code for Copilot 是 Copilot Studio 在 VS Code 的版本"
+    correct: a
+    explanation:
+      why_correct: "三者定位完全不同：GitHub Copilot = IDE 程式碼補全；Copilot Studio = Microsoft 365/Power Platform 低程式碼 AI Agent 平台；VS Code for Copilot = GitHub Copilot 在 VS Code 的整合介面（非獨立產品）。"
+      why_not_b: "三者名稱相似但定位完全不同，是最常見的考試混淆陷阱。"
+      why_not_c: "Copilot Studio 不是 GitHub Copilot 的升級版，兩者屬於不同產品線——前者面向非技術人員建 AI Agent，後者面向開發者寫程式。"
+      why_not_d: "VS Code for Copilot 是 GitHub Copilot 的整合介面，與 Copilot Studio 無關。"
+    keywords:
+      - GitHub Copilot
+      - Copilot Studio
+      - VS Code for Copilot
+    exam_trap: true
 
-- id: "L12201-Q30"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 5
-  question: "從成本效益角度分析，一家每月需要生成數千段客服語音的企業，應該優先考慮下列哪個方案？"
-  options:
-    a: "使用 ChatGPT 的進階語音模式錄製"
-    b: "Azure AI Speech Neural TTS（$15-16/百萬字元）"
-    c: "Suno AI 音樂生成方案"
-    d: "ElevenLabs Pro 方案（$99/月，約 100 萬字元）"
-  correct: "b"
-  explanation:
-    why_correct: "決策框架：大量批次、成本敏感 → 按量計費（Azure AI Speech $15-16/百萬字元）；少量高品質 → 高單價訂閱（ElevenLabs）。此題的關鍵字是「數千段」和成本效益，直接指向按量計費的 Azure。企業級部署 Azure 也提供更穩定的 SLA。"
-    why_not_a: "ChatGPT 語音模式設計為對話互動，不適合大規模批量生成客服語音。"
-    why_not_c: "Suno AI 是音樂生成平台，不是語音合成工具。"
-    why_not_d: "ElevenLabs 品質領先但 Pro 方案約 100 萬字元/月，大量使用成本較高。適合品質要求極高但量較小的場景。"
-  keywords:
-    - "Azure AI Speech"
-    - "ElevenLabs"
-    - "成本效益"
-    - "企業部署"
-  exam_trap: false
+  - id: L12201-Q30
+    difficulty: D4
+    question: "分析「以下何者不是程式碼生成 AI 工具？」此類考題，下列哪個選項最可能是正確答案（即「不是」程式碼生成 AI）？"
+    options:
+      a: "Cursor"
+      b: "GitHub Copilot"
+      c: "Amazon Q Developer"
+      d: "Sora"
+    correct: d
+    explanation:
+      why_correct: "Sora 是 OpenAI 的文生影片（Text-to-Video）模型，屬影片生成領域，不是程式碼生成工具。其餘三者（Cursor、GitHub Copilot、Amazon Q Developer）都是程式碼生成/輔助工具。"
+      why_not_a: "Cursor 是 AI 程式碼編輯器，屬程式碼生成工具。"
+      why_not_b: "GitHub Copilot 是 IDE 程式碼補全擴充套件，屬程式碼生成工具。"
+      why_not_c: "Amazon Q Developer（原 Amazon CodeWhisperer）是 AWS 生態的 AI 程式碼輔助工具。"
+    keywords:
+      - 程式碼生成
+      - Sora
+      - 工具辨識
+    exam_trap: true
 
-- id: "L12201-Q31"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "TAIDE 相較於 ChatGPT 等國際大型語言模型，其主要差異化價值為何？"
-  options:
-    a: "模型參數量遠超過 GPT-5，運算能力更強"
-    b: "完全取代 ChatGPT 在所有任務上的表現"
-    c: "能反映台灣本地語言文化，且為政府主導的可信賴 AI 專案"
-    d: "只支援英文，專為國際市場設計"
-  correct: "c"
-  explanation:
-    why_correct: "TAIDE 的核心價值在於反映台灣本地語言與文化特色，由國科會主導開發，定位為可信賴（Trustworthy）AI，在台灣本土化和政府治理上有其獨特性。"
-    why_not_a: "TAIDE 的參數規模遠小於 GPT-5 等商業模型，其競爭優勢不在規模而在本土化。"
-    why_not_b: "TAIDE 定位為台灣本土特色模型，並非要在所有任務上取代國際大模型。"
-    why_not_d: "TAIDE 正是為了台灣繁體中文和本土文化需求而開發，並非只支援英文。"
-  keywords:
-    - "TAIDE"
-    - "本土化"
-    - "差異化價值"
-  exam_trap: false
+  - id: L12201-Q31
+    difficulty: D4
+    question: "TAIDE 相較於 ChatGPT 等國際大型語言模型，其主要差異化價值為何？"
+    options:
+      a: "模型參數量遠超 GPT-4，運算能力更強"
+      b: "完全取代 ChatGPT 在所有任務上的表現"
+      c: "反映台灣本地語言文化，且為政府主導的可信賴 AI 專案，可本地部署"
+      d: "只支援英文，專為國際市場設計"
+    correct: c
+    explanation:
+      why_correct: "TAIDE 的核心價值在於反映台灣本地語言文化，由國科會主導，強調可信賴（Trustworthy）且可支援本地部署，符合政府和敏感資料場景的需求。"
+      why_not_a: "TAIDE 的參數規模遠小於國際商業模型，其競爭優勢在本土化而非規模。"
+      why_not_b: "TAIDE 定位為台灣本土特色模型，並非要在所有任務上取代國際大模型。"
+      why_not_d: "TAIDE 正是為台灣繁體中文和本土文化而開發，並非只支援英文。"
+    keywords:
+      - TAIDE
+      - 本土化
+      - 差異化價值
+    exam_trap: false
 
-- id: "L12201-Q32"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "某公司同時需要：(1) 自動回覆客戶訊息的聊天機器人、(2) 內部開發團隊的程式碼輔助工具。下列工具組合何者最適當？"
-  options:
-    a: "Copilot Studio + GitHub Copilot"
-    b: "ChatGPT + Midjourney"
-    c: "ElevenLabs + Suno AI"
-    d: "Cursor + TAIDE"
-  correct: "a"
-  explanation:
-    why_correct: "Copilot Studio 專為建立低程式碼聊天機器人設計，解決需求 (1)；GitHub Copilot 是程式碼補全工具，解決需求 (2)。兩者雖名稱相似但定位互補。"
-    why_not_b: "ChatGPT 可對話但難以獨立部署為企業客服機器人，Midjourney 是圖像工具與需求無關。"
-    why_not_c: "ElevenLabs 和 Suno AI 都屬於聲音/音樂領域，與客服機器人和程式碼輔助都不相關。"
-    why_not_d: "Cursor 可用於程式碼開發但不是聊天機器人建置工具，TAIDE 是語言模型而非企業解決方案。"
-  keywords:
-    - "Copilot Studio"
-    - "GitHub Copilot"
-    - "工具選擇"
-    - "需求分析"
-  exam_trap: false
+  - id: L12201-Q32
+    difficulty: D4
+    question: "某公司同時需要：(1) 自動回覆客戶訊息的聊天機器人；(2) 開發團隊的程式碼補全輔助工具。下列工具組合何者最適當？"
+    options:
+      a: "Copilot Studio + GitHub Copilot"
+      b: "ChatGPT + Midjourney"
+      c: "ElevenLabs + Suno"
+      d: "Cursor + TAIDE"
+    correct: a
+    explanation:
+      why_correct: "Copilot Studio 專為建立低程式碼聊天機器人設計，解決需求 (1)；GitHub Copilot 是程式碼補全擴充套件，解決需求 (2)。兩者名稱相似但定位互補，是典型的考題陷阱。"
+      why_not_b: "ChatGPT 是終端使用者產品無法直接部署為企業客服機器人，Midjourney 是圖像工具與需求無關。"
+      why_not_c: "ElevenLabs 和 Suno 都屬聲音/音樂領域，與客服機器人和程式碼輔助都無關。"
+      why_not_d: "Cursor 可用於程式碼開發但不是聊天機器人建置工具，TAIDE 是語言模型而非企業解決方案工具。"
+    keywords:
+      - Copilot Studio
+      - GitHub Copilot
+      - 工具組合
+    exam_trap: false
 
-# ============================================================
-# Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造)
-# ============================================================
+  # ============================================================
+  # D5 — 評鑑（Evaluate）× 3
+  # ============================================================
 
-- id: "L12201-Q33"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "某台灣新創公司計劃開發一個多語言 AI 客服系統，需求包括：文字對話回覆、將回覆轉為語音播放、生成產品展示圖片。評估下列方案，何者最能完整滿足所有需求？"
-  options:
-    a: "ChatGPT Plus + Midjourney + GitHub Copilot"
-    b: "Gemini Advanced + Copilot Studio + Cursor"
-    c: "OpenAI API（文字生成 + DALL-E 圖像） + ElevenLabs（語音合成）"
-    d: "TAIDE + Suno AI + Azure AI Speech"
-  correct: "c"
-  explanation:
-    why_correct: "OpenAI API 可處理文字對話（GPT 模型）和圖像生成（DALL-E），且作為 API 可整合進自有系統；ElevenLabs 提供高品質語音合成。此組合完整覆蓋文字 + 語音 + 圖像三大需求，且都支援 API 整合。"
-    why_not_a: "ChatGPT Plus 是終端使用者產品，無法透過 API 整合進自有系統。GitHub Copilot 是寫程式工具，與客服系統功能需求無關。"
-    why_not_b: "Gemini Advanced 是個人訂閱產品，不易整合；Copilot Studio 做聊天機器人但不含語音和圖像；Cursor 是寫程式工具。"
-    why_not_d: "TAIDE 的 API 生態尚不成熟；Suno AI 是音樂生成非語音合成；此組合無法滿足圖像生成需求。"
-  keywords:
-    - "多需求整合"
-    - "OpenAI API"
-    - "ElevenLabs"
-    - "系統整合"
-  exam_trap: false
+  - id: L12201-Q33
+    difficulty: D5
+    question: "某台灣新創公司計劃開發多語言 AI 客服系統，需求包括：文字對話回覆、將回覆轉為語音播放、生成產品展示圖片，且須透過 API 整合進自有系統。下列方案何者最能完整滿足所有需求？"
+    options:
+      a: "ChatGPT Plus + Midjourney + GitHub Copilot"
+      b: "Gemini Advanced + Copilot Studio + Cursor"
+      c: "OpenAI API（文字+DALL-E圖像）+ ElevenLabs（語音合成）"
+      d: "TAIDE + Suno + Azure AI Speech"
+    correct: c
+    explanation:
+      why_correct: "OpenAI API 可處理文字對話（GPT 模型）和圖像生成（DALL-E），且作為 API 可整合進自有系統；ElevenLabs API 提供高品質語音合成。此組合完整覆蓋文字+語音+圖像三大需求，且都支援 API 整合。"
+      why_not_a: "ChatGPT Plus 是終端使用者訂閱產品，無法透過 API 整合進自有系統；GitHub Copilot 是程式碼工具與客服需求無關。"
+      why_not_b: "Gemini Advanced 是個人訂閱產品，不易 API 整合；Copilot Studio 做聊天機器人但不含語音和圖像 API。"
+      why_not_d: "TAIDE 的 API 生態尚不成熟；Suno 是音樂生成非語音合成；此組合無法滿足圖像生成需求。"
+    keywords:
+      - OpenAI API
+      - ElevenLabs
+      - 多需求整合
+    exam_trap: false
 
-- id: "L12201-Q34"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 5
-  question: "一位技術主管正在評估團隊的 AI 工具採購策略。團隊有 10 位開發者（目前用 VS Code）和 5 位非技術行銷人員。預算有限，需要同時滿足：程式碼輔助、社群圖片生成、客戶問答自動化。下列策略何者最具成本效益？"
-  options:
-    a: "全員購買 Cursor Pro ($20×15 人) + Midjourney Standard ($30/月)"
-    b: "全員購買 ChatGPT Pro ($200×15 人)"
-    c: "只購買 Gemini Ultra ($124.99/3 月×15 人)，用一個工具解決所有需求"
-    d: "開發者用 GitHub Copilot Pro ($10/人×10 人)，行銷用 Midjourney Basic ($10/人×5 人)，客戶問答用 OpenAI API（按量計費）"
-  correct: "d"
-  explanation:
-    why_correct: "針對不同需求選擇最適工具：開發者用 Copilot（$100/月，不需換編輯器）、行銷用 Midjourney（$50/月）、問答用 API（按量彈性）。總成本最低且各需求都有最適工具，月費約 $150 + API 用量。"
-    why_not_a: "Cursor 需要開發者更換編輯器，且非技術人員不需要程式碼工具。15 人都買 Cursor 是浪費（$300/月僅程式碼工具）。"
-    why_not_b: "ChatGPT Pro $200/人×15 = $3,000/月，極度昂貴。且 ChatGPT 不提供 API 整合，無法自動化客戶問答。"
-    why_not_c: "Gemini 雖有多模態能力，但不提供專業級圖像生成或程式碼補全，無法充分滿足三個專業需求。"
-  keywords:
-    - "成本效益"
-    - "工具選擇策略"
-    - "GitHub Copilot"
-    - "Midjourney"
-    - "OpenAI API"
-  exam_trap: false
+  - id: L12201-Q34
+    difficulty: D5
+    question: "技術主管評估 AI 工具採購策略。10 位開發者（使用 VS Code）+ 5 位非技術行銷人員。需同時滿足：程式碼輔助、社群圖片生成、客戶問答自動化。下列策略何者最具成本效益？"
+    options:
+      a: "全員購買 Cursor Pro ($20×15人) + Midjourney Standard ($30/月)"
+      b: "全員購買 ChatGPT Pro ($200×15人)"
+      c: "只購買 Gemini Ultra，用一個工具解決所有需求"
+      d: "開發者用 GitHub Copilot Pro ($10/人×10人)，行銷用 Midjourney Basic ($10/人×5人)，客戶問答用 OpenAI API（按量計費）"
+    correct: d
+    explanation:
+      why_correct: "針對不同需求選最適工具：開發者用 Copilot（$100/月，不換 IDE）、行銷用 Midjourney（$50/月）、問答用 API（彈性按量）。總月費最低（$150 + API 用量），且各需求都有最適工具。"
+      why_not_a: "Cursor 需要開發者更換編輯器，且非技術行銷人員不需要程式碼工具，組合不合理。"
+      why_not_b: "ChatGPT Pro $200/人 × 15 = $3,000/月，成本過高；且 ChatGPT 不提供問答自動化的 API 整合。"
+      why_not_c: "Gemini 雖有多模態能力，但不提供專業級圖像生成，也無法替代 GitHub Copilot 的 IDE 程式碼補全整合體驗。"
+    keywords:
+      - 成本效益
+      - 工具選擇策略
+      - GitHub Copilot
+      - Midjourney
+    exam_trap: false
 
-- id: "L12201-Q35"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 5
-  question: "關於「Vibe Coding 將完全取代傳統軟體開發，未來不再需要學習程式語言」這個論述，下列評論何者最為合理？"
-  options:
-    a: "完全正確，AI 已經能取代所有人工程式設計"
-    b: "Vibe Coding 降低了入門門檻但無法完全取代，複雜系統仍需理解程式邏輯才能除錯和架構設計"
-    c: "Vibe Coding 只是行銷口號，實際上沒有任何實用價值"
-    d: "Vibe Coding 只適用於 Python，其他語言無法使用"
-  correct: "b"
-  explanation:
-    why_correct: "Vibe Coding 確實降低了程式開發的入門門檻（用自然語言描述即可生成程式碼），但複雜系統的除錯、架構設計、效能優化等仍需要開發者理解底層邏輯。它是輔助而非取代。"
-    why_not_a: "過度絕對化。AI 生成的程式碼仍可能有錯誤，大型系統的架構設計和品質管控仍需人類判斷。"
-    why_not_c: "過度否定。Cursor 等工具的實際使用者已證明 Vibe Coding 在原型開發、小型專案中有顯著效率提升。"
-    why_not_d: "Vibe Coding 概念不限程式語言，Cursor 等工具支援多種語言。"
-  keywords:
-    - "Vibe Coding"
-    - "批判性思考"
-    - "技術評估"
-  exam_trap: true
-
-- id: "L12201-Q36"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "某大學資訊系教授想設計一門「生成式 AI 實務」課程，需要讓學生在 16 週內體驗文本生成、圖像生成、聲音生成三大領域，同時控制預算在每位學生 NT$500 以內。下列工具組合何者最可行？"
-  options:
-    a: "ChatGPT Free + Midjourney Basic ($10/月) + ElevenLabs Free"
-    b: "ChatGPT Plus ($20/月) + Midjourney Pro ($60/月) + ElevenLabs Pro ($99/月)"
-    c: "Gemini Free + GPT Image（透過 ChatGPT Free）+ ElevenLabs Free"
-    d: "全部使用 OpenAI API，按用量計費"
-  correct: "c"
-  explanation:
-    why_correct: "Gemini Free（文本+多模態）、ChatGPT Free 內建 GPT Image 圖像生成功能、ElevenLabs Free（語音合成）— 三者皆有免費方案，總成本 $0，完全符合預算限制。學生可體驗三大領域。"
-    why_not_a: "Midjourney Basic $10/月×4 月 = $40（約 NT$1,280），已超過 NT$500 的人均預算。"
-    why_not_b: "三項月費合計 $179/月，16 週（約 4 月）= $716/人（約 NT$22,900），遠超預算。"
-    why_not_d: "學生使用 API 需要程式設計能力，且用量難以預估和控制，不適合教學情境。"
-  keywords:
-    - "免費方案"
-    - "工具選擇"
-    - "預算規劃"
-    - "教學應用"
-  exam_trap: false
-
-- id: "L12201-Q37"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 4
-  question: "從 AI 工具市場競爭的角度分析，下列哪個趨勢最能解釋為何 GitHub Copilot 和 Cursor 都開始支援多種 AI 模型（如 GPT-4o、Claude、Gemini）而非綁定單一模型？"
-  options:
-    a: "各 AI 模型在不同任務上各有優劣，多模型支援讓使用者選擇最適模型"
-    b: "綁定單一模型供應商會有議價劣勢，多模型是為了降低採購成本"
-    c: "單一模型的授權費用太高，多模型可以降低成本"
-    d: "多模型支援主要是為了避免供應商鎖定（vendor lock-in），與模型效能無關"
-  correct: "a"
-  explanation:
-    why_correct: "像是工具箱裡放多把螺絲起子——不同 AI 模型在程式碼補全精準度、理解複雜需求、生成速度等方面各有優勢。多模型支援讓開發者根據任務特性選擇最適模型，提升整體體驗。實際評測數據也顯示不同模型在 SWE-Bench 等基準上表現各異。"
-    why_not_b: "議價劣勢是次要因素。多模型支援的主因是不同模型的效能差異化——各模型在不同任務上各有強弱，並非單純的成本談判策略。"
-    why_not_c: "多模型支援的主因是效能差異化，不是為了降低授權費。實際上支援多模型可能增加整合成本。"
-    why_not_d: "避免 vendor lock-in 是附帶好處，但核心驅動力是模型效能差異。如果所有模型表現相同，多模型支援就沒有產品價值。"
-  keywords:
-    - "多模型支援"
-    - "GitHub Copilot"
-    - "Cursor"
-    - "市場趨勢"
-  exam_trap: false
-
-- id: "L12201-Q38"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "某政府機關想導入 AI 工具處理公文撰寫，考量資料安全性與本土化需求，同時需要支援繁體中文公文格式。下列方案何者最適合作為優先評估對象？"
-  options:
-    a: "直接使用 ChatGPT Free 方案"
-    b: "購買 Midjourney Enterprise 方案"
-    c: "使用 GitHub Copilot 處理公文"
-    d: "評估 TAIDE 或其衍生模型，搭配本地部署方案"
-  correct: "d"
-  explanation:
-    why_correct: "政府機關有資料安全性要求（不宜將公文傳到海外伺服器）和本土化需求。TAIDE 由國科會主導開發，可搭配本地部署確保資料安全，同時針對台灣語言文化優化，最符合政府機關需求。"
-    why_not_a: "ChatGPT Free 的資料會傳到 OpenAI 美國伺服器，政府公文涉及敏感資訊，不適合使用海外雲端服務。"
-    why_not_b: "Midjourney 是圖像生成工具，與公文撰寫完全無關。"
-    why_not_c: "GitHub Copilot 是程式碼輔助工具，不適合公文撰寫。"
-  keywords:
-    - "TAIDE"
-    - "資料安全"
-    - "本地部署"
-    - "政府應用"
-  exam_trap: false
-
-- id: "L12201-Q39"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 5
-  question: "一間台灣電商公司想建立完整的 AI 內容產製流程：商品描述自動撰寫 → 商品圖片自動生成 → 多語言客服語音自動回覆。技術團隊只有 2 位工程師。下列哪個整合架構最務實？"
-  options:
-    a: "全部用 Gemini Advanced 處理，一個工具解決所有問題"
-    b: "用 Cursor 開發所有功能，完全自建 AI 系統"
-    c: "ChatGPT Plus + Midjourney + Suno AI"
-    d: "OpenAI API（文字+圖像整合）+ ElevenLabs API（語音）+ 低程式碼聊天機器人平台（客服前端）"
-  correct: "d"
-  explanation:
-    why_correct: "OpenAI API 統一處理文字和圖像生成，降低整合複雜度；ElevenLabs API 提供高品質多語言語音；低程式碼聊天機器人平台（如 Copilot Studio 適合 Microsoft 365 生態系的企業，或 Botpress 等開源替代方案）讓非技術人員也能管理客服前端，減輕 2 位工程師的維護負擔。關鍵思路：人力有限時善用 API + 低程式碼工具，而非全部自建。"
-    why_not_a: "Gemini Advanced 是個人訂閱產品，不提供圖像生成 API，也無法獨立建立語音回覆和客服系統。"
-    why_not_b: "只有 2 位工程師要自建完整 AI 系統不切實際，應善用現有 API 和低程式碼工具。"
-    why_not_c: "ChatGPT Plus 和 Midjourney 都不提供 API 整合，Suno AI 是音樂而非語音工具，無法建立自動化流程。"
-  keywords:
-    - "整合架構"
-    - "OpenAI API"
-    - "ElevenLabs API"
-    - "Copilot Studio"
-    - "務實評估"
-  exam_trap: false
-
-- id: "L12201-Q40"
-  topic_code: "L12201"
-  item_code: "L12201"
-  difficulty: 3
-  question: "分析目前生成式 AI 工具的免費/付費策略，下列歸納何者最為正確？"
-  options:
-    a: "所有主流 AI 工具都提供免費方案，付費只是加速"
-    b: "只有開源模型是免費的，所有商業 AI 工具都必須付費"
-    c: "ChatGPT 和 Gemini 提供有限制的免費方案，Midjourney 無免費方案，OpenAI API 按用量計費有免費額度"
-    d: "免費方案與付費方案的功能完全相同，差別僅在使用量"
-  correct: "c"
-  explanation:
-    why_correct: "ChatGPT Free（使用較低階模型、對話次數有限）和 Gemini Free 都有限制性免費方案；Midjourney 完全無免費方案（最低 $10/月）；OpenAI API 提供初始免費額度後按 token 計費。各工具的免費/付費策略各異。"
-    why_not_a: "Midjourney 就沒有免費方案，「所有」的說法過於絕對。"
-    why_not_b: "ChatGPT、Gemini 等商業工具也有免費方案，並非只有開源模型才免費。"
-    why_not_d: "免費與付費方案在模型等級（免費用較低階模型、付費用旗艦模型）、功能範圍（如 Custom GPTs、Deep Research）上有本質差異，不僅是量的差別。"
-  keywords:
-    - "免費方案"
-    - "付費策略"
-    - "定價模式"
-    - "工具比較"
-  exam_trap: true
+  - id: L12201-Q35
+    difficulty: D5
+    question: "關於「Vibe Coding 將完全取代傳統軟體開發，未來不再需要學習程式語言」這個論述，下列評論何者最為合理？"
+    options:
+      a: "完全正確，AI 已能取代所有人工程式設計"
+      b: "Vibe Coding 降低了入門門檻，但複雜系統仍需理解程式邏輯才能除錯和架構設計"
+      c: "Vibe Coding 只是行銷口號，實際上毫無實用價值"
+      d: "Vibe Coding 只適用於 Python，其他語言無法使用"
+    correct: b
+    explanation:
+      why_correct: "Vibe Coding 確實降低程式開發入門門檻，但複雜系統的除錯、架構設計、效能優化等仍需理解底層邏輯。它是輔助而非完全取代，是 2026 年考試對這個新概念的標準評判視角。"
+      why_not_a: "過度絕對化。AI 生成的程式碼仍可能有錯誤，大型系統架構和品質管控仍需人類判斷。"
+      why_not_c: "過度否定。Cursor 等工具的實際使用者已證明 Vibe Coding 在原型開發和小型專案中有顯著效率提升。"
+      why_not_d: "Vibe Coding 概念不限程式語言，Cursor 等工具支援多種語言。"
+    keywords:
+      - Vibe Coding
+      - 批判性評估
+      - Cursor
+    exam_trap: true

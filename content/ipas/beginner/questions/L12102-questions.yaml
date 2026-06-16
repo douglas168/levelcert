@@ -1,878 +1,449 @@
-# L12102 — No Code / Low Code的優勢與限制
-# Question pool for adaptive testing
-# Generated: 2026-04-16
-# Total: 38 questions
+topic: L12102
+topic_name: No Code / Low Code的優勢與限制
+level: beginner
+questions:
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+  # ============================================================
+  # Difficulty 1 — Remember (Bloom's: 記憶) — 6 questions
+  # ============================================================
 
-- id: "L12102-Q01"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "根據 Gartner 預測，到 2026 年全球低程式碼（Low Code）市場規模預估將達到多少？"
-  options:
-    a: "約 445 億美元"
-    b: "約 200 億美元"
-    c: "約 100 億美元"
-    d: "約 800 億美元"
-  correct: "a"
-  explanation:
-    why_correct: "Gartner 預測 2026 年全球低程式碼市場規模達 $44.5B（約 445 億美元），年複合成長率（CAGR）約 19%。記「雙 4.5」— $44.5B；考題常用 200/100/800 億做干擾。"
-    why_not_b: "200 億美元約為 2022-2023 年的市場規模水準，並非 2026 年的預測值。"
-    why_not_c: "100 億美元是數年前的市場規模，低估了 LCNC 近年的高速成長趨勢。"
-    why_not_d: "800 億美元嚴重高估了 2026 年的市場規模，Gartner 預測 2029 年也僅約 $58.2B。"
-  keywords:
-    - "Gartner"
-    - "市場預測"
-    - "Low Code市場規模"
-  exam_trap: false
+  - id: L12102-Q01
+    difficulty: 1
+    question: "No Code / Low Code 最常被提及的核心優勢之一，是相較傳統開發方式可提升多少倍的開發速度？"
+    options:
+      a: "約 5 倍"
+      b: "約 50 倍"
+      c: "約 100 倍"
+      d: "約 20 倍"
+    correct: d
+    explanation:
+      why_correct: "Forrester 研究指出，LCNC 開發速度比傳統全程式碼開發快約 20 倍。記住「Forrester → 20 倍」這個數字對。"
+      why_not_a: "5 倍低估了 LCNC 的效率優勢，Forrester 數據為 20 倍。"
+      why_not_b: "50 倍過度誇大，無主流研究支持。"
+      why_not_c: "100 倍遠超任何機構估計，不切實際。"
+    keywords: ["開發速度", "Forrester", "20倍"]
+    exam_trap: false
 
-- id: "L12102-Q02"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "No Code/Low Code 平台最常被提及的核心優勢之一，是相較傳統開發方式可提升多少倍的開發速度？"
-  options:
-    a: "約 5 倍"
-    b: "約 20 倍"
-    c: "約 50 倍"
-    d: "約 100 倍"
-  correct: "b"
-  explanation:
-    why_correct: "根據 Forrester 研究，No Code/Low Code 開發方式比傳統開發方式快約 20 倍，且 95% 的領導者認為速度更快。考場遇到速度倍數題，20 倍是 Forrester 權威數據；50/100 倍多半是誇大陷阱。"
-    why_not_a: "5 倍低估了 LCNC 的開發效率提升幅度，Forrester 的研究數據顯示約為 20 倍。"
-    why_not_c: "50 倍過度誇大了效率提升幅度，目前無權威研究支持此數字。"
-    why_not_d: "100 倍遠超任何主流研究機構的估計，不切實際。"
-  keywords:
-    - "Forrester"
-    - "開發速度"
-    - "效率提升"
-  exam_trap: false
+  - id: L12102-Q02
+    difficulty: 1
+    question: "「供應商鎖定（Vendor Lock-in）」在 No Code / Low Code 情境中是指什麼？"
+    options:
+      a: "平台供應商限制使用者帳號數量，導致無法擴充團隊"
+      b: "使用者無法將應用遷移至其他平台，因為平台通常不允許匯出原始碼"
+      c: "供應商要求簽訂長期合約，不允許中途解約"
+      d: "平台僅支援單一瀏覽器，限制終端使用者的存取方式"
+    correct: b
+    explanation:
+      why_correct: "Vendor Lock-in 的核心問題是平台專有格式（Proprietary Format）讓應用邏輯、資料結構都綁在特定平台，無法輕易遷移，遷移等於從頭重寫。"
+      why_not_a: "帳號數量限制是授權（licensing）問題，與 Vendor Lock-in 無關。"
+      why_not_c: "合約條款是商業問題，Vendor Lock-in 指的是技術上的遷移困難。"
+      why_not_d: "瀏覽器相容性是前端問題，與供應商鎖定完全不同。"
+    keywords: ["Vendor Lock-in", "供應商鎖定", "平台遷移"]
+    exam_trap: false
 
-- id: "L12102-Q03"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "在 No Code/Low Code 的風險討論中，「供應商鎖定（Vendor Lock-in）」是指什麼？"
-  options:
-    a: "平台供應商限制使用者帳號數量，導致無法擴充團隊"
-    b: "使用者無法將應用與資料遷移至其他平台，因為無法匯出原始碼"
-    c: "供應商要求簽訂長期合約，不允許中途解約"
-    d: "平台僅支援單一瀏覽器，限制了終端使用者的存取方式"
-  correct: "b"
-  explanation:
-    why_correct: "Vendor Lock-in 的核心問題在於 No Code/Low Code 平台通常不支援匯出原始碼，一旦決定遷移，等同於要從零重寫整個應用。"
-    why_not_a: "帳號數量限制是授權方案（licensing）的問題，與 Vendor Lock-in 的概念無關。"
-    why_not_c: "合約條款是商業談判的問題。Vendor Lock-in 指的是技術上的遷移困難，即使合約到期仍然存在。"
-    why_not_d: "瀏覽器相容性是前端技術問題，與供應商鎖定的概念完全不同。"
-  keywords:
-    - "Vendor Lock-in"
-    - "供應商鎖定"
-    - "平台遷移"
-  exam_trap: false
+  - id: L12102-Q03
+    difficulty: 1
+    question: "「影子 IT（Shadow IT）」在 No Code / Low Code 應用情境中是指什麼現象？"
+    options:
+      a: "IT 部門在未獲管理層授權下自行採購雲端服務"
+      b: "駭客利用 LCNC 平台漏洞入侵企業內部系統"
+      c: "非 IT 部門自行使用 LCNC 工具建置系統，未經 IT 部門監管與治理"
+      d: "企業刻意隱藏 IT 支出以規避預算審查"
+    correct: c
+    explanation:
+      why_correct: "Shadow IT 是非 IT 部門員工自行使用工具（包含 LCNC 平台）建置應用，繞過 IT 治理流程，導致安全與合規風險。"
+      why_not_a: "IT 部門自行採購是另一種治理問題，Shadow IT 強調的是非 IT 部門的自主行為。"
+      why_not_b: "駭客入侵屬於資安攻擊（Security Breach），不是 Shadow IT 概念。"
+      why_not_d: "隱藏 IT 支出是財務問題，與 Shadow IT 的技術治理概念無關。"
+    keywords: ["Shadow IT", "影子IT", "治理風險"]
+    exam_trap: false
 
-- id: "L12102-Q04"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "根據 Gartner 預測，到 2026 年 No Code/Low Code 平台的使用者中，非 IT 部門人員將佔多少比例？"
-  options:
-    a: "約 50%"
-    b: "約 65%"
-    c: "約 95%"
-    d: "約 80%"
-  correct: "d"
-  explanation:
-    why_correct: "Gartner 預測到 2026 年，LCNC 使用者中有 80% 將來自正式 IT 部門以外，反映公民開發者（Citizen Developer）趨勢。看到「非 IT 參與大增」就聯想 Citizen Developer — 10 個裡有 8 個不在 IT 部門。"
-    why_not_a: "50% 低估了非 IT 人員在 LCNC 使用者中的佔比，Gartner 的預測數字為 80%。"
-    why_not_b: "65% 雖然接近但並非 Gartner 的正式預測數字，正確數字為 80%。"
-    why_not_c: "95% 過度高估，即使在 LCNC 普及後，仍需要一定比例的 IT 專業人員進行平台管理與維護。"
-  keywords:
-    - "Gartner"
-    - "公民開發者"
-    - "非IT人員"
-  exam_trap: false
+  - id: L12102-Q04
+    difficulty: 1
+    question: "下列何者屬於 No Code / Low Code 的優勢？"
+    options:
+      a: "無限制的客製化彈性，任何複雜邏輯都能實作"
+      b: "保證高并發場景下的企業級效能"
+      c: "完全免除資料安全與合規的疑慮"
+      d: "降低對專業工程師的依賴，讓業務人員也能建置應用"
+    correct: d
+    explanation:
+      why_correct: "賦能業務人員（Business Empowerment）是 LCNC 的核心優勢之一——讓非技術背景的員工也能建置應用，降低對工程師的依賴。"
+      why_not_a: "客製化受限（Customization Constraints）恰恰是 LCNC 的主要限制，複雜邏輯難以實現。"
+      why_not_b: "擴展性瓶頸（Scalability Bottleneck）是 LCNC 的重要限制，無法保證高并發效能。"
+      why_not_c: "資安隱私疑慮（Security & Privacy Risks）是 LCNC 的限制之一，資料存於第三方平台有合規風險。"
+    keywords: ["LCNC優勢", "業務賦能", "Business Empowerment"]
+    exam_trap: false
 
-- id: "L12102-Q05"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "「影子 IT（Shadow IT）」在 No Code/Low Code 應用情境中是指什麼現象？"
-  options:
-    a: "IT 部門在未獲得管理層授權下自行採購雲端服務"
-    b: "駭客利用 LCNC 平台漏洞入侵企業內部系統"
-    c: "非 IT 部門自行使用 LCNC 工具建置系統，但缺乏 IT 部門的監管與治理"
-    d: "企業刻意隱藏 IT 支出以規避預算審查"
-  correct: "c"
-  explanation:
-    why_correct: "Shadow IT 是指非 IT 部門的員工自行使用工具（包括 LCNC 平台）建置應用，繞過 IT 部門的治理流程，導致安全與合規風險。"
-    why_not_a: "IT 部門自行採購是另一種治理問題，但不是 Shadow IT 的典型定義。Shadow IT 強調的是非 IT 部門的自主行為。"
-    why_not_b: "駭客入侵屬於資安攻擊（Security Breach），不是 Shadow IT 的概念。"
-    why_not_d: "隱藏 IT 支出是財務管理問題，與 Shadow IT 的技術治理概念無關。"
-  keywords:
-    - "Shadow IT"
-    - "影子IT"
-    - "治理風險"
-  exam_trap: false
+  - id: L12102-Q05
+    difficulty: 1
+    question: "「技術債（Technical Debt）」在 LCNC 開發中最常見的成因是什麼？"
+    options:
+      a: "為了快速交付（如 MVP 上線）而不斷疊加功能卻從未重構，導致後續維護困難"
+      b: "使用 LCNC 平台需要支付的授權費用"
+      c: "LCNC 平台底層架構缺乏安全機制"
+      d: "企業購買 LCNC 平台後尚未攤提的固定資產折舊"
+    correct: a
+    explanation:
+      why_correct: "技術債是快速開發的副作用——MVP 上線後需求持續增加，在原有基礎上疊加功能但從不重構，最終系統越來越混亂，維護成本飆升。"
+      why_not_b: "授權費用是直接的營運支出（OpEx），不是技術債概念。"
+      why_not_c: "技術債與平台安全機制無關，而是使用者的開發行為造成的。"
+      why_not_d: "固定資產折舊是會計概念，與技術債完全無關。"
+    keywords: ["技術債", "Technical Debt", "MVP", "重構"]
+    exam_trap: false
 
-- id: "L12102-Q06"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 1
-  question: "下列何者不是 No Code/Low Code 的核心優勢？"
-  options:
-    a: "加速應用程式開發速度，縮短上線時程"
-    b: "保證應用程式具備企業級的高併發擴展能力"
-    c: "降低 IT 人才短缺對企業數位轉型的衝擊"
-    d: "讓業務部門直接參與應用開發，減少跨部門溝通成本"
-  correct: "b"
-  explanation:
-    why_correct: "擴展性瓶頸恰恰是 LCNC 的主要限制之一。考生容易把「快速開發」誤解為「什麼都能做」，但 LCNC 在高併發、複雜邏輯場景力不從心，無法保證企業級擴展能力。看到「保證」二字要警覺。"
-    why_not_a: "加速開發速度是 LCNC 最被認可的核心優勢，Forrester 研究顯示可比傳統開發快約 20 倍。注意選項說「加速」而非「保證最快」，措辭合理。"
-    why_not_c: "台灣 43% 企業領導者認為數位轉型最大障礙是技術人才不足，LCNC 降低開發門檻，正是解決人才短缺的關鍵優勢。"
-    why_not_d: "業務部門直接參與開發（公民開發者模式）減少了需求傳達的來回溝通成本，是 LCNC 賦能的重要面向。"
-  keywords:
-    - "LCNC優勢"
-    - "擴展性瓶頸"
-    - "限制"
-  exam_trap: true
+  - id: L12102-Q06
+    difficulty: 1
+    question: "在 No Code / Low Code 的場景選擇上，「安全選 Low，簡單選 No」是指什麼原則？"
+    options:
+      a: "Low Code 適合高安全合規需求（如金融、醫療），No Code 適合簡單標準化需求"
+      b: "Low Code 的操作比 No Code 更安全，所有情況都應優先選 Low Code"
+      c: "No Code 適合所有簡單場景，Low Code 只適合高難度場景"
+      d: "安全場域不能使用任何 LCNC 工具"
+    correct: a
+    explanation:
+      why_correct: "判斷原則：有法規或資安約束（金融、醫療個資法）→ 選 Low Code（可加程式碼層級合規控制）；標準化流程、快速迭代（教育表單、新創 MVP）→ 選 No Code（門檻最低最快）。"
+      why_not_b: "Low Code 不是永遠「更安全」，No Code 也有適合的場景，關鍵是「場景需求」。"
+      why_not_c: "選擇標準是安全合規需求，不只是難度高低。"
+      why_not_d: "安全場域可以使用 LCNC，尤其是 Low Code（因為可用程式碼實現合規控制）。"
+    keywords: ["安全選Low", "簡單選No", "場域選擇"]
+    exam_trap: false
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  # ============================================================
+  # Difficulty 2 — Understand (Bloom's: 理解) — 7 questions
+  # ============================================================
 
-- id: "L12102-Q07"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "台灣企業近年加速採用 No Code/Low Code 開發方式，下列哪個原因最為關鍵？"
-  options:
-    a: "LCNC 可加速 MVP 驗證，讓新產品更快進入市場測試"
-    b: "43% 企業領導者認為數位轉型最大障礙是技術人才不足，LCNC 可降低開發門檻"
-    c: "LCNC 可縮短 IT backlog，讓內部需求不必排隊等待開發資源"
-    d: "LCNC 可降低軟體外包成本，減少對外部廠商的依賴"
-  correct: "b"
-  explanation:
-    why_correct: "根據數位時代報導，43% 企業領導者認為數位轉型最大障礙是技術人才不足。因果鏈：人才不足 → IT backlog 與外包成本上升 → LCNC 讓業務端先解決標準化需求，是最根本的驅動力。其他選項是人才不足的下游效果，不是根因。"
-    why_not_a: "加速 MVP 驗證是 LCNC 的效果之一，但不是台灣企業採用的根本原因。根因是人才不足導致企業被迫尋找替代方案。"
-    why_not_c: "縮短 IT backlog 確實是 LCNC 的好處，但 backlog 本身是人才不足的結果，不是採用 LCNC 的根本驅動力。"
-    why_not_d: "降低外包成本是 LCNC 帶來的間接效益，但企業之所以依賴外包，根因還是內部技術人才不足。"
-  keywords:
-    - "台灣數位轉型"
-    - "人才不足"
-    - "LCNC採用"
-  exam_trap: false
+  - id: L12102-Q07
+    difficulty: 2
+    question: "關於 No Code / Low Code 的成本優勢，下列敘述何者最完整正確？"
+    options:
+      a: "LCNC 節省的只有工程師薪資成本"
+      b: "LCNC 雖省了人力，但平台授權費使 TCO 比傳統開發更高"
+      c: "LCNC 的成本優勢只在導入初期，長期 TCO 與傳統開發相同"
+      d: "LCNC 壓縮了人力、時間、維護與試錯等整個開發生命週期的成本"
+    correct: d
+    explanation:
+      why_correct: "LCNC 的成本優勢體現在完整的開發生命週期（Development Lifecycle）：人力成本（少工程師）、時間成本（快 20 倍）、維護成本（平台負責底層）、試錯成本（失敗成本低）。"
+      why_not_a: "「只有工程師薪資」過度窄化，LCNC 節省的是整個生命週期多種類型的成本。"
+      why_not_b: "此選項描述了 TCO（Total Cost of Ownership，總持有成本）考量，是需要注意的陷阱，但並非 LCNC「成本優勢」的核心定義。"
+      why_not_c: "LCNC 的成本優勢並不僅限於初期，維護與迭代階段同樣有成本差異。"
+    keywords: ["成本節省", "TCO", "開發生命週期"]
+    exam_trap: false
 
-- id: "L12102-Q08"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "關於 No Code/Low Code 與「AI 民主化（AI Democratization）」的關係，下列敘述何者正確？"
-  options:
-    a: "LCNC 是 AI 民主化的關鍵推手，讓非技術人員也能建置 AI 應用"
-    b: "AI 民主化是指 AI 技術完全開源，所有人都可免費使用"
-    c: "LCNC 與 AI 民主化是完全無關的兩個趨勢"
-    d: "AI 民主化要求所有 AI 模型都必須透過 LCNC 平台部署"
-  correct: "a"
-  explanation:
-    why_correct: "LCNC 平台（如 Google AutoML、Azure ML Studio）降低了 AI 使用與開發門檻，讓非技術人員也能建置 AI 應用，是 AI 民主化的重要推手。"
-    why_not_b: "AI 民主化不僅是開源，更重要的是降低使用門檻，讓非專業人員也能運用 AI 技術。"
-    why_not_c: "兩者高度相關。LCNC 透過降低技術門檻，直接推動了 AI 民主化的實現。"
-    why_not_d: "AI 民主化並不限制 AI 的部署方式，LCNC 只是實現民主化的途徑之一。"
-  keywords:
-    - "AI民主化"
-    - "AI Democratization"
-    - "LCNC賦能"
-  exam_trap: false
+  - id: L12102-Q08
+    difficulty: 2
+    question: "下列關於 Vendor Lock-in 影響的敘述，何者最完整？"
+    options:
+      a: "Vendor Lock-in 只是遷移成本的問題，只要預算足夠就能解決"
+      b: "Vendor Lock-in 影響遷移成本、技術策略自主性、資料遺失風險與服務中斷，是多維度問題"
+      c: "Vendor Lock-in 只存在於 No Code 平台，Low Code 因可匯出程式碼所以沒有此問題"
+      d: "Vendor Lock-in 只影響 IT 部門，業務部門不受影響"
+    correct: b
+    explanation:
+      why_correct: "Vendor Lock-in 是多維度問題：直接遷移成本、技術策略自主性（Strategic Autonomy）喪失、資料格式不相容的遺失風險、遷移期間服務中斷、以及換到新平台可能又產生新的鎖定。"
+      why_not_a: "「只是成本問題」是常見陷阱。Vendor Lock-in 的核心問題是技術策略自主性喪失，不只是金錢問題。"
+      why_not_c: "Low Code 平台即使允許匯出，程式碼仍高度依賴原廠套件，同樣存在 Vendor Lock-in 風險，只是程度不同。"
+      why_not_d: "Vendor Lock-in 影響整個企業的技術策略，業務部門也會受到應用無法遷移的影響。"
+    keywords: ["Vendor Lock-in", "技術策略自主性", "遷移成本"]
+    exam_trap: true
 
-- id: "L12102-Q09"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "LCNC 平台中的「模型（Model）」概念在考試中曾出現。下列對於 Low Code 平台中「模型」的解釋，何者最正確？"
-  options:
-    a: "模型是指平台內建的機器學習演算法"
-    b: "模型是指平台的商業定價模式（pricing model）"
-    c: "模型是指使用者建立的資料庫備份檔案"
-    d: "模型用來抽象描述資料結構、業務流程與介面邏輯"
-  correct: "d"
-  explanation:
-    why_correct: "在 Low Code 平台中，「模型」是一個核心概念，用來抽象描述資料結構、業務流程與介面邏輯，讓開發者以視覺化方式定義應用的核心架構。此概念曾在 114 年第四次初級考試中出現。"
-    why_not_a: "機器學習演算法是 ML/AI 領域的模型概念，與 Low Code 平台中的「模型」定義不同。這是常見的混淆。"
-    why_not_b: "定價模式（pricing model）是商業概念，與 Low Code 平台架構中的「模型」完全無關。"
-    why_not_c: "資料庫備份是資料管理操作，不是 Low Code 平台中「模型」的定義。"
-  keywords:
-    - "模型"
-    - "Model"
-    - "Low Code平台架構"
-  exam_trap: true
+  - id: L12102-Q09
+    difficulty: 2
+    question: "下列關於 Low Code 平台中「模型（Model）」概念的說明，何者正確？"
+    options:
+      a: "模型是指平台內建的機器學習演算法"
+      b: "模型是指平台的商業授權定價方案"
+      c: "模型是指使用者建立的資料庫備份檔案"
+      d: "模型用來抽象描述資料結構、業務流程與介面邏輯，是 Low Code 的核心設計概念"
+    correct: d
+    explanation:
+      why_correct: "在 Low Code 平台中，「模型（Model）」是核心概念，用來抽象描述資料結構（Data Model）、業務流程（Process Model）與介面邏輯（UI Model），讓開發者以視覺化方式定義應用架構。此概念曾在 114 年第四次初級考試出現。"
+      why_not_a: "機器學習演算法是 ML/AI 領域的模型概念，與 Low Code 平台的「模型」定義不同——這正是常考的陷阱。"
+      why_not_b: "定價方案是商業概念，與 Low Code 平台架構設計無關。"
+      why_not_c: "資料庫備份是資料管理操作，不是 Low Code 的「模型」定義。"
+    keywords: ["模型", "Model", "Low Code平台", "資料模型"]
+    exam_trap: true
 
-- id: "L12102-Q10"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "下列關於 No Code/Low Code 平台限制的敘述，何者正確？"
-  options:
-    a: "LCNC 平台支援 API 串接，但在處理多層巢狀條件邏輯時能力與傳統程式碼相當"
-    b: "LCNC 平台因內建安全機制，比自行開發更不容易產生資安漏洞"
-    c: "LCNC 平台的主要限制包括供應商鎖定、影子 IT 風險、擴展性瓶頸與技術債"
-    d: "LCNC 平台可建置面向客戶的應用，且效能表現在高併發場景下與傳統開發相當"
-  correct: "c"
-  explanation:
-    why_correct: "LCNC 的四大核心風險為：Vendor Lock-in（供應商鎖定）、Shadow IT（影子 IT）、擴展性瓶頸（複雜邏輯與高併發場景力不從心）、以及技術債（MVP 快速上線後缺乏重構）。"
-    why_not_a: "LCNC 平台確實支援 API 串接，但在處理多層巢狀條件等複雜邏輯時能力明顯弱於傳統程式碼，這正是其限制之一。"
-    why_not_b: "LCNC 內建安全機制是優點，但 Shadow IT 風險反而可能降低整體安全治理水準——非 IT 人員繞過監管建置系統，內建機制無法彌補治理缺失。"
-    why_not_d: "LCNC 確實可以建置面向客戶的應用（如 Bubble），但在高併發場景下效能明顯不如傳統開發，擴展性瓶頸是其核心限制。"
-  keywords:
-    - "四大風險"
-    - "LCNC限制"
-    - "Vendor Lock-in"
-  exam_trap: false
+  - id: L12102-Q10
+    difficulty: 2
+    question: "「公民開發者（Citizen Developer）」與「影子 IT（Shadow IT）」最關鍵的差別是什麼？"
+    options:
+      a: "公民開發者使用 No Code 工具，影子 IT 使用 Low Code 工具"
+      b: "公民開發者是在 IT 部門核可的治理框架下開發，影子 IT 則是未經核可的自主建置"
+      c: "公民開發者只存在大企業，影子 IT 只存在中小企業"
+      d: "兩者本質相同，只是名稱不同"
+    correct: b
+    explanation:
+      why_correct: "判斷標準是「是否經過 IT 核可」。公民開發者在企業核可工具清單與治理框架下自主開發（核可，正面）；Shadow IT 是繞過 IT 監管的自行建置（未核可，負面風險）。口訣：核可 = 公民開發者，未核可 = 影子 IT。"
+      why_not_a: "工具類型不是判斷標準，兩者都可能使用 No Code 或 Low Code 工具。"
+      why_not_c: "兩種現象不分企業規模，大企業同樣有 Shadow IT，中小企業也可建立公民開發者制度。"
+      why_not_d: "兩者本質完全不同：公民開發者是企業鼓勵的正式角色，Shadow IT 是需要管控的風險行為。"
+    keywords: ["Citizen Developer", "Shadow IT", "IT治理", "核可"]
+    exam_trap: false
 
-- id: "L12102-Q11"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "Gartner 預測到 2026 年，75% 的新應用程式將透過 LCNC 建置。這項預測主要反映了什麼趨勢？"
-  options:
-    a: "LCNC 的擴展性限制已被克服，可勝任所有類型的應用開發"
-    b: "傳統開發的角色正轉向維護既有核心系統，新應用多由 LCNC 承接"
-    c: "LCNC 主要在新創公司普及，大型企業仍以傳統開發為主"
-    d: "企業對快速應用開發的需求大增，LCNC 成為主流建置方式"
-  correct: "d"
-  explanation:
-    why_correct: "75% 的預測反映出企業面對數位轉型壓力，需要更快速地建置應用程式，LCNC 因其效率優勢正成為主流選擇。關鍵字是「需求驅動」而非「技術突破」。"
-    why_not_a: "擴展性限制並未被克服，75% 代表 LCNC 適用於多數標準化新應用，但剩下 25% 仍需傳統開發處理高效能與複雜邏輯場景。"
-    why_not_b: "此說法部分合理但過度推論。傳統開發的角色不僅是維護既有系統，在高併發、核心交易等新應用場景仍是首選。"
-    why_not_c: "Gartner 預測涵蓋各規模企業。金融保險、製造業等大型企業同樣是 LCNC 採用最快的產業，並非只有新創。"
-  keywords:
-    - "Gartner預測"
-    - "75%新應用"
-    - "LCNC主流化"
-  exam_trap: false
+  - id: L12102-Q11
+    difficulty: 2
+    question: "No Code / Low Code 如何與「AI 民主化（AI Democratization）」產生關聯？"
+    options:
+      a: "LCNC 是 AI 民主化的關鍵推手，讓非技術人員也能建置 AI 應用，但不代表不需要人類監督"
+      b: "AI 民主化是指 AI 技術完全開源，LCNC 與此無關"
+      c: "LCNC 讓 AI 完全自動化，從此不需要人類介入"
+      d: "AI 民主化要求所有 AI 模型都必須透過 LCNC 平台部署"
+    correct: a
+    explanation:
+      why_correct: "LCNC 平台（如 Google AppSheet + AI、Power Apps Copilot）降低了 AI 使用與開發門檻，是 AI 民主化的重要推手。但 AI 民主化不代表不需要人類——業務判斷、資料品質把關、AI 偏差（Bias）監督仍需人工。"
+      why_not_b: "AI 民主化核心是降低使用門檻，LCNC 與 AI 民主化高度相關。"
+      why_not_c: "「完全不需要人類介入」是常見考試陷阱，必須避免。"
+      why_not_d: "AI 民主化不限制 AI 的部署方式，LCNC 只是途徑之一。"
+    keywords: ["AI民主化", "AI Democratization", "人類監督"]
+    exam_trap: false
 
-- id: "L12102-Q12"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "下列哪個選項最能說明「技術債（Technical Debt）」在 LCNC 開發中的意義？"
-  options:
-    a: "為了快速上線而犧牲程式品質，後續需要花費更多成本重構或修復"
-    b: "LCNC 開發的應用程式比傳統開發消耗更多雲端運算資源"
-    c: "使用 LCNC 平台需要支付的授權費用"
-    d: "企業購買 LCNC 平台後尚未攤提完的固定資產折舊"
-  correct: "a"
-  explanation:
-    why_correct: "技術債是指為了快速交付（如 MVP 上線）而在架構或程式品質上走捷徑，導致後續需要投入更多時間與成本來重構或修復。LCNC 因快速開發特性，特別容易累積技術債。"
-    why_not_b: "雲端運算資源消耗是效能議題，與技術債的「品質欠帳」概念不同。"
-    why_not_c: "授權費用是直接的營運支出（OpEx），不是技術債的概念。技術債是隱性的品質成本。"
-    why_not_d: "固定資產折舊是會計概念，與軟體開發中的技術債完全無關。"
-  keywords:
-    - "技術債"
-    - "Technical Debt"
-    - "MVP"
-  exam_trap: false
+  - id: L12102-Q12
+    difficulty: 2
+    question: "No Code / Low Code 的「客製化受限（Customization Constraints）」限制，主要體現在哪個情境？"
+    options:
+      a: "視覺化工具難以實現超出平台設計範圍的複雜邏輯或深層巢狀條件"
+      b: "平台授權費過高，企業無法負擔完整功能"
+      c: "平台無法連接任何外部 API"
+      d: "使用者介面設計風格單一，無法自訂外觀"
+    correct: a
+    explanation:
+      why_correct: "客製化受限的核心是：NC/LC 平台的視覺化設計器難以表達深層巢狀邏輯（Nested Logic）或超出平台預設能力的複雜業務規則，如多層條件分支、複雜演算法等。"
+      why_not_b: "授權費是成本問題，不是客製化限制。"
+      why_not_c: "多數 NC/LC 平台支援 API 串接（Zapier 就是靠 API 串接服務），「無法連接任何 API」是常見誤解。"
+      why_not_d: "部分 NC/LC 平台確實在 UI 客製化上有限制，但客製化受限的核心含義是「複雜邏輯難以實現」，而非外觀限制。"
+    keywords: ["客製化受限", "複雜邏輯", "巢狀邏輯"]
+    exam_trap: false
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L12102-Q13
+    difficulty: 2
+    question: "在 Build vs Buy vs NC/LC 決策框架中，何時最適合選擇「Build（傳統開發）」？"
+    options:
+      a: "需要快速驗證市場需求時"
+      b: "標準化功能、快速部署時"
+      c: "涉及企業核心競爭力、需要高度客製化的系統"
+      d: "非核心流程自動化、快速上線時"
+    correct: c
+    explanation:
+      why_correct: "Build（傳統開發）適合：涉及企業核心競爭力（護城河）、需要高度客製化（LCNC 做不到）、高效能核心系統（如金融交易引擎）。這些場景的技術要求超出 LCNC 的能力範圍。"
+      why_not_a: "快速驗證市場需求是 NC/LC 的強項（快速原型、低試錯成本）。"
+      why_not_b: "標準化功能快速部署最適合「Buy（購買軟體）」，如 HR 系統、CRM。"
+      why_not_d: "非核心流程自動化是 NC/LC 的典型應用場景。"
+    keywords: ["Build vs Buy", "決策框架", "核心競爭力"]
+    exam_trap: false
 
-- id: "L12102-Q13"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "一家台灣中小型電商公司（月營收 200 萬、無專職工程師）想在 1 個月內建置會員管理系統的 MVP，未來半年若驗證成功需支援 5,000 名會員。下列哪個方案最適合？"
-  options:
-    a: "使用 Low Code 平台（如 OutSystems），預先考慮擴展性以支撐未來成長"
-    b: "外包給軟體公司以 Node.js 開發客製化系統，一步到位"
-    c: "使用 No Code 平台（如 Airtable + Zapier）快速搭建 MVP，後續視成長需要再遷移"
-    d: "購買現成 CRM SaaS（如 HubSpot），直接使用標準會員管理功能"
-  correct: "c"
-  explanation:
-    why_correct: "無工程師 + 1 個月時限 → 必須選 No Code。5,000 名會員在 Airtable 的免費/Pro 方案能力範圍內，MVP 階段不需要預先投資擴展性。記住「簡單選 No」：先驗證再遷移，是精實創業的核心思維。"
-    why_not_a: "Low Code（如 OutSystems）雖然擴展性較好，但學習曲線較陡、需要一定技術背景，無工程師的團隊在 1 個月內難以上手。此為「過度設計」的常見錯誤。"
-    why_not_b: "外包客製化系統耗時通常 3-6 個月，成本高（月營收 200 萬的中小企業難以負擔），且不符合 1 個月的時限約束。"
-    why_not_d: "CRM SaaS 月費較高（HubSpot 專業版約 NT$5,000+/月），且標準功能可能無法完全符合電商會員管理的客製化需求，彈性不如 No Code 搭建。"
-  keywords:
-    - "場景應用"
-    - "中小企業"
-    - "MVP"
-  exam_trap: false
+  # ============================================================
+  # Difficulty 3 — Apply (Bloom's: 應用) — 7 questions
+  # ============================================================
 
-- id: "L12102-Q14"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "小美是行銷部門的員工，想建置自動化流程：當客戶在 Google 表單填寫資料後，自動發送 LINE 通知給業務團隊，並將資料同步寫入 Google Sheets。她比較了兩種方案：(A) 用 Zapier 串接三個服務，(B) 用 n8n 自架 workflow。下列分析何者最正確？"
-  options:
-    a: "Zapier 和 n8n 功能完全相同，選哪個都一樣"
-    b: "n8n 需要自行架設與維護伺服器，對無技術背景的行銷人員門檻較高，Zapier 更適合此場景"
-    c: "Zapier 無法串接 LINE Notify，必須使用 n8n"
-    d: "此需求太簡單，應直接用 Google Apps Script 寫程式碼處理即可"
-  correct: "b"
-  explanation:
-    why_correct: "Zapier 是 SaaS 型 No Code 自動化工具，開箱即用、無需架設伺服器；n8n 雖功能強大且可自架，但需要部署與維運能力。對無技術背景的行銷人員，Zapier 的低門檻是關鍵優勢。兩者都屬於流程自動化工具，但使用者背景決定了最適選擇。"
-    why_not_a: "兩者定位不同：Zapier 是 SaaS（易用、付費按量）、n8n 可自架（彈性高、需技術維運）。功能重疊但使用門檻與成本結構不同。"
-    why_not_c: "Zapier 支援 LINE Notify 串接（透過 Webhook 或第三方整合），此說法為事實錯誤。"
-    why_not_d: "Google Apps Script 需要撰寫 JavaScript 程式碼，不符合行銷人員無技術背景的條件，且偏離 LCNC 場景選擇的考試重點。"
-  keywords:
-    - "Zapier"
-    - "流程自動化"
-    - "場景選擇"
-  exam_trap: false
+  - id: L12102-Q14
+    difficulty: 3
+    question: "某台灣中小型電商公司（月營收 200 萬、無專職工程師）想在 1 個月內建置會員管理系統的 MVP，未來半年若驗證成功需支援 5,000 名會員。下列哪個方案最適合？"
+    options:
+      a: "使用 Low Code 平台（如 OutSystems）預先考慮擴展性"
+      b: "外包給軟體公司以 Node.js 從頭開發，一步到位"
+      c: "使用 No Code 平台（如 Airtable）快速搭建 MVP，後續視成長再遷移"
+      d: "購買現成 CRM SaaS（如 HubSpot）直接使用標準功能"
+    correct: c
+    explanation:
+      why_correct: "無工程師 + 1 個月時限 → 必須選 No Code。5,000 名會員在 Airtable 能力範圍內，MVP 階段不需要預先投資擴展性。記住「簡單選 No」：先驗證再遷移是精實創業核心思維。"
+      why_not_a: "Low Code（如 OutSystems）學習曲線陡，無工程師的團隊 1 個月難以上手，屬於「過度設計」。"
+      why_not_b: "外包開發通常需 3–6 個月，成本高，不符合 1 個月時限。"
+      why_not_d: "CRM SaaS 月費較高，且標準功能可能無法完全符合電商會員管理的客製化需求。"
+    keywords: ["場景應用", "MVP", "無工程師", "No Code"]
+    exam_trap: false
 
-- id: "L12102-Q15"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某製造業公司希望讓產線人員能自行匯入機台數據並監控良率，但不想依賴 IT 部門開發客製化系統。此場景最適合採用哪種開發方式？"
-  options:
-    a: "傳統程式碼開發搭配 SQL 資料庫"
-    b: "購買 ERP 系統的標準模組"
-    c: "使用純文字指令的 CLI 工具"
-    d: "使用 Low Code 平台搭配大數據分析功能"
-  correct: "d"
-  explanation:
-    why_correct: "此場景與台灣製造業實際案例（如蘋概股）吻合——使用 LCNC 搭配大數據讓產線人員（非 IT）自主匯入機台數據、監控良率，兼顧彈性與低門檻。"
-    why_not_a: "傳統開發需要 IT 部門介入，與「不想依賴 IT 部門」的需求矛盾，且產線人員無法操作 SQL。"
-    why_not_b: "ERP 標準模組可能缺乏足夠的彈性來客製化良率監控需求，且導入週期長。"
-    why_not_c: "CLI 工具需要命令列操作技能，不適合非技術背景的產線人員使用。"
-  keywords:
-    - "製造業"
-    - "公民開發者"
-    - "大數據"
-  exam_trap: false
+  - id: L12102-Q15
+    difficulty: 3
+    question: "某企業的 HR 部門使用 No Code 工具建置了員工考勤系統，但未通知 IT 部門。這最可能引發哪個風險？"
+    options:
+      a: "技術債累積"
+      b: "影子 IT（Shadow IT）"
+      c: "供應商鎖定（Vendor Lock-in）"
+      d: "API 相容性問題"
+    correct: b
+    explanation:
+      why_correct: "HR 部門繞過 IT 部門自行建置系統，正是 Shadow IT 的典型案例——未經 IT 治理的應用導致資料安全、合規與系統整合風險。判斷依據：IT 不知情 + 未核可。"
+      why_not_a: "技術債是關於程式碼品質問題，此情境核心是缺乏監管，屬於治理層面。"
+      why_not_c: "Vendor Lock-in 是無法遷移平台的技術困境，此場景主要問題是監管缺失而非遷移困難。"
+      why_not_d: "API 相容性是技術問題，此場景的風險本質是組織治理問題。"
+    keywords: ["Shadow IT", "IT不知情", "治理風險"]
+    exam_trap: false
 
-- id: "L12102-Q16"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "大學創業團隊想在兩週內推出一個活動報名系統的 MVP（最小可行產品），團隊成員都是商管背景。下列哪個策略最合理？"
-  options:
-    a: "用 No Code 平台快速搭建 MVP 驗證市場需求"
-    b: "用 React + Node.js 從頭開發以確保系統品質"
-    c: "先花三個月學習程式設計再開始開發"
-    d: "購買企業級 SaaS 方案來滿足所有需求"
-  correct: "a"
-  explanation:
-    why_correct: "團隊為商管背景且只有兩週時間，No Code 平台是唯一能在此條件下快速推出 MVP 的選擇，符合精實創業的驗證理念。"
-    why_not_b: "React + Node.js 需要程式能力，商管背景團隊無法在兩週內完成，時間與技能條件都不符。"
-    why_not_c: "三個月的學習週期遠超兩週的時間限制，且學完程式不代表能立即開發系統。"
-    why_not_d: "企業級 SaaS 方案成本高且功能冗餘，大學創業團隊通常預算有限，且 MVP 階段不需要完整企業功能。"
-  keywords:
-    - "MVP"
-    - "精實創業"
-    - "快速驗證"
-  exam_trap: false
+  - id: L12102-Q16
+    difficulty: 3
+    question: "某大學社團（商管背景成員，無程式能力）想在兩週內推出活動報名系統 MVP。下列哪個策略最合理？"
+    options:
+      a: "用 No Code 平台快速搭建 MVP 驗證需求"
+      b: "用 React + Node.js 從頭開發確保系統品質"
+      c: "先花三個月學習程式設計再開始開發"
+      d: "購買企業級 SaaS 方案滿足所有需求"
+    correct: a
+    explanation:
+      why_correct: "商管背景 + 兩週時限 → No Code 是唯一在此條件下能快速推出 MVP 的選擇，符合精實創業的驗證理念。「簡單選 No」。"
+      why_not_b: "React + Node.js 需要程式能力，商管背景團隊無法在兩週內完成。"
+      why_not_c: "三個月學習週期遠超兩週時限。"
+      why_not_d: "企業級 SaaS 成本高且功能冗餘，大學社團預算有限，MVP 階段不需要完整功能。"
+    keywords: ["MVP", "No Code", "非技術使用者"]
+    exam_trap: false
 
-- id: "L12102-Q17"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某新創公司使用 No Code 平台快速推出產品後獲得市場驗證，現在使用者量大幅成長，系統開始出現效能問題。此時最適合的做法為何？"
-  options:
-    a: "評估核心功能後，逐步將高負載模組遷移至傳統程式碼開發"
-    b: "凍結新功能開發，全力投入用傳統方式重寫整個系統後再恢復服務"
-    c: "繼續在 No Code 平台上優化，透過升級方案與快取策略提升效能"
-    d: "更換效能更好的 No Code 平台，同時將資料遷移至新平台"
-  correct: "a"
-  explanation:
-    why_correct: "漸進式遷移是最務實的策略——先識別效能瓶頸的核心模組，將其改用傳統程式碼開發，其餘部分仍可保留在 LCNC 平台，平衡效能需求與開發效率。"
-    why_not_b: "凍結新功能並全面重寫會讓產品在競爭中停滯數月，且使用者體驗在重寫期間無法改善，可能流失已驗證的市場。"
-    why_not_c: "升級方案與快取可能暫時緩解問題，但 No Code 平台本身的擴展性天花板仍在，隨使用者持續成長終究會碰到瓶頸。"
-    why_not_d: "更換平台需面對 Vendor Lock-in 的遷移難題（等同重寫），且新的 No Code 平台仍有 LCNC 共通的擴展性限制，無法根本解決問題。"
-  keywords:
-    - "擴展性"
-    - "漸進式遷移"
-    - "效能瓶頸"
-  exam_trap: false
+  - id: L12102-Q17
+    difficulty: 3
+    question: "某公司使用 Zapier 串接 CRM 與 Email 行銷系統，但發現無法實作「根據客戶過去 90 天購買行為動態調整推薦策略」的複雜條件分支邏輯。此情境最能反映 No Code 工具的哪個限制？"
+    options:
+      a: "供應商鎖定（Vendor Lock-in）"
+      b: "客製化受限（複雜邏輯處理能力有限）"
+      c: "影子 IT（Shadow IT）風險"
+      d: "無法進行任何 API 串接"
+    correct: b
+    explanation:
+      why_correct: "Zapier 等 No Code 工具在基本自動化流程表現出色，但面對複雜的條件分支邏輯（動態推薦策略）有明顯限制。這是客製化受限（Customization Constraints）的典型表現，也是常見考題。"
+      why_not_a: "Vendor Lock-in 是遷移困難問題，此場景問題是功能不足，與遷移無關。"
+      why_not_c: "Shadow IT 是治理問題，此場景未提及監管缺失。"
+      why_not_d: "Zapier 以 API 串接為核心功能，「無法串接 API」是常見錯誤陷阱，正確答案是複雜邏輯有限制。"
+    keywords: ["Zapier", "複雜邏輯限制", "客製化受限"]
+    exam_trap: true
 
-- id: "L12102-Q18"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某企業的 HR 部門使用 No Code 工具建置了員工考勤系統，但未通知 IT 部門。這最可能引發下列哪個風險？"
-  options:
-    a: "技術債累積"
-    b: "影子 IT（Shadow IT）"
-    c: "供應商鎖定（Vendor Lock-in）"
-    d: "API 相容性問題"
-  correct: "b"
-  explanation:
-    why_correct: "HR 部門繞過 IT 部門自行建置系統，正是 Shadow IT 的典型案例——未經 IT 治理的應用可能導致資料安全、合規與系統整合風險。"
-    why_not_a: "技術債是關於程式碼品質的問題，此場景的核心風險是缺乏 IT 監管，屬於治理層面。"
-    why_not_c: "Vendor Lock-in 是指無法遷移平台的技術困境，此場景的主要問題不是遷移而是監管缺失。"
-    why_not_d: "API 相容性是技術問題，此場景的風險本質是組織治理問題。"
-  keywords:
-    - "Shadow IT"
-    - "治理風險"
-    - "場景判斷"
-  exam_trap: false
+  - id: L12102-Q18
+    difficulty: 3
+    question: "某新創公司使用 No Code 平台快速上線後使用者大幅成長，系統開始出現效能問題。此時最適合的做法為何？"
+    options:
+      a: "評估核心瓶頸模組後，逐步將高負載模組遷移至傳統程式碼開發"
+      b: "凍結新功能，全力以傳統方式重寫整個系統後再恢復服務"
+      c: "繼續在 No Code 平台上升級方案，靠快取策略提升效能"
+      d: "更換效能更好的 No Code 平台，同時遷移資料至新平台"
+    correct: a
+    explanation:
+      why_correct: "漸進式遷移（Incremental Migration）是最務實的策略——先識別效能瓶頸的核心模組，將其改用傳統程式碼開發，其餘仍保留在 LCNC 平台，平衡效能需求與開發效率。"
+      why_not_b: "全面重寫會讓產品在競爭中停滯數月，且中斷服務可能流失已驗證的市場。"
+      why_not_c: "升級方案與快取只是暫時緩解，No Code 平台的擴展性天花板仍在，隨使用者增長終究會碰到瓶頸。"
+      why_not_d: "更換平台要面對 Vendor Lock-in 的遷移困境，且新的 No Code 平台仍有 LCNC 共通的擴展性限制。"
+    keywords: ["漸進式遷移", "擴展性瓶頸", "效能限制"]
+    exam_trap: false
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L12102-Q19
+    difficulty: 3
+    question: "醫院想建置掛號與病歷查詢系統，需符合個資法規定，且有複雜的科別分診邏輯。下列哪種開發方式最適合？"
+    options:
+      a: "No Code（門檻最低，最快上線）"
+      b: "Low Code（可用程式碼實現合規控制，兼顧速度與安全）"
+      c: "LCNC 完全不適合醫療場域，必須傳統開發"
+      d: "外包即可，不需要考慮 LCNC 或傳統開發的差異"
+    correct: b
+    explanation:
+      why_correct: "醫療場域有高安全合規需求（個資法、醫療法規），需要 Low Code 的程式碼擴展能力來實現加密存儲、存取日誌、權限分級等合規控制。「安全選 Low」。No Code 在資安客製化上能力有限。"
+      why_not_a: "No Code 在資安客製化上力不從心，醫療法規要求的程式碼層級控制（如加密、稽核日誌）超出 No Code 能力。"
+      why_not_c: "醫療業是 LCNC 採用最快的產業之一，法規嚴格不代表不能用 LCNC，而是需要選擇 Low Code。"
+      why_not_d: "外包策略不能回答「用 LCNC 還是傳統開發」的核心問題，且外包方的工具選擇仍需這個原則。"
+    keywords: ["醫療場域", "安全選Low", "個資法", "合規"]
+    exam_trap: false
 
-- id: "L12102-Q19"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "比較 Vendor Lock-in 與 Shadow IT 兩大 LCNC 風險，下列分析何者最正確？"
-  options:
-    a: "Vendor Lock-in 是組織治理問題，Shadow IT 是技術架構問題"
-    b: "兩者本質相同，都是因為使用 LCNC 平台而產生的安全漏洞"
-    c: "Vendor Lock-in 是技術遷移困難，Shadow IT 是組織治理缺失，兩者性質不同但可能同時存在"
-    d: "Vendor Lock-in 只影響大企業，Shadow IT 只影響中小企業"
-  correct: "c"
-  explanation:
-    why_correct: "Vendor Lock-in 本質是技術層面的問題（無法匯出原始碼、遷移等於重寫），Shadow IT 本質是組織治理問題（非 IT 部門繞過監管自建系統）。兩者可以同時發生——例如非 IT 部門自建的系統（Shadow IT）又被鎖定在特定平台上（Vendor Lock-in）。"
-    why_not_a: "選項顛倒了兩者的性質。Vendor Lock-in 是技術遷移問題，Shadow IT 才是組織治理問題。"
-    why_not_b: "兩者性質完全不同，Vendor Lock-in 關於技術遷移，Shadow IT 關於組織治理，不應混為一談。"
-    why_not_d: "兩種風險不分企業大小，大企業同樣有 Shadow IT 問題，中小企業也會遇到 Vendor Lock-in。"
-  keywords:
-    - "Vendor Lock-in"
-    - "Shadow IT"
-    - "風險比較"
-  exam_trap: true
+  - id: L12102-Q20
+    difficulty: 3
+    question: "某企業導入 LCNC 後，公民開發者數量從 10 人快速成長至 80 人，主管認為「公民開發者越多，數位轉型越成功」。此觀點最大的問題是什麼？"
+    options:
+      a: "公民開發者數量確實是數位轉型成功的最佳指標，觀點正確"
+      b: "公民開發者不應超過 IT 部門人數，否則 IT 部門失去存在價值"
+      c: "公民開發者增加若缺乏治理框架，會導致 Shadow IT 風險倍增、資料孤島與技術債失控"
+      d: "公民開發者只應在 IT 全程監督下操作，不應有自主開發權限"
+    correct: c
+    explanation:
+      why_correct: "「公民開發者越多越好」是常見考試陷阱。數量成長若缺乏配套治理框架（核准工具清單、資安審查流程、應用資產盤點），就從「賦能」變成「失控」——80 人各自建置形成 Shadow IT 叢林，資料分散成孤島，技術債快速累積。正確觀點是「數量 + 治理並重」。"
+      why_not_a: "數量只是表面指標，沒有治理框架的成長可能帶來更大風險。"
+      why_not_b: "Gartner 預測 80% LCNC 使用者來自非 IT 部門，IT 的角色是治理與賦能，不是限制人數。"
+      why_not_d: "全程監督違背公民開發者核心價值，正確做法是建立框架後授權自主。"
+    keywords: ["公民開發者治理", "Shadow IT", "治理框架"]
+    exam_trap: true
 
-- id: "L12102-Q20"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某企業同時面臨以下需求：(1) 行銷部門需要快速建置活動報名頁面，(2) 核心交易系統需要處理每秒數千筆訂單。下列開發策略中最合理的是？"
-  options:
-    a: "兩個需求都使用 No Code 平台以統一技術標準"
-    b: "兩個需求都使用傳統程式碼開發以確保品質一致"
-    c: "核心交易系統用 No Code 平台，行銷活動頁面用傳統開發"
-    d: "行銷活動頁面用 No Code 快速建置，核心交易系統用傳統程式碼開發"
-  correct: "d"
-  explanation:
-    why_correct: "需根據場景特性選擇適當工具：活動報名頁面需要快速上線、變動頻繁，適合 No Code；核心交易系統需要高併發處理能力，是 LCNC 的擴展性瓶頸所在，必須用傳統開發。"
-    why_not_a: "核心交易系統的高併發需求超出 No Code 平台的能力範圍，統一使用 No Code 會導致效能問題。"
-    why_not_b: "行銷活動頁面用傳統開發浪費資源且速度慢，不符合快速上線的需求。"
-    why_not_c: "完全顛倒了工具與場景的匹配——把 No Code 用在最需要效能的地方，傳統開發用在最需要速度的地方。"
-  keywords:
-    - "場景匹配"
-    - "混合策略"
-    - "擴展性"
-  exam_trap: false
+  # ============================================================
+  # Difficulty 4 — Analyze (Bloom's: 分析) — 3 questions
+  # ============================================================
 
-- id: "L12102-Q21"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某顧問公司同時服務兩家客戶：(甲) 零售電商需要快速建置促銷活動頁面與會員通知流程，(乙) 醫療院所需要建置掛號與病歷查詢系統且須符合個資法規。下列關於 LCNC 工具選擇的分析，何者最準確？"
-  options:
-    a: "甲適合 No Code（快速上線、頻繁變動），乙適合 Low Code（需程式碼層級的資安合規控制）"
-    b: "兩家都適合 No Code，因為 No Code 已能滿足所有產業的資安合規需求"
-    c: "乙因有法規限制應完全採用傳統開發，LCNC 不適合醫療產業"
-    d: "甲乙都適合 Low Code，因為 Low Code 同時兼顧速度與合規，No Code 已被市場淘汰"
-  correct: "a"
-  explanation:
-    why_correct: "判斷原則：有法規/資安約束 → 選 Low Code（可加入程式碼層級的加密、權限、稽核控制）；標準化流程、速度優先 → 選 No Code。甲的促銷活動頁面變動頻繁、無特殊法規，No Code 最快；乙的病歷系統涉及個資法，需要 Low Code 的程式碼擴展能力來實現合規。記住「安全選 Low、簡單選 No」。"
-    why_not_b: "No Code 在資安客製化上能力有限，醫療業的個資法規要求（如加密存儲、存取日誌）通常需要程式碼層級的控制，No Code 難以滿足。"
-    why_not_c: "醫療業是 LCNC 採用最快的產業之一（Integrate.io 統計）。法規嚴格不代表不能用 LCNC，而是需要選擇 Low Code 以兼顧合規。"
-    why_not_d: "No Code 並未被淘汰，在標準化流程與快速驗證場景仍是最佳選擇。甲的需求用 Low Code 反而過度設計，增加不必要的複雜度。"
-  keywords:
-    - "產業應用"
-    - "跨產業"
-    - "數位轉型"
-  exam_trap: false
+  - id: L12102-Q21
+    difficulty: 4
+    question: "比較 Vendor Lock-in 與 Shadow IT 兩大 LCNC 風險，下列分析何者最正確？"
+    options:
+      a: "Vendor Lock-in 是組織治理問題，Shadow IT 是技術架構問題"
+      b: "兩者本質相同，都是因為使用 LCNC 而產生的安全漏洞"
+      c: "Vendor Lock-in 是技術遷移困難，Shadow IT 是組織治理缺失，性質不同但可能同時存在"
+      d: "Vendor Lock-in 只影響大企業，Shadow IT 只影響中小企業"
+    correct: c
+    explanation:
+      why_correct: "Vendor Lock-in 本質是技術問題（無法匯出原始碼、遷移等於重寫）；Shadow IT 本質是組織治理問題（非 IT 部門繞過監管自建系統）。兩者可同時發生——例如非 IT 部門自建的系統（Shadow IT）又被鎖定在特定平台（Vendor Lock-in）。"
+      why_not_a: "選項顛倒了兩者的性質。Vendor Lock-in 是技術遷移問題，Shadow IT 才是組織治理問題。"
+      why_not_b: "兩者性質完全不同，不能混為一談。"
+      why_not_d: "兩種風險不分企業規模，大企業同樣有 Shadow IT，中小企業也會遇到 Vendor Lock-in。"
+    keywords: ["Vendor Lock-in", "Shadow IT", "風險比較"]
+    exam_trap: true
 
-- id: "L12102-Q22"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某公司使用 Zapier 串接 CRM 與 Email 行銷系統，但發現無法實作複雜的條件分支邏輯（例如：根據客戶過去 90 天的購買行為動態調整推薦策略）。此情境最能反映 No Code 工具的哪個限制？"
-  options:
-    a: "供應商鎖定（Vendor Lock-in）"
-    b: "複雜邏輯處理能力有限"
-    c: "影子 IT（Shadow IT）風險"
-    d: "無法進行任何 API 串接"
-  correct: "b"
-  explanation:
-    why_correct: "Zapier 等 No Code 工具在處理基本自動化流程時很出色，但面對複雜的條件分支邏輯（如動態推薦策略）時有明顯限制。這是考題中常見的限制認知型態。"
-    why_not_a: "Vendor Lock-in 是遷移困難的問題，此場景的問題是功能不足，與遷移無關。"
-    why_not_c: "Shadow IT 是治理問題，此場景未提及監管缺失，而是功能能力的限制。"
-    why_not_d: "Zapier 恰恰以 API 串接為核心功能，問題不在於能否串接，而在於邏輯複雜度超出平台能力。"
-  keywords:
-    - "Zapier"
-    - "複雜邏輯限制"
-    - "API串接"
-  exam_trap: true
+  - id: L12102-Q22
+    difficulty: 4
+    question: "某企業同時面臨兩個需求：(1) 行銷部門需快速建置促銷活動頁面；(2) 核心交易系統需處理每秒數千筆訂單。下列開發策略最合理的是？"
+    options:
+      a: "兩個需求都使用 No Code 以統一技術標準"
+      b: "兩個需求都使用傳統程式碼確保品質一致"
+      c: "核心交易系統用 No Code，活動頁面用傳統開發"
+      d: "活動頁面用 No Code 快速建置，核心交易系統用傳統程式碼開發"
+    correct: d
+    explanation:
+      why_correct: "依場景特性選工具：活動頁面需快速上線、變動頻繁 → No Code（簡單選 No）；核心交易系統高并發需求 → 傳統開發（核心選 Traditional）。LCNC 與傳統開發是互補關係。"
+      why_not_a: "核心交易系統的高并發需求超出 No Code 能力範圍，統一 No Code 會導致效能問題。"
+      why_not_b: "活動頁面用傳統開發浪費資源，不符合快速上線需求。"
+      why_not_c: "完全錯配——把 No Code 用在最需要效能的系統，傳統開發用在最需要速度的頁面。"
+    keywords: ["場景匹配", "混合策略", "擴展性"]
+    exam_trap: false
 
-- id: "L12102-Q23"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "LCNC 與生成式 AI（Generative AI）結合是新趨勢。下列分析中，何者最能描述兩者結合的價值？"
-  options:
-    a: "生成式 AI 可輔助 LCNC 使用者生成程式碼片段，長期而言可能減少對 Low Code 平台的依賴"
-    b: "兩者結合可降低 Vendor Lock-in 風險，因為 AI 生成的程式碼較容易跨平台遷移"
-    c: "生成式 AI 擅長內容生成但在流程自動化方面仍需 LCNC 平台的視覺化編排能力"
-    d: "LCNC 搭配生成式 AI 可實現快速介面生成與行銷內容自動產出，但複雜系統仍需傳統開發"
-  correct: "d"
-  explanation:
-    why_correct: "LCNC + 生成式 AI 的結合可加速介面原型設計與內容自動產出（如行銷文案、使用者引導），但對於複雜系統架構，兩者的限制仍然存在。此為 114 年第四次考試新出現的趨勢考點。D 最完整地描述了「互補價值 + 限制仍在」的全貌。"
-    why_not_a: "部分正確——AI 確實能輔助生成程式碼，但此選項偏向預測未來趨勢（「長期可能減少依賴」），而非描述當前兩者結合的核心價值。且 LCNC 的視覺化開發價值不會因 AI 生成程式碼而消失。"
-    why_not_b: "部分正確——AI 生成的程式碼確實較容易遷移，但 Vendor Lock-in 的核心問題在於平台內的資料與設定，不是程式碼本身。此選項高估了 AI 對 Lock-in 問題的解決程度。"
-    why_not_c: "部分正確——兩者確實互補，但此選項忽略了生成式 AI 在介面生成方面的價值，且未提及複雜系統仍需傳統開發的重要限制。描述不夠完整。"
-  keywords:
-    - "生成式AI"
-    - "Generative AI"
-    - "LCNC整合"
-  exam_trap: false
+  - id: L12102-Q23
+    difficulty: 4
+    question: "某企業各部門紛紛使用不同 No Code 工具自建系統，半年後 IT 部門發現已有超過 30 個未受管理的應用。下列哪個風險組合最能描述此情境？"
+    options:
+      a: "僅有技術債問題"
+      b: "僅有 Vendor Lock-in 問題"
+      c: "僅有 API 相容性問題"
+      d: "Shadow IT 導致安全與合規風險，並可能同時產生多重 Vendor Lock-in"
+    correct: d
+    explanation:
+      why_correct: "各部門自建且未經 IT 監管（Shadow IT）；使用不同平台又造成多重 Vendor Lock-in。兩個風險疊加——安全合規無人把關，且未來整合或遷移都極為困難。"
+      why_not_a: "技術債可能存在，但核心問題是 Shadow IT 與分散平台鎖定，不只是程式碼品質問題。"
+      why_not_b: "Vendor Lock-in 只是問題的一部分，更根本的問題是 Shadow IT（30 個未受管理的應用）。"
+      why_not_c: "API 相容性只是表面現象，根本原因是缺乏統一 IT 治理策略。"
+    keywords: ["Shadow IT", "Vendor Lock-in", "風險疊加"]
+    exam_trap: false
 
-- id: "L12102-Q24"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某企業的各部門紛紛使用不同的 No Code 工具自建系統，半年後 IT 部門發現公司內部已有超過 30 個未受管理的應用。下列哪個風險組合最能描述此情境？"
-  options:
-    a: "僅有技術債問題"
-    b: "僅有 Vendor Lock-in 問題"
-    c: "僅有 API 相容性問題"
-    d: "Shadow IT 導致安全與合規風險，並可能同時產生多重 Vendor Lock-in"
-  correct: "d"
-  explanation:
-    why_correct: "各部門自行建置且未經 IT 監管（Shadow IT），使用不同平台又造成多重 Vendor Lock-in。兩個風險疊加使問題更加複雜——安全合規無人把關，且未來整合或遷移都極為困難。"
-    why_not_a: "技術債可能存在，但此場景的核心問題是 Shadow IT（30 個未受管理的應用）和分散的平台鎖定，不僅是程式碼品質問題。"
-    why_not_b: "Vendor Lock-in 只是問題的一部分，更根本的問題是這些系統未經 IT 監管（Shadow IT），導致安全與合規風險。"
-    why_not_c: "API 相容性只是表面現象，根本原因是缺乏統一的 IT 治理策略。"
-  keywords:
-    - "Shadow IT"
-    - "Vendor Lock-in"
-    - "風險疊加"
-  exam_trap: false
+  # ============================================================
+  # Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造) — 2 questions
+  # ============================================================
 
-# ============================================================
-# Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造)
-# ============================================================
+  - id: L12102-Q24
+    difficulty: 5
+    question: "某台灣中型零售企業面臨三項約束：(1) IT 部門僅 3 人；(2) 需在 2 個月內上線會員系統；(3) 年營業額超過 5 億需符合資安法規。下列策略最能同時滿足三項條件的是？"
+    options:
+      a: "全面採用 No Code，由業務部門自行開發，IT 部門專注資安審查"
+      b: "延後上線至 IT 部門擴編完成，以傳統方式開發確保合規"
+      c: "使用 Low Code，業務部門負責主要流程搭建，IT 3 人專注資安合規審查與少量客製程式碼"
+      d: "外包給軟體公司全權開發，IT 部門完全不參與"
+    correct: c
+    explanation:
+      why_correct: "資安法規是硬約束，「安全選 Low」。Low Code 讓業務部門拖拉搭建主要流程（解決人力與時限），同時 IT 3 人可用少量程式碼加入資安控制（加密、權限、稽核日誌）確保合規。No Code 在資安客製化上力不從心。"
+      why_not_a: "No Code 在資安客製化能力有限，面對資安法規要求（加密、存取日誌、權限分級），缺乏程式碼層級控制。"
+      why_not_b: "延後無法滿足 2 個月時限，IT 擴編本身需要更長時間。"
+      why_not_d: "外包且 IT 完全不參與會造成嚴重資安合規風險，不符合年營業額超過 5 億的法規要求。"
+    keywords: ["多約束評估", "IT治理", "資安合規", "Low Code"]
+    exam_trap: false
 
-- id: "L12102-Q25"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "某台灣中型零售企業正在評估 LCNC 導入策略，面臨以下三個約束條件：(1) IT 部門僅 3 人、(2) 需在 2 個月內上線會員系統、(3) 年營業額超過 5 億需符合資安法規。下列策略中最能同時滿足三項條件的是？"
-  options:
-    a: "全面採用 No Code 平台，由業務部門自行開發，IT 部門專注於資安審查與治理"
-    b: "延後上線至 IT 部門擴編完成，以傳統方式開發確保合規"
-    c: "使用 Low Code 平台，業務部門負責主要流程搭建，IT 3 人專注資安合規審查與少量客製程式碼"
-    d: "外包給軟體公司全權開發，IT 部門完全不參與"
-  correct: "c"
-  explanation:
-    why_correct: "資安法規是硬約束，記「安全選 Low、簡單選 No」。Low Code 讓業務部門也能拖拉搭建主要流程（解決人力與時限），同時 IT 3 人可用少量程式碼加入資安控制（加密、權限、稽核日誌），確保合規。No Code 平台在資安客製化上力不從心。"
-    why_not_a: "No Code 平台在資安客製化能力上有限，面對資安法規要求（如個資加密、存取日誌、權限分級），缺乏足夠的程式碼層級控制來實現合規。"
-    why_not_b: "延後上線無法滿足 2 個月的時間約束，且 IT 擴編本身需要更長時間。"
-    why_not_d: "外包且 IT 完全不參與會產生嚴重的資安合規風險，不符合年營業額超過 5 億的法規要求。"
-  keywords:
-    - "多約束評估"
-    - "IT治理"
-    - "資安合規"
-  exam_trap: false
-
-- id: "L12102-Q26"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "一個新創團隊用 Bubble（No Code）在 3 個月內成功推出 SaaS 產品，獲得 1,000 名付費使用者。投資人要求在下一輪融資前展示「技術可擴展性」。下列哪個策略最平衡短期與長期需求？"
-  options:
-    a: "立即放棄 Bubble，全面改用 React + AWS 重寫以展示技術實力"
-    b: "維持 Bubble 不變，向投資人說明 No Code 就是未來趨勢"
-    c: "制定漸進式遷移路線圖：先識別效能瓶頸模組，優先遷移至傳統架構，其餘保留在 Bubble"
-    d: "將所有精力投入行銷以快速增加用戶數，技術問題之後再處理"
-  correct: "c"
-  explanation:
-    why_correct: "漸進式遷移路線圖既展示了技術可擴展的規劃能力（滿足投資人）、又不中斷現有服務（保護 1,000 名付費用戶）、還控制了重寫風險。這是最平衡短期營運與長期擴展的策略。"
-    why_not_a: "全面重寫耗時巨大、成本高、且會中斷現有服務，可能流失已有的付費使用者。「先砸再建」的風險過高。"
-    why_not_b: "投資人關注的是可擴展性，單純宣稱 No Code 是趨勢不能解決擴展性瓶頸的現實問題，會降低融資成功機率。"
-    why_not_d: "迴避技術問題只會讓問題惡化，且投資人明確要求「技術可擴展性」，忽略此要求等於放棄融資機會。"
-  keywords:
-    - "漸進式遷移"
-    - "擴展性"
-    - "新創策略"
-  exam_trap: false
-
-- id: "L12102-Q27"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "某大學教授想建置 AI 輔助教學系統，需求包含：(1) 學生上傳作業後自動以 AI 評分、(2) 系統需整合校內成績管理 API、(3) 教授本人無程式背景但有博士生可協助。下列哪個方案最合適？"
-  options:
-    a: "使用 No Code 平台全部搭建，因為教授沒有程式背景"
-    b: "由博士生用 Python 從零開發完整系統"
-    c: "用 Low Code 平台搭建核心流程，AI 評分與 API 整合由博士生用少量程式碼擴展"
-    d: "購買現成的 AI 教學 SaaS 產品，放棄客製化需求"
-  correct: "c"
-  explanation:
-    why_correct: "Low Code 平台讓教授也能參與核心流程設計，同時 AI 評分整合與校內 API 串接屬於較複雜的功能，可由有技術能力的博士生以少量程式碼擴展。兼顧速度、技術需求與團隊能力配置。"
-    why_not_a: "No Code 在 AI 模型整合與校內 API 串接方面可能力不從心，複雜邏輯的限制會成為瓶頸。"
-    why_not_b: "從零開發耗時太長，且未善用已有的 LCNC 工具效率優勢，博士生的時間應聚焦在高價值的技術環節。"
-    why_not_d: "現成 SaaS 通常無法整合校內成績管理 API，客製化需求難以被標準產品滿足。"
-  keywords:
-    - "Low Code"
-    - "AI整合"
-    - "混合開發"
-  exam_trap: false
-
-- id: "L12102-Q28"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "企業在評估是否將現有 LCNC 應用遷移至傳統開發時，下列哪個決策框架最為完整？"
-  options:
-    a: "只要使用者抱怨速度慢就應該立即遷移"
-    b: "評估四個面向：效能瓶頸嚴重度、遷移成本與 Vendor Lock-in 程度、安全合規需求、團隊技術能力，綜合權衡後決策"
-    c: "完全依據 Gartner 的建議來決定何時遷移"
-    d: "先評估遷移成本是否低於繼續維運成本，再決定是否遷移"
-  correct: "b"
-  explanation:
-    why_correct: "完整的遷移決策需要綜合評估多個面向：效能問題是否嚴重到必須遷移、Vendor Lock-in 造成的遷移難度與成本、安全合規是否允許繼續使用 LCNC、以及團隊是否有能力承接傳統開發。單一面向的評估都不夠全面。"
-    why_not_a: "使用者抱怨只是觸發點，不足以作為遷移決策依據，可能只需要局部優化而非全面遷移。"
-    why_not_c: "Gartner 的研究是參考而非唯一依據，每家企業的情境不同，不能完全照搬分析機構的通用建議。"
-    why_not_d: "成本分析重要但不完整，遷移決策還需考慮安全合規、團隊能力等非成本因素。"
-  keywords:
-    - "遷移決策"
-    - "多面向評估"
-    - "決策框架"
-  exam_trap: false
-
-- id: "L12102-Q29"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "某金融科技公司想導入 LCNC，但主管擔心以下三個問題：(1) 客戶個資保護（法規要求）、(2) 核心交易邏輯的效能需求、(3) 業務部門的快速開發需求。下列哪個架構設計最能同時回應三項關切？"
-  options:
-    a: "全部使用傳統開發，確保安全與效能，犧牲開發速度"
-    b: "全部使用 LCNC，以開發速度為最高優先"
-    c: "採用分層架構：LCNC 用於業務部門的前端應用與流程自動化，核心交易與資料處理用傳統開發，並由 IT 部門建立統一的資安治理框架"
-    d: "外包核心系統開發，內部只用 LCNC 做非關鍵應用"
-  correct: "c"
-  explanation:
-    why_correct: "分層架構是最佳解：LCNC 滿足業務部門快速開發需求（回應第 3 點）、核心交易用傳統開發確保效能（回應第 2 點）、統一資安治理框架保護客戶個資（回應第 1 點）。三者兼顧，無需犧牲任何一項。"
-    why_not_a: "全部傳統開發確實安全，但犧牲了業務部門的敏捷性，未回應第 3 項快速開發需求。"
-    why_not_b: "全部 LCNC 無法滿足金融業的效能要求和嚴格的個資法規，風險過高。"
-    why_not_d: "外包核心系統會讓企業失去對關鍵技術的掌控力，且外包方的資安管控可能不符合金融法規要求。"
-  keywords:
-    - "分層架構"
-    - "金融科技"
-    - "資安治理"
-  exam_trap: false
-
-- id: "L12102-Q30"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "回顧 LCNC 的優勢與限制，下列哪個觀點最能代表目前業界的共識？"
-  options:
-    a: "LCNC 只是過渡技術，最終會被生成式 AI 完全取代"
-    b: "LCNC 已經成熟到可以完全取代傳統開發方式"
-    c: "LCNC 的風險遠大於優勢，企業應避免使用"
-    d: "LCNC 是傳統開發的補充而非替代，適合快速原型與輕量應用，但複雜系統仍需傳統開發，兩者將長期共存"
-  correct: "d"
-  explanation:
-    why_correct: "這是目前業界共識。LCNC 在 MVP、流程自動化等場景優勢明顯，但無法完全取代傳統開發。Gartner 預測 75% 新應用用 LCNC，意味著仍有 25% 需要傳統方式。兩者將長期共存互補。"
-    why_not_a: "生成式 AI 與 LCNC 更可能是互補而非替代關係，AI 可強化 LCNC 但不會消除 LCNC 的視覺化開發價值。"
-    why_not_b: "LCNC 在高併發、複雜邏輯、嚴格合規等場景仍有明顯限制，「完全取代」是過度樂觀的說法。"
-    why_not_c: "LCNC 的市場規模持續高速成長（CAGR 19%），全球採用率不斷提升，「避免使用」與市場趨勢相悖。風險可透過治理框架管控。"
-  keywords:
-    - "業界共識"
-    - "互補關係"
-    - "長期共存"
-  exam_trap: true
-
-# ============================================================
-# Coverage Gap: Citizen Dev vs Shadow IT Boundary (Q31-Q32)
-# ============================================================
-
-- id: "L12102-Q31"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "「公民開發者（Citizen Developer）」與「影子 IT（Shadow IT）」都涉及非 IT 人員自行建置系統。下列關於兩者差異的敘述，何者正確？"
-  options:
-    a: "兩者本質相同，只是名稱不同"
-    b: "公民開發者是在 IT 部門核可的治理框架下開發，Shadow IT 則是未經核可的自主行為"
-    c: "公民開發者使用 No Code 工具，Shadow IT 使用 Low Code 工具"
-    d: "公民開發者只存在於大企業，Shadow IT 只存在於中小企業"
-  correct: "b"
-  explanation:
-    why_correct: "兩者的關鍵差異在於「是否經過 IT 部門核可」。公民開發者在企業核可的工具清單與治理框架下自主開發（核可），Shadow IT 則是繞過 IT 監管的自行建置（未核可）。記住：核可 = Citizen Dev，未核可 = Shadow IT。"
-    why_not_a: "兩者本質不同。公民開發者是受鼓勵的正式角色，Shadow IT 是需要管控的風險行為。差異在於有無治理框架。"
-    why_not_c: "兩者的差異不在於使用的工具類型，而在於是否經過 IT 治理流程。公民開發者和 Shadow IT 都可能使用 No Code 或 Low Code 工具。"
-    why_not_d: "兩者不分企業大小。大企業同樣有 Shadow IT 問題（甚至更嚴重），中小企業也可以建立公民開發者制度。"
-  keywords:
-    - "Citizen Developer"
-    - "Shadow IT"
-    - "IT治理"
-  exam_trap: false
-
-- id: "L12102-Q32"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某公司行銷部小華用 IT 部門核准的 Airtable 帳號建置了客戶名單管理工具，但為了串接未經核准的第三方 Email 行銷服務，他自行註冊了免費的 Zapier 帳號進行串接。此行為應如何判定？"
-  options:
-    a: "完全屬於公民開發者行為，因為他使用的是 No Code 工具"
-    b: "完全屬於 Shadow IT，因為非 IT 人員不應自行建置任何系統"
-    c: "Airtable 部分屬於公民開發者行為（核可），Zapier 串接部分屬於 Shadow IT（未核可）"
-    d: "不屬於任何風險類別，因為免費工具不涉及企業資安"
-  correct: "c"
-  explanation:
-    why_correct: "判斷標準是「每個環節是否經過 IT 核可」。小華使用核准的 Airtable 是公民開發者行為，但自行註冊未核准的 Zapier 帳號串接第三方服務，該部分繞過了 IT 治理，屬於 Shadow IT。同一個人的同一個專案中可以同時存在兩種行為。"
-    why_not_a: "不能只看工具類型來判斷。關鍵是「是否經過核可」——Airtable 核可了，但 Zapier 串接未核可，後者就是 Shadow IT。"
-    why_not_b: "非 IT 人員自行建置系統不一定是 Shadow IT。如果在核可框架下進行，就是正當的公民開發者行為。此選項過度否定了 Citizen Developer 的角色。"
-    why_not_d: "免費工具同樣涉及企業資安——客戶名單透過未核准的 Zapier 帳號流出企業管控範圍，可能違反個資保護規定。"
-  keywords:
-    - "Citizen Developer"
-    - "Shadow IT"
-    - "場景判斷"
-  exam_trap: false
-
-# ============================================================
-# Coverage Gap: Risk Governance / Mitigation (Q33-Q34)
-# ============================================================
-
-- id: "L12102-Q33"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某企業發現內部已有超過 20 個由各部門自建的 No Code 應用（Shadow IT），IT 部門需制定治理策略。下列哪個策略最能有效降低 Shadow IT 風險？"
-  options:
-    a: "建立核准工具清單與公民開發者制度，將現有應用納入 IT 治理框架，並提供培訓與支援"
-    b: "立即禁止所有非 IT 人員使用任何 LCNC 工具"
-    c: "要求所有部門將自建應用的帳號密碼交給 IT 部門統一管理"
-    d: "僅針對涉及客戶個資的應用進行審查，其他應用不需管控"
-  correct: "a"
-  explanation:
-    why_correct: "最佳策略是「疏導而非圍堵」：建立核准工具清單（限制工具種類）、公民開發者制度（明確角色與權限）、將現有應用納管（盤點與風險評估），同時提供培訓讓員工在合規框架下繼續發揮 LCNC 的效率優勢。"
-    why_not_b: "全面禁止會扼殺 LCNC 帶來的效率優勢，且員工可能轉向更隱蔽的方式繞過管控，反而讓 Shadow IT 更難發現。"
-    why_not_c: "統一管理帳號密碼只是表面措施，未解決根本的治理問題（如資料安全、合規審查、應用品質）。且 IT 部門也無法管理 20+ 應用的日常運維。"
-    why_not_d: "僅審查涉及個資的應用是不夠的。Shadow IT 的風險不限於個資——系統整合衝突、資料孤島、授權費用失控等問題同樣需要管控。"
-  keywords:
-    - "Shadow IT治理"
-    - "公民開發者制度"
-    - "風險管控"
-  exam_trap: false
-
-- id: "L12102-Q34"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 5
-  question: "某金融機構正在制定 LCNC 治理政策，需同時滿足以下約束：(1) 金管會要求客戶資料不得儲存於境外伺服器、(2) 各業務部門已有 15 個自建 No Code 應用且日常仰賴運作、(3) IT 部門僅有 5 人且同時負責核心系統維運。下列治理方案最能兼顧合規、效率與人力現實的是？"
-  options:
-    a: "立即關閉所有 15 個自建應用，等 IT 部門以傳統方式逐一重建"
-    b: "依風險分級處理：涉及客戶資料的應用優先遷移至合規平台並納入 IT 審查，低風險的內部工具維持現狀但註冊至 IT 資產清單，同時建立公民開發者培訓與核准流程"
-    c: "將所有應用統一遷移至單一 Low Code 平台，由 IT 部門集中管理"
-    d: "外包給資安顧問公司全權處理，IT 部門不介入"
-  correct: "b"
-  explanation:
-    why_correct: "三項約束交叉分析：(1) 境外儲存禁令 → 涉及客戶資料的應用必須遷移至合規環境（優先處理）；(2) 15 個應用已在使用 → 不能一刀切關閉（影響業務）；(3) IT 僅 5 人 → 不可能同時處理所有應用（需分優先級）。風險分級是唯一能兼顧三項約束的方法。"
-    why_not_a: "關閉所有應用會嚴重影響業務運作（違反約束 2），且 IT 5 人無法在合理時間內重建 15 個系統（違反約束 3）。"
-    why_not_c: "統一遷移至單一平台理論上可行，但 IT 5 人同時遷移 15 個應用不切實際（違反約束 3），且可能造成新的單一 Vendor Lock-in 風險。"
-    why_not_d: "金融機構的客戶資料治理責任不能完全外包，金管會要求金融機構自身對資料管控負最終責任。IT 部門必須參與監督。"
-  keywords:
-    - "治理政策"
-    - "風險分級"
-    - "金融合規"
-  exam_trap: false
-
-# ============================================================
-# Coverage Gap: NC/LC/Traditional Selection (Q35-Q36)
-# ============================================================
-
-- id: "L12102-Q35"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 2
-  question: "比較 No Code、Low Code 與傳統程式碼開發三種方式，下列敘述何者最正確？"
-  options:
-    a: "No Code 完全不需要任何技術知識，Low Code 需要基本程式能力，傳統開發需要深度程式能力"
-    b: "三者的開發速度相同，差異只在於使用者介面的不同"
-    c: "Low Code 是 No Code 的進階版本，功能完全涵蓋 No Code 的所有能力"
-    d: "No Code 適合快速原型與標準化流程，Low Code 適合需要部分客製化的場景，傳統開發適合高效能與複雜邏輯需求"
-  correct: "d"
-  explanation:
-    why_correct: "三種方式各有適用場景：No Code 門檻最低、速度最快，適合標準化需求；Low Code 兼顧速度與彈性，適合需要少量客製的場景；傳統開發彈性最高、效能最好，適合複雜核心系統。選擇的關鍵在於「場景需求」而非「工具優劣」。"
-    why_not_a: "No Code 雖不需寫程式碼，但仍需要邏輯思維與對工具的理解能力，並非「完全不需要任何技術知識」。此為常見誤解。"
-    why_not_b: "三者的開發速度差異極大。Forrester 研究顯示 LCNC 可比傳統開發快約 20 倍，這是 LCNC 的核心優勢之一。"
-    why_not_c: "Low Code 和 No Code 是不同定位的工具，並非上下位關係。某些 No Code 平台（如 Bubble）在特定場景的易用性反而優於 Low Code 平台。"
-  keywords:
-    - "No Code"
-    - "Low Code"
-    - "傳統開發"
-    - "場景比較"
-  exam_trap: false
-
-- id: "L12102-Q36"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某企業有三個待開發專案：(甲) 內部請假申請表單自動化、(乙) 需符合資安稽核的供應商管理系統、(丙) 每秒處理 5,000 筆交易的支付核心系統。套用「安全選 Low、簡單選 No、核心系統選 Traditional」框架，下列配對何者最正確？"
-  options:
-    a: "甲 No Code、乙 Low Code、丙 Traditional"
-    b: "甲 Low Code、乙 Traditional、丙 No Code"
-    c: "甲 No Code、乙 No Code、丙 Low Code"
-    d: "甲 Low Code、乙 Low Code、丙 Traditional"
-  correct: "a"
-  explanation:
-    why_correct: "逐一套用框架：甲（請假表單）= 標準化流程、無特殊約束 → 「簡單選 No」；乙（供應商管理+資安稽核）= 有安全合規約束 → 「安全選 Low」；丙（5,000 TPS 支付系統）= 高效能核心系統 → 「核心系統選 Traditional」。三條規則剛好各對應一個專案。"
-    why_not_b: "完全錯配：請假表單不需要 Low Code 的複雜度、供應商管理不需要從零傳統開發、支付系統用 No Code 無法處理高併發。"
-    why_not_c: "乙有資安稽核需求，No Code 在合規控制上能力不足；丙的高併發需求超出 Low Code 的擴展性上限。"
-    why_not_d: "甲用 Low Code 是過度設計——簡單的請假表單用 No Code 即可，不需要程式碼擴展能力。浪費開發資源。"
-  keywords:
-    - "場景選擇框架"
-    - "安全選Low"
-    - "簡單選No"
-    - "核心選Traditional"
-  exam_trap: false
-
-# ============================================================
-# Coverage Gap: Exam Trap Questions (Q37-Q38)
-# ============================================================
-
-- id: "L12102-Q37"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 3
-  question: "某企業導入 LCNC 後，公民開發者數量從 10 人快速成長至 80 人，各部門紛紛自建應用。主管認為「公民開發者越多代表數位轉型越成功」。此觀點的最大問題是？"
-  options:
-    a: "公民開發者數量確實是數位轉型成功的最佳指標，此觀點正確"
-    b: "公民開發者只應在 IT 部門全程監督下操作，不應有自主開發權限"
-    c: "公民開發者不應超過 IT 部門人數，否則會導致 IT 部門失去存在價值"
-    d: "公民開發者增加的同時若缺乏治理框架，會導致 Shadow IT 風險倍增、資料孤島與技術債失控"
-  correct: "d"
-  explanation:
-    why_correct: "「公民開發者越多越好」是常見考試陷阱。數量成長若缺乏配套的治理框架（核准工具清單、資安審查流程、應用資產盤點），就會從「賦能」變成「失控」——80 人各自建置的應用形成 Shadow IT 叢林，資料分散在不同平台成為孤島，技術債快速累積。正確觀點是「數量 + 治理並重」。"
-    why_not_a: "數量只是表面指標。沒有治理框架的公民開發者成長，可能帶來的風險大於效益。數位轉型成功應看業務價值產出而非開發者人數。"
-    why_not_b: "全程監督違背公民開發者的核心價值——讓非 IT 人員自主解決標準化需求。正確做法是建立框架後授權自主，而非逐一監督。"
-    why_not_c: "公民開發者與 IT 部門不是對立關係。Gartner 預測 80% LCNC 使用者來自非 IT 部門，IT 的角色是治理與賦能，不是限制人數。"
-  keywords:
-    - "公民開發者治理"
-    - "Shadow IT"
-    - "考試陷阱"
-  exam_trap: true
-
-- id: "L12102-Q38"
-  topic_code: "L12102"
-  item_code: "L12102"
-  difficulty: 4
-  question: "某企業因 Vendor Lock-in 問題想從 A 平台遷移至 B 平台。CFO 估算遷移成本為 NT$500 萬，主張「Vendor Lock-in 就是一個成本問題，只要遷移成本可接受就能解決」。此觀點忽略了什麼？"
-  options:
-    a: "CFO 的分析完全正確，Vendor Lock-in 本質上就是成本問題"
-    b: "解決 Vendor Lock-in 的唯一方法是回歸傳統程式碼開發，不應遷移至另一個 LCNC 平台"
-    c: "Vendor Lock-in 只影響技術層面，與財務無關，所以 CFO 不應介入此決策"
-    d: "Vendor Lock-in 除了直接遷移成本外，還包含資料格式不相容導致的資料遺失風險、遷移期間的服務中斷、員工重新學習新平台的時間成本，以及新平台可能產生新的 Lock-in"
-  correct: "d"
-  explanation:
-    why_correct: "「Vendor Lock-in 只影響成本」是常見考試陷阱。Lock-in 的影響是多維度的：(1) 直接遷移成本（CFO 已考慮）；(2) 資料遺失風險（格式不相容）；(3) 服務中斷（遷移期間的業務影響）；(4) 隱性成本（員工重新學習）；(5) 新的 Lock-in 風險（從 A 鎖定換成 B 鎖定）。只看金額是嚴重低估。"
-    why_not_a: "成本只是 Vendor Lock-in 影響的一個面向。忽略資料風險、服務中斷、學習成本等隱性影響，會導致決策失誤。"
-    why_not_b: "傳統開發不是唯一解法。可以透過選擇支援資料匯出的平台、採用開放標準 API、建立抽象層等策略來降低 Lock-in 風險，不必完全放棄 LCNC。"
-    why_not_c: "Vendor Lock-in 確實影響財務（遷移成本、授權費），CFO 應該參與但不應只看成本面。此選項過度排斥財務視角。"
-  keywords:
-    - "Vendor Lock-in"
-    - "遷移成本"
-    - "考試陷阱"
-  exam_trap: true
+  - id: L12102-Q25
+    difficulty: 5
+    question: "某金融科技公司想導入 LCNC，主管有三項顧慮：(1) 客戶個資保護（法規要求）；(2) 核心交易邏輯的效能需求；(3) 業務部門的快速開發需求。下列架構設計最能同時回應三項顧慮的是？"
+    options:
+      a: "全部使用傳統開發，確保安全與效能，犧牲開發速度"
+      b: "全部使用 LCNC，以開發速度為最高優先"
+      c: "採用分層架構：LCNC 用於業務部門前端應用與流程自動化，核心交易與資料處理用傳統開發，IT 部門建立統一資安治理框架"
+      d: "外包核心系統開發，內部只用 LCNC 做非關鍵應用"
+    correct: c
+    explanation:
+      why_correct: "分層架構（Layered Architecture）是最佳解：LCNC 滿足業務部門快速開發需求（回應第 3 點）、核心交易用傳統開發確保效能（回應第 2 點）、統一資安治理框架保護客戶個資（回應第 1 點）。三者兼顧，無需犧牲任何一項。"
+      why_not_a: "全部傳統開發確實安全，但犧牲業務部門敏捷性，未回應第 3 項快速開發需求。"
+      why_not_b: "全部 LCNC 無法滿足金融業效能要求和嚴格個資法規，風險過高。"
+      why_not_d: "外包核心系統讓企業失去關鍵技術掌控力，外包方的資安管控可能不符合金融法規要求。"
+    keywords: ["分層架構", "金融科技", "資安治理", "多約束"]
+    exam_trap: false

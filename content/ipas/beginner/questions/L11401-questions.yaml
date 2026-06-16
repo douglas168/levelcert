@@ -1,670 +1,483 @@
-# L11401 — 鑑別式AI與生成式AI的基本原理
-# Question pool for adaptive testing
-# Generated: 2026-04-15
-# Total: 30 questions (6 per difficulty level 1-5)
+topic: L11401
+topic_name: 鑑別式AI與生成式AI的基本原理
+level: beginner
+questions:
+  - id: L11401-Q01
+    stem: "鑑別式AI（Discriminative AI）的核心任務是什麼？"
+    options:
+      a: "生成全新的圖像和文字內容"
+      b: "學習資料的整體分布以模擬新樣本"
+      c: "對輸入資料進行分類或數值預測"
+      d: "透過多個模型相互對抗來提升品質"
+    answer: "c"
+    explanation: "鑑別式AI的核心是找到決策邊界，將輸入資料分類到對應類別或預測數值。生成全新內容（選項a/b）是生成式AI的任務；多模型對抗（選項d）是GAN的概念。"
+    difficulty: 1
+    tags: ["discriminative-ai", "core-task"]
 
-# ============================================================
-# Difficulty 1 — Remember (Bloom's: 記憶)
-# ============================================================
+  - id: L11401-Q02
+    stem: "下列哪個模型屬於生成式AI（Generative AI）？"
+    options:
+      a: "支援向量機（SVM）"
+      b: "邏輯迴歸（Logistic Regression）"
+      c: "隨機森林（Random Forest）"
+      d: "生成對抗網路（GAN）"
+    answer: "d"
+    explanation: "GAN（Generative Adversarial Network，生成對抗網路）是典型的生成式模型，名字第一個字 Generative 就說明了它的任務。SVM、邏輯迴歸、隨機森林都是鑑別式模型，用於分類或預測，不生成新內容。"
+    difficulty: 1
+    tags: ["model-classification", "gan", "discriminative-vs-generative"]
 
-- id: "L11401-Q01"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "鑑別式AI（Discriminative AI）的核心任務是什麼？"
-  options:
-    a: "生成全新的文字、圖像等內容"
-    b: "對輸入資料進行分類或預測"
-    c: "學習資料的整體分布並模擬"
-    d: "自動標註未標記的訓練資料"
-  correct: "b"
-  explanation:
-    why_correct: "鑑別式AI的核心任務是分類（classification）和預測（prediction），它學習決策邊界來區分不同類別，例如判斷一封郵件是垃圾郵件還是正常郵件。"
-    why_not_a: "生成全新內容是生成式AI的任務，不是鑑別式AI。"
-    why_not_c: "學習資料的整體分布是生成式AI的學習方式，鑑別式AI學習的是如何找到最佳的決策邊界來區分不同類別。"
-    why_not_d: "自動標註資料是資料預處理或自監督式學習的範疇，不是鑑別式AI的核心任務。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "discriminative AI"
-  exam_trap: false
+  - id: L11401-Q03
+    stem: "下列哪個說法正確描述了「幻覺（Hallucination）」？"
+    options:
+      a: "鑑別式AI將資料誤分類到錯誤的類別"
+      b: "生成式AI生成了看似合理但實際上是錯誤或虛構的資訊"
+      c: "模型在訓練資料上表現太好，卻在新資料上失敗"
+      d: "部署後真實世界資料和訓練資料產生差距"
+    answer: "b"
+    explanation: "幻覺（Hallucination）是生成式AI的主要缺陷：模型生成看似合理但實際上錯誤或虛構的資訊，且通常語氣非常自信。選項a是分類錯誤；選項c是過度擬合；選項d是資料漂移。"
+    difficulty: 1
+    tags: ["hallucination", "generative-ai", "limitations"]
 
-- id: "L11401-Q02"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "下列哪一個模型屬於生成式AI（Generative AI）？"
-  options:
-    a: "支援向量機（SVM）"
-    b: "邏輯回歸（Logistic Regression）"
-    c: "生成對抗網路（GAN）"
-    d: "隨機森林（Random Forest）"
-  correct: "c"
-  explanation:
-    why_correct: "GAN（Generative Adversarial Network）是經典的生成式模型，名字第一個字 Generative 就表明了它的任務是「生成」新的資料（如圖像）。"
-    why_not_a: "SVM 是鑑別式模型，用於分類和回歸任務，學習決策邊界而非生成新資料。這是考試常見陷阱。"
-    why_not_b: "邏輯回歸是鑑別式模型，用於二元分類問題。"
-    why_not_d: "隨機森林是鑑別式模型，屬於集成學習方法，用於分類和回歸。"
-  keywords:
-    - "生成式AI基本原理"
-    - "GAN"
-  exam_trap: true
+  - id: L11401-Q04
+    stem: "以下哪種部署方式最適合對延遲要求極低的工廠產線即時瑕疵檢測系統？"
+    options:
+      a: "雲端部署（Cloud Deployment）"
+      b: "邊緣部署（Edge Deployment）"
+      c: "內部部署（On-Premise Deployment）"
+      d: "以上皆可，延遲差異不大"
+    answer: "b"
+    explanation: "邊緣部署在靠近資料來源的設備上直接運行模型，延遲極低，不需要網路往返。工廠產線即時檢測需要毫秒級回應，雲端部署需要資料傳輸有延遲，不適合即時場景。"
+    difficulty: 1
+    tags: ["model-deployment", "edge-deployment", "latency"]
 
-- id: "L11401-Q03"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "模型部署（Model Deployment）中，「邊緣部署（Edge Deployment）」的主要特點為何？"
-  options:
-    a: "需要大型資料中心提供計算力"
-    b: "模型在靠近資料來源的設備上運行，延遲低"
-    c: "必須搭配雲端才能使用，無法獨立運作"
-    d: "資料必須上傳至雲端才能處理"
-  correct: "b"
-  explanation:
-    why_correct: "邊緣部署將模型部署在靠近資料來源的設備上（如IoT裝置、手機），最大優點是低延遲和即時決策，且資料不需離開本地。"
-    why_not_a: "大型資料中心提供計算力是雲端部署（Cloud Deployment）的特點。"
-    why_not_c: "邊緣部署不需要搭配雲端就能獨立運作，它的優勢之一正是離線也能使用。"
-    why_not_d: "邊緣部署的優勢之一就是資料不需上傳至雲端，可在本地完成處理。"
-  keywords:
-    - "模型部署"
-    - "edge deployment"
-  exam_trap: false
+  - id: L11401-Q05
+    stem: "「概念驗證（PoC，Proof of Concept）」在 AI 導入流程中主要的目的是什麼？"
+    options:
+      a: "在模型上線後持續監控其效能變化"
+      b: "在投入大量資源前，用小規模實驗確認方向可行"
+      c: "選擇最終的模型部署方式"
+      d: "計算模型的推理成本"
+    answer: "b"
+    explanation: "PoC（概念驗證）是上線前的小規模可行性測試，目的是在大量投入前確認方向正確。選項a是部署後監控；選項c和d是後續決策，不是PoC的主要目的。"
+    difficulty: 1
+    tags: ["poc", "testing-validation"]
 
-- id: "L11401-Q04"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "在效能管理中，「延遲（Latency）」指的是什麼？"
-  options:
-    a: "模型在單位時間內能處理的請求數量"
-    b: "從輸入到模型開始回應所需的時間"
-    c: "模型訓練所需的總計算成本"
-    d: "模型的預測準確率"
-  correct: "b"
-  explanation:
-    why_correct: "延遲（Latency）是指從使用者發送輸入到模型產出回應所經過的等待時間。不論是鑑別式或生成式AI，延遲越低，使用者體驗越好。"
-    why_not_a: "單位時間內能處理的請求數量是「吞吐量（Throughput）」的定義。"
-    why_not_c: "訓練的總計算成本是「成本（Cost）」中的預訓練成本，不是延遲。"
-    why_not_d: "預測準確率是模型品質的指標，與延遲的概念完全不同。"
-  keywords:
-    - "效能管理"
-    - "latency"
-  exam_trap: false
+  - id: L11401-Q06
+    stem: "鑑別式AI最主要的資料需求是什麼？"
+    options:
+      a: "需要大量未標註的資料"
+      b: "需要有標註的資料（Labeled Data）"
+      c: "不需要任何訓練資料"
+      d: "只需要少量的強化學習反饋"
+    answer: "b"
+    explanation: "鑑別式AI透過監督式學習找決策邊界，需要每筆資料都附上正確的標籤（答案）。生成式AI才可以使用未標註的資料。"
+    difficulty: 1
+    tags: ["discriminative-ai", "labeled-data", "supervised-learning"]
 
-- id: "L11401-Q05"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "生成式AI（Generative AI）可以生成的內容類型，下列何者正確？"
-  options:
-    a: "只能生成文字"
-    b: "只能生成文字和圖像"
-    c: "可以生成文字、圖像、音頻、影片、程式碼、3D模型等"
-    d: "只能生成數值型預測結果"
-  correct: "c"
-  explanation:
-    why_correct: "生成式AI能生成多種類型的內容，包括文字（ChatGPT）、圖像（DALL-E、Midjourney）、程式碼（GitHub Copilot）、音頻/音樂、影片（Sora）、3D模型等。"
-    why_not_a: "很多人因為 ChatGPT 的普及而誤以為生成式AI只能生成文字，這是常見誤解。"
-    why_not_b: "除了文字和圖像，生成式AI還能生成音頻、影片、程式碼、3D模型等多種內容。"
-    why_not_d: "輸出數值型預測結果是鑑別式AI中回歸任務的特徵，不是生成式AI的產出方式。"
-  keywords:
-    - "生成式AI基本原理"
-    - "generative AI"
-  exam_trap: true
+  - id: L11401-Q07
+    stem: "「VAE（Variational Autoencoder，變分自動編碼器）」屬於哪種類型的 AI 模型？"
+    options:
+      a: "鑑別式AI，因為名字有 Encoder"
+      b: "強化學習模型"
+      c: "生成式AI，學習資料分布後能生成新資料"
+      d: "半監督式學習模型"
+    answer: "c"
+    explanation: "VAE（變分自動編碼器）是生成式模型，儘管名字包含 Encoder，但它的目的是學習資料的潛在分布並生成新樣本。這是常見的考試陷阱——名字有 Autoencoder 不代表是鑑別式。"
+    difficulty: 1
+    tags: ["vae", "generative-ai", "model-classification"]
 
-- id: "L11401-Q06"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "下列哪一項是鑑別式AI（Discriminative AI）的典型應用？"
-  options:
-    a: "自動撰寫新聞報導"
-    b: "根據文字描述生成圖片"
-    c: "垃圾郵件偵測"
-    d: "自動生成程式碼"
-  correct: "c"
-  explanation:
-    why_correct: "垃圾郵件偵測是典型的分類任務，模型學習區分「垃圾郵件」和「正常郵件」，屬於鑑別式AI的應用。"
-    why_not_a: "自動撰寫新聞報導是文字生成任務，屬於生成式AI的應用。"
-    why_not_b: "根據文字描述生成圖片（如 DALL-E）是生成式AI的應用。"
-    why_not_d: "自動生成程式碼（如 GitHub Copilot）是生成式AI的應用。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "spam detection"
-  exam_trap: false
+  - id: L11401-Q08
+    stem: "生成式AI的「學習邏輯」與鑑別式AI最大的不同是什麼？"
+    options:
+      a: "生成式AI學習找到最佳的決策邊界"
+      b: "生成式AI學習資料的整體分布（Data Distribution）"
+      c: "生成式AI只使用監督式學習"
+      d: "生成式AI需要更多標註資料"
+    answer: "b"
+    explanation: "鑑別式AI學習找決策邊界（區分類別的線）；生成式AI學習資料分布（資料整體長什麼樣子），然後從這個分布中生成新樣本。"
+    difficulty: 1
+    tags: ["generative-ai", "data-distribution", "discriminative-vs-generative"]
 
-# ============================================================
-# Difficulty 2 — Understand (Bloom's: 理解)
-# ============================================================
+  - id: L11401-Q09
+    stem: "下列哪個效能指標描述的是「模型從收到輸入到開始回應所需的時間」？"
+    options:
+      a: "吞吐量（Throughput）"
+      b: "延遲（Latency）"
+      c: "成本（Cost）"
+      d: "有效吞吐量（Goodput）"
+    answer: "b"
+    explanation: "延遲（Latency）是從輸入資料到模型開始回應所經過的時間，直接影響使用者體驗。吞吐量是單位時間的處理量；成本是費用；有效吞吐量是維持品質下的真實產出量。"
+    difficulty: 1
+    tags: ["performance-management", "latency"]
 
-- id: "L11401-Q07"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "關於鑑別式AI和生成式AI的學習方式，下列敘述何者正確？"
-  options:
-    a: "兩者都必須使用有標註的資料進行訓練"
-    b: "鑑別式AI通常需要有標註資料，生成式AI可以使用未標註資料"
-    c: "生成式AI必須使用有標註資料，鑑別式AI可以使用未標註資料"
-    d: "兩者都只能使用未標註資料"
-  correct: "b"
-  explanation:
-    why_correct: "鑑別式AI主要採用監督式學習，需要有標註的（labeled）資料來學習分類邊界。生成式AI可使用非監督式學習，利用大量未標註資料學習資料分布。"
-    why_not_a: "生成式AI的一大優勢是可以利用未標註資料訓練，不需要每筆資料都有正確答案。"
-    why_not_c: "選項 C 把兩者的資料需求完全搞反了。鑑別式AI才是較依賴有標註資料的一方。"
-    why_not_d: "鑑別式AI通常需要有標註資料，並非兩者都只能用未標註資料。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-  exam_trap: false
+  - id: L11401-Q10
+    stem: "「資料漂移（Data Drift）」最容易在什麼時候出現？"
+    options:
+      a: "模型訓練階段，資料清理不完整時"
+      b: "模型上線前的測試驗證階段"
+      c: "模型部署後，真實世界資料隨時間改變時"
+      d: "選擇模型架構的設計階段"
+    answer: "c"
+    explanation: "資料漂移是部署後才出現的問題：真實世界的資料隨時間變化，和原先的訓練資料產生差距，導致模型效能下降。這是模型監控的重要議題，不是上線前的問題。"
+    difficulty: 1
+    tags: ["data-drift", "model-monitoring", "performance-management"]
 
-- id: "L11401-Q08"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "關於模型部署方式，下列哪個敘述最能描述「雲端部署（Cloud Deployment）」的特點？"
-  options:
-    a: "適合延遲要求極低、資料不能離開本地的場景"
-    b: "計算力強大且可擴展，但可能有較高延遲和資料離場風險"
-    c: "初期投資極低，但長期維護成本最高"
-    d: "只適合小型模型，無法處理大型語言模型"
-  correct: "b"
-  explanation:
-    why_correct: "雲端部署的優勢是強大的計算力和高度可擴展性，適合大型模型訓練和計算密集任務。但缺點是延遲較高（資料需往返雲端）且資料會離開本地。"
-    why_not_a: "延遲極低且資料不離場是邊緣部署（Edge）或內部部署（On-Premise）的特點，不是雲端的優勢。"
-    why_not_c: "雲端部署通常是「初期投資低、按使用量付費」的模式，選項的描述不準確。內部部署才是初期投資高。"
-    why_not_d: "雲端恰恰是最適合運行大型語言模型的環境，因為它提供強大的GPU/TPU資源。"
-  keywords:
-    - "模型部署"
-    - "cloud deployment"
-  exam_trap: false
+  - id: L11401-Q11
+    stem: "某公司的信用卡詐騙偵測系統，在 100,000 筆交易中只有 50 筆是詐騙。若模型把所有交易都預測為「正常」，正確率（Accuracy）約為 99.95%，但這個模型有什麼根本問題？"
+    options:
+      a: "正確率太低，無法使用"
+      b: "沒有問題，99.95% 的正確率已經很高了"
+      c: "模型漏掉了所有真實詐騙交易，Recall（召回率）為 0%"
+      d: "過度擬合，需要更多訓練資料"
+    answer: "c"
+    explanation: "這是不平衡資料陷阱。當資料極端不平衡時，全猜多數類別也有超高正確率，但模型對少數類別（詐騙）毫無辨識能力。Recall = 真正詐騙中模型抓到的比例 = 0/50 = 0%。詐騙偵測應優先看 Recall。"
+    difficulty: 2
+    tags: ["recall", "imbalanced-data", "accuracy-trap", "discriminative-ai"]
 
-- id: "L11401-Q09"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "「吞吐量（Throughput）」與「有效吞吐量（Goodput）」的差異為何？"
-  options:
-    a: "吞吐量衡量總產出量，有效吞吐量只計算成功完成的請求數"
-    b: "吞吐量衡量原始輸出量，有效吞吐量還需在維持目標延遲下計算"
-    c: "有效吞吐量只計算輸出的文字量，吞吐量計算所有類型的輸出"
-    d: "吞吐量用於雲端部署，有效吞吐量用於邊緣部署"
-  correct: "b"
-  explanation:
-    why_correct: "吞吐量是單位時間內模型輸出的 token 量（token/秒），而有效吞吐量（Goodput）是在維持目標延遲水準下，系統實際達成的有效吞吐量，比單純吞吐量更全面地反映系統效能。"
-    why_not_a: "這個說法接近但不精確。有效吞吐量的關鍵不只是「成功完成」，而是在維持目標延遲品質的前提下計算，比單純計算成功請求數更嚴格。"
-    why_not_c: "這不是兩者的區別。有效吞吐量的「有效」指的是符合延遲品質要求的輸出，不是指輸出類型的差異。"
-    why_not_d: "兩個指標都可以用於任何部署環境，不限定特定部署方式。"
-  keywords:
-    - "效能管理"
-    - "throughput"
-    - "goodput"
-  exam_trap: false
+  - id: L11401-Q12
+    stem: "GPT 系列模型（如 GPT-4）屬於哪種架構，主要用於什麼任務？"
+    options:
+      a: "Encoder-only（僅編碼器），主要用於文字理解和分類"
+      b: "Encoder-Decoder，主要用於機器翻譯"
+      c: "Decoder-only（僅解碼器），主要用於文字生成"
+      d: "雙向（Bidirectional）架構，主要用於填空預測"
+    answer: "c"
+    explanation: "GPT（Generative Pre-trained Transformer，生成式預訓練變換器）系列採用 Decoder-only 架構，透過自迴歸方式（預測下一個 token）生成文字，屬於生成式AI。Encoder-only 雙向架構是 BERT；Encoder-Decoder 是機器翻譯模型如 T5。"
+    difficulty: 2
+    tags: ["gpt", "llm", "decoder-only", "architecture"]
 
-- id: "L11401-Q10"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "關於擴散模型（Diffusion Model），下列敘述何者正確？"
-  options:
-    a: "屬於鑑別式模型，主要用於圖像分類"
-    b: "屬於生成式模型，能生成高品質圖像"
-    c: "屬於鑑別式模型，主要用於物體偵測"
-    d: "屬於強化學習模型，透過獎勵訊號學習"
-  correct: "b"
-  explanation:
-    why_correct: "擴散模型（Diffusion Model）是生成式模型的一種，Stable Diffusion 就是其代表應用。初級只需記住它屬於生成式、能生成高品質圖像即可。（其內部運作原理屬中級內容）"
-    why_not_a: "這是考試常見陷阱。擴散模型不是鑑別式模型，它的目的是「生成」新圖像，不是「分類」既有圖像。"
-    why_not_c: "物體偵測是鑑別式AI的應用場景，但擴散模型屬於生成式模型。"
-    why_not_d: "擴散模型的訓練不依賴獎勵訊號，而是學習資料分布。強化學習和生成式模型是不同的學習範式。"
-  keywords:
-    - "生成式AI基本原理"
-    - "diffusion model"
-  exam_trap: true
+  - id: L11401-Q13
+    stem: "BERT（Bidirectional Encoder Representations from Transformers，雙向編碼器表徵）與 GPT 最主要的架構差異是什麼？"
+    options:
+      a: "BERT 是 Decoder-only，GPT 是 Encoder-only"
+      b: "BERT 是雙向（Bidirectional）Encoder，GPT 是單向 Decoder"
+      c: "BERT 用於圖像生成，GPT 用於文字分類"
+      d: "BERT 和 GPT 架構完全相同，只是訓練資料不同"
+    answer: "b"
+    explanation: "BERT 採用 Encoder-only 雙向架構，同時看一個句子的左右文字，擅長文字理解和分類；GPT 採用 Decoder-only 單向架構，從左到右自迴歸生成文字。兩者架構根本不同。"
+    difficulty: 2
+    tags: ["bert", "gpt", "llm", "architecture", "bidirectional"]
 
-- id: "L11401-Q11"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 1
-  question: "在技術測試與驗證中，「概念驗證（PoC, Proof of Concept）」的目的是什麼？"
-  options:
-    a: "直接將模型部署到正式環境並開始營運"
-    b: "在大規模導入前小規模測試，確認AI可達到預期效果"
-    c: "取代所有人工作業流程"
-    d: "向客戶展示最終產品的完整功能"
-  correct: "b"
-  explanation:
-    why_correct: "PoC 是在正式導入 AI 之前進行的小規模測試，目的是驗證技術可行性、確認能達到預期效果，降低大規模投入的風險。"
-    why_not_a: "PoC 的精神正好相反：先小規模測試，確認可行後才考慮正式部署，不是直接上線。"
-    why_not_c: "PoC 的目的是驗證技術可行性，不是取代所有人工作業。AI 導入通常是輔助而非完全取代。"
-    why_not_d: "PoC 是概念驗證階段，通常還不是完整的最終產品，重點在驗證核心假設是否成立。"
-  keywords:
-    - "技術測試與驗證"
-    - "proof of concept"
-  exam_trap: false
+  - id: L11401-Q14
+    stem: "「基礎模型（Foundation Model）」的主要特點是什麼？"
+    options:
+      a: "只能解決單一特定任務，不適合跨領域應用"
+      b: "在大規模資料上預訓練，可透過微調適應多種下游任務"
+      c: "不需要訓練，直接使用規則庫回答問題"
+      d: "僅用於圖像識別，不適用於文字任務"
+    answer: "b"
+    explanation: "基礎模型（Foundation Model）的核心概念：在海量資料上做大規模預訓練（Pre-training），獲得通用能力，然後用少量任務資料進行微調（Fine-tuning），快速適應特定應用。ChatGPT、GPT-4、BERT 都是基礎模型。"
+    difficulty: 2
+    tags: ["foundation-model", "pre-training", "fine-tuning"]
 
-- id: "L11401-Q12"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "變分自動編碼器（VAE）和支援向量機（SVM）分別屬於哪一類AI？"
-  options:
-    a: "VAE 是鑑別式模型，SVM 是生成式模型"
-    b: "兩者都是鑑別式模型"
-    c: "VAE 是生成式模型，SVM 是鑑別式模型"
-    d: "兩者都是生成式模型"
-  correct: "c"
-  explanation:
-    why_correct: "VAE（Variational Autoencoder）是生成式模型，能學習資料分布並生成新的資料。SVM（Support Vector Machine）是鑑別式模型，用於分類任務。"
-    why_not_a: "選項 A 把兩者的分類完全搞反了。VAE 用於生成，SVM 用於分類。"
-    why_not_b: "VAE 不是鑑別式模型。它的「自動編碼器」名稱可能讓人誤以為只是做編碼解碼，但 VAE 的核心功能是生成新資料。"
-    why_not_d: "SVM 不是生成式模型。它的任務是找到決策邊界來區分不同類別，屬於典型的鑑別式方法。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-    - "VAE"
-    - "SVM"
-  exam_trap: true
+  - id: L11401-Q15
+    stem: "「微調（Fine-tuning）」與「提示工程（Prompt Engineering）」的主要差異是什麼？"
+    options:
+      a: "微調不改變模型參數，只改變輸入；提示工程改變模型參數"
+      b: "微調改變模型的權重參數；提示工程不改變模型，只改變輸入指令"
+      c: "兩者都需要重新訓練模型架構"
+      d: "微調適合通用任務；提示工程適合特定領域任務"
+    answer: "b"
+    explanation: "微調（Fine-tuning）使用少量標記資料繼續訓練，更新模型的權重參數；提示工程（Prompt Engineering）不改變模型本身，只透過設計輸入指令來引導模型輸出。微調成本高但效果好；提示工程成本低但依賴設計技巧。"
+    difficulty: 2
+    tags: ["fine-tuning", "prompt-engineering", "foundation-model"]
 
-# ============================================================
-# Difficulty 3 — Apply (Bloom's: 應用)
-# ============================================================
+  - id: L11401-Q16
+    stem: "某醫院要導入一個分析病患 CT 影像的 AI 系統，該系統的訓練資料和模型都高度機密，且不能讓病患資料離開醫院的資訊系統。最適合的部署方式是？"
+    options:
+      a: "雲端部署，因為需要大量算力"
+      b: "邊緣部署，因為 CT 機台需要即時回應"
+      c: "內部部署（On-Premise），因為資料機密且不能離場"
+      d: "混合架構，雲端訓練後部署到 CT 機台"
+    answer: "c"
+    explanation: "病患醫療資料高度機密，且法規要求不能離場，內部部署（On-Premise）將模型放在醫院自己的伺服器上運行，資料完全不離場。雖然初期投資高，但符合安全和法規需求。"
+    difficulty: 2
+    tags: ["model-deployment", "on-premise", "data-security"]
 
-- id: "L11401-Q13"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "小美在一家電子製造工廠實習，被要求建立一個AI系統來自動辨識產品外觀是否有瑕疵。這個任務最適合使用哪一類AI？"
-  options:
-    a: "生成式AI，因為需要生成瑕疵圖像用於比對"
-    b: "鑑別式AI，因為任務是將產品分類為「良品」或「瑕疵品」"
-    c: "生成式AI，因為需要學習所有產品的外觀分布"
-    d: "以上皆不適用，需要使用強化學習"
-  correct: "b"
-  explanation:
-    why_correct: "產品瑕疵檢測是典型的二元分類任務（良品 vs 瑕疵品），屬於鑑別式AI的應用範疇。模型需要學習區分正常和異常的決策邊界。"
-    why_not_a: "雖然有些進階方法會用生成式模型輔助（如生成瑕疵樣本擴增資料），但核心任務本身是「分類」，不是「生成」。"
-    why_not_c: "瑕疵檢測不需要學習產品的整體外觀分布來生成新圖片，只需要能區分良品和瑕疵品即可。"
-    why_not_d: "瑕疵檢測是有明確標籤的分類問題，不需要透過試錯學習。鑑別式AI完全適用。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q17
+    stem: "擴散模型（Diffusion Model）主要用於哪種類型的任務？它屬於哪種 AI 類別？"
+    options:
+      a: "文字分類；鑑別式AI"
+      b: "圖像生成；生成式AI"
+      c: "異常偵測；鑑別式AI"
+      d: "語音辨識；鑑別式AI"
+    answer: "b"
+    explanation: "擴散模型（Diffusion Model）是生成式AI，主要用於高品質圖像生成（如 Stable Diffusion、DALL-E 3 使用的核心技術）。概念是逐步去雜訊以生成圖像。初級只需知道它是生成式且用於圖像生成。"
+    difficulty: 2
+    tags: ["diffusion-model", "generative-ai", "image-generation"]
 
-- id: "L11401-Q14"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "一家醫院要建立AI系統來篩檢罕見疾病，陽性案例僅佔所有案例的0.1%。在選擇模型評估指標時，下列何者最適合？"
-  options:
-    a: "準確率（Accuracy），因為它是最全面的指標"
-    b: "精確率（Precision），因為要確保診斷結果不會誤報"
-    c: "召回率（Recall），因為不能漏掉真正的患者"
-    d: "F1 分數（F1 Score），因為它平衡了所有指標"
-  correct: "c"
-  explanation:
-    why_correct: "在極端不平衡資料且漏掉陽性案例代價極高的場景（如醫療篩檢），應優先使用召回率（Recall）。召回率衡量的是「實際陽性中被正確找出的比例」，確保不會漏診。"
-    why_not_a: "準確率在極端不平衡資料中會誤導。如果模型把所有案例都預測為陰性，準確率仍有99.9%，但完全漏掉所有患者。"
-    why_not_b: "精確率關注的是「預測為陽性中真正是陽性的比例」，適合誤報成本高的場景。但醫療篩檢中，漏診比誤報更嚴重。"
-    why_not_d: "F1 分數是精確率和召回率的調和平均，適合需要同時兼顧兩者的場景。但醫療篩檢中漏診的代價遠高於誤報，召回率明顯比精確率重要，用 F1 反而會「拉低」對召回率的重視。"
-  keywords:
-    - "技術測試與驗證"
-    - "recall"
-  exam_trap: true
+  - id: L11401-Q18
+    stem: "在效能管理中，「吞吐量（Throughput）」描述的是什麼？"
+    options:
+      a: "模型從收到輸入到開始回應所需的時間"
+      b: "運行模型所需的計算費用"
+      c: "單位時間內模型能處理或生成的數量"
+      d: "模型訓練完成需要的總時間"
+    answer: "c"
+    explanation: "吞吐量（Throughput）是系統在單位時間內能處理/產出的量（如每秒回答的請求數、每秒生成的 token 數），越高代表系統服務能力越強。延遲是等待時間；成本是費用；訓練時間不是吞吐量的定義。"
+    difficulty: 2
+    tags: ["performance-management", "throughput"]
 
-- id: "L11401-Q15"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "一家新創公司開發了語音助理AI產品，需要在使用者的智慧手機上即時回應語音指令。下列哪種部署方式最適合？"
-  options:
-    a: "純雲端部署，將所有語音資料上傳至雲端處理"
-    b: "邊緣部署，讓模型直接在手機上運行以降低延遲"
-    c: "內部部署，在公司機房架設專用伺服器"
-    d: "混合架構，雲端負責語音辨識，手機只做播放"
-  correct: "b"
-  explanation:
-    why_correct: "智慧手機上的即時語音助理需要低延遲回應，邊緣部署讓模型直接在手機端運行，不需要等待網路傳輸，且使用者的語音資料不需離開裝置，兼顧效能和隱私。"
-    why_not_a: "純雲端部署需要將語音資料上傳到雲端再等回應，會增加延遲，且在網路不穩定時無法正常運作。"
-    why_not_c: "內部部署是在企業自有機房運行，不適合面向消費者的手機應用場景。"
-    why_not_d: "混合架構仍需將語音資料上傳雲端處理，在網路不穩定時會影響即時回應。且題目要求「即時回應」，邊緣部署在本地處理更能確保低延遲。"
-  keywords:
-    - "模型部署"
-    - "edge deployment"
-  exam_trap: false
+  - id: L11401-Q19
+    stem: "為什麼「過度擬合（Overfitting）」的模型在實際使用時效果不佳？"
+    options:
+      a: "模型太簡單，無法學到資料的規律（高偏差）"
+      b: "模型記住了訓練資料的細節和雜訊，無法泛化到未見過的新資料（高變異）"
+      c: "模型的訓練資料量太少，學不到足夠的知識"
+      d: "模型沒有足夠的計算資源進行訓練"
+    answer: "b"
+    explanation: "過度擬合（Overfitting）= 高變異（High Variance）= 模型把訓練資料的細節甚至雜訊都記下來，對訓練資料表現很好，但對未見過的新資料泛化能力差。模型太簡單是欠擬合（Underfitting）= 高偏差。"
+    difficulty: 2
+    tags: ["overfitting", "bias-variance", "testing-validation"]
 
-- id: "L11401-Q16"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "學長在準備行銷企劃時，想用AI工具自動產出不同風格的廣告文案供團隊挑選。這個需求最適合使用哪一類AI技術？"
-  options:
-    a: "鑑別式AI，因為要判斷哪個文案品質較好"
-    b: "生成式AI，因為需要創作全新的文案內容"
-    c: "鑑別式AI，因為要分析過去廣告的點擊率"
-    d: "強化學習，因為要透過使用者反饋不斷優化"
-  correct: "b"
-  explanation:
-    why_correct: "自動產出不同風格的廣告文案是「生成新內容」的任務，正是生成式AI的核心能力。像 ChatGPT、Claude 等工具就能根據指定風格產出多版文案。"
-    why_not_a: "判斷文案品質確實是鑑別式AI的任務，但題目問的是「產出文案」，不是「評判文案」。"
-    why_not_c: "分析過去的點擊率是數據分析任務，但題目的需求是「自動產出新文案」。"
-    why_not_d: "雖然強化學習可以用於優化文案效果，但題目的核心需求是「生成文案」，最直接的解法是生成式AI。"
-  keywords:
-    - "生成式AI基本原理"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q20
+    stem: "多模態AI（Multimodal AI）的定義是什麼？"
+    options:
+      a: "只能處理單一類型資料但有多種模型版本的 AI"
+      b: "能同時處理和理解多種媒體類型（如文字、圖像、音頻）的 AI"
+      c: "使用多個獨立模型分別處理不同任務的 AI 系統"
+      d: "專門用於多國語言翻譯的 AI"
+    answer: "b"
+    explanation: "多模態AI（Multimodal AI）能同時接受和處理多種媒體類型（文字+圖像+音頻等）。例如 GPT-4o 能看圖回答問題（視覺+語言），Gemini Ultra 能理解影片內容（視覺+音頻+語言）。"
+    difficulty: 2
+    tags: ["multimodal-ai", "generative-ai"]
 
-- id: "L11401-Q17"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "某金融機構希望建立信用卡詐欺偵測系統，詐欺交易佔比不到0.01%。訓練模型時，發現模型在訓練資料上表現極佳但在新資料上表現差。這最可能是什麼問題？"
-  options:
-    a: "欠擬合（Underfitting），模型太簡單"
-    b: "過擬合（Overfitting），模型太複雜"
-    c: "資料漂移（Data Drift），資料分布改變了"
-    d: "延遲過高（High Latency），推論速度太慢"
-  correct: "b"
-  explanation:
-    why_correct: "「訓練資料上表現極佳但新資料上表現差」是過擬合（Overfitting）的典型症狀。模型過度學習了訓練資料的細節和雜訊，導致無法泛化到新資料。這與偏差-變異權衡（Bias-Variance Tradeoff）有關。"
-    why_not_a: "欠擬合的症狀是模型在訓練資料和新資料上都表現不好，因為模型太簡單無法捕捉資料的規律。"
-    why_not_c: "資料漂移是指模型部署後真實世界資料的分布發生改變。題目描述的是訓練階段的問題，不是部署後的問題。"
-    why_not_d: "延遲是效能問題，不會影響模型的預測準確度。"
-  keywords:
-    - "技術測試與驗證"
-    - "overfitting"
-  exam_trap: false
+  - id: L11401-Q21
+    stem: "某 AI 助理在回答用戶關於台灣法律的問題時，引用了一篇「2025 年《人工智慧應用法》第 42 條」——但這條法律根本不存在。這種現象叫什麼？如何避免？"
+    options:
+      a: "資料漂移（Data Drift）；定期更新訓練資料"
+      b: "過度擬合（Overfitting）；增加訓練資料多樣性"
+      c: "幻覺（Hallucination）；建立人工審核或使用 RAG 檢索實際文件"
+      d: "偏差問題（Bias）；去除訓練資料中的偏見"
+    answer: "c"
+    explanation: "AI 生成看似合理但實際虛構的法條引用，這是幻覺（Hallucination）。常見的緩解方法包括人工審核輸出、使用 RAG（Retrieval-Augmented Generation）讓模型引用真實文件，以及提醒用戶核實 AI 提供的事實性資訊。"
+    difficulty: 2
+    tags: ["hallucination", "generative-ai", "limitations"]
 
-- id: "L11401-Q18"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "某企業因為產業法規要求客戶資料不得離開國境，但同時需要大量GPU算力來訓練模型。下列哪種部署策略最適合？"
-  options:
-    a: "全部使用公有雲部署，選擇國內的雲端區域"
-    b: "內部部署（On-Premise），自行建置GPU伺服器"
-    c: "混合架構，用本地處理敏感資料，雲端提供額外算力"
-    d: "全部使用邊緣部署，在終端裝置上訓練"
-  correct: "b"
-  explanation:
-    why_correct: "當法規嚴格要求客戶資料不得離開國境時，內部部署（在企業自有機房內自建 GPU 伺服器）是最直接的合規方案，確保資料完全在本地處理。雖然初期投資高，但合規需求是第一優先。"
-    why_not_a: "即使選擇國內雲端區域，資料仍在第三方平台上，可能不符合某些嚴格的資料主權法規。"
-    why_not_c: "混合架構涉及將資料或模型在雲端與本地之間傳輸。當法規嚴格要求資料不得離開國境時，任何雲端元件都可能增加合規風險，不如純內部部署安全。"
-    why_not_d: "邊緣裝置的算力有限，不適合需要大量GPU的模型訓練任務。"
-  keywords:
-    - "模型部署"
-    - "on-premise"
-  exam_trap: false
+  - id: L11401-Q22
+    stem: "「即時推論（Real-time Inference）」和「批次推論（Batch Inference）」的最主要差異是什麼？"
+    options:
+      a: "即時推論使用更大的模型；批次推論使用較小的模型"
+      b: "即時推論每個請求立刻回應；批次推論累積一批後一次處理"
+      c: "即時推論在雲端執行；批次推論在邊緣執行"
+      d: "兩者沒有實質差異，只是名稱不同"
+    answer: "b"
+    explanation: "即時推論（Real-time Inference）每個請求到達立刻回應，延遲低，適合聊天機器人、即時偵測；批次推論（Batch Inference）累積一批資料再一次處理，效率高但不即時，適合每日報表、大量郵件分類。"
+    difficulty: 2
+    tags: ["model-deployment", "real-time-inference", "batch-inference"]
 
-# ============================================================
-# Difficulty 4 — Analyze (Bloom's: 分析)
-# ============================================================
+  - id: L11401-Q23
+    stem: "GAN（Generative Adversarial Network，生成對抗網路）中包含哪兩個關鍵角色？"
+    options:
+      a: "編碼器（Encoder）和解碼器（Decoder）"
+      b: "生成器（Generator）和鑑別器（Discriminator）"
+      c: "訓練器（Trainer）和評估器（Evaluator）"
+      d: "輸入層（Input Layer）和輸出層（Output Layer）"
+    answer: "b"
+    explanation: "GAN（生成對抗網路）包含兩個角色：生成器（Generator）負責生成假資料，鑑別器（Discriminator）負責判斷資料是真實還是偽造，兩者相互對抗訓練。初級考試需記住有這兩個角色，但不需了解訓練細節。"
+    difficulty: 2
+    tags: ["gan", "generator", "discriminator", "generative-ai"]
 
-- id: "L11401-Q19"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "鑑別式AI學習「決策邊界」而生成式AI學習「資料分布」。在實務上，這個差異如何影響兩者的資料需求？"
-  options:
-    a: "鑑別式AI需要的資料量遠大於生成式AI"
-    b: "兩者的資料需求完全相同"
-    c: "鑑別式AI需要有標註的資料來定義類別邊界；生成式AI可利用大量未標註資料學習分布"
-    d: "生成式AI不需要任何資料，完全靠演算法自行產生"
-  correct: "c"
-  explanation:
-    why_correct: "鑑別式AI需要知道每筆資料的「正確答案」（標籤）才能學習分類邊界，所以需要有標註資料。生成式AI的目標是學習資料的整體分布，可以利用海量未標註資料（如網路上的文章、圖片）進行訓練。"
-    why_not_a: "資料「量」不是關鍵差異，關鍵差異在於資料是否需要「標註」。大型語言模型確實使用海量資料，但這是模型規模的問題，不是鑑別式vs生成式的本質區別。"
-    why_not_b: "兩者的資料需求有本質差異：標註方式不同，這直接影響資料準備的成本和方式。"
-    why_not_d: "生成式AI仍然需要大量資料來學習，只是不需要每筆資料都有人工標註。沒有資料就不可能學習。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q24
+    stem: "推理成本（Inference Cost）與訓練成本（Training Cost）的主要差異是什麼？"
+    options:
+      a: "訓練成本持續累積；推理成本是一次性的"
+      b: "訓練成本是一次性的；推理成本隨使用量持續累積"
+      c: "兩者都是一次性成本，訓練完就不用再付錢"
+      d: "只有訓練成本，推理不需要計算資源"
+    answer: "b"
+    explanation: "訓練成本是一次性的（訓練完就結束）；推理成本是持續性的（每次呼叫模型都在累積費用）。對大規模 AI 應用，推理成本才是長期最大的開銷。常見陷阱：以為訓練完就不用花錢。"
+    difficulty: 2
+    tags: ["performance-management", "inference-cost", "training-cost"]
 
-- id: "L11401-Q20"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 4
-  question: "某公司已將AI客服模型部署到正式環境三個月，發現近期模型的回答品質明顯下降，但模型本身並未更新。下列哪個原因最可能解釋這個現象？"
-  options:
-    a: "模型發生過擬合（Overfitting）"
-    b: "資料漂移（Data Drift）：真實世界的資料分布與訓練資料不同"
-    c: "模型的延遲（Latency）變高了"
-    d: "雲端部署的成本增加了"
-  correct: "b"
-  explanation:
-    why_correct: "模型未更新但效能下降，最可能的原因是資料漂移（Data Drift）。使用者的提問方式、產品內容、市場趨勢等都可能隨時間改變，導致真實世界的輸入與當初訓練資料的分布不同，模型的適用性下降。"
-    why_not_a: "過擬合是訓練階段的問題，而非部署後才出現的現象。如果模型部署時表現正常，後來才下降，不是過擬合。"
-    why_not_c: "延遲變高會影響回應速度，但不會影響「回答品質」。題目描述的是品質問題。"
-    why_not_d: "成本增加是營運層面的問題，不會直接導致模型回答品質下降。"
-  keywords:
-    - "效能管理"
-    - "data drift"
-  exam_trap: false
+  - id: L11401-Q25
+    stem: "下列哪個情境最適合使用「混合架構（Hybrid Deployment）」？"
+    options:
+      a: "只需要處理少量資料的小型個人應用"
+      b: "模型訓練需要大量算力，但推理需要在工廠現場即時執行"
+      c: "所有資料都可以傳到雲端，不需要任何本地處理"
+      d: "只需要做一次預測，之後不再使用模型"
+    answer: "b"
+    explanation: "混合架構最典型的使用情境是「雲端訓練 + 邊緣推理」：大型模型訓練需要大量 GPU（適合雲端），但部署後的推理需要在現場即時執行（適合邊緣），兩者取其優點。"
+    difficulty: 2
+    tags: ["hybrid-deployment", "model-deployment"]
 
-- id: "L11401-Q21"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "以下四個模型中，哪一個與其他三個不屬於同一類別？"
-  options:
-    a: "GAN（生成對抗網路）"
-    b: "VAE（變分自動編碼器）"
-    c: "SVM（支援向量機）"
-    d: "擴散模型（Diffusion Model）"
-  correct: "c"
-  explanation:
-    why_correct: "GAN、VAE、擴散模型都是生成式模型，目的是生成新的資料。只有SVM是鑑別式模型，用於分類任務。SVM學習決策邊界來區分不同類別，不具備生成新資料的能力。"
-    why_not_a: "GAN 是經典的生成式模型，與 VAE 和擴散模型同屬一類。"
-    why_not_b: "VAE 是生成式模型，能學習資料的潛在分布並生成新樣本。"
-    why_not_d: "擴散模型（如 Stable Diffusion）是生成式模型，用於高品質圖像生成。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-    - "SVM"
-  exam_trap: true
+  - id: L11401-Q26
+    stem: "一個公司的 AI 客服機器人使用 2023 年的資料訓練。到了 2026 年，發現機器人對很多問題的回答越來越不準確，即使沒有任何技術故障。這最可能是什麼問題？"
+    options:
+      a: "過度擬合，需要減少模型複雜度"
+      b: "幻覺（Hallucination），需要人工審核所有回答"
+      c: "資料漂移（Data Drift），真實世界資料已和訓練資料不同"
+      d: "欠擬合，需要增加模型複雜度"
+    answer: "c"
+    explanation: "模型部署後，隨時間推移，真實世界的資料分布（用戶問題模式、語言習慣、新知識等）和訓練資料漸漸不同，導致效能下降——這就是資料漂移。解決方法是定期用新資料重新訓練或微調。"
+    difficulty: 3
+    tags: ["data-drift", "model-monitoring", "performance-management"]
 
-- id: "L11401-Q22"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 4
-  question: "在模型效能管理中，「推理成本隨使用量持續增長」而「預訓練是單次成本」。這個差異對企業的部署決策有什麼影響？"
-  options:
-    a: "企業應把所有預算花在預訓練上，推理成本可以忽略"
-    b: "使用量越大的應用，越需要關注推理效率和成本優化"
-    c: "推理成本只在雲端部署時才需要考慮，邊緣部署不產生推理成本"
-    d: "推理和預訓練成本相同，不影響決策"
-  correct: "b"
-  explanation:
-    why_correct: "預訓練是一次性投入，而推理成本是每次使用都會產生的持續性支出。對於使用量大的應用，推理的累積成本可能遠超預訓練成本，因此需要特別關注推理效率和成本優化。"
-    why_not_a: "忽略推理成本是危險的決策。對高流量應用而言，推理的累積成本可能遠超預訓練成本。"
-    why_not_c: "邊緣部署雖然不需支付雲端費用，但仍有硬體折舊和電力成本。推理成本存在於所有部署環境，只是形式不同。"
-    why_not_d: "兩者的成本結構完全不同：預訓練是固定的一次性成本，推理是按使用量計費的變動成本。"
-  keywords:
-    - "效能管理"
-    - "模型部署"
-    - "inference cost"
-  exam_trap: false
+  - id: L11401-Q27
+    stem: "一個電商平台想讓 AI 根據顧客的購買歷史，自動生成個性化的商品推薦說明文字（每位顧客收到不同的描述）。這個系統需要結合哪兩種 AI 能力？"
+    options:
+      a: "只需要鑑別式AI（推薦系統本質是分類）"
+      b: "只需要生成式AI（生成文字說明）"
+      c: "鑑別式AI（分析購買歷史判斷偏好）+ 生成式AI（生成個性化說明文字）"
+      d: "強化學習模型（從用戶反饋優化推薦）"
+    answer: "c"
+    explanation: "這是整合應用情境。鑑別式AI分析購買歷史、預測偏好（判斷用戶喜歡什麼）；生成式AI根據判斷結果生成個性化的說明文字。現代 AI 產品常結合兩種能力：一個判斷、一個創造。"
+    difficulty: 3
+    tags: ["discriminative-ai", "generative-ai", "integration", "scenario"]
 
-- id: "L11401-Q23"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 2
-  question: "某科技公司用雲端訓練大型語言模型，再將精簡版模型部署到使用者手機上進行推論。這種做法最符合下列哪一種部署架構？"
-  options:
-    a: "純雲端部署（Cloud-only）"
-    b: "純邊緣部署（Edge-only）"
-    c: "內部部署（On-Premise）"
-    d: "混合架構（Hybrid）：雲端訓練 + 邊緣推論"
-  correct: "d"
-  explanation:
-    why_correct: "用雲端的強大算力訓練模型，再將精簡版部署到手機（邊緣設備）上推論，是典型的混合架構。兼顧了雲端的訓練能力和邊緣的低延遲推論優勢。"
-    why_not_a: "不是純雲端，因為推論是在手機端（邊緣）進行的。"
-    why_not_b: "不是純邊緣，因為訓練階段使用的是雲端資源。手機的算力不足以訓練大型語言模型。"
-    why_not_c: "內部部署是在企業自有機房運行，題目描述的是雲端+手機的組合，不符合內部部署的定義。"
-  keywords:
-    - "模型部署"
-    - "hybrid deployment"
-  exam_trap: false
+  - id: L11401-Q28
+    stem: "在模型部署後的效能管理中，「有效吞吐量（Goodput）」與「吞吐量（Throughput）」的主要差異是什麼？"
+    options:
+      a: "兩者定義相同，只是測量單位不同"
+      b: "Goodput 是在維持服務品質前提下的真實有效產出量；Throughput 是不考慮品質的總處理量"
+      c: "Throughput 考慮延遲；Goodput 只看生成的 token 數"
+      d: "Goodput 是生成式AI專用指標；Throughput 是鑑別式AI專用指標"
+    answer: "b"
+    explanation: "吞吐量（Throughput）是系統總處理量，不管品質好壞；有效吞吐量（Goodput）是在維持目標品質（如延遲要求）下真正有效的產出量。例如系統每秒處理 100 個請求，但 20 個因為超時被取消，有效吞吐量就是 80。"
+    difficulty: 3
+    tags: ["performance-management", "throughput", "goodput"]
 
-- id: "L11401-Q24"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 4
-  question: "關於「監理沙盒（Regulatory Sandbox）」在AI領域的應用，下列分析何者最正確？"
-  options:
-    a: "監理沙盒是一種模型訓練方法，用來在受控環境中訓練AI"
-    b: "監理沙盒允許所有AI應用無限制地進行商業運營"
-    c: "監理沙盒對具潛在風險的創新AI應用提供安全實驗環境，在有限條件下測試"
-    d: "監理沙盒只適用於金融業的AI應用，其他產業不適用"
-  correct: "c"
-  explanation:
-    why_correct: "監理沙盒是政府為創新技術提供的受控實驗環境，讓具有潛在風險的AI應用在有限度的條件（如限定範圍、期間、人數）下進行測試和驗證，兼顧創新與風險管理。"
-    why_not_a: "監理沙盒不是技術上的模型訓練方法，而是法規治理層面的機制。「沙盒」這個詞容易讓人誤以為是技術概念。"
-    why_not_b: "監理沙盒的精神正好相反：提供「有限制」的實驗環境，不是「無限制」的商業運營。"
-    why_not_d: "雖然金融業是最早採用監理沙盒的產業，但AI監理沙盒的概念已擴展到醫療、自駕車等多個領域。"
-  keywords:
-    - "技術測試與驗證"
-    - "regulatory sandbox"
-  exam_trap: false
+  - id: L11401-Q29
+    stem: "下列關於 BERT（Bidirectional Encoder Representations from Transformers，雙向編碼器表徵）的敘述，哪一個正確？"
+    options:
+      a: "BERT 是 Decoder-only 模型，主要用於文字生成"
+      b: "BERT 是雙向 Encoder 模型，擅長文字理解和分類任務，不是主要的文字生成模型"
+      c: "BERT 和 GPT 架構相同，只是訓練資料不同"
+      d: "BERT 屬於生成式AI，常用於寫文章和聊天"
+    answer: "b"
+    explanation: "BERT 使用雙向 Encoder-only 架構，同時看一個句子的左右文字，擅長理解文字、情感分析、問答和文字分類（鑑別式任務）。GPT 是 Decoder-only，用於生成。BERT 雖然是語言模型，但主要做理解而非生成。"
+    difficulty: 3
+    tags: ["bert", "llm", "architecture", "discriminative-vs-generative"]
 
-# ============================================================
-# Difficulty 5 — Evaluate/Create (Bloom's: 評鑑/創造)
-# ============================================================
+  - id: L11401-Q30
+    stem: "一家新創公司要驗證「用生成式AI自動回覆客戶詢問」這個想法是否可行，在投入大量開發資源前。最合適的第一步是什麼？"
+    options:
+      a: "直接全面部署到雲端，測試真實用戶反應"
+      b: "先做概念驗證（PoC），用小規模測試確認方向可行性"
+      c: "立即進行大規模的偏差-變異分析"
+      d: "選擇內部部署以確保資料安全"
+    answer: "b"
+    explanation: "概念驗證（PoC，Proof of Concept）就是在投入大量資源前，先用小規模實驗確認方向可行。確認 AI 能達到業務目標後，再決定全面投入開發和部署。這是 AI 導入的標準第一步。"
+    difficulty: 3
+    tags: ["poc", "testing-validation", "scenario"]
 
-- id: "L11401-Q25"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 5
-  question: "某醫療AI新創要建立「皮膚病灶影像診斷系統」，需求包含：(1) 準確分類病灶類型、(2) 生成額外訓練影像以解決罕見病灶資料不足問題、(3) 部署在偏鄉診所的平板電腦上。下列方案何者最能同時滿足這三項需求？"
-  options:
-    a: "用生成式AI做分類，雲端部署即可"
-    b: "訓練階段：雲端用生成式AI擴增資料 + 鑑別式AI訓練分類模型；推論階段：將分類模型邊緣部署到平板"
-    c: "只用鑑別式AI做分類，雲端部署以確保算力"
-    d: "只用生成式AI處理所有任務，內部部署在醫院機房"
-  correct: "b"
-  explanation:
-    why_correct: "此方案清楚分成兩階段：**訓練階段**在雲端進行——先用生成式AI（如GAN）生成罕見病灶合成影像擴增資料，再用鑑別式AI訓練分類模型；**推論階段**將訓練好的分類模型部署到偏鄉診所的平板（邊緣部署），確保低延遲且不依賴網路。三項需求全部滿足。"
-    why_not_a: "生成式AI的核心是生成新內容，不是分類。且偏鄉診所網路可能不穩定，純雲端部署不適合。"
-    why_not_c: "只用鑑別式AI無法解決需求(2)的罕見病灶資料不足問題。且雲端部署在偏鄉診所可能因網路問題無法使用。"
-    why_not_d: "生成式AI不適合做分類任務，且內部部署在「醫院機房」不等於部署在「偏鄉診所平板」上。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-    - "模型部署"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q31
+    stem: "下列哪一項屬於生成式AI的「計算成本高」限制的具體表現？"
+    options:
+      a: "鑑別式模型的分類準確率低於人工標準"
+      b: "訓練大型語言模型（LLM）需要數週時間和大量 GPU 資源，且每次用戶對話都在累積推理費用"
+      c: "邊緣設備的計算能力不足以運行複雜模型"
+      d: "資料標註成本高，需要大量人力"
+    answer: "b"
+    explanation: "生成式AI（特別是大型語言模型 LLM）的計算成本高表現在兩方面：訓練成本（需要數週時間、數百至數千張 GPU，成本可達數百萬美元）和推理成本（每次對話都消耗 GPU 算力，累積起來是巨大開銷）。"
+    difficulty: 3
+    tags: ["generative-ai", "limitations", "cost", "llm"]
 
-- id: "L11401-Q26"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 5
-  question: "一家跨國銀行要建立AI反洗錢系統，面臨以下限制：(A) 可疑交易佔比僅0.001%、(B) 各國法規要求伺服器必須實體設置於該國境內、(C) 必須在交易發生後3秒內做出判斷。下列方案何者最能同時滿足這三項限制？"
-  options:
-    a: "使用高精確率（Precision）的鑑別式模型，純雲端部署，集中管理所有國家的資料"
-    b: "使用高召回率（Recall）的鑑別式模型，各國內部部署，確保即時判斷"
-    c: "使用生成式AI直接判斷交易是否可疑，邊緣部署在ATM上"
-    d: "使用高準確率（Accuracy）的鑑別式模型，混合架構部署"
-  correct: "b"
-  explanation:
-    why_correct: "(A) 極端不平衡且漏掉可疑交易代價極高 → 優先召回率（Recall）；(B) 伺服器必須在該國境內 → 各國分別內部部署（On-Premise）；(C) 3秒內判斷 → 本地部署可確保低延遲。三項限制都被滿足。"
-    why_not_a: "精確率在此場景不是首要指標（漏掉洗錢比誤報更嚴重），且純雲端集中管理違反跨境資料傳輸限制。"
-    why_not_c: "反洗錢是分類任務（可疑 vs 正常），不是生成任務。用生成式AI做二元判斷不是正確的技術選擇。ATM邊緣部署也不適合此場景。"
-    why_not_d: "在極端不平衡資料（0.001%）中，準確率（Accuracy）是最具誤導性的指標。把所有交易都判為正常，準確率也有99.999%。混合架構涉及雲端可能違反跨境限制。"
-  keywords:
-    - "技術測試與驗證"
-    - "模型部署"
-    - "效能管理"
-    - "recall"
-  exam_trap: true
+  - id: L11401-Q32
+    stem: "某開發者想讓一個預訓練的大型語言模型（LLM，Large Language Model）專門回答台灣稅務法規的問題，且希望模型能反映最新的法規更新。下列哪種方式最能有效達到這個目標？"
+    options:
+      a: "換一個更大的基礎模型，因為越大的模型知識越豐富"
+      b: "使用提示工程加上 RAG（Retrieval-Augmented Generation），在每次查詢時檢索最新法規文件"
+      c: "將所有稅務法規塞進一個超長的提示詞（Prompt）"
+      d: "只依賴基礎模型的原有知識，不做任何修改"
+    answer: "b"
+    explanation: "RAG（檢索增強生成）結合提示工程，能在不重新訓練模型的情況下，讓模型引用最新的外部文件（如剛更新的稅務法規）回答問題，有效解決基礎模型知識截止日期問題和幻覺問題。僅換更大模型無法解決時效性問題。"
+    difficulty: 3
+    tags: ["rag", "prompt-engineering", "foundation-model", "llm", "scenario"]
 
-- id: "L11401-Q27"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 3
-  question: "某電商平台同時使用了鑑別式AI和生成式AI。下列哪一組搭配最正確地描述了這兩種AI在電商場景中各自的角色？"
-  options:
-    a: "鑑別式AI：自動撰寫商品描述；生成式AI：推薦系統預測使用者偏好"
-    b: "鑑別式AI：分析評論情感並偵測假評論；生成式AI：自動生成個人化行銷文案"
-    c: "鑑別式AI：生成商品圖片；生成式AI：商品分類與標籤"
-    d: "鑑別式AI：翻譯商品描述為多國語言；生成式AI：計算商品推薦分數"
-  correct: "b"
-  explanation:
-    why_correct: "情感分析和假評論偵測都是分類任務（正面/負面、真/假），屬於鑑別式AI。自動生成個人化行銷文案是生成新文字內容，屬於生成式AI。這組搭配正確。"
-    why_not_a: "搞反了。自動撰寫商品描述是生成式AI的工作，推薦系統預測使用者偏好是鑑別式AI（或其他預測模型）的工作。"
-    why_not_c: "搞反了。生成商品圖片是生成式AI的工作，商品分類是鑑別式AI的工作。"
-    why_not_d: "翻譯商品描述涉及文字生成，較偏生成式AI。計算推薦分數是預測任務，較偏鑑別式AI。這組也搞反了。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "生成式AI基本原理"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q33
+    stem: "在 AI 系統部署後，工程師發現模型在週末和工作日表現差異很大，工作日的準確率比訓練時低了 15%。進一步分析後發現，週間的用戶行為模式和週末完全不同。這最可能是什麼問題？應如何解決？"
+    options:
+      a: "模型過度擬合週末資料；增加週末訓練資料比例"
+      b: "幻覺問題；加入更嚴格的輸出過濾"
+      c: "資料漂移（Data Drift）；收集工作日資料重新訓練或微調模型"
+      d: "延遲問題；升級雲端伺服器配置"
+    answer: "c"
+    explanation: "訓練資料和真實部署環境的資料分布不一致（訓練資料可能以週末為主），導致工作日效能下降——這是資料漂移的一種形式（稱為 covariate shift）。解法是收集有代表性的工作日資料，重新訓練或進行微調。"
+    difficulty: 3
+    tags: ["data-drift", "model-monitoring", "fine-tuning"]
 
-- id: "L11401-Q28"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 4
-  question: "某企業將AI模型從開發環境部署到正式環境後，需要建立完整的效能管理機制。下列哪一組指標和措施的搭配最正確？"
-  options:
-    a: "監控延遲 + 監控吞吐量 + 監控資料漂移 + 設定異常告警"
-    b: "只監控準確率，其他指標不重要"
-    c: "只監控成本，效能指標在訓練階段已確認"
-    d: "監控延遲 + 監控吞吐量，不需要考慮資料漂移"
-  correct: "a"
-  explanation:
-    why_correct: "完整的效能管理需要多維度監控：延遲（使用者體驗）、吞吐量（系統負載能力）、資料漂移（模型持續適用性）、異常告警（及時發現問題）。缺少任何一個維度都可能導致問題被忽略。"
-    why_not_b: "只監控準確率忽略了系統層面的效能問題（延遲、吞吐量）和模型退化問題（資料漂移）。準確率也可能因不平衡資料而產生誤導。"
-    why_not_c: "成本很重要但不是唯一指標。訓練階段確認的效能不代表部署後永遠不變，資料漂移可能導致效能下降。"
-    why_not_d: "忽略資料漂移是常見的管理盲區。模型部署後，真實世界資料會隨時間改變，不監控資料漂移可能導致模型效能悄悄退化。"
-  keywords:
-    - "效能管理"
-    - "模型部署"
-    - "data drift"
-  exam_trap: false
+  - id: L11401-Q34
+    stem: "一個線上教育平台要建立一個 AI 系統，根據學生的歷史作答記錄和學習風格，自動生成專屬的考題讓學生練習。這個系統最核心的 AI 能力是什麼？"
+    options:
+      a: "鑑別式AI，因為需要分析學生的答對率"
+      b: "生成式AI，因為需要創造以前不存在的新考題"
+      c: "強化學習，因為需要從學生反饋中持續優化"
+      d: "規則型 AI，因為考題有固定格式"
+    answer: "b"
+    explanation: "自動生成「以前不存在的新考題」是生成式AI的核心能力——根據學生輪廓（輸入），創造全新的考題內容（輸出）。分析學生作答記錄（選項a）也涉及鑑別式，但題目問的是「最核心的 AI 能力」，是生成新考題。"
+    difficulty: 3
+    tags: ["generative-ai", "scenario", "content-generation"]
 
-- id: "L11401-Q29"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 5
-  question: "大學資訊社團想開發一個AI專案作為成果展示品。專案需求：(1) 辨識手寫數字（0-9）、(2) 能在沒有網路的展示場地運行、(3) 用最低成本完成。下列哪個方案最適合？"
-  options:
-    a: "使用大型語言模型做圖像辨識，租用雲端GPU"
-    b: "使用輕量鑑別式模型（如決策樹），邊緣部署在筆電上"
-    c: "使用GAN生成手寫數字再進行分類，內部部署在學校伺服器"
-    d: "使用擴散模型做圖像辨識，混合架構部署"
-  correct: "b"
-  explanation:
-    why_correct: "(1) 手寫數字辨識是典型的分類任務（判斷 0-9），輕量鑑別式模型即可勝任。(2) 沒有網路 → 不能用雲端，需要本地/邊緣部署。(3) 最低成本 → 輕量模型在筆電上就能運行，不需額外硬體或雲端費用。這是鑑別式AI + 邊緣部署的經典組合。"
-    why_not_a: "大型語言模型不是做圖像分類的最佳選擇，且租用雲端GPU成本高，沒有網路時也無法使用。"
-    why_not_c: "GAN是生成式模型，用來「生成」手寫數字而非「辨識」。且需要學校伺服器增加了複雜度和成本。題目問的是辨識，不是生成。"
-    why_not_d: "擴散模型是生成式模型，不適合做分類任務。混合架構在無網路場地也不實用。"
-  keywords:
-    - "鑑別式AI基本原理"
-    - "模型部署"
-    - "模型目的與特性"
-  exam_trap: false
+  - id: L11401-Q35
+    stem: "以下關於「幻覺（Hallucination）」的說法，哪一項最正確？"
+    options:
+      a: "幻覺只出現在英文輸入，中文輸入的 AI 不會有此問題"
+      b: "幻覺是 AI 回應速度太慢導致的問題，增加算力即可解決"
+      c: "幻覺是生成式AI的系統性問題：模型學習統計規律而非真正理解事實，會自信地輸出錯誤資訊"
+      d: "幻覺只在模型尚未微調時出現，微調後可完全消除"
+    answer: "c"
+    explanation: "幻覺是生成式AI的系統性問題，不論語言、不論是否微調都可能發生。根本原因是模型學的是語言的統計模式（什麼字後面接什麼字），而非真正理解事實，因此可能自信地輸出虛構但語法通順的資訊。微調可以減少但無法完全消除幻覺。"
+    difficulty: 3
+    tags: ["hallucination", "generative-ai", "limitations"]
 
-- id: "L11401-Q30"
-  topic_code: "L11401"
-  item_code: "L11401"
-  difficulty: 5
-  question: "某AI團隊發現部署後的推薦系統有以下問題：(1) 平均回應時間從50ms升到500ms、(2) 推薦點擊率從15%降到8%、(3) GPU使用率長期維持在95%以上。下列哪一個分析最全面地涵蓋了所有問題的根本原因和解決方向？"
-  options:
-    a: "三個問題互不相關，分別處理延遲、模型品質和硬體即可"
-    b: "GPU過載導致延遲飆升，延遲高導致使用者體驗差，同時資料漂移導致推薦品質下降，需要同時優化算力分配和更新模型"
-    c: "只是GPU不夠用，加購GPU就能解決所有問題"
-    d: "推薦品質下降是唯一的真正問題，解決後延遲和GPU問題會自動消失"
-  correct: "b"
-  explanation:
-    why_correct: "(1) 回應延遲飆升10倍 + GPU使用率95%，說明系統算力不足導致延遲問題。(2) 推薦點擊率下降可能有兩個原因：延遲高導致使用者體驗差而減少互動，以及資料漂移導致推薦內容不再精準。正確的方案需要「同時」處理效能（算力分配）和模型品質（資料漂移）兩個維度。"
-    why_not_a: "三個問題可能互相關聯：GPU過載導致延遲高，延遲高影響使用者體驗進而影響點擊率。不應孤立看待。"
-    why_not_c: "只加GPU可以解決延遲問題，但推薦品質下降（點擊率從15%降到8%）可能是資料漂移造成的，單純加硬體無法解決模型層面的問題。"
-    why_not_d: "推薦品質改善不會讓GPU使用率自動下降，延遲問題也不會因此消失。這三個問題需要多維度處理。"
-  keywords:
-    - "效能管理"
-    - "模型部署"
-    - "data drift"
-    - "latency"
-    - "throughput"
-  exam_trap: false
+  - id: L11401-Q36
+    stem: "「LLM（Large Language Model，大型語言模型）」中，哪種架構更適合用來做情感分析（判斷一段文字是正面還是負面評論）？"
+    options:
+      a: "GPT 系列（Decoder-only），因為它能生成更詳細的解釋"
+      b: "BERT（Encoder-only 雙向），因為它更擅長理解和分類文字"
+      c: "VAE（Variational Autoencoder，變分自動編碼器），因為它能捕捉語義"
+      d: "擴散模型（Diffusion Model），因為它能生成多種答案"
+    answer: "b"
+    explanation: "情感分析是分類任務（鑑別式）——判斷文字屬於哪個類別（正面/負面/中性）。BERT 採用雙向 Encoder-only 架構，擅長理解文字、做分類和理解任務，適合情感分析。GPT 適合生成；VAE 和 Diffusion Model 主要用於圖像/資料生成。"
+    difficulty: 4
+    tags: ["bert", "gpt", "sentiment-analysis", "discriminative-ai", "llm"]
+
+  - id: L11401-Q37
+    stem: "某企業 AI 系統在訓練時使用了大量客服對話資料，其中大多數是男性主管的語言風格。部署後發現，AI 生成的回覆對女性用戶的建議偏向刻板印象。這個問題屬於生成式AI的哪種限制？"
+    options:
+      a: "幻覺（Hallucination）——AI 編造了不存在的資訊"
+      b: "計算成本高——需要更多算力來修正偏見"
+      c: "訓練資料偏見（Bias）——訓練資料中的偏見被模型學習並放大"
+      d: "資料漂移（Data Drift）——用戶資料隨時間改變"
+    answer: "c"
+    explanation: "這是訓練資料偏見（Bias）問題：訓練資料中已存在的性別偏見被模型學習，生成內容時被放大輸出。生成式AI的風險之一就是可能放大訓練資料中的偏見。這與幻覺（虛構事實）、資料漂移（時間變化）不同。"
+    difficulty: 4
+    tags: ["bias", "generative-ai", "limitations", "training-data"]
+
+  - id: L11401-Q38
+    stem: "一個新聞媒體公司考慮兩種 AI 系統：系統 A 分析讀者行為資料，自動將新聞分類為「高點擊率」或「低點擊率」；系統 B 根據標題生成摘要文字，供讀者快速瀏覽。關於這兩個系統的可解釋性（Explainability），下列哪個敘述最準確？"
+    options:
+      a: "兩者可解釋性相同，因為都是語言相關任務"
+      b: "系統 A（鑑別式）通常可解釋性較高（可解釋為什麼分類為高點擊率）；系統 B（生成式）可解釋性較低（難以說明為何生成那個特定摘要）"
+      c: "系統 B（生成式）可解釋性更高，因為可以看到輸出的文字"
+      d: "兩者都無法解釋，是所有 AI 的共同問題"
+    answer: "b"
+    explanation: "鑑別式AI（如分類器）通常可解釋性較高——可以分析哪些特徵影響了分類決策（如標題長度、關鍵字）。生成式AI（如摘要生成）可解釋性較低——難以精確說明為何從無數可能性中生成了那個特定的摘要文字。這是兩類 AI 的重要特性差異。"
+    difficulty: 4
+    tags: ["explainability", "discriminative-ai", "generative-ai", "comparison"]
+
+  - id: L11401-Q39
+    stem: "下列哪個說法最準確地描述了 GAN（Generative Adversarial Network，生成對抗網路）中生成器（Generator）和鑑別器（Discriminator）的關係？"
+    options:
+      a: "生成器負責分類真實資料；鑑別器負責生成假資料"
+      b: "兩者合作共同訓練，共用相同的損失函數"
+      c: "生成器嘗試生成以假亂真的資料；鑑別器嘗試分辨真實和生成資料——兩者相互對抗，共同進步"
+      d: "生成器只在訓練時使用；鑑別器是最終部署的模型"
+    answer: "c"
+    explanation: "GAN 的核心是對抗機制：生成器（Generator）嘗試生成讓鑑別器無法辨識的假資料（以假亂真）；鑑別器（Discriminator）嘗試分辨哪些是真實資料、哪些是生成的假資料。兩者相互競爭推動彼此進步。初級知道兩個角色和對抗概念即可，不需了解數學細節。"
+    difficulty: 4
+    tags: ["gan", "generator", "discriminator", "generative-ai", "adversarial"]
+
+  - id: L11401-Q40
+    stem: "一家金融機構要部署一個 AI 風險評估系統，需要同時滿足：（1）每秒要處理上千筆即時交易；（2）涉及客戶機密財務資料不能離場；（3）部分複雜的風險分析需要高算力。最適合的部署架構是？"
+    options:
+      a: "純雲端部署，因為算力最強且可彈性擴充"
+      b: "純邊緣部署，因為可即時處理且資料不離場"
+      c: "純內部部署，因為資料最安全"
+      d: "混合架構（Hybrid）：內部部署處理即時交易和機密資料，雲端負責高算力的複雜分析（使用去識別化資料）"
+    answer: "d"
+    explanation: "這個場景有衝突的需求：低延遲+資料機密（適合內部部署或邊緣）、高算力複雜分析（適合雲端）。混合架構取各自優點：機密即時交易在內部處理（資料不離場、低延遲），去識別化的複雜分析在雲端執行（大算力）。現實中的企業 AI 系統常採用此模式。"
+    difficulty: 5
+    tags: ["hybrid-deployment", "model-deployment", "scenario", "multi-constraint"]

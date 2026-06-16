@@ -1,374 +1,425 @@
-# L12101 No Code / Low Code的基本概念 — 讀書指南
+# L12101 No Code / Low Code的基本概念 — Study Guide
+
+> 對應評鑑範圍：**L121 No Code / Low Code** > **L12101 基本概念**
+>
+> 關鍵字：NC（No Code，無程式碼）、LC（Low Code，低程式碼）、公民開發者（Citizen Developer）、影子IT（Shadow IT）、視覺化開發（Visual Development）
+
+> 圖表索引：
+> - [diagrams/01-nc-lc-traditional-comparison.md](diagrams/01-nc-lc-traditional-comparison.md) — 三向比較（NC / LC / 傳統開發）
+> - [diagrams/02-platform-ecosystem.md](diagrams/02-platform-ecosystem.md) — 平台生態系分類
+> - [diagrams/03-citizen-developer-role.md](diagrams/03-citizen-developer-role.md) — 公民開發者角色與影子IT風險
 
 ---
 
-## 1. 考試對應範圍
+## Section 1 · 考試導覽
 
-> 對應評鑑範圍：**L121 No Code / Low Code** ＋ **L12101 No Code / Low Code的基本概念**
->
-> 所屬主題：L121 No Code / Low Code → L12101 基本概念
->
-> 關鍵字：No Code工具（No-Code Tools）、Low Code工具（Low-Code Tools）、基本認知與基礎概念（Fundamental Concepts & Awareness）
->
-> 高頻出題方向：No Code vs Low Code 定義區分；辨認代表性平台屬於哪一類；公民開發者的定義與角色；情境題判斷「該選 No Code 還是 Low Code」
+### 建議閱讀順序
 
-這一課是整個 L121 單元的起點，先搞清楚「是什麼」，下一課 L12102 再聊「好不好」。考試約出 5 題（含情境題），佔第二科約 10%。題目從早期的純定義題逐漸轉向情境題，光背定義不夠，要能「看場景選工具」。
+1. Section 3.1 → 3.2（先懂 NC 和 LC 的定義）
+2. Section 3.3（NC vs LC vs 傳統開發三角比較）
+3. Section 3.4（公民開發者 + 影子 IT）
+4. Section 4（易混淆概念對照表）
+5. Section 6（考試陷阱）
+6. Section 7（情境題快速判斷）
+
+### 出題權重估計
+
+| 主題 | 重要性 | 預估題數 | 考題型態 |
+|---|---|---|---|
+| NC 定義與代表平台 | 🔥🔥🔥 | 2 題 | 定義題、平台辨認 |
+| LC 定義與代表平台 | 🔥🔥🔥 | 2 題 | 定義題、平台辨認 |
+| NC vs LC 比較 | 🔥🔥🔥 | 1-2 題 | 比較題、情境題 |
+| 公民開發者 | 🔥🔥 | 1 題 | 定義題 |
+| 影子 IT | 🔥🔥 | 1 題 | 情境/分析題 |
+
+### 先備知識
+
+本課無先備知識要求，是 L121 單元的起點。
+
+### 邊界說明（初級 vs 中級）
+
+| 範圍 | 初級（本課） | 中級 |
+|---|---|---|
+| 考法 | 概念定義、平台辨認、場景判斷 | 導入評估、選型方法、ROI 計算 |
+| 深度 | 「是什麼」「用在哪」 | 「怎麼評估」「如何規劃」 |
+| 陷阱 | AutoML ≠ NC/LC | 治理架構設計細節 |
 
 ---
 
-## 2. 知識樹（Knowledge Tree）
+## Section 2 · 關鍵概念總覽圖
 
 ```
 🔧 L12101 No Code / Low Code的基本概念
 │
-├── 📖 核心定義
-│   ├── No Code（無程式碼）
-│   │   ├── 零程式碼，拖放操作
+├── 📖 核心三角
+│   ├── 🟢 No Code（NC，無程式碼）
+│   │   ├── 零程式碼、拖放操作（Drag-and-Drop）
 │   │   ├── 目標：非技術業務人員
-│   │   └── 代表平台：Bubble, Airtable, Zapier, AppSheet
-│   ├── Low Code（低程式碼）
+│   │   └── 代表：Bubble 🔥、Airtable 🔥、Zapier 🔥、AppSheet、Make
+│   │
+│   ├── 🔵 Low Code（LC，低程式碼）
 │   │   ├── 視覺化為主 + 少量手寫程式碼
 │   │   ├── 目標：開發者 / 公民開發者
-│   │   └── 代表平台：Power Apps, OutSystems, Mendix
-│   └── 陷阱：AutoML ≠ No Code/Low Code！
+│   │   └── 代表：Power Apps 🔥、OutSystems 🔥、Mendix
+│   │
+│   └── ⚫ 傳統開發（Traditional Development）
+│       ├── 完整程式碼、需專業工程師
+│       └── 彈性最高、門檻最高
 │
-├── 👤 公民開發者（Citizen Developer）
-│   ├── Gartner 定義：IT 部門外、使用核可工具建構應用
-│   ├── 數據：公民開發者 = 專業工程師的 4 倍 🔥
-│   └── 陷阱：公民開發者 ≠ 完全不受管理
+├── 👤 公民開發者（Citizen Developer）🔥
+│   ├── Gartner 定義：IT 部門外，使用組織核可工具開發應用的非專業人員
+│   ├── 數量預測：將達專業工程師的 4 倍 🔥
+│   └── ⚠️ 影子 IT（Shadow IT）風險：未經 IT 核可的自主部署
 │
-├── 🖥️ 視覺化開發（Visual Development）
-│   ├── 拖放元件、流程圖、表單設計器
-│   ├── 背後仍有隱藏程式碼自動產生
-│   └── 陷阱：No Code「無程式碼」≠ 背後沒程式碼
-│
-├── 📊 市場趨勢（考試愛考數據）
-│   ├── Gartner：2026 年 75% 新應用使用低程式碼（Low Code） 🔥🔥
-│   ├── Gartner：2026年市場規模 $44.5B USD
-│   ├── 效率：開發時間可縮短 90%
-│   └── 人才缺口：NC/LC 是解方之一
-│
-└── 🔧 代表平台速查（辨認題必背）
-    ├── No Code：Bubble, Airtable, Zapier, AppSheet
-    ├── Low Code：Power Apps, OutSystems, Mendix
-    └── 陷阱：AutoML 工具（如 Google AutoML）不屬於此分類
+└── ⚠️ 高頻陷阱
+    ├── AutoML ≠ NC/LC（目標物不同：模型 vs App）
+    └── No Code ≠ 背後沒程式碼（使用者不寫 ≠ 不存在）
 ```
 
 ---
 
-## 3. 核心概念
+## Section 3 · 核心概念
 
-### 3.1 No Code（無程式碼）的定義 🔥🔥
+#### 3.1 No Code（NC，無程式碼）
 
-No Code（無程式碼，No-Code）是一種**完全不需要撰寫程式碼**的軟體開發方式。使用者透過拖放（Drag-and-Drop）介面與視覺化配置（Visual Configuration），就能建構出可運作的應用程式。
+**先懂一句話：** NC（No Code，無程式碼）讓完全不懂程式的人，透過拖放就能做出能用的 App 或自動化流程。
 
-No Code 的核心價值在於**降低技術門檻**——讓沒有程式設計背景的業務人員也能自己動手做工具。適合的場景是相對簡單的戰術型應用，例如表單系統、報表、日曆、流程自動化。
+NC（No Code，無程式碼）是一種**完全不需要撰寫程式碼**的軟體開發方式。使用者透過 UI（User Interface，使用者介面）的拖放操作與視覺化配置，就能建構可運作的應用程式。平台背後會自動將這些操作轉換為程式碼執行——**使用者看不到程式碼，不代表程式碼不存在**。
 
-🗣️ 白話說明：想像你在 LINE 群組裡用投票功能——你不用寫任何程式，只要點點按鈕就能建立一個投票。No Code 就是這個概念的放大版：不用寫 code，點一點拖一拖就能做出一個 App 或自動化流程。
-
-```
-No Code 開發流程（概念圖）
-
-  業務人員                 No Code 平台                  成品
-  ┌──────┐    拖放元件     ┌──────────┐   自動產生程式碼   ┌──────┐
-  │ 想法  │ ──────────→  │ 視覺化編輯 │ ──────────────→ │ App  │
-  └──────┘    零程式碼     └──────────┘    (使用者看不到)  └──────┘
-```
+**核心特徵：**
+- 零程式碼：使用者不需撰寫任何程式
+- 視覺化編輯：拖放元件（Drag-and-Drop Components）、表單建構器（Form Builder）
+- 目標用戶：非技術背景的業務人員
+- 適用場景：原型驗證（Prototype）、小規模流程自動化、非核心業務應用
 
 **代表平台：**
-- **Bubble**：全功能 Web App 開發（做 MVP、SaaS）
-- **Airtable**：試算表式關聯資料庫（Relational Database）+ 內部工具
-- **Zapier**：跨應用流程自動化（Workflow Automation）——串接不同服務
-- **Make**（前身為 Integromat）：同為 No Code 流程自動化平台，支援更複雜的多步驟流程設計
-- **AppSheet（Google）**：從試算表直接轉換為行動/網頁 App
+
+| 平台 | 核心用途 | 記憶關鍵 |
+|---|---|---|
+| **Bubble** | 全功能 Web App / MVP 快速開發 | 「泡泡做 App」 |
+| **Airtable** | 試算表式關聯資料庫（Relational Database） | 「空氣桌 = 進階 Excel」 |
+| **Zapier** | 跨應用流程自動化（Workflow Automation） | 「Zap = 串接」 |
+| **AppSheet（Google）** | 試算表直接轉換為行動/網頁 App | 「Google 家的，試算表變 App」 |
+| **Make**（前身 Integromat） | 多步驟視覺化流程自動化 | 「前身 Integromat」 |
+
+🗣️ **白話說明：** 想像你在 Canva 做投影片——你不用學設計軟體，只要拖模板、改文字就出稿。NC 就是這個概念放大到「做 App」：行銷同事用 Zapier 把 Google 表單收到的回覆自動寄信給主管，完全不用寫一行程式。
+
+**Quick check：** NC 的目標用戶是誰？ → 非技術背景的業務人員（不是工程師）
 
 ---
 
-### 3.2 Low Code（低程式碼）的定義 🔥🔥
+#### 3.2 Low Code（LC，低程式碼）
 
-Low Code（低程式碼，Low-Code）同樣以視覺化開發（Visual Development）為主，但允許開發者在需要時**加入少量手寫程式碼**來處理複雜邏輯、客製化功能或系統整合。
+**先懂一句話：** LC（Low Code，低程式碼）讓有一點技術背景的人，在視覺化介面的基礎上，偶爾寫幾行程式碼處理複雜邏輯，做出企業級系統。
 
-Low Code 的目標用戶不只是純業務人員，更包含具備一定技術知識的**開發者或公民開發者（Citizen Developer）**。適合的場景是企業級應用（Enterprise Applications）和需要複雜整合的需求。
+LC（Low Code，低程式碼）同樣以視覺化開發（Visual Development）為主，但允許開發者在需要時**加入少量手寫程式碼**來處理複雜邏輯、客製化功能或系統整合（例如串接 API（Application Programming Interface，應用程式介面））。
 
-🗣️ 白話說明：如果 No Code 像是用 Canva 套模板做海報（完全不用會設計），Low Code 就像用 WordPress 架部落格——大部分靠拖拉外掛搞定，但遇到特殊需求你也可以自己改 CSS 或寫一點 PHP。多了一點技術操作，但換來更大的彈性。
+**核心特徵：**
+- 少量程式碼：視覺化為主，可選擇加入程式碼
+- 目標用戶：具備基礎技術知識的開發者或公民開發者
+- 適用場景：中型企業應用、需整合 API 的場景、企業級系統
 
 **代表平台：**
-- **Power Apps（Microsoft）**：企業應用開發，深度整合 Microsoft 365 / Azure / Dynamics
-- **OutSystems**：企業級應用，強調安全性（Security）、擴展性（Scalability）、治理（Governance）
-- **Mendix（Siemens）**：企業級應用開發與部署
 
-> 💡 提醒：OutSystems、Mendix 的企業級架構與部署策略屬於更深入的內容，初級只需知道「它是 Low Code 平台、面向企業級應用」即可。（此為中級內容，初級只需了解概念）
+| 平台 | 核心用途 | 記憶關鍵 |
+|---|---|---|
+| **Power Apps（Microsoft）** | 企業應用開發，深度整合 Microsoft 365 / Azure | 「微軟 Power 家族」 |
+| **OutSystems** | 企業級應用，強調安全性（Security）與擴展性（Scalability） | 「Out = 外部企業系統」 |
+| **Mendix（Siemens）** | 企業級應用開發與部署 | 「西門子 Mendix」 |
 
----
+🗣️ **白話說明：** 如果 NC 像是用 Canva 套模板做海報（完全不用懂設計），LC 就像用 WordPress 架部落格——大部分靠外掛搞定，但遇到特殊需求你可以自己改一點 CSS。多了一點技術操作，換來更大的彈性。台灣企業用 Power Apps 串接 Microsoft 365 的報表系統，就是 LC 的典型應用。
 
-### 3.3 No Code vs Low Code 的關鍵差異 🔥🔥
-
-這是整課最常考的重點。考題經常要你從描述中判斷該分類為 No Code 還是 Low Code。
-
-```
-        No Code                        Low Code
-  ┌──────────────────┐          ┌──────────────────┐
-  │                  │          │                  │
-  │   100% 視覺化     │          │  視覺化 + 少量程式  │
-  │   零程式碼        │          │  可選寫 code      │
-  │                  │          │                  │
-  │  👤 業務人員      │          │  👤 開發者/公民開發者│
-  │  📱 簡單應用      │          │  🏢 企業級應用     │
-  │  🔒 客製化低      │          │  🔓 客製化高      │
-  │                  │          │                  │
-  └──────────────────┘          └──────────────────┘
-         Bubble                      Power Apps
-         Airtable                    OutSystems
-         Zapier                      Mendix
-         AppSheet
-```
-
-記住核心差異的口訣：**No Code 零碼大眾用，Low Code 少碼進階用**。
-
-> 📊 **圖表：** No Code vs Low Code 關鍵差異對照圖
-> → 詳見 [diagrams/nc-vs-lc-comparison.mmd](diagrams/nc-vs-lc-comparison.mmd)
+**Quick check：** LC 與 NC 最大的差異是什麼？ → LC 允許加入少量程式碼；NC 完全不需要程式碼。
 
 ---
 
-### 3.4 視覺化開發（Visual Development）
+#### 3.3 NC / LC / 傳統開發 三角比較 🔥🔥
 
-視覺化開發（Visual Development）是 No Code 和 Low Code 共同的核心範式（Paradigm）。它以圖形介面（Graphical User Interface, GUI）取代傳統的文字程式碼撰寫，包含拖放元件（Drag-and-Drop Components）、流程圖設計器（Flow Designer）、表單建構器（Form Builder）等。
+這是整課最常考的重點。記住五個維度：
 
-關鍵認知：**即使是 No Code 平台，背後仍有隱藏的程式碼在運行**。使用者看不到程式碼，不代表程式碼不存在——平台自動產生了底層程式碼。
+| 維度 | No Code（NC） | Low Code（LC） | 傳統開發 |
+|---|---|---|---|
+| **技術門檻** | 低（無需程式能力） | 中（需基礎技術知識） | 高（需專業工程師） |
+| **開發速度** | 最快 | 快 | 最慢 |
+| **彈性（Flexibility）** | 低（受限平台功能） | 中（可寫程式擴展） | 最高（完全自由） |
+| **維護成本** | 最低（平台負責底層） | 低至中 | 最高（需自行維護） |
+| **客製化程度** | 低 | 中至高 | 最高 |
+| **適用場景** | 原型驗證、流程自動化 | 中型企業應用、API 整合 | 核心系統、高安全需求 |
 
-🗣️ 白話說明：就像你用 Canva 做海報——你不用學 Photoshop 的圖層和遮罩，只要拖拖拉拉就能出一張好看的圖。但 Canva 背後其實跑了大量的程式碼幫你渲染。No Code/Low Code 的「視覺化開發」就是同一個道理。
+**速記口訣：** 「NC 最快最省，傳統最彈最貴，LC 居中平衡」
 
----
-
-### 3.5 公民開發者（Citizen Developer）🔥
-
-公民開發者（Citizen Developer）是 Gartner 提出的概念：**在正式 IT 部門以外，使用組織核可的 No Code/Low Code 工具來建構應用程式的非專業開發人員**。
-
-這個概念很重要，因為它解釋了 NC/LC 工具的市場趨勢——不再只有工程師能寫程式了。
-
-幾個常考數據 🔥：
-- Gartner 預測：公民開發者的數量將是專業軟體工程師的 **4 倍**
-- 2026 年預測：**80%** 的低程式碼工具用戶來自正式 IT 部門以外
-- 全球軟體開發者缺口持續擴大（據業界統計，美國缺少約 140 萬名），NC/LC 是解方之一
-
-🗣️ 白話說明：你大學做社團活動，社團裡的行銷組長用 AppSheet 做了一個報名系統、用 Zapier 串了一個自動寄信流程——他不是資工系的，但他就是一個「公民開發者」。公司裡也一樣，業務部的同事不靠 IT 部門，自己用核可的工具做了一個客戶追蹤 App。
+> 詳見 [diagrams/01-nc-lc-traditional-comparison.md](diagrams/01-nc-lc-traditional-comparison.md)
 
 ---
 
-### 3.6 市場趨勢與數據（常考考點）🔥
+#### 3.4 公民開發者（Citizen Developer）🔥
 
-考試喜歡在選擇題中放入市場數據來考你的判斷力。以下是最可能出現的數據：
+**先懂一句話：** 公民開發者（Citizen Developer）是不在 IT 部門的員工，用公司核可的 NC/LC 工具自己做工具、不靠工程師。
 
-| 來源 | 數據 | 考試怎麼考 |
-|------|------|-----------|
-| Gartner | 2026 年 **75%** 新應用開發將使用低程式碼 🔥🔥 | 「以下何者最接近分析機構的預測？」 |
-| Gartner | 2026 年低程式碼市場規模預計達 **$44.5B** USD | 市場規模量級判斷 |
-| Gartner | 年複合成長率 **19%** CAGR | 成長速度比較題 |
-| 業界統計 | 開發時間可縮短至傳統方式的 **10%**（縮短90%） | 效率提升數據 |
-| Forrester | **87%** 企業開發者已在部分工作中使用低程式碼 | 採用率判斷 |
+Gartner 提出的概念：**在正式 IT 部門以外，使用組織核可（Sanctioned）的 NC/LC 工具來建構應用程式的非專業開發人員**。
 
----
+**重點數據（考試愛考）：**
+- Gartner 預測：公民開發者數量將達到專業工程師的 **4 倍** 🔥
+- 2026 年預測：**80%** 的低程式碼工具用戶來自 IT 部門以外
 
-### 3.7 代表平台辨認（必背）🔥🔥
+**兩個關鍵限制：**
+1. 「組織**核可**」——必須使用 IT 批准的工具，不是亂用
+2. 「IT 部門**以外**」——業務單位，不是 IT 人員轉行
 
-考題會出現「以下哪個**不是** No Code/Low Code 平台？」或「以下哪個屬於 Low Code？」這類辨認題。
+🗣️ **白話說明：** 行銷組長用公司批准的 Power Apps 做了一個客戶追蹤 App，自己的需求自己解決，不用排 IT 的工單——這就是公民開發者。她不是資工系出身，但她用核可的工具做出了有用的東西。
 
-| 平台 | 類型 | 核心用途 | 記憶關鍵字 |
-|------|------|---------|-----------|
-| **Bubble** | No Code | 全功能 Web App 開發 | 「泡泡做App」 |
-| **Airtable** | No Code | 試算表式關聯資料庫 | 「空氣桌＝進階 Excel」 |
-| **Zapier** | No Code | 跨應用流程自動化 | 「Zap＝串接」 |
-| **AppSheet** | No Code | 試算表→App | 「Google 家的」 |
-| **Make** | No Code | 多步驟流程自動化 | 「前身 Integromat」 |
-| **Power Apps** | Low Code | 企業應用（M365整合） | 「微軟 Power」 |
-| **OutSystems** | Low Code | 企業級安全應用 | 「外系統＝企業」 |
-| **Mendix** | Low Code | 企業級開發部署 | 「西門子 Mendix」 |
-
-**高頻陷阱 — AutoML（自動化機器學習）：**
-
-> AutoML（如 Google AutoML、H2O.ai）是機器學習管線（ML Pipeline）的自動化工具，**不屬於** No Code/Low Code 的範疇。考試常把 AutoML 混入選項來混淆考生。
->
-> 區分方法：AutoML 的目標是「自動化建構 ML 模型」，而 NC/LC 的目標是「自動化建構應用程式」。目標物不同！
-
-> 📊 **圖表：** NC/LC 平台生態系分類圖（含 AutoML 陷阱區）
-> → 詳見 [diagrams/platform-landscape.mmd](diagrams/platform-landscape.mmd)
+> 詳見 [diagrams/03-citizen-developer-role.md](diagrams/03-citizen-developer-role.md)
 
 ---
 
-## 4. 比較表（易混淆概念）
+#### 3.5 影子 IT（Shadow IT）⚠️
 
-### 4.1 No Code vs Low Code（核心對比）🔥🔥
+**先懂一句話：** 影子 IT（Shadow IT）是員工**未經 IT 審核**就自行部署工具或應用，帶來資安和合規風險。
 
-| 面向 | No Code（無程式碼） | Low Code（低程式碼） |
-|------|---------------------|---------------------|
-| **編碼需求** | 零——完全不需要寫程式 | 少量——視覺化為主，可選加程式碼 |
-| **目標用戶** | 非技術背景的業務人員 | 開發者 / 公民開發者（有一定技術基礎） |
-| **應用複雜度** | 簡單（表單、報表、自動化流程） | 中～高（企業級應用、複雜整合） |
-| **客製化程度** | 低（受限於平台提供的模板與元件） | 高（可寫程式碼擴展功能） |
-| **代表平台** | Bubble, Airtable, Zapier, AppSheet | Power Apps, OutSystems, Mendix |
+影子 IT 不等於公民開發者。兩者區別：
+
+| | 公民開發者 | 影子 IT |
+|---|---|---|
+| **工具狀態** | IT 核可 ✅ | 未經核可 ❌ |
+| **IT 是否知情** | 是，在治理框架內 | 否，IT 不知道 |
+| **風險** | 低（可管理） | 高（資安、合規漏洞） |
+
+NC 工具門檻低 → 業務人員更容易在未知會 IT 的情況下自行部署 → **NC 比 LC 更容易產生影子 IT 風險**。
+
+**Quick check：** 影子 IT 的核心風險是什麼？ → 未經 IT 核可，帶來資安漏洞和合規問題。
+
+---
+
+#### 3.6 平台生態系總覽 🔥
+
+考試常考平台辨認題（「以下哪個屬於 LC？」、「以下哪個不屬於 NC/LC？」）。
+
+| 類別 | 工具 | 類型 | 核心定位 |
+|---|---|---|---|
+| **應用建構** | Bubble | NC | Web App / MVP |
+| **應用建構** | Power Apps | LC | 企業 App + M365 整合 |
+| **應用建構** | OutSystems | LC | 企業級安全應用 |
+| **應用建構** | Mendix | LC | 企業級部署 |
+| **工作流自動化** | Zapier | NC | 跨應用串接 |
+| **工作流自動化** | Make（Integromat） | NC | 多步驟流程 |
+| **工作流自動化** | Power Automate | LC | M365 工作流 |
+| **資料庫/內部工具** | Airtable | NC | 試算表式資料庫 |
+| **試算表轉 App** | AppSheet | NC | Google Sheets → App |
+
+**⚠️ 特別陷阱：AutoML 不屬於 NC/LC！**
+- AutoML（如 Google AutoML）= 自動化 ML 模型訓練 → **目標產物是模型（Model）**
+- NC/LC = 視覺化開發應用程式 → **目標產物是 App**
+- 記憶關鍵：AutoML 做的是**模型**，NC/LC 做的是**應用**
+
+> 詳見 [diagrams/02-platform-ecosystem.md](diagrams/02-platform-ecosystem.md)
+
+---
+
+## Section 4 · 易混淆概念對照表
+
+### 4.1 NC vs LC 核心對比 🔥🔥
+
+| 面向 | No Code（NC） | Low Code（LC） |
+|---|---|---|
+| **編碼需求** | 零——完全不寫程式 | 少量——視覺化為主，可加入程式碼 |
+| **目標用戶** | 非技術業務人員 | 開發者 / 公民開發者（有基礎技術知識） |
+| **應用複雜度** | 簡單（表單、報表、流程自動化） | 中至高（企業級應用、複雜整合） |
+| **客製化程度** | 低（受限平台模板） | 中至高（可寫程式碼擴展） |
 | **治理風險** | 較高（影子 IT 風險） | 較低（通常在 IT 監督下使用） |
 
-### 4.2 No Code/Low Code vs AutoML（高頻陷阱）🔥
+**考題判斷：** 看到「零程式碼」、「拖放」、「非技術人員」→ **No Code**；看到「少量程式碼」、「企業級」、「API 整合」→ **Low Code**
 
-| 面向 | No Code / Low Code | AutoML（自動化機器學習） |
-|------|-------------------|------------------------|
-| **定義** | 視覺化開發應用程式 | 自動化 ML 模型的建構與調參 |
+---
+
+### 4.2 NC/LC vs AutoML（高頻陷阱）🔥
+
+| 面向 | NC / LC | AutoML（自動化機器學習） |
+|---|---|---|
+| **定義** | 視覺化開發**應用程式** | 自動化 ML 模型的建構與調參 |
 | **目標產物** | 應用程式（App） | 機器學習模型（Model） |
 | **目標用戶** | 業務人員 / 公民開發者 | 資料科學家 / ML 工程師 |
-| **適用場景** | 建構表單、流程、企業系統 | 影像辨識、預測分析等 ML 任務 |
 | **是否屬於 NC/LC** | 是 | **否** ❌ |
 
-### 4.3 No Code/Low Code vs 傳統開發
-
-| 面向 | No Code / Low Code | 傳統開發（Traditional Development） |
-|------|-------------------|-------------------------------------|
-| **開發速度** | 快（縮短 90% 開發時間） | 慢（需完整開發週期） |
-| **技術門檻** | 低～中 | 高（需專業程式設計能力） |
-| **彈性** | 受限於平台功能 | 完全自由 |
-| **維護成本** | 低（平台負責底層） | 高（團隊需自行維護） |
-| **適合場景** | MVP、內部工具、流程自動化 | 高度客製化產品、核心系統 |
+**考題判斷：** 看到「Google AutoML」「H2O.ai」「模型訓練自動化」→ **不是 NC/LC**，是 AutoML
 
 ---
 
-## 5. 口訣 / Mnemonics
+### 4.3 公民開發者 vs 影子 IT
 
-### 口訣一：No Code vs Low Code 分辨法
+| 面向 | 公民開發者 | 影子 IT |
+|---|---|---|
+| **IT 核可** | ✅ 使用核可工具 | ❌ 未經核可 |
+| **IT 知情** | ✅ 在治理框架內 | ❌ IT 不知情 |
+| **風險等級** | 低（可管理） | 高（資安、合規漏洞） |
+
+**考題判斷：** 「IT 部門外 + 核可工具」→ **公民開發者**；「未經核可 + 自行部署」→ **影子 IT**
+
+---
+
+## Section 5 · 口訣
+
+### 口訣一：NC vs LC 主要差異
 
 > **「零碼大眾簡，少碼進階全」**
->
-> - 零碼 → No Code → 零程式碼
-> - 大眾 → 目標用戶包含一般業務人員
-> - 簡 → 簡單應用
-> - 少碼 → Low Code → 少量程式碼
-> - 進階 → 目標用戶需要一定技術基礎（含公民開發者）
-> - 全 → 全功能企業級應用
+> - **零碼** → No Code → 零程式碼
+> - **大眾** → 非技術業務人員都能用
+> - **簡** → 簡單應用（表單、流程）
+> - **少碼** → Low Code → 少量程式碼
+> - **進階** → 有技術基礎的公民開發者
+> - **全** → 全功能企業級應用
 
-### 口訣二：No Code 四大平台（B-A-Z-A）
+---
 
-> **「BAZA（爸爸）不寫 Code」**
->
-> - **B**ubble
-> - **A**irtable
-> - **Z**apier
-> - **A**ppSheet
->
-> → 全部都是 No Code！
+### 口訣二：NC 五大平台（BAZAM）
 
-### 口訣三：Low Code 三大平台（P-O-M）
+> **「爸爸（BAZA）+ Make 不寫 Code」**
+> - **B**ubble — Web App / MVP
+> - **A**irtable — 試算表式資料庫
+> - **Z**apier — 跨應用串接
+> - **A**ppSheet — 試算表轉 App
+> - **M**ake（Integromat）— 多步驟流程
+
+---
+
+### 口訣三：LC 三大平台（POM）
 
 > **「POM（龐）大企業用 Low Code」**
->
-> - **P**ower Apps
-> - **O**utSystems
-> - **M**endix
->
-> → 全部都是 Low Code，面向企業！
-
-### 口訣四：公民開發者記憶
-
-> **「4 倍公民、8 成門外」**
->
-> - 公民開發者數量 = 專業工程師的 **4** 倍
-> - **80%** 低代碼用戶來自 IT 部門以**外**
+> - **P**ower Apps — 微軟企業應用
+> - **O**utSystems — 企業級安全
+> - **M**endix — 企業部署（西門子）
 
 ---
 
-## 6. 考試陷阱
+### 口訣四：NC vs LC 三角比較記憶法
 
-### 陷阱一：AutoML 混入 NC/LC 選項 🔥🔥
-
-❌ 陷阱：看到「自動化」就選 No Code/Low Code——以為 Google AutoML 也是 No Code 工具
-
-✅ 正解：AutoML 是**機器學習管線（ML Pipeline）的自動化**，目標產物是 ML 模型，不是應用程式。AutoML 不屬於 No Code/Low Code。記住：NC/LC 做的是 App，AutoML 做的是 Model。
+> **速度：NC > LC > 傳統（越早出現越快）**
+> **彈性：傳統 > LC > NC（越晚出現越彈）**
+> 口訣：「速快彈硬，剛好相反」——速度排序和彈性排序剛好相反
 
 ---
 
-### 陷阱二：No Code = 背後沒有程式碼
+## Section 6 · 考試陷阱
 
-❌ 陷阱：以為「No Code」代表這個平台完全沒有程式碼在運作
+❌ **陷阱 1：AutoML = No Code 工具**
 
-✅ 正解：「No Code」指的是**使用者不需要寫程式碼**，但平台背後仍然自動產生並執行大量程式碼。就像你用 Instagram 發限動不用寫 code，但 IG 背後有數百萬行程式碼在跑。
-
----
-
-### 陷阱三：Low Code = 比 No Code 差
-
-❌ 陷阱：以為 Low Code「還是要寫一點 code」所以不如 No Code 方便
-
-✅ 正解：Low Code 的「可寫程式碼」是**優勢不是劣勢**——它提供更高的客製化能力（Customizability）和更複雜的應用場景支援。No Code 和 Low Code 沒有誰好誰壞，是**目標用戶和應用複雜度不同**。
+> ❌ 錯：Google AutoML 是 No Code 的一種，因為不用寫程式
+> ✅ 對：AutoML 做的是 ML 模型，NC/LC 做的是 App。目標產物不同，不能歸為同一類。
 
 ---
 
-### 陷阱四：公民開發者 = 不受管理的亂搞
+❌ **陷阱 2：No Code = 背後沒有程式碼**
 
-❌ 陷阱：以為公民開發者就是員工自己亂裝軟體、不受管控
-
-✅ 正解：Gartner 定義中明確包含「使用**組織核可**（sanctioned）的工具」。公民開發者是在組織的規範內使用核可的 NC/LC 平台來建構應用，不是影子 IT（Shadow IT）。但 No Code 的確存在影子 IT 風險——這是 L12102 的重點。
-
----
-
-### 陷阱五：所有視覺化工具都是 NC/LC
-
-❌ 陷阱：看到「拖放介面」「視覺化操作」就判定為 No Code/Low Code
-
-✅ 正解：Excel 有拖放功能、Photoshop 有視覺化操作，但它們不是 NC/LC 開發平台。NC/LC 的定義是「用視覺化方式**開發應用程式或自動化流程**」，而不是單純的視覺化操作工具。
+> ❌ 錯：「No Code」代表這個平台完全沒有程式碼在運作
+> ✅ 對：使用者不需要寫程式碼，但平台背後仍自動產生程式碼執行應用邏輯。
 
 ---
 
-## 7. 情境題快速判斷
+❌ **陷阱 3：Low Code 不如 No Code 方便**
 
-### 🔑 看到關鍵字 → 選這個答案
-
-**場景判斷類：**
-- 「非技術人員」「業務人員」「不會寫程式」 → **No Code**
-- 「開發者」「公民開發者」「企業級」「複雜整合」 → **Low Code**
-- 「拖放」「零程式碼」「完全不需要寫 code」 → **No Code**
-- 「視覺化 + 可加入程式碼」「少量程式碼」 → **Low Code**
-- 「自動化建構 ML 模型」「模型調參」 → **AutoML**（不是 NC/LC！）
-
-**平台辨認類：**
-- Bubble / Airtable / Zapier / AppSheet → **No Code**
-- Power Apps / OutSystems / Mendix → **Low Code**
-- Google AutoML / H2O.ai → **AutoML**（❌ 不是 NC/LC）
-
-**數據判斷類：**
-- 「75% 新應用」 → Gartner 低程式碼預測
-- 「公民開發者 4 倍」 → Gartner 公民開發者趨勢
-- 「縮短 90%」 → NC/LC 的開發效率提升
-- 「$44.5B 市場」 → Gartner 低程式碼市場規模
-
-**概念判斷類：**
-- 「IT 部門以外、用組織核可工具開發」 → **公民開發者（Citizen Developer）**
-- 「圖形介面取代程式碼撰寫」 → **視覺化開發（Visual Development）**
-- 「背後自動產生程式碼」 → **No Code 的運作原理**（不是「沒有程式碼」）
-- 「員工自建未經核可的應用」 → **影子 IT（Shadow IT）**——是風險，不是公民開發者
-
-### 🔑 三步驟判斷法
-
-> 📊 **圖表：** NC/LC 選擇決策樹（三步驟判斷法）
-> → 詳見 [diagrams/decision-tree.mmd](diagrams/decision-tree.mmd)
-
-1. **看人**：使用者有沒有技術背景？
-   - 完全沒有 → 偏 No Code
-   - 有一些或是公民開發者 → 偏 Low Code
-2. **看需求**：應用複雜度？
-   - 簡單（表單、自動化、報表） → No Code
-   - 複雜（企業整合、客製邏輯） → Low Code
-3. **看整合**：需不需要串接其他系統的 API？
-   - 不需要 → No Code
-   - 需要 → Low Code
-
-### 🔑 情境題速查表
-
-| 情境描述 | 正確答案 | 為什麼 |
-|---------|---------|--------|
-| 補習班老師想做一個學生報名表單 | No Code | 非技術人員 + 簡單應用 |
-| 企業要整合 ERP 與 CRM 的客製化系統 | Low Code | 企業級 + 複雜整合 |
-| 行銷部門要串接 LINE 與 Google Sheets 自動化 | No Code（Zapier 或 Make） | 非技術 + 流程自動化；LINE Bot 串接是台灣常見的 No Code 應用場景 |
-| 資料科學團隊要自動化模型訓練流程 | AutoML | ML Pipeline，不是 NC/LC |
-| 大學社團要用試算表做一個活動報名 App | No Code（AppSheet） | 非技術 + 試算表轉 App |
-| 軟體公司要快速開發企業客戶管理系統 | Low Code（Power Apps） | 開發者 + 企業應用 |
+> ❌ 錯：Low Code 還要寫程式，所以比 No Code 落後
+> ✅ 對：LC 的「可寫程式碼」是**優勢**——提供更高客製化能力和更複雜的應用場景。NC 和 LC 沒有誰更好，適用場景不同。
 
 ---
 
-> ✅ 本課重點回顧：No Code = 零碼給大眾做簡單 App；Low Code = 少碼給進階用戶做企業系統；背 BAZA（No Code）和 POM（Low Code）七個平台；AutoML 不是 NC/LC；公民開發者 = IT 外 + 組織核可。搞定這些，L12101 的分數就穩了。
+❌ **陷阱 4：公民開發者 = 影子 IT**
+
+> ❌ 錯：業務人員自己做工具就是影子 IT，不受管控
+> ✅ 對：公民開發者使用**組織核可**的工具，在治理框架內運作。影子 IT 才是未經核可的自主部署。
+
+---
+
+❌ **陷阱 5：有視覺化介面 = NC/LC 工具**
+
+> ❌ 錯：Excel 有拖放、Photoshop 有圖形介面，所以它們是 NC/LC 工具
+> ✅ 對：NC/LC 的定義是「用視覺化方式**建構應用程式**」。Excel 是試算表工具，不是用來建構 App 的平台。
+
+---
+
+❌ **陷阱 6：NC 適合企業核心系統**
+
+> ❌ 錯：NC 最快最省，所以企業核心系統也應該用 NC
+> ✅ 對：NC 的客製化程度低、API 深度整合能力有限，不適合核心系統。核心系統應選 LC 或傳統開發。
+
+---
+
+❌ **陷阱 7：Zapier = 建構 App 的工具**
+
+> ❌ 錯：Zapier 是 No Code 工具，所以可以用 Zapier 建構一個完整的 Web App
+> ✅ 對：Zapier 是**流程自動化**工具，專門串接不同應用之間的工作流程，無法建構 App 介面。建 App 用 Bubble；串流程用 Zapier。
+
+---
+
+❌ **陷阱 8：NC 比 LC 安全（因為沒有程式碼漏洞）**
+
+> ❌ 錯：NC 沒有程式碼，所以比 LC 更安全
+> ✅ 對：NC 反而因為門檻低、業務人員容易自行部署，帶來更高的**影子 IT 和治理風險**。安全性不只看程式碼，也看治理。
+
+---
+
+## Section 7 · 情境題快速判斷
+
+### 決策流程圖
+
+```
+情境題判斷三步驟
+│
+├─ Step 1：看使用者技術背景
+│   ├─ 完全無技術背景（業務/行銷/教師）→ 偏 No Code
+│   └─ 有基礎技術背景 / 公民開發者 → 偏 Low Code
+│
+├─ Step 2：看應用複雜度
+│   ├─ 簡單（表單、報表、自動化通知）→ No Code
+│   └─ 複雜（企業系統、多模組、報表整合）→ Low Code
+│
+└─ Step 3：看整合需求
+    ├─ 無需 API 串接 → No Code 可勝任
+    └─ 需要串接 ERP / CRM / 外部 API → Low Code
+```
+
+---
+
+### 關鍵字速查表
+
+| 看到這個關鍵字 | 應選答案 |
+|---|---|
+| 「零程式碼」「完全不需要寫 code」「拖放」 | No Code |
+| 「少量程式碼」「企業級」「API 整合」「複雜邏輯」 | Low Code |
+| 「IT 部門外 + 組織核可工具建構應用」 | 公民開發者 |
+| 「未經核可」「自行部署」「IT 不知情」 | 影子 IT |
+| 「ML 模型自動化」「模型訓練」「調參」 | AutoML（不是 NC/LC！）|
+| 「試算表直接轉 App」 | AppSheet（NC）|
+| 「MVP 快速建構 Web App」 | Bubble（NC）|
+| 「Microsoft 365 深度整合企業應用」 | Power Apps（LC）|
+| 「企業安全性 + 擴展性 + IT 治理」 | OutSystems（LC）|
+
+---
+
+### 情境題範例
+
+| 情境 | 正確答案 | 判斷依據 |
+|---|---|---|
+| 補習班老師（非技術）要做學生報名表單 | No Code（Airtable 或 AppSheet） | 非技術 + 簡單應用 |
+| 行銷同事要串接 Google 表單與 Gmail 自動寄信 | No Code（Zapier） | 非技術 + 流程自動化 |
+| 企業 IT 部門要開發整合 ERP 的客戶管理系統 | Low Code（Power Apps） | 企業級 + API 整合 |
+| 新創 CEO 要在兩週內做出 Web App MVP | No Code（Bubble） | 快速原型 + 無前端工程師 |
+| 業務同事未知會 IT 就用免費工具做了客戶追蹤 | 影子 IT 風險 | 未經核可 + IT 不知情 |
+
+---
+
+## Section 8 · 結尾：快速自我檢查
+
+考前請確認你能回答以下問題：
+
+- [ ] NC（No Code，無程式碼）的核心特徵是什麼？目標用戶是誰？
+- [ ] LC（Low Code，低程式碼）與 NC 最大的差異在哪裡？
+- [ ] 能正確辨認：Bubble / Airtable / Zapier / AppSheet / Make → NC；Power Apps / OutSystems / Mendix → LC
+- [ ] 公民開發者（Citizen Developer）的 Gartner 定義：IT 外 + 組織核可工具
+- [ ] 影子 IT（Shadow IT）與公民開發者的區別：核可 vs 未核可
+- [ ] AutoML 不屬於 NC/LC（目標產物是模型，不是 App）
+- [ ] 三向比較：NC 最快最省但彈性低；傳統開發最彈但最慢最貴；LC 居中
+
+📌 **本課不考：**
+- NC/LC 的詳細定價或授權模式
+- OutSystems / Mendix 的企業架構設計細節（中級範圍）
+- AutoML 的技術實作細節（L113 範圍）
+- NC/LC 導入的 ROI 計算（中級 L21201 範圍）

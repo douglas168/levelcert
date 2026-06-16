@@ -19,6 +19,9 @@ You are researching a certification exam topic to gather current, authoritative 
 ## Boundary Rule
 [BOUNDARY_RULE_FOR_THIS_LEVEL]
 
+## L23 Exam Intelligence Reference
+[L23_SAMPLE_REF_INSTRUCTION]
+
 ## Your Task
 
 Use WebSearch to find current, authoritative sources. Focus on:
@@ -63,6 +66,7 @@ Write `research-notes.md` with:
 - Cite sources. The study guide writer needs to verify claims.
 - If you can't find good sources for a specific syllabus item, say so explicitly — don't pad with generic content.
 - Focus on **exam relevance**, not general knowledge. What does the exam actually test?
+- **Math depth ceiling:** For mathematical concepts (probability distributions, linear algebra, optimization algorithms), research what the exam tests — recognition, formula identification, application scenario judgment — NOT derivation, proof, or implementation-level content. If a source goes deeper than "can you identify and apply this concept in a scenario?", note it in Scope Notes and exclude it from main findings.
 
 ## Output Length
 **Maximum 200 lines.** Be concise — bullet points over paragraphs. The study guide writer and question generator will expand on your findings.

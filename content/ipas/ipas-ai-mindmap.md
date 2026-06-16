@@ -10,9 +10,9 @@
 mindmap
   root((iPAS AI 應用規劃師))
     AI 基礎與分類
-      AI 人工智慧
-      ML 機器學習
-      DL 深度學習
+      AI / Artificial Intelligence / 人工智慧
+      ML / Machine Learning / 機器學習
+      DL / Deep Learning / 深度學習
       鑑別式 AI
       生成式 AI
       多模態 AI
@@ -30,45 +30,45 @@ mindmap
       Train Validation Test
       模型選擇
       指標
-    NLP CV 多模態
+    NLP / Natural Language Processing / 自然語言處理；CV / Computer Vision / 電腦視覺；多模態
       Tokenization
       Embedding
       Transformer
-      CNN
+      CNN / Convolutional Neural Network / 卷積神經網路
       Segmentation
-      CLIP
+      CLIP / Contrastive Language-Image Pre-training / 文圖對齊
       Cross-Attention
     生成式 AI
       Pretraining
-      SFT
-      RLHF
-      DPO
-      RAG
-      LoRA PEFT
+      SFT / Supervised Fine-Tuning / 監督式微調
+      RLHF / Reinforcement Learning from Human Feedback / 人類回饋強化學習
+      DPO / Direct Preference Optimization / 直接偏好最佳化
+      RAG / Retrieval-Augmented Generation / 檢索增強生成
+      LoRA / Low-Rank Adaptation / 低秩適配；PEFT / Parameter-Efficient Fine-Tuning / 參數高效微調
       Diffusion
-      GAN
+      GAN / Generative Adversarial Network / 生成對抗網路
     大數據系統
       Ingestion
       Storage
       Processing
-      SQL
+      SQL / Structured Query Language / 結構化查詢語言
       Feature Store
       Distributed Training
     部署與導入
       Evaluation
       Planning
-      PoC MVP Pilot
-      MLOps
+      PoC / Proof of Concept / 概念驗證；MVP / Minimum Viable Product / 最小可行產品；Pilot / 試行
+      MLOps / Machine Learning Operations / 機器學習維運
       Serving
       Monitoring
     治理 風險 隱私
       Risk Register
       EU AI Act
-      NIST AI RMF
+      NIST AI RMF / AI Risk Management Framework / AI 風險管理框架
       ISO
-      DPIA FRIA
-      DP FL
-      RBAC ABAC
+      DPIA / Data Protection Impact Assessment / 資料保護影響評估；FRIA / Fundamental Rights Impact Assessment / 基本權利影響評估
+      DP / Differential Privacy / 差分隱私；FL / Federated Learning / 聯邦學習
+      RBAC / Role-Based Access Control / 角色式存取控制；ABAC / Attribute-Based Access Control / 屬性式存取控制
     No-Code Low-Code
       Citizen Developer
       Workflow Automation
@@ -83,17 +83,17 @@ mindmap
 ```mermaid
 mindmap
   root((AI 基礎與分類))
-    AI Artificial Intelligence
+    AI / Artificial Intelligence / 人工智慧
       Rule-based AI
-      Machine Learning ML
+      Machine Learning / ML / 機器學習
         Supervised Learning
           Classification
           Regression
         Unsupervised Learning
           Clustering
         Reinforcement Learning
-      Deep Learning DL
-        CNN
+      Deep Learning / DL / 深度學習
+        CNN / Convolutional Neural Network / 卷積神經網路
         Transformer
         Foundation Model
     輸出類型
@@ -118,9 +118,9 @@ mindmap
 mindmap
   root((資料 統計 視覺化))
     資料來源
-      API
+      API / Application Programming Interface / 應用程式介面
       Webhook
-      CDC
+      CDC / Change Data Capture / 變更資料擷取
       Kafka
       Web Scraping
     資料品質
@@ -135,20 +135,20 @@ mindmap
       Median
       Mode
       Variance
-      SD
-      IQR
-      CV
+      SD / Standard Deviation / 標準差
+      IQR / Interquartile Range / 四分位距
+      CV / Coefficient of Variation / 變異係數
       Boxplot
     機率分佈
-      PMF
-      PDF
-      CDF
+      PMF / Probability Mass Function / 機率質量函數
+      PDF / Probability Density Function / 機率密度函數
+      CDF / Cumulative Distribution Function / 累積分佈函數
       Normal
       Binomial
       Poisson
       Uniform
       Exponential
-      CLT
+      CLT / Central Limit Theorem / 中央極限定理
     假設檢定
       H0 H1
       p-value
@@ -157,7 +157,7 @@ mindmap
       Power
       t-test
       Chi-square
-      ANOVA
+      ANOVA / Analysis of Variance / 變異數分析
     視覺化
       Bar
       Histogram
@@ -194,12 +194,12 @@ mindmap
       Logistic Regression
       Decision Tree
       Random Forest
-      SVM
-      k-NN
+      SVM / Support Vector Machine / 支援向量機
+      k-NN / k-Nearest Neighbors / k 近鄰
       Neural Network
       k-means
     類別不平衡
-      SMOTE
+      SMOTE / Synthetic Minority Over-sampling Technique / 合成少數類過取樣
       Random Oversampling
       Undersampling
       Class Weight
@@ -208,9 +208,9 @@ mindmap
       Precision
       Recall
       F1
-      ROC AUC
-      PR Curve
-      MAE MSE RMSE R2
+      ROC AUC / Receiver Operating Characteristic Area Under the Curve / 接收者操作特徵曲線下面積
+      PR Curve / Precision-Recall Curve / 精確率-召回率曲線
+      MAE / Mean Absolute Error / 平均絕對誤差；MSE / Mean Squared Error / 均方誤差；RMSE / Root Mean Squared Error / 均方根誤差；R2 / 決定係數
 ```
 
 ## Area 4 Mindmap：NLP、CV、多模態
@@ -218,9 +218,9 @@ mindmap
 ```mermaid
 mindmap
   root((NLP CV 多模態))
-    NLP
+    NLP / Natural Language Processing / 自然語言處理
       Tokenization
-        BPE
+        BPE / Byte Pair Encoding / 位元組對編碼
         WordPiece
         Unigram
         SentencePiece
@@ -231,23 +231,23 @@ mindmap
           GloVe
         Contextualized
           ELMo
-          BERT
+          BERT / Bidirectional Encoder Representations from Transformers / 雙向編碼器表徵
       Transformer
         Self-Attention
         Multi-head Attention
         Positional Encoding
       Model Family
-        BERT
-        GPT
+        BERT / Bidirectional Encoder Representations from Transformers / 雙向編碼器表徵
+        GPT / Generative Pre-trained Transformer / 生成式預訓練 Transformer
         T5
         BART
-    CV
-      CNN
+    CV / Computer Vision / 電腦視覺
+      CNN / Convolutional Neural Network / 卷積神經網路
         Conv
-        BN
-        ReLU
+        BN / Batch Normalization / 批次正規化
+        ReLU / Rectified Linear Unit / 修正線性單元
         Pooling
-        FC
+        FC / Fully Connected / 全連接層
       ResNet
         Skip Connection
       Tasks
@@ -258,11 +258,11 @@ mindmap
         Panoptic Segmentation
       Metrics
         IoU
-        AP
-        mAP
-        mIoU
+        AP / Average Precision / 平均精確率
+        mAP / mean Average Precision / 平均 AP
+        mIoU / mean Intersection over Union / 平均交並比
     Multimodal
-      CLIP
+      CLIP / Contrastive Language-Image Pre-training / 文圖對齊
       Cross-Attention
       Early Fusion
       Late Fusion
@@ -285,29 +285,29 @@ mindmap
       Perplexity Filtering
       Tokenizer
     模型層
-      Transformer LLM
-      GAN
+      Transformer LLM / Large Language Model / 大型語言模型
+      GAN / Generative Adversarial Network / 生成對抗網路
         Generator
         Discriminator
         Mode Collapse
       Diffusion
         Forward Process
         Reverse Process
-        DDPM
-        DDIM
+        DDPM / Denoising Diffusion Probabilistic Model / 去噪擴散機率模型
+        DDIM / Denoising Diffusion Implicit Model / 去噪擴散隱式模型
         Stable Diffusion
     訓練與對齊
       Pretraining
-      SFT
-      RLHF
+      SFT / Supervised Fine-Tuning / 監督式微調
+      RLHF / Reinforcement Learning from Human Feedback / 人類回饋強化學習
         Reward Model
-        PPO
-      DPO
+        PPO / Proximal Policy Optimization / 近端策略最佳化
+      DPO / Direct Preference Optimization / 直接偏好最佳化
     客製與知識
       Fine-tuning
-      LoRA
-      PEFT
-      RAG
+      LoRA / Low-Rank Adaptation / 低秩適配
+      PEFT / Parameter-Efficient Fine-Tuning / 參數高效微調
+      RAG / Retrieval-Augmented Generation / 檢索增強生成
         Chunking
         Embedding
         Vector Store
@@ -326,12 +326,12 @@ mindmap
 mindmap
   root((大數據系統與處理))
     Ingestion
-      API Polling
+      API / Application Programming Interface / 應用程式介面 Polling
       Webhook
-      CDC
+      CDC / Change Data Capture / 變更資料擷取
       Kafka
     Storage
-      RDBMS
+      RDBMS / Relational Database Management System / 關聯式資料庫管理系統
       NoSQL
         Document
         Key-Value
@@ -343,22 +343,22 @@ mindmap
         Delta Lake
         Iceberg
         Hudi
-      HDFS
+      HDFS / Hadoop Distributed File System / Hadoop 分散式檔案系統
     Processing
       Hadoop
-        HDFS
-        YARN
+        HDFS / Hadoop Distributed File System / Hadoop 分散式檔案系統
+        YARN / Yet Another Resource Negotiator / Hadoop 資源管理器
         MapReduce
       Spark
-        RDD
+        RDD / Resilient Distributed Dataset / 彈性分散式資料集
         DataFrame
         Lazy Evaluation
         Transformation
         Action
       Flink
-    SQL
+    SQL / Structured Query Language / 結構化查詢語言
       JOIN
-      GROUP BY
+      GROUP BY / 分組彙總
       Window Function
         ROW_NUMBER
         RANK
@@ -380,23 +380,23 @@ mindmap
       Business Framing
       Dual-Constraint
       Weighted Scoring
-      TCO
-      ROI
+      TCO / Total Cost of Ownership / 總持有成本
+      ROI / Return on Investment / 投資報酬率
       Payback Period
       Break-even
       Solution Ladder
     Planning
       Roadmap
-      RACI
-      NSM
-      OKR
-      KPI
-      PoC
-      MVP
+      RACI / Responsible Accountable Consulted Informed / 責任分工矩陣
+      NSM / North Star Metric / 北極星指標
+      OKR / Objectives and Key Results / 目標與關鍵成果
+      KPI / Key Performance Indicator / 關鍵績效指標
+      PoC / Proof of Concept / 概念驗證
+      MVP / Minimum Viable Product / 最小可行產品
       Pilot
       Rollout
-      CRISP-DM
-    MLOps
+      CRISP-DM / Cross-Industry Standard Process for Data Mining / 跨產業資料探勘標準流程
+    MLOps / Machine Learning Operations / 機器學習維運
       Training
       Model Registry
       Feature Store
@@ -412,9 +412,9 @@ mindmap
       Blue-Green
       A-B Testing
     Monitoring
-      SLI
-      SLO
-      SLA
+      SLI / Service Level Indicator / 服務水準指標
+      SLO / Service Level Objective / 服務水準目標
+      SLA / Service Level Agreement / 服務水準協議
       Data Drift
       Concept Drift
 ```
@@ -440,7 +440,7 @@ mindmap
         High Risk
         Limited
         Minimal
-      NIST AI RMF
+      NIST AI RMF / National Institute of Standards and Technology AI Risk Management Framework / AI 風險管理框架
         Govern
         Map
         Measure
@@ -448,10 +448,10 @@ mindmap
       ISO 42001
       ISO 23894
       ISO 27001
-      DPIA
-      FRIA
+      DPIA / Data Protection Impact Assessment / 資料保護影響評估
+      FRIA / Fundamental Rights Impact Assessment / 基本權利影響評估
     Privacy
-      PII
+      PII / Personally Identifiable Information / 個人可識別資訊
       Masking
       Redaction
       Pseudonymization
@@ -465,8 +465,8 @@ mindmap
       Encryption at Rest
       Encryption in Transit
       Homomorphic Encryption
-      RBAC
-      ABAC
+      RBAC / Role-Based Access Control / 角色式存取控制
+      ABAC / Attribute-Based Access Control / 屬性式存取控制
       Field-Level Security
 ```
 
@@ -482,7 +482,7 @@ mindmap
     Low-Code
       Visual Builder
       Custom Code
-      API Integration
+      API / Application Programming Interface / 應用程式介面 Integration
     GenAI Tool Use
       Prompt Engineering
       Assistant
@@ -500,4 +500,3 @@ mindmap
       Approval Workflow
       Monitoring
 ```
-

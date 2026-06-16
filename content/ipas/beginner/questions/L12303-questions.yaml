@@ -1,11 +1,14 @@
-# L12303 生成式AI風險管理 — Practice Question Pool (Medium, 35 questions)
-# Certification: iPAS AI應用規劃師 初級
+topic: L12303
+topic_name: 生成式AI風險管理
+level: beginner
 # Coverage: 倫理風險 / 資料安全隱私 / 合規性 / 風險影響評估
+# Distribution: D1×9, D2×10, D3×11, D4×6, D5×4 = 40 questions
+# Answer balance target: ~10 per option
 
 questions:
 
 # ============================================================
-# Difficulty 1 — Remember (7 questions, Q01–Q07)
+# Difficulty 1 — Remember (9 questions, Q01–Q09)
 # ============================================================
 
   - id: "L12303-Q01"
@@ -164,7 +167,55 @@ questions:
     exam_trap: true
 
 # ============================================================
-# Difficulty 2 — Understand (7 questions, Q08–Q14)
+# Difficulty 1 — Remember (continued, Q08–Q09)
+# ============================================================
+
+  - id: "L12303-Q08b"
+    topic_code: "L12303"
+    item_code: "data-security-privacy"
+    difficulty: 1
+    question: "OWASP LLM Top 10（2025 版）中，排名第一的 LLM 應用安全風險是？"
+    options:
+      a: "Prompt Injection（提示注入）"
+      b: "Sensitive Information Disclosure（敏感資訊洩露）"
+      c: "Training Data Poisoning（訓練資料中毒）"
+      d: "Excessive Agency（過度代理能力）"
+    correct: "a"
+    explanation:
+      why_correct: "OWASP Top 10 for LLM Applications 2025 版將 Prompt Injection（LLM01）列為排名第一的 LLM 應用風險，是最常見且影響最廣的 LLM 安全威脅類型。"
+      why_not_b: "Sensitive Information Disclosure（LLM02）在 2025 版從第六名竄升至第二名，但不是第一。"
+      why_not_c: "Training Data Poisoning（LLM04）屬訓練期風險，在 2025 排名中不是第一。"
+      why_not_d: "Excessive Agency（LLM06）指 AI 代理能力過大，是重要風險但不是排名第一。"
+    keywords:
+      - "OWASP LLM01"
+      - "Prompt Injection"
+      - "LLM 安全"
+    exam_trap: false
+
+  - id: "L12303-Q09b"
+    topic_code: "L12303"
+    item_code: "risk-impact"
+    difficulty: 1
+    question: "下列哪一項最能描述風險管理工具中的『Guardrails（護欄）』？"
+    options:
+      a: "微調模型使其遵守特定規則的訓練技術"
+      b: "讓人類在 AI 決策前介入覆核的機制"
+      c: "主動測試 AI 系統弱點的攻擊模擬演練"
+      d: "部署在模型外層的輸入/輸出過濾機制，用於攔截違規請求與違規產出"
+    correct: "d"
+    explanation:
+      why_correct: "Guardrails（護欄）是部署於模型外部的包裹層（wrapper），對輸入進行過濾（阻擋有害請求）並對輸出進行過濾（攔截違規產出），不涉及修改模型本身的權重。"
+      why_not_a: "微調是修改模型內部參數的訓練技術；Guardrails 不修改模型，是外層過濾機制——這是最常見的混淆點。"
+      why_not_b: "讓人類介入覆核是 HITL（Human-in-the-Loop）的定義，不是 Guardrails。"
+      why_not_c: "主動測試弱點是 Red Team（紅隊演練）的定義，不是 Guardrails。"
+    keywords:
+      - "Guardrails"
+      - "護欄"
+      - "輸入輸出過濾"
+    exam_trap: true
+
+# ============================================================
+# Difficulty 2 — Understand (10 questions, Q08–Q14 original + Q14b–Q14c)
 # ============================================================
 
   - id: "L12303-Q08"
@@ -273,15 +324,15 @@ questions:
       情境 X 為『極端但罕見的深偽冒名事件』。planner 最適合採取哪一類因應策略？
     options:
       a: "列為最優先、立即投入最多資源緩解"
-      b: "列為次優先並以保險/合約轉移部分風險，同時建立應變計畫（Contingency Plan）並持續監控"
+      b: "採轉移策略（Transfer）：以保險/合約移轉部分風險，同時建立應變計畫（Contingency Plan）並持續監控"
       c: "先降低暴露面（縮小開放範圍）後定期重新評估是否仍落在此象限"
-      d: "持續監控並預先準備應變計畫（Contingency Plan）"
-    correct: "d"
+      d: "視為低優先，僅列冊觀察、無需採取任何積極行動"
+    correct: "b"
     explanation:
-      why_correct: "低頻高衝擊型風險（如極端深偽事件）發生機率低，資源配置上不宜視為最優先，但一旦發生影響巨大，最佳策略是監控 + 應變計畫，對應風險管理的『轉移/接受配應變』思維。（補充：low-likelihood high-impact 通常走『轉移/降低 + 緊急應變計畫』，而不是立即下架功能。）"
-      why_not_a: "『最優先』屬於高發生 × 高影響象限（表右上），不是低發生高影響（★位置）。"
-      why_not_b: "保險/合約轉移是合理輔助手段，但本題最核心的 planner 動作仍是『持續監控 + 應變計畫』；b 只是 d 的子集且額外加上轉移，不如 d 精準對應象限標準答案。"
-      why_not_c: "『降低暴露面再評估』屬於動態管理做法，適用於不確定風險位置時；本題象限已明確定位，主動作仍應為監控+應變。"
+      why_correct: "低可能性 × 高衝擊象限的標準策略是『轉移（Transfer）』——透過保險、合約移轉財務責任，同時配備應變計畫（Contingency Plan）；一旦極端事件發生，損失由保險/合約方承擔，企業仍能快速回應。這也是考試口訣『降轉接避』中『低高→轉』的核心意涵。"
+      why_not_a: "『最優先、立即緩解』屬高可能 × 高衝擊（Mitigate 降低）象限的策略；本情境發生機率低，不需投入最多資源。"
+      why_not_c: "降低暴露面再評估是一種動態管理手段，但並非低可能×高衝擊象限的主要策略；Transfer + 應變計畫才是標準答案。"
+      why_not_d: "僅列冊觀察屬低可能×低衝擊象限的『接受（Accept）』策略；本情境衝擊極高，不能僅被動觀察，必須主動轉移風險。"
     keywords:
       - "風險矩陣"
       - "低發生高影響"
@@ -334,8 +385,77 @@ questions:
       - "錯假訊息"
     exam_trap: false
 
+  - id: "L12303-Q14b"
+    topic_code: "L12303"
+    item_code: "genai-ethical-risk"
+    difficulty: 2
+    question: "下列哪一情境最能說明生成式 AI 的『偏見（Bias）』風險？"
+    options:
+      a: "模型引用了一條不存在的最高法院判決"
+      b: "攻擊者將惡意指令藏在 PDF 中，讓 AI 改變回應"
+      c: "模型在信用評估中，對同等條件的女性申請人給予較低評分，原因是訓練資料中女性核貸比例本就偏低"
+      d: "員工將客戶資料輸入免費版 ChatGPT"
+    correct: "c"
+    explanation:
+      why_correct: "偏見（Bias）的根因是訓練資料中存在的不均衡或不公平被模型學習並放大；信用評估中系統性低評女性就是典型案例，根源不是模型故障而是歷史資料本身的偏差。iPAS 樣題亦明確將此類歸為倫理風險。"
+      why_not_a: "引用不存在判決是幻覺（Hallucination），根因是模型機率生成本質，而非資料偏差。"
+      why_not_b: "藏惡意指令在 PDF 屬間接提示注入（Indirect Prompt Injection），是資安攻擊類別。"
+      why_not_d: "員工輸入客戶資料屬提示外洩（Prompt Leakage）——資料安全隱私風險，不是倫理偏見。"
+    keywords:
+      - "偏見"
+      - "Bias"
+      - "信用評估"
+      - "訓練資料不均衡"
+    exam_trap: false
+
+  - id: "L12303-Q14c"
+    topic_code: "L12303"
+    item_code: "risk-impact"
+    difficulty: 2
+    question: "下列哪個描述最準確地說明『Red Team（紅隊演練）』在 GenAI 風險管理中的作用？"
+    options:
+      a: "Red Team 是 AI 上線後發現問題再做修補的事後機制"
+      b: "Red Team 是讓人類在 AI 決策前介入審核的流程"
+      c: "Red Team 是事前主動模擬攻擊者行為，找出 AI 系統的安全漏洞與倫理弱點"
+      d: "Red Team 是部署在模型外的輸入/輸出過濾機制"
+    correct: "c"
+    explanation:
+      why_correct: "Red Team（紅隊演練）的本質是『事前主動尋找漏洞』——模擬攻擊者嘗試各種方式突破系統，以便在正式上線前修補弱點。這與事後的問題修補（Incident Response）、輸入/輸出過濾（Guardrails）、人工介入（HITL）完全不同。"
+      why_not_a: "『事後修補』是 Incident Response 的職責；Red Team 的特點是『事前主動』。"
+      why_not_b: "人類在 AI 決策前介入審核是 HITL（Human-in-the-Loop）的定義，不是 Red Team。"
+      why_not_d: "輸入/輸出過濾機制是 Guardrails 的定義，不是 Red Team。"
+    keywords:
+      - "Red Team"
+      - "紅隊演練"
+      - "事前測試"
+      - "主動找漏洞"
+    exam_trap: false
+
+  - id: "L12303-Q14d"
+    topic_code: "L12303"
+    item_code: "compliance"
+    difficulty: 2
+    question: "行政院《行政院及所屬機關（構）使用生成式AI參考指引》（2023-10）規定，公務人員使用 GenAI 時應遵守下列哪些做法？"
+    options:
+      a: "可將未公開的政策草案輸入 GenAI 以加速草擬，但產出需標示"
+      b: "禁止輸入未公開資訊與個資、產出須人工覆核、明確標示 AI 生成內容"
+      c: "只要使用政府採購的 GenAI 工具，任何資料均可輸入"
+      d: "AI 生成內容不需標示，以避免民眾對政府公文產生疑慮"
+    correct: "b"
+    explanation:
+      why_correct: "行政院 2023-10 參考指引四大核心規定：(1) 不得輸入未公開資訊；(2) 不得輸入個資；(3) 產出須人工覆核（HITL）；(4) 明確標示 AI 生成——四項同時成立，缺一不可。"
+      why_not_a: "輸入未公開政策草案明確違反指引第一條，不論是否標示產出。"
+      why_not_c: "採購工具不等於允許輸入任何資料；指引針對的是資料本身的機密等級，不是工具的採購來源。"
+      why_not_d: "標示義務是對外透明揭露的核心要求，指引明確要求標示，不可省略。"
+    keywords:
+      - "行政院指引"
+      - "公務人員 GenAI"
+      - "AI 標示"
+      - "人工覆核"
+    exam_trap: true
+
 # ============================================================
-# Difficulty 3 — Apply (8 questions, Q15–Q22)
+# Difficulty 3 — Apply (11 questions, Q15–Q22 + Q22b–Q22c)
 # ============================================================
 
   - id: "L12303-Q15"
@@ -516,8 +636,77 @@ questions:
       - "複合風險"
     exam_trap: false
 
+  - id: "L12303-Q22b"
+    topic_code: "L12303"
+    item_code: "risk-impact"
+    difficulty: 3
+    question: "某新創公司規劃導入 GenAI 客服機器人，初步風險評估後，列出以下四項風險。依 planner 視角，哪一項應優先處置？"
+    options:
+      a: "客服機器人在醫療諮詢中給出錯誤建議，導致患者傷害（高發生可能性，高衝擊）"
+      b: "偶爾回覆語氣不夠親切（高發生可能性，低衝擊）"
+      c: "遭遇超大規模 DDoS 攻擊導致服務中斷（極低可能性，低衝擊）"
+      d: "特定極冷門語言輸出格式異常（極低可能性，低衝擊）"
+    correct: "a"
+    explanation:
+      why_correct: "風險矩陣的最優先象限是『高發生可能性 × 高衝擊』——採 Mitigate 降低策略，投入最多資源緩解。醫療場景中的錯誤建議可能直接危害患者生命，屬高衝擊，且 GenAI 幻覺是高頻率問題，正好落在此象限。"
+      why_not_b: "語氣不親切屬高發生低衝擊象限，應採 Accept + SOP 例行化處理，優先級低於 a。"
+      why_not_c: "DDoS 攻擊可能性極低衝擊也低，屬低低象限，僅需列冊觀察。"
+      why_not_d: "極冷門語言問題可能性極低衝擊也低，同屬低低象限。"
+    keywords:
+      - "風險矩陣"
+      - "最優先緩解"
+      - "醫療 AI"
+      - "高高象限"
+    exam_trap: false
+
+  - id: "L12303-Q22c"
+    topic_code: "L12303"
+    item_code: "data-security-privacy"
+    difficulty: 3
+    question: "某電商公司計畫以 RAG（Retrieval-Augmented Generation，檢索增強生成）架構讓 AI 客服查詢商品資料庫。資安團隊擔心攻擊者可能污染資料庫中的文件，使 AI 被操控。此威脅最貼切的名稱為？"
+    options:
+      a: "訓練資料中毒（Training Data Poisoning）——攻擊訓練階段"
+      b: "直接提示注入（Direct Prompt Injection）——使用者親自打出繞過規則的指令"
+      c: "間接提示注入（Indirect Prompt Injection）——攻擊者透過 RAG 檢索源植入惡意指令"
+      d: "模型竊取（Model Stealing）——透過大量查詢重建模型"
+    correct: "c"
+    explanation:
+      why_correct: "RAG 架構下，如果攻擊者能夠污染 AI 會檢索的外部資料庫（如商品文件），就能透過那些文件對 AI 植入惡意指令——這正是 OWASP LLM01 定義的 Indirect Prompt Injection（間接提示注入）。攻擊者不直接與系統對話，而是透過 AI 讀取的資料源操控 AI 行為。"
+      why_not_a: "訓練資料中毒發生在訓練階段，而 RAG 是推論階段的檢索機制；此案例是推論時被操控，時機完全不同。"
+      why_not_b: "直接注入指使用者在對話中親自下達惡意指令；此案例的惡意指令來自資料庫文件，使用者可能完全不知情。"
+      why_not_d: "模型竊取是攻擊者透過大量查詢重建模型結構，與 RAG 資料污染無關。"
+    keywords:
+      - "RAG 安全"
+      - "間接提示注入"
+      - "Indirect Prompt Injection"
+      - "資料庫污染"
+    exam_trap: true
+
+  - id: "L12303-Q22d"
+    topic_code: "L12303"
+    item_code: "genai-ethical-risk"
+    difficulty: 3
+    question: "某 AI 新聞平台自動生成財經新聞，發現生成的內容對某些上市公司有系統性的負面描述傾向，而這些公司在訓練資料中（過去負面新聞較多）恰好都有不好的歷史。此現象屬於哪類風險，planner 應如何說明？"
+    options:
+      a: "幻覺（Hallucination）——模型虛構了對這些公司的負面評論"
+      b: "Prompt Injection——攻擊者植入指令要求模型負面報導"
+      c: "訓練資料外洩——模型把訓練時看到的舊新聞逐字輸出"
+      d: "偏見（Bias）——模型複製並放大訓練資料中的負面傾向，可能造成對特定公司的系統性歧視"
+    correct: "d"
+    explanation:
+      why_correct: "模型對特定公司的『系統性負面傾向』，根源是訓練資料中這些公司本來就有較多負面報導，模型學習了這個模式並繼續輸出——這是 Bias（偏見）的典型表現：訓練資料的偏差被模型複製放大。注意：內容可能是真實的，但系統性的負面傾向本身構成報導公平性問題。"
+      why_not_a: "幻覺是模型虛構不存在的事實；此案例的負面描述可能基於真實歷史，問題不在虛構而在系統性的不公平呈現。"
+      why_not_b: "沒有外部攻擊者植入指令的跡象；系統性傾向源自訓練資料，不是即時攻擊。"
+      why_not_c: "訓練資料外洩是逐字重現特定記錄；此案例是系統性傾向，不是字面重現。"
+    keywords:
+      - "偏見 Bias"
+      - "新聞生成"
+      - "系統性傾向"
+      - "訓練資料偏差"
+    exam_trap: false
+
 # ============================================================
-# Difficulty 4 — Analyze (7 questions, Q23–Q29)
+# Difficulty 4 — Analyze (6 questions, Q23–Q29 minus one)
 # ============================================================
 
   - id: "L12303-Q23"
@@ -671,43 +860,8 @@ questions:
       - "NIST AI RMF"
     exam_trap: false
 
-  - id: "L12303-Q29"
-    topic_code: "L12303"
-    item_code: "compliance"
-    difficulty: 4
-    question: |
-      某金融新創規劃導入 GenAI 客服：
-      (i) 以網路公開語料庫微調基礎模型；
-      (ii) 將客戶姓名、交易紀錄傳入 LLM 以產生個人化回覆；
-      (iii) 由於屬於金融服務，金管會將此列為『高風險 AI 應用』。
-
-      planner 須同時辨識本案涉及的法規。下列三法組合，何者與情境 (i)-(ii)-(iii) 的對應最完整？
-    options:
-      a: "(i) 消費者保護法；(ii) 醫療法；(iii) 公司法——與 AI 基本法無關"
-      b: "三種情境都只適用人工智慧基本法，其他法律已被廢除或不相關"
-      c: "(i) 著作權法——訓練資料之重製與合理使用爭議；(ii) 個人資料保護法——Prompt 前之個資蒐集、處理、利用與安全維護；(iii) 人工智慧基本法 §16——高風險 AI 應用之風險分級回報與評估"
-      d: "三法都只適用政府機關，民間金融業不需遵循"
-    correct: "c"
-    explanation:
-      why_correct: "本題測試 planner 能否『把單一業務案例拆解到三法』：訓練資料 → 著作權法；PII 流向 → 個資法；高風險分級 → AI 基本法 §16。三法各自負責不同剖面，不可取代。"
-      why_not_a: "消保法只在廣告不實/商品瑕疵時發生，不是本案主軸；醫療法與金融業無關；公司法是組織法不處理 AI 風險——整組錯位。"
-      why_not_b: "個資法、著作權法、公司相關法規皆現行有效，AI 基本法並未取代其他法律，而是疊加。"
-      why_not_d: "個資法、著作權法適用對象包含民間；AI 基本法第 16 條的風險分級適用高風險 AI 應用，不限政府。"
-    keywords:
-      - "三法疊合"
-      - "AI 基本法 §16"
-      - "著作權法"
-      - "個資法"
-      - "金融高風險"
-    keywords:
-      - "人工智慧基本法"
-      - "個資法"
-      - "著作權法"
-      - "三法分工"
-    exam_trap: false
-
 # ============================================================
-# Difficulty 5 — Evaluate (6 questions, Q30–Q35)
+# Difficulty 5 — Evaluate (4 questions, Q30–Q33)
 # ============================================================
 
   - id: "L12303-Q30"
@@ -735,11 +889,6 @@ questions:
       - "Guardrails"
       - "Red Team"
       - "透明揭露"
-      - "金融高風險 AI"
-    keywords:
-      - "HITL"
-      - "Guardrails"
-      - "Red Team"
       - "金融高風險 AI"
     exam_trap: false
 
@@ -812,50 +961,3 @@ questions:
       - "資安保險"
     exam_trap: false
 
-  - id: "L12303-Q34"
-    topic_code: "L12303"
-    item_code: "compliance"
-    difficulty: 5
-    question: "一家 Podcast 新創打算用 GenAI 產出 AI 主持人音色，並混用網路找到的名人聲音樣本訓練模型。planner 需整合『著作權 × 個資/聲音權 × AI 標示 × 合理使用』多重判斷，下列最合規的建議為？"
-    options:
-      a: "網路公開音檔一律可自由訓練，無需授權"
-      b: "取得聲音樣本來源授權或合理使用依據 + 避免模仿特定名人 + 對 AI 合成音色進行標示 + 若無人類創作投入產出不受著作權保護應有心理準備 + 保留訓練資料與授權紀錄"
-      c: "付費 ChatGPT 即可免去所有著作權責任"
-      d: "將名人聲音直接當主持人，不告知聽眾"
-    correct: "b"
-    explanation:
-      why_correct: "多層合規需同時滿足：著作權（合理使用/授權）+ 個資/聲音權/姓名權 + AI 標示 + 產出保護邊界 + 紀錄保存，呼應智慧局 2023-06 函釋、個資法與民法姓名權/人格權。特別提醒：著作權『合理使用』抗辯僅適用於著作權爭議，但『複製本人聲音』主要觸及民法姓名權/人格權（人格權不屬於著作權範疇），不能用合理使用主張免責，仍須本人同意。"
-      why_not_a: "公開不等於自由重製；訓練階段輸入他人著作 = 重製，需另評估是否符合合理使用要件，且即便著作權層面過關，聲音屬人格權，仍需本人授權。"
-      why_not_c: "付費與著作權歸屬無關；訂閱僅構成契約關係，不能取代合理使用判斷或本人聲音授權。"
-      why_not_d: "冒用名人聲音涉姓名權、人格權（非著作權合理使用可處理）與可能的詐欺/廣告不實責任，是民刑民多重違法。"
-    keywords:
-      - "聲音權"
-      - "訓練資料重製"
-      - "AI 標示"
-      - "複合合規"
-    exam_trap: false
-
-  - id: "L12303-Q35"
-    topic_code: "L12303"
-    item_code: "genai-ethical-risk"
-    difficulty: 5
-    question: "某跨國金融集團要求其在台分公司評估『AI 客服機器人』整體倫理與風險框架。下列哪個 planner 策略最能同時回應『幻覺 × 偏見 × Prompt Injection × PII 外洩 × 深偽/錯假訊息』五類風險？"
-    options:
-      a: "僅依賴模型供應商的預設 Guardrails，不做任何內部管控"
-      b: "將所有風險交由 IT 工程師自行解決，planner 不介入"
-      c: "完全關閉 AI 客服，用純人工替代"
-      d: "建立整合式『AI 風險治理四件套』：Guardrails（輸入輸出過濾）+ HITL（高風險情境人工覆核）+ Red Team（事前與定期紅隊測試）+ 透明揭露（AI 標示+內容來源+事件揭露）；並與 AI 基本法風險分級、個資法、著作權法合規作業整合"
-    correct: "d"
-    explanation:
-      why_correct: "四件套 + 三法整合是初級 planner 層最完整答案，對應 NIST AI RMF Governance/Content Provenance/Testing/Incident Disclosure 四大面向。"
-      why_not_a: "僅依賴供應商等於外包問責，違反『問責原則』。"
-      why_not_b: "工程師自行解決忽略 planner 規劃與治理職責。"
-      why_not_c: "全面關閉犧牲效率與使用者體驗，非 planner 合理選擇。"
-    keywords:
-      - "AI 風險治理"
-      - "四件套"
-      - "HITL"
-      - "Guardrails"
-      - "Red Team"
-      - "透明揭露"
-    exam_trap: false

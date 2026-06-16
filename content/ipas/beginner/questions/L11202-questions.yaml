@@ -692,3 +692,122 @@
     - "中位數填補"
     - "右偏分布"
   exam_trap: true
+
+# ============================================================
+# Questions 31-35 (added to reach target depth: 35)
+# Answer targets: a, a, a, d, d  → corrects a=5,b=15,c=10,d=5
+# ============================================================
+
+- id: "L11202-Q31"
+  topic_code: "L11202"
+  item_code: "L11202"
+  difficulty: 2
+  question: "規範性分析（Prescriptive Analytics）與預測性分析（Predictive Analytics）最主要的差異為何？"
+  options:
+    a: "規範性分析在預測的基礎上，進一步給出建議行動方案；預測性分析只回答「會發生什麼」"
+    b: "預測性分析比規範性分析更難，需要更多資料"
+    c: "規範性分析只適用於行銷領域，預測性分析適用於所有領域"
+    d: "兩者沒有差別，都是對未來的判斷"
+  correct: "a"
+  explanation:
+    why_correct: "預測性分析（Predictive）回答「What will happen?（未來會發生什麼）」；規範性分析（Prescriptive）更進一步回答「What should we do?（應該怎麼做）」，是四種分析類型中最高層次的分析，提供具體決策建議。"
+    why_not_b: "兩者的差異不在資料量或難度，而在於分析的目的。規範性分析建立在預測之上，邏輯上是進階，但不一定需要「更多」資料。"
+    why_not_c: "規範性分析可應用於任何業務領域，如供應鏈優化、醫療決策支援、金融投資建議等，並不限於行銷。"
+    why_not_d: "兩者有明顯差異：預測性只說「未來可能發生 X」，規範性會說「因此你應該採取行動 Y」。"
+  keywords:
+    - "規範性分析"
+    - "Prescriptive Analytics"
+    - "預測性分析"
+    - "Predictive Analytics"
+  exam_trap: true
+
+- id: "L11202-Q32"
+  topic_code: "L11202"
+  item_code: "L11202"
+  difficulty: 1
+  question: "熱力圖（Heatmap）最適合用來呈現哪種類型的資訊？"
+  options:
+    a: "各特徵之間的相關性強弱（如哪兩個變數最有關聯）"
+    b: "各月份的銷售額趨勢"
+    c: "各產品線佔總營收的比例"
+    d: "各部門員工人數的多寡比較"
+  correct: "a"
+  explanation:
+    why_correct: "熱力圖（Heatmap）用顏色深淺呈現矩陣中每個格子的數值大小，最常用於呈現多個變數之間的相關性（correlation matrix），讓人一眼看出哪兩個變數最有關聯。"
+    why_not_b: "銷售額趨勢適合使用折線圖（Line Chart），因為它能清楚呈現時間序列的變化方向。"
+    why_not_c: "比例/組成適合使用圓餅圖（Pie Chart）或堆疊長條圖。"
+    why_not_d: "部門人數比較適合使用長條圖（Bar Chart），因為比較各類別的大小是長條圖的強項。"
+  keywords:
+    - "熱力圖"
+    - "Heatmap"
+    - "資料呈現"
+    - "Data Visualization"
+  exam_trap: false
+
+- id: "L11202-Q33"
+  topic_code: "L11202"
+  item_code: "L11202"
+  difficulty: 3
+  question: "某電商公司想了解：「過去一年，哪些顧客屬性（年齡、地區、消費金額等）彼此之間有強烈關聯，以便用於後續的推薦模型特徵工程。」下列哪種視覺化方式最能協助分析師快速識別特徵間的相關性模式？"
+  options:
+    a: "熱力圖（Heatmap）— 以色彩矩陣同時呈現所有特徵兩兩之間的相關係數"
+    b: "折線圖（Line Chart）— 觀察各屬性隨時間的變化趨勢"
+    c: "圓餅圖（Pie Chart）— 呈現各屬性在顧客群中的佔比"
+    d: "長條圖（Bar Chart）— 比較各屬性數值的高低"
+  correct: "a"
+  explanation:
+    why_correct: "熱力圖（Heatmap）可以在一張圖中同時呈現多個特徵兩兩之間的相關係數，顏色越深代表相關性越強（正相關或負相關），讓分析師快速識別哪些特徵之間有強烈關聯，非常適合特徵工程前的探索性分析。"
+    why_not_b: "折線圖適合呈現時間趨勢，不適合呈現特徵間的相關性關係。"
+    why_not_c: "圓餅圖適合呈現組成比例，無法呈現特徵間的關聯性。"
+    why_not_d: "長條圖適合比較各類別的數值大小，不能同時呈現多個特徵間的相關性矩陣。"
+  keywords:
+    - "熱力圖"
+    - "Heatmap"
+    - "特徵工程"
+    - "相關性"
+  exam_trap: false
+
+- id: "L11202-Q34"
+  topic_code: "L11202"
+  item_code: "L11202"
+  difficulty: 3
+  question: "蝦皮客服部門發現上個月的客訴數量是 5,000 件，比上上個月多了 1,200 件。主管想找出造成客訴暴增的根本原因。下列哪種分析最符合主管目前的需求？"
+  options:
+    a: "描述性分析（Descriptive Analytics）— 彙總本月客訴資料"
+    b: "診斷性分析（Diagnostic Analytics）— 深入分析客訴暴增的原因"
+    c: "預測性分析（Predictive Analytics）— 預測下個月的客訴數量"
+    d: "規範性分析（Prescriptive Analytics）— 建議如何降低未來客訴"
+  correct: "b"
+  explanation:
+    why_correct: "主管的需求是「找出根本原因」，這對應診斷性分析（Diagnostic Analytics）的核心問題：「為什麼發生？（Why did it happen?）」。描述性分析只是陳述數字，主管已經知道數字（5000件、多了1200件），所以不是描述性。"
+    why_not_a: "描述性分析回答「發生了什麼」——例如「上個月有 5,000 件客訴」。主管已經有這個數字了，他想知道的是「為什麼」。"
+    why_not_c: "預測性分析關注未來趨勢，但主管目前的問題是找出過去暴增的原因，不是預測未來。"
+    why_not_d: "規範性分析是提供行動建議，但在找出根本原因之前，還不到給建議的階段。"
+  keywords:
+    - "診斷性分析"
+    - "Diagnostic Analytics"
+    - "分析類型情境判斷"
+  exam_trap: false
+
+- id: "L11202-Q35"
+  topic_code: "L11202"
+  item_code: "L11202"
+  difficulty: 4
+  question: "某 AI 工程師在建立「員工離職預測模型」時，注意到訓練資料集中包含「離職日期」欄位。這個欄位在現實中只有在員工真正離職後才會有資料，但訓練時卻被當成特徵使用。這個問題屬於下列哪種情況？應如何解決？"
+  options:
+    a: "重複值問題（Duplicate）— 應刪除重複的員工紀錄"
+    b: "不一致問題（Inconsistency）— 應統一離職日期的格式"
+    c: "異常值問題（Outlier）— 應過濾掉極端的離職日期"
+    d: "資料洩漏（Data Leakage）— 應從訓練特徵中移除「離職日期」欄位，因為預測時此資料尚不存在"
+  correct: "d"
+  explanation:
+    why_correct: "「離職日期」是只有在員工離職後才會有的資料，在預測模型中屬於「未來才會知道的資訊」。如果將它當成訓練特徵，模型會「偷看答案」，在訓練時表現極好但實際部署後完全失效——這正是資料洩漏（Data Leakage）的定義。解決方式是從特徵集中移除這個欄位。"
+    why_not_a: "重複值是指同一筆資料出現多次，與「使用了不該使用的特徵」無關。"
+    why_not_b: "不一致問題是指同一資料在不同地方有不同格式，例如日期格式不統一，這裡的問題是「本不該使用這個欄位」。"
+    why_not_c: "異常值是數值極端偏離正常範圍，這裡的問題不是數值極端，而是整個欄位的使用方式違反了「預測時只能使用當時已知資訊」的原則。"
+  keywords:
+    - "資料洩漏"
+    - "Data Leakage"
+    - "訓練資料"
+    - "特徵工程"
+  exam_trap: true

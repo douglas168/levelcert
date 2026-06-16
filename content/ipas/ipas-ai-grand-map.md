@@ -30,7 +30,7 @@
 -> 資料處理 / 統計（Data Processing / Statistics）
 -> 機器學習（Machine Learning, ML）
 -> 深度學習（Deep Learning, DL）
--> NLP / CV / Multimodal AI
+-> NLP（Natural Language Processing，自然語言處理） / CV（Computer Vision，電腦視覺） / Multimodal AI（多模態 AI）
 -> 生成式 AI（Generative AI, GenAI）
 -> 大數據 / MLOps（Machine Learning Operations）
 -> 治理 / 風險 / 隱私（Governance / Risk / Privacy）
@@ -61,7 +61,7 @@ Preprocessing -> encoding -> scaling -> train / validation / test
         |
         v
 AI 模型
-Traditional ML -> Deep Learning -> NLP / CV -> Generative AI -> Multimodal AI
+Traditional ML -> Deep Learning -> NLP（Natural Language Processing，自然語言處理） / CV（Computer Vision，電腦視覺） -> Generative AI -> Multimodal AI
         |
         v
 大數據與系統化
@@ -76,10 +76,10 @@ Evaluation -> planning -> deployment -> risk -> privacy -> compliance
 
 | 層次 | 初級在問什麼 | 中級在問什麼 |
 |---|---|---|
-| AI 基礎 | AI / ML / GenAI 是什麼 | 這個情境要選哪種架構、模型或方法 |
+| AI 基礎 | AI（Artificial Intelligence，人工智慧） / ML（Machine Learning，機器學習） / GenAI（Generative AI，生成式 AI）是什麼 | 這個情境要選哪種架構、模型或方法 |
 | 資料 | 資料是什麼、從哪裡來 | 如何清理、儲存、處理、保護大規模資料 |
-| ML | 監督式 / 非監督式是什麼 | 指標、切分、縮放、編碼、不平衡資料怎麼選 |
-| GenAI | 生成式 AI 可以做什麼 | RAG、SFT、RLHF、DPO、tokenizer、corpus 怎麼分 |
+| ML（Machine Learning，機器學習） | 監督式 / 非監督式是什麼 | 指標、切分、縮放、編碼、不平衡資料怎麼選 |
+| GenAI（Generative AI，生成式 AI） | 生成式 AI 可以做什麼 | RAG（Retrieval-Augmented Generation，檢索增強生成）、SFT（Supervised Fine-Tuning，監督式微調）、RLHF（Reinforcement Learning from Human Feedback，人類回饋強化學習）、DPO（Direct Preference Optimization，直接偏好最佳化）、tokenizer、corpus 怎麼分 |
 | 部署 | 為什麼要導入 AI | 如何評估、規劃、部署、監控、回滾 |
 | 治理 | 為什麼要管倫理與隱私 | 哪個法規、風險框架、隱私技術或控制措施適用 |
 
@@ -89,19 +89,19 @@ Evaluation -> planning -> deployment -> risk -> privacy -> compliance
 
 | 初級基礎 | 中級延伸 | 中級主要課程 |
 |---|---|---|
-| AI 定義與分類 | NLP、CV、GenAI、多模態、部署、風險 | L21101-L21302 |
-| AI 治理概念 | EU AI Act、NIST AI RMF、ISO 42001、FRIA、DPIA、Risk Register | L21203, L22404 |
-| 資料基本概念與來源 | API、Webhook、CDC、Kafka、Data Lake（資料湖）、Data Warehouse（資料倉儲）、Lakehouse（資料湖倉） | L22201, L22202 |
+| AI 定義與分類 | NLP（Natural Language Processing，自然語言處理）、CV（Computer Vision，電腦視覺）、GenAI、多模態、部署、風險 | L21101-L21302 |
+| AI 治理概念 | EU AI Act、NIST AI RMF（National Institute of Standards and Technology AI Risk Management Framework，AI 風險管理框架）、ISO 42001、FRIA（Fundamental Rights Impact Assessment，基本權利影響評估）、DPIA（Data Protection Impact Assessment，資料保護影響評估）、Risk Register | L21203, L22404 |
+| 資料基本概念與來源 | API（Application Programming Interface，應用程式介面）、Webhook、CDC（Change Data Capture，變更資料擷取）、Kafka、Data Lake（資料湖）、Data Warehouse（資料倉儲）、Lakehouse（資料湖倉） | L22201, L22202 |
 | 資料整理與分析流程 | 缺失值、離群值、scaling（縮放）、data leakage（資料洩漏）、visualization（視覺化） | L22101, L22201, L22301, L22303 |
-| 資料隱私與安全 | anonymization（匿名化）、pseudonymization（假名化）、DP（Differential Privacy，差分隱私）、FL（Federated Learning，聯邦學習）、encryption（加密）、RBAC / ABAC | L22404 |
+| 資料隱私與安全 | anonymization（匿名化）、pseudonymization（假名化）、DP（Differential Privacy，差分隱私）、FL（Federated Learning，聯邦學習）、encryption（加密）、RBAC（Role-Based Access Control，角色式存取控制） / ABAC（Attribute-Based Access Control，屬性式存取控制） | L22404 |
 | 機器學習基本原理 | train / validation / test、model selection（模型選擇）、metrics（評估指標）、imbalanced data（類別不平衡資料） | L21301, L22302, L22402 |
-| 常見機器學習模型 | k-means、Decision Tree、SVM、Random Forest、Neural Network | L21301, L22302 |
+| 常見機器學習模型 | k-means、Decision Tree、SVM（Support Vector Machine，支援向量機）、Random Forest、Neural Network | L21301, L22302 |
 | 鑑別式 AI vs 生成式 AI | classifier metrics（分類指標）vs LLM（Large Language Model，大型語言模型）/ diffusion（擴散模型）/ RAG / fine-tuning（微調） | L21103, L22402, L22403 |
 | No-Code / Low-Code | AI adoption（AI 導入）、tool selection（工具選擇）、governance（治理）、limitations（限制） | L21201, L21202 |
-| GenAI 工具與提示 | prompt engineering（提示工程）、RAG、fine-tuning（微調）、model evaluation（模型評估） | L21101, L21103, L21201, L22403 |
-| GenAI 導入評估 | solution ladder（解決方案階梯）、TCO、ROI、payback（回收期）、weighted scoring（加權評分） | L21201 |
-| GenAI 導入規劃 | roadmap（路線圖）、RACI、KPI、Pilot（試行）、Rollout（擴展上線）、CRISP-DM | L21202 |
-| GenAI 風險管理 | risk types（風險類型）、AI Act level（AI 法案分級）、FRIA、privacy（隱私）、security（資安） | L21203, L22404 |
+| GenAI 工具與提示 | prompt engineering（提示工程）、RAG（Retrieval-Augmented Generation，檢索增強生成）、fine-tuning（微調）、model evaluation（模型評估） | L21101, L21103, L21201, L22403 |
+| GenAI 導入評估 | solution ladder（解決方案階梯）、TCO（Total Cost of Ownership，總持有成本）、ROI（Return on Investment，投資報酬率）、payback（回收期）、weighted scoring（加權評分） | L21201 |
+| GenAI 導入規劃 | roadmap（路線圖）、RACI（Responsible, Accountable, Consulted, Informed，負責 / 當責 / 諮詢 / 知會）、KPI（Key Performance Indicator，關鍵績效指標）、Pilot（試行）、Rollout（擴展上線）、CRISP-DM（Cross-Industry Standard Process for Data Mining，跨產業資料探勘標準流程） | L21202 |
+| GenAI 風險管理 | risk types（風險類型）、AI Act level（AI 法案分級）、FRIA（Fundamental Rights Impact Assessment，基本權利影響評估）、privacy（隱私）、security（資安） | L21203, L22404 |
 
 ---
 
@@ -972,11 +972,11 @@ AI Adoption and MLOps
 |---|---|---|
 | Weighted Scoring | 先定權重 | 避免確認偏誤 |
 | Dual-Constraint | AND 條件 | 先篩掉不可行方案 |
-| RACI | 角色責任 | A 每列只能一人 |
+| RACI（Responsible, Accountable, Consulted, Informed，負責 / 當責 / 諮詢 / 知會） | 角色責任 | A 每列只能一人 |
 | Shadow | Serving 架構 | 背景測試、不影響用戶 |
 | Canary | 流量切分 | 小比例用戶收新版 |
 | Data Drift | 監控輸入 P(X) | Retraining |
-| Concept Drift | 監控 P(Y|X) | 模型可能失效 |
+| Concept Drift | 監控 P(Y\|X) | 模型可能失效 |
 
 ### 與其他領域的關係
 
