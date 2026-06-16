@@ -109,6 +109,12 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23304 — 模型調整與優化
 - **Diagram rendering:** 5 Mermaid diagrams (`.mmd`) under `lessons/L23304-模型調整與優化/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23401 — 數據隱私、安全與合規
+- **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23401-數據隱私、安全與合規/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
+### L23402 — 演算法偏見與公平性
+- **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23402-演算法偏見與公平性/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -147,18 +153,18 @@ Tracks open items across all lessons that need resolution before publishing.
 | 30 | L23302 | 模型選擇與架構設計 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 2 |
 | 31 | L23303 | 模型訓練、評估與驗證 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 2 |
 | 32 | L23304 | 模型調整與優化 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 33 | L23401 | 數據隱私、安全與合規 | L23 | elective_b (機器學習組) | 2 | Not started | — |
-| 34 | L23402 | 演算法偏見與公平性 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| ~~33~~ | ~~L23401~~ | ~~數據隱私、安全與合規~~ | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
+| ~~34~~ | ~~L23402~~ | ~~演算法偏見與公平性~~ | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 
 ---
 
 ## What's Next
 
-**🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
+**🎉 ALL 34 LESSONS COMPLETE!** Both 資料分析組 (L21 + L22) and 機器學習組 (L21 + L23) content fully done.
 
-**Next:** `/course-generate-lesson L23401` to continue 機器學習組 SKU.
+**Next:** Run `/course-generate-exam` to assemble mock exams for both SKUs.
 
-**Remaining lessons:** 2 of 34 topics left (L23401, L23402 — all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 0 of 34 topics left — all complete.
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -205,12 +211,10 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 | ~~30~~ | ~~L23302~~ | ~~模型選擇與架構設計~~ | ✅ Done (816-line study guide, 5 diagrams, 4 important fixes applied) |
 | ~~31~~ | ~~L23303~~ | ~~模型訓練、評估與驗證~~ | ✅ Done (824-line study guide, 5 diagrams, 1 fix applied) |
 | ~~32~~ | ~~L23304~~ | ~~模型調整與優化~~ | ✅ Done (1,007-line study guide, 5 diagrams, review clean) |
-| 33 | L23401 | 數據隱私、安全與合規 | Deep, includes code, external docs needed (個資法) |
-| 34 | L23402 | 演算法偏見與公平性 | Deep, includes code |
+| ~~33~~ | ~~L23401~~ | ~~數據隱私、安全與合規~~ | ✅ Done (843-line study guide, 5 diagrams, 6 fixes applied) |
+| ~~34~~ | ~~L23402~~ | ~~演算法偏見與公平性~~ | ✅ Done (856-line study guide, 5 diagrams, 3 fixes applied) |
 
-**When priority-1 (L21 + L22) lessons are done:** First SKU `ipas-ai-intermediate-data` is ready — run `/course-generate-exam` to assemble 資料分析組 mock exams. L23 can follow.
-
-**When all 34 lessons are done:** Both SKUs ready — assemble mock exams for 機器學習組 too.
+**🎉 Both SKUs complete — run `/course-generate-exam` to assemble mock exams for both 資料分析組 and 機器學習組.**
 
 ---
 
@@ -239,3 +243,5 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 - **L23201** — 機器學習原理與技術 (2026-06-16). 763-line study guide, 5 Mermaid diagrams (偏差-變異數權衡曲線, 訓練/驗證/測試分割流程, K折交叉驗證輪轉圖, 損失函數比較圖, 過擬合診斷學習曲線). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/1 minor) resolved 1 total: LOO threshold standardized to n < 50 (was n < 100 in one location). **L23 機器學習組 sprint: 8 topics remaining.**
 - **L23202** — 常見機器學習演算法 (2026-06-16). 872-line study guide, 5 diagrams (algorithm-selection-flowchart, bias-variance-positioning, split-criteria-comparison, bagging-vs-boosting, svm-margin-geometry). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/2 minor) resolved 1 total: removed outdated RF `n_features/3` regression default (sklearn 1.x changed to 1.0). **L23 機器學習組 sprint: 7 topics remaining.**
 - **L23203** — 深度學習原理與框架 (2026-06-16). 971-line study guide, 5 diagrams (mlp-forward-pass, cnn-conv-pooling, rnn-lstm-unrolled, transformer-encoder, framework-arch-selection). 1-reviewer pipeline (Claude adversarial: 0 critical/1 important/2 minor) resolved 3 total: LSTM bias +1 vs +2 convention clarified (PyTorch uses +2), cell gate renamed to 候選 cell (g), tanh example labeled illustrative. **L23 機器學習組 sprint: 6 topics remaining.**
+- **L23401** — 數據隱私、安全與合規 (2026-06-16). 843-line study guide, 5 diagrams (ml-lifecycle-compliance Mermaid, model-card-structure ASCII, gdpr-art22-decision-tree Mermaid, pdpa-vs-gdpr ASCII, audit-logging-architecture ASCII+SQL). 1-reviewer pipeline (Claude adversarial: 0 critical/2 important/4 minor) resolved 6 total: GDPR Art. 22(2) exception branches added, NIST attribution corrected to AI RMF Manage 2.4, GDPR Art. 17 six erasure grounds added, model inversion definition tightened, SQL hash() comment added, 個資法 2025-11-11 amendment noted. **L23 機器學習組 sprint: 機器學習治理 governance cluster complete.**
+- **L23402** — 演算法偏見與公平性 (2026-06-16). 856-line study guide, 5 diagrams (bias-source-taxonomy, fairness-metrics-comparison with formulas, mitigation-strategies-by-stage, four-fifths-rule-worked-example with confusion matrix per group, bias-audit-workflow). 1-reviewer pipeline (Claude adversarial: 0 critical/2 important/1 minor) resolved 3 total: aggregation bias boundary-classification clarified (exam trap note added), reweighting locked to pre-processing only, AIF360 governance transition noted. **🎉 ALL 34 L23 lessons complete — 機器學習組 SKU ready for `/course-generate-exam`.**
