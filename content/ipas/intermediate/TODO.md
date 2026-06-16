@@ -92,6 +92,9 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23202 — 常見機器學習演算法
 - **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23202-常見機器學習演算法/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23203 — 深度學習原理與框架
+- **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23203-深度學習原理與框架/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -125,7 +128,7 @@ Tracks open items across all lessons that need resolution before publishing.
 | 25 | L23103 | 數值優化技術與方法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 26 | L23201 | 機器學習原理與技術 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 28 | L23203 | 深度學習原理與框架 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| 28 | L23203 | 深度學習原理與框架 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 29 | L23301 | 數據準備與特徵工程 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 30 | L23302 | 模型選擇與架構設計 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 31 | L23303 | 模型訓練、評估與驗證 | L23 | elective_b (機器學習組) | 2 | Not started | — |
@@ -139,9 +142,9 @@ Tracks open items across all lessons that need resolution before publishing.
 
 **🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
 
-**Next:** `/course-generate-lesson L23203` to continue 機器學習組 SKU (in progress).
+**Next:** `/course-generate-lesson L23301` to continue 機器學習組 SKU.
 
-**Remaining lessons:** 7 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 6 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -183,7 +186,7 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 | ~~25~~ | ~~L23103~~ | ~~數值優化技術與方法~~ | ✅ Done (787-line study guide, 5 diagrams, 4 review fixes applied) |
 | ~~26~~ | ~~L23201~~ | ~~機器學習原理與技術~~ | ✅ Done (763-line study guide, 5 diagrams, 1 minor fix applied) |
 | ~~27~~ | ~~L23202~~ | ~~常見機器學習演算法~~ | ✅ Done (872-line study guide, 5 diagrams, 1 minor fix applied) |
-| 28 | L23203 | 深度學習原理與框架 | Deep, includes code |
+| ~~28~~ | ~~L23203~~ | ~~深度學習原理與框架~~ | ✅ Done (971-line study guide, 5 diagrams, 1 important fix applied) |
 | 29 | L23301 | 數據準備與特徵工程 | Deep, includes code, keywords inferred |
 | 30 | L23302 | 模型選擇與架構設計 | Deep, includes code |
 | 31 | L23303 | 模型訓練、評估與驗證 | Deep, includes code |
@@ -221,3 +224,4 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 - **L23103** — 數值優化技術與方法 (2026-06-16). 787-line study guide, 5 Mermaid diagrams (損失曲面GD路徑, GD/SGD/Mini-batch收斂比較, Adam四步驟更新分解, 學習率診斷圖, 批次大小可擴展性矩陣). 1-reviewer pipeline (Claude adversarial: 0 critical/2 important/1 minor) resolved 4 total: saddle point definition corrected from "梯度可能接近0" to "梯度恰好等於0 (∇L=0)" in 3 locations (body §3.4, Scenario Bank, Exam Trap), large-batch generalization-gap downside added. **L23 機器學習組 sprint: 9 topics remaining.**
 - **L23201** — 機器學習原理與技術 (2026-06-16). 763-line study guide, 5 Mermaid diagrams (偏差-變異數權衡曲線, 訓練/驗證/測試分割流程, K折交叉驗證輪轉圖, 損失函數比較圖, 過擬合診斷學習曲線). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/1 minor) resolved 1 total: LOO threshold standardized to n < 50 (was n < 100 in one location). **L23 機器學習組 sprint: 8 topics remaining.**
 - **L23202** — 常見機器學習演算法 (2026-06-16). 872-line study guide, 5 diagrams (algorithm-selection-flowchart, bias-variance-positioning, split-criteria-comparison, bagging-vs-boosting, svm-margin-geometry). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/2 minor) resolved 1 total: removed outdated RF `n_features/3` regression default (sklearn 1.x changed to 1.0). **L23 機器學習組 sprint: 7 topics remaining.**
+- **L23203** — 深度學習原理與框架 (2026-06-16). 971-line study guide, 5 diagrams (mlp-forward-pass, cnn-conv-pooling, rnn-lstm-unrolled, transformer-encoder, framework-arch-selection). 1-reviewer pipeline (Claude adversarial: 0 critical/1 important/2 minor) resolved 3 total: LSTM bias +1 vs +2 convention clarified (PyTorch uses +2), cell gate renamed to 候選 cell (g), tanh example labeled illustrative. **L23 機器學習組 sprint: 6 topics remaining.**
