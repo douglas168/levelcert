@@ -83,6 +83,9 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23102 — 線性代數之機器學習基礎應用
 - **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23102-線性代數之機器學習基礎應用/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23103 — 數值優化技術與方法
+- **Diagram rendering:** 5 Mermaid diagrams (`.md` source) under `lessons/L23103-數值優化技術與方法/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -113,7 +116,7 @@ Tracks open items across all lessons that need resolution before publishing.
 | ~~22~~ | ~~L22404~~ | ~~大數據隱私保護、安全與合規~~ | L22 | elective_a (資料分析組) | 1 | ✅ Done | 1 |
 | 23 | L23101 | 機率/統計之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 24 | L23102 | 線性代數之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 25 | L23103 | 數值優化技術與方法 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| 25 | L23103 | 數值優化技術與方法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 26 | L23201 | 機器學習原理與技術 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 28 | L23203 | 深度學習原理與框架 | L23 | elective_b (機器學習組) | 2 | Not started | — |
@@ -130,9 +133,9 @@ Tracks open items across all lessons that need resolution before publishing.
 
 **🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
 
-**Next:** `/course-generate-lesson L23103` to continue 機器學習組 SKU.
+**Next:** `/course-generate-lesson L23201` to continue 機器學習組 SKU.
 
-**Remaining lessons:** 10 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 9 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -171,8 +174,7 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 |---|---|---|---|
 | ~~23~~ | ~~L23101~~ | ~~機率/統計之機器學習基礎應用~~ | ✅ Done (797-line study guide, 5 diagrams, 0 review findings) |
 | ~~24~~ | ~~L23102~~ | ~~線性代數之機器學習基礎應用~~ | ✅ Done (1,107-line study guide, 5 diagrams, 3 important fixes applied) |
-| 25 | L23103 | 數值優化技術與方法 | Deep, includes code |
-| 25 | L23103 | 數值優化技術與方法 | Deep, includes code |
+| ~~25~~ | ~~L23103~~ | ~~數值優化技術與方法~~ | ✅ Done (787-line study guide, 5 diagrams, 4 review fixes applied) |
 | 26 | L23201 | 機器學習原理與技術 | Deep, includes code |
 | 27 | L23202 | 常見機器學習演算法 | Deep, includes code |
 | 28 | L23203 | 深度學習原理與框架 | Deep, includes code |
@@ -210,3 +212,4 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 - **L22303** — 數據可視化工具 (2026-04-21). 35-question pool (medium, includes code), 879-line study guide, 5 Mermaid diagrams (chart-chooser decision tree, tool positioning quadrant, pre-attentive attributes mindmap, data-ink ratio concept flow, Python library selection flowchart). 2-reviewer pipeline (Claude adversarial: 1 critical/5 important; Codex auditor: terminology + mnemonic; Gemini: CLI empty/skipped) resolved 13 total (2 critical [CROSS] + 5 important + 3 minor + 3 minor): C1 duplicate `correct:`/`explanation:` YAML keys removed from 13 questions, C2 4 mislabeled `why_not_*` explanations fixed (Q03/Q04/Q25/Q33), terminology normalized (散布圖/熱圖/箱線圖). **L22 sprint: 4 topics remaining.**
 - **L22402** — 大數據應用於鑑別式AI中的應用 (2026-04-21). 40-question pool (deep, includes code), 667-line study guide, 5 diagrams (confusion-matrix→metrics derivation flowchart, ROC/AUC curve with ASCII + Mermaid, precision–recall tradeoff with scenario table, use-case catalogue mindmap 6 domains, sklearn .fit/.predict/.predict_proba inference pipeline). 3-reviewer pipeline (Claude adversarial: 2 critical/1 important/7 minor; Gemini: 1 critical/0 important/1 minor; Codex auditor: 0 critical/10 important) resolved 18 total (3 critical + 8 important + 4 minor): C1 [CROSS] Q25 Accuracy 98%→95% (confusion matrix arithmetic), C2 Q21 F1 0.66→0.67 (rounding fix), C3 confusion matrix mnemonic order TP→FP→TN→FN corrected to TP→FP→FN→TN. Open items: diagram images (02-roc-auc-curve, 04-use-case-catalogue) may benefit from Gemini rendering. **L22 sprint: 3 topics remaining.**
 - **L22403** — 大數據在生成式AI中的應用 (2026-04-21). 40-question pool (deep, includes code), 877-line study guide, 5 Mermaid diagrams (三大典範資料需求金字塔, 語料清理管線, RAG資料管線, 分散式訓練三大策略比較, 分詞器技術比較). 2-reviewer pipeline (Claude adversarial: 0 critical/3 important/2 minor; Gemini: CLI empty/skipped; Codex auditor: 11 findings) resolved 13 total (1 critical [CROSS] + 5 important + 6 minor): C1 [CROSS] Dolma token count contradiction study-guide 1.715T vs Q40 3T reconciled, I1 ROOTS language count corrected (Q40 46→59: 46 natural + 13 programming languages), I2 LLaMA tokenizer classification corrected to SentencePiece-BPE (LLaMA 1/2) / tiktoken (LLaMA 3). **L22 sprint: 2 topics remaining.**
+- **L23103** — 數值優化技術與方法 (2026-06-16). 787-line study guide, 5 Mermaid diagrams (損失曲面GD路徑, GD/SGD/Mini-batch收斂比較, Adam四步驟更新分解, 學習率診斷圖, 批次大小可擴展性矩陣). 1-reviewer pipeline (Claude adversarial: 0 critical/2 important/1 minor) resolved 4 total: saddle point definition corrected from "梯度可能接近0" to "梯度恰好等於0 (∇L=0)" in 3 locations (body §3.4, Scenario Bank, Exam Trap), large-batch generalization-gap downside added. **L23 機器學習組 sprint: 9 topics remaining.**
