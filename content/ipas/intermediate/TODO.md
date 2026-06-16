@@ -95,6 +95,20 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23203 — 深度學習原理與框架
 - **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23203-深度學習原理與框架/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23301 — 數據準備與特徵工程
+- **Diagram rendering:** 5 Mermaid diagrams (`.mmd`) under `lessons/L23301-數據準備與特徵工程/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
+### L23302 — 模型選擇與架構設計
+- **Diagram rendering:** 5 Mermaid diagrams (`.mmd`) under `lessons/L23302-模型選擇與架構設計/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+- **Review fixes:** 4 important fixes applied (Adam vs RMSprop clarification, Conv2D input_shape for Keras 3, He initialization rationale corrected, `from_logits` note added to compile()).
+
+### L23303 — 模型訓練、評估與驗證
+- **Diagram rendering:** 5 Mermaid diagrams (`.mmd`) under `lessons/L23303-模型訓練、評估與驗證/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+- **Review fix:** Added note distinguishing sklearn `learning_curve()` (x-axis = training data size) from epoch-based training curves (PyTorch/Keras style).
+
+### L23304 — 模型調整與優化
+- **Diagram rendering:** 5 Mermaid diagrams (`.mmd`) under `lessons/L23304-模型調整與優化/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -129,10 +143,10 @@ Tracks open items across all lessons that need resolution before publishing.
 | 26 | L23201 | 機器學習原理與技術 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 28 | L23203 | 深度學習原理與框架 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 29 | L23301 | 數據準備與特徵工程 | L23 | elective_b (機器學習組) | 2 | Not started | — |
-| 30 | L23302 | 模型選擇與架構設計 | L23 | elective_b (機器學習組) | 2 | Not started | — |
-| 31 | L23303 | 模型訓練、評估與驗證 | L23 | elective_b (機器學習組) | 2 | Not started | — |
-| 32 | L23304 | 模型調整與優化 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| 29 | L23301 | 數據準備與特徵工程 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
+| 30 | L23302 | 模型選擇與架構設計 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 2 |
+| 31 | L23303 | 模型訓練、評估與驗證 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 2 |
+| 32 | L23304 | 模型調整與優化 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 33 | L23401 | 數據隱私、安全與合規 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 34 | L23402 | 演算法偏見與公平性 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 
@@ -142,9 +156,9 @@ Tracks open items across all lessons that need resolution before publishing.
 
 **🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
 
-**Next:** `/course-generate-lesson L23301` to continue 機器學習組 SKU.
+**Next:** `/course-generate-lesson L23401` to continue 機器學習組 SKU.
 
-**Remaining lessons:** 6 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 2 of 34 topics left (L23401, L23402 — all for 機器學習組 SKU; 資料分析組 fully done)
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -187,10 +201,10 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 | ~~26~~ | ~~L23201~~ | ~~機器學習原理與技術~~ | ✅ Done (763-line study guide, 5 diagrams, 1 minor fix applied) |
 | ~~27~~ | ~~L23202~~ | ~~常見機器學習演算法~~ | ✅ Done (872-line study guide, 5 diagrams, 1 minor fix applied) |
 | ~~28~~ | ~~L23203~~ | ~~深度學習原理與框架~~ | ✅ Done (971-line study guide, 5 diagrams, 1 important fix applied) |
-| 29 | L23301 | 數據準備與特徵工程 | Deep, includes code, keywords inferred |
-| 30 | L23302 | 模型選擇與架構設計 | Deep, includes code |
-| 31 | L23303 | 模型訓練、評估與驗證 | Deep, includes code |
-| 32 | L23304 | 模型調整與優化 | Deep, includes code |
+| ~~29~~ | ~~L23301~~ | ~~數據準備與特徵工程~~ | ✅ Done (730-line study guide, 5 diagrams, 0 review findings) |
+| ~~30~~ | ~~L23302~~ | ~~模型選擇與架構設計~~ | ✅ Done (816-line study guide, 5 diagrams, 4 important fixes applied) |
+| ~~31~~ | ~~L23303~~ | ~~模型訓練、評估與驗證~~ | ✅ Done (824-line study guide, 5 diagrams, 1 fix applied) |
+| ~~32~~ | ~~L23304~~ | ~~模型調整與優化~~ | ✅ Done (1,007-line study guide, 5 diagrams, review clean) |
 | 33 | L23401 | 數據隱私、安全與合規 | Deep, includes code, external docs needed (個資法) |
 | 34 | L23402 | 演算法偏見與公平性 | Deep, includes code |
 

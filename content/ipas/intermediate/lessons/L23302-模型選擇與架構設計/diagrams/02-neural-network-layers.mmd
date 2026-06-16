@@ -1,0 +1,48 @@
+---
+title: L23302 神經網路架構層級圖（Neural Network Architecture Layers）
+---
+graph LR
+    subgraph 輸入層 Input Layer
+        I1([x₁])
+        I2([x₂])
+        I3([xₙ])
+    end
+
+    subgraph 隱藏層1 Hidden Layer 1
+        H1a([h₁])
+        H1b([h₂])
+        H1c([h₃])
+        H1d([h₄])
+    end
+
+    subgraph 隱藏層2 Hidden Layer 2
+        H2a([h₁])
+        H2b([h₂])
+        H2c([h₃])
+    end
+
+    subgraph 輸出層 Output Layer
+        O1([ŷ])
+    end
+
+    I1 --> H1a & H1b & H1c & H1d
+    I2 --> H1a & H1b & H1c & H1d
+    I3 --> H1a & H1b & H1c & H1d
+
+    H1a & H1b & H1c & H1d --> H2a & H2b & H2c
+
+    H2a & H2b & H2c --> O1
+
+    subgraph 激活函數選擇 Activation Functions
+        A1["🔷 隱藏層：ReLU（最常見）\n         Tanh（正負對稱）"]
+        A2["🔶 二元分類輸出層：Sigmoid\n         多類別輸出層：Softmax\n         迴歸輸出層：線性（無激活）"]
+    end
+
+    subgraph 架構設計參數
+        P1["📏 Depth（深度）= 隱藏層數量\n         Width（寬度）= 每層神經元數\n         Capacity（容量）∝ 層數 × 神經元數"]
+    end
+
+    style 輸入層 fill:#E3F2FD
+    style 隱藏層1 fill:#F3E5F5
+    style 隱藏層2 fill:#F3E5F5
+    style 輸出層 fill:#E8F5E9

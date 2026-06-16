@@ -1,0 +1,28 @@
+flowchart TD
+    EM["🏆 集成方法\nEnsemble Methods\n「多個模型 → 更好的預測」"]
+
+    EM --> BAG["📦 Bagging\nBootstrap Aggregating\n並行訓練 → 降低 Variance"]
+    EM --> BOO["🚀 Boosting\n序列訓練 → 降低 Bias"]
+    EM --> STK["🏗️ Stacking\n分層預測\n最靈活"]
+
+    BAG --> RF["Random Forest\n隨機森林\n✅ 最常見 Bagging\n= Bagging + 特徵隨機\nn_estimators, max_features"]
+    BAG --> BG2["Extra Trees\n極端隨機樹\n（進階，考試低頻）"]
+
+    BOO --> ADA["AdaBoost\n自適應提升\n調整樣本權重\n最終加權投票"]
+    BOO --> XGB["XGBoost ⭐\neXtreme Gradient Boosting\nGBDT + L1/L2 正則化\n內建防過擬合"]
+    BOO --> LGB["LightGBM ⭐\n直方圖加速\nLeaf-wise 成長\n適合大資料集"]
+    BOO --> GBT["GradientBoostingClassifier\nsklearn 原生 GBDT\n（較慢）"]
+
+    STK --> L0["Level-0: Base Learners\n多個異質模型\nRF + SVM + KNN..."]
+    STK --> L1["Level-1: Meta-Learner\n元學習器（通常 LogReg）\n學習如何組合 L0 的預測"]
+
+    BAG -.->|並行獨立| NOTE1["✅ 多模型看不同資料子集\n❌ 訓練間無依賴"]
+    BOO -.->|序列依賴| NOTE2["⚡ 每次聚焦前輪錯誤\n⚠️ 對雜訊敏感"]
+    STK -.->|Cross-val預測| NOTE3["⚠️ 需用 OOF 預測\n避免 data leakage"]
+
+    style RF fill:#4CAF50,color:#fff
+    style XGB fill:#FF5722,color:#fff
+    style LGB fill:#2196F3,color:#fff
+    style BAG fill:#81C784
+    style BOO fill:#FF8A65
+    style STK fill:#BA68C8,color:#fff

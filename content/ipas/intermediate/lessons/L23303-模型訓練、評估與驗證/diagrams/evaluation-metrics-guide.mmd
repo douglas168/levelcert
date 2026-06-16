@@ -1,0 +1,27 @@
+flowchart TD
+    A([選擇評估指標]) --> B{任務類型?}
+
+    B -- 分類任務 --> C{類別是否平衡?}
+    B -- 回歸任務 --> R[回歸指標]
+
+    C -- 平衡 --> D{需要比較不同模型?}
+    C -- 不平衡 --> E[F1 Score\n或 AUC-ROC\n⚠️ 不要只看 Accuracy]
+
+    D -- 是 --> F[AUC-ROC\n閾值無關，全面比較]
+    D -- 否 --> G{更在意哪種錯誤?}
+
+    G -- FP 假陽性 --> H[Precision 精確率\nTP/TP+FP\n垃圾郵件、廣告投放]
+    G -- FN 假陰性 --> I[Recall 召回率\nTP/TP+FN\n癌症篩查、安全系統]
+    G -- 兩者都重要 --> J[F1 Score\n2×P×R / P+R]
+
+    R --> R1{異常值敏感度?}
+    R1 -- 不敏感 --> R2[MAE\n平均絕對誤差\n穩健]
+    R1 -- 需放大大誤差 --> R3[RMSE\n均方根誤差\n嚴格懲罰]
+    R1 -- 解釋力 --> R4[R²\n0~1，越高越好]
+
+    style A fill:#4CAF50,color:#fff
+    style E fill:#F44336,color:#fff
+    style H fill:#2196F3,color:#fff
+    style I fill:#9C27B0,color:#fff
+    style J fill:#FF9800,color:#fff
+    style F fill:#00BCD4,color:#fff

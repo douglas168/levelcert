@@ -1,0 +1,29 @@
+flowchart TD
+    subgraph BEFORE["⚠️ 資料切分前的不平衡情況 (Class Imbalance)"]
+        M1[("多數類別\nMajority Class\n●●●●●●●●●●\n900 samples")]
+        M2[("少數類別\nMinority Class\n★★★★★\n100 samples")]
+    end
+
+    BEFORE --> SPLIT["🔪 train_test_split(stratify=y)\n保持類別比例的分層切分"]
+
+    SPLIT --> TRAIN["Training Set\n● 720 Majority\n★ 80 Minority"]
+    SPLIT --> TEST["Test Set（凍結）\n● 180 Majority\n★ 20 Minority\n⛔ 不能做 SMOTE"]
+
+    TRAIN --> CHOICE{{"🎯 不平衡處理策略選擇"}}
+
+    CHOICE -->|"產生合成樣本"| SMOTE_PATH["SMOTE\nSynthetic Minority Over-sampling"]
+    CHOICE -->|"調整損失懲罰"| CW_PATH["class_weight='balanced'\n不改變資料筆數"]
+
+    SMOTE_PATH --> SMOTE_DETAIL["imblearn SMOTE 做了什麼：\n1. 找少數類別每個點的 k 個鄰居\n2. 在少數類別點與鄰居之間插值\n3. 產生新合成點（非複製）\n\n結果：★ 80 → ★★★ 720 (合成後平衡)"]
+    CW_PATH --> CW_DETAIL["sklearn 模型參數：\nLogisticRegression(class_weight='balanced')\nRandomForestClassifier(class_weight='balanced')\n\n效果：少數類別錯誤懲罰 × 9\n（900/100 倍率）\n資料筆數不變"]
+
+    SMOTE_DETAIL --> EVAL
+    CW_DETAIL --> EVAL
+
+    EVAL["📊 評估（在凍結的 Test Set 上）\n⛔ 不用 Accuracy 當主要指標\n✅ 看 Recall、F1、Precision-Recall Curve"]
+
+    style BEFORE fill:#fff3e0,stroke:#e65100
+    style TEST fill:#fce4ec,stroke:#c62828
+    style SMOTE_DETAIL fill:#e8f5e9,stroke:#2e7d32
+    style CW_DETAIL fill:#e3f2fd,stroke:#1565c0
+    style EVAL fill:#f3e5f5,stroke:#6a1b9a

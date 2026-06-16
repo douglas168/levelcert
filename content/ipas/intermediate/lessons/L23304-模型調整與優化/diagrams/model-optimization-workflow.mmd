@@ -1,0 +1,38 @@
+flowchart TD
+    Start([🚀 開始建模]) --> Train
+
+    Train["🏋️ 模型訓練\nfit on train set\n(L23303 的工作)"]
+    Train --> Eval
+
+    Eval["📊 評估\nvalidation set\nAcc / F1 / Loss"]
+    Eval --> Diag
+
+    Diag{效能診斷}
+    Diag -->|"訓練好測試差\n過擬合"| REG["🛡️ 正則化策略\nL1 / L2 / Dropout\nEarly Stopping"]
+    Diag -->|"兩者都差\n欠擬合"| COMP["📈 增加複雜度\n更多特徵 / 更大模型\n(L23302 的工作)"]
+    Diag -->|"效能可以更好\n需調超參數"| HP["🔍 超參數搜尋\nGrid / Random / Bayesian\nGridSearchCV / Optuna"]
+    Diag -->|"基本達標\n但需提升"| ENS["🏆 集成方法\nBagging → 降 Variance\nBoosting → 降 Bias\nStacking → 最靈活"]
+
+    REG --> Retrain
+    HP --> Retrain
+    ENS --> Deploy
+
+    Retrain["🔄 重新訓練\n帶入調整後的設定"]
+    Retrain --> Eval
+
+    Deploy{部署需求}
+    Deploy -->|"邊緣裝置\n手機/IoT"| COMP2["📦 模型壓縮\n剪枝 Pruning\n量化 Quantization\n知識蒸餾 Distillation"]
+    Deploy -->|"雲端部署\n資源充足"| DONE
+
+    COMP2 --> DONE
+
+    DONE(["✅ 上線部署\nModel Serving"])
+
+    style Train fill:#4CAF50,color:#fff
+    style Eval fill:#2196F3,color:#fff
+    style REG fill:#FF9800,color:#fff
+    style HP fill:#9C27B0,color:#fff
+    style ENS fill:#E91E63,color:#fff
+    style COMP2 fill:#795548,color:#fff
+    style DONE fill:#4CAF50,color:#fff
+    style Diag fill:#FFF9C4

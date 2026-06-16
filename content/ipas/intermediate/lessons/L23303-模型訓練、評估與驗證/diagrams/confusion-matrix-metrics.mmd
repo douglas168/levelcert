@@ -1,0 +1,25 @@
+flowchart TD
+    subgraph CM["混淆矩陣 Confusion Matrix（二元分類）"]
+        direction TB
+        CM1["預測 Positive | 預測 Negative"]
+        CM2["實際 Positive | TP 真正例 ✅ | FN 假負例 ❌"]
+        CM3["實際 Negative | FP 假正例 ❌ | TN 真負例 ✅"]
+    end
+
+    CM --> ACC["Accuracy 準確率\n= TP+TN / 全部\n整體猜對比例"]
+    CM --> PRE["Precision 精確率\n= TP / TP+FP\n猜正例中真的是正例的比例"]
+    CM --> REC["Recall 召回率\n= TP / TP+FN\n⚠️ 官方指引有誤\n正確分母是 TP+FN"]
+    CM --> F1["F1 Score\n= 2×P×R / P+R\nPrecision 與 Recall 的調和平均"]
+
+    PRE --> TRAP["⚠️ 陷阱警告\nPrecision 分母 = TP+FP\nRecall 分母 = TP+FN\n兩者分子都是 TP\n差別只在分母！"]
+    REC --> TRAP
+
+    ACC --> USE_ACC["適用：類別平衡時"]
+    PRE --> USE_PRE["適用：假陽性代價高\n如垃圾郵件過濾"]
+    REC --> USE_REC["適用：假陰性代價高\n如癌症篩查、安全系統"]
+    F1 --> USE_F1["適用：類別不平衡\n兩者都重要時"]
+
+    style CM fill:#E3F2FD
+    style TRAP fill:#FFCDD2,color:#B71C1C
+    style REC fill:#FFF9C4
+    style PRE fill:#E8F5E9

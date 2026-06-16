@@ -1,0 +1,38 @@
+flowchart TD
+    subgraph WRONG["❌ 錯誤流程：Data Leakage（資料外洩）"]
+        direction TB
+        W1["全部資料 X, y"] --> W2["⚠️ scaler.fit_transform(X)\n或 SMOTE.fit_resample(X, y)\n— 此時 test data 也被 fit 看到了！"]
+        W2 --> W3["train_test_split(X_scaled, y)"]
+        W3 --> W4_train["X_train_scaled"]
+        W3 --> W4_test["X_test_scaled\n（test 已污染）"]
+        W4_train --> W5["model.fit(X_train_scaled, y_train)"]
+        W5 --> W6["model.predict(X_test_scaled)"]
+        W6 --> W7["❌ 評估過度樂觀\ntest 統計已洩入 scaler"]
+    end
+
+    DIVIDER[" "]
+
+    subgraph CORRECT["✅ 正確流程：Leakage-Safe Discipline"]
+        direction TB
+        C1["全部資料 X, y"] --> C2["🔪 先切！train_test_split(X, y)\n（train/val/test 完全隔離）"]
+        C2 --> C_train["X_train, y_train\n（可以 fit）"]
+        C2 --> C_test["X_test, y_test\n⛔ 凍結，等評估才用"]
+        C_train --> C3["scaler.fit_transform(X_train)\nSMOTE.fit_resample(X_train, y_train)\n— 只從訓練集學習統計"]
+        C3 --> C4["model.fit(X_train_processed, y_train)"]
+        C_test --> C5["scaler.transform(X_test)\n— 只 transform，不 fit"]
+        C4 --> C6["model.predict(X_test_processed)"]
+        C5 --> C6
+        C6 --> C7["✅ 評估可信\ntest 統計從未見過訓練資訊"]
+    end
+
+    subgraph PIPELINE["🛡️ 最佳實踐：make_pipeline 自動防漏"]
+        P1["pipe = make_pipeline(\n    StandardScaler(),\n    LogisticRegression()\n)"]
+        P2["scores = cross_val_score(pipe, X, y, cv=5)\n# 每個 fold 自動 fit on fold-train only"]
+        P3["print(scores)        # array of 5 scores\nprint(scores.mean()) # 平均自己算"]
+        P1 --> P2 --> P3
+    end
+
+    style WRONG fill:#fce4ec,stroke:#c62828
+    style CORRECT fill:#e8f5e9,stroke:#2e7d32
+    style PIPELINE fill:#e3f2fd,stroke:#1565c0
+    style DIVIDER fill:none,stroke:none

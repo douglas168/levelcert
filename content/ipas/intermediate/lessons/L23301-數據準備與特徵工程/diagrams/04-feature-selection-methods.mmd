@@ -1,0 +1,41 @@
+flowchart TD
+    START[("🗂️ 高維特徵集\nHigh-dimensional Features\nX_train (n × d, d >> 必要數量)")] --> Q{{"你的優先考量？"}}
+
+    Q -->|"速度快\n不依賴最終模型"| FILTER["📊 Filter Methods\n過濾法"]
+    Q -->|"希望和最終模型\n行為貼近"| WRAPPER["🔄 Wrapper Methods\n包裝法"]
+    Q -->|"訓練過程中\n自然選出重要特徵"| EMBEDDED["🧲 Embedded Methods\n嵌入法"]
+
+    subgraph FILTER_BOX["Filter Methods — 統計分數先篩"]
+        FILTER --> F1["計算每個特徵與 y 的統計相關性"]
+        F1 --> F2["score functions：\n• chi2（適合分類 + 非負特徵）\n• f_classif（ANOVA F-test）\n• mutual_info_classif（互資訊）"]
+        F2 --> F3["SelectKBest(score_func, k=10)\n.fit_transform(X_train, y_train)"]
+        F3 --> F4["✅ 優點：快速、模型無關\n⚠️ 注意：忽略特徵交互"]
+    end
+
+    subgraph WRAPPER_BOX["Wrapper Methods — 模型反覆選"]
+        WRAPPER --> W1["以模型表現評估特徵子集"]
+        W1 --> W2["RFE：Recursive Feature Elimination\n遞迴特徵消除"]
+        W2 --> W3["每輪訓練模型\n移除最弱特徵\n重複直到剩 n 個"]
+        W3 --> W4["RFE(estimator=LogisticRegression(),\n    n_features_to_select=10)\n.fit_transform(X_train, y_train)"]
+        W4 --> W5["✅ 優點：和模型行為貼近\n⚠️ 注意：較慢、計算成本高"]
+    end
+
+    subgraph EMBEDDED_BOX["Embedded Methods — 模型訓練中內建"]
+        EMBEDDED --> E1["特徵重要性由模型訓練產生"]
+        E1 --> E2A["L1 Regularization（Lasso）\n→ 稀疏係數（sparse coef_）\n→ 部分係數 = 0 即選掉"]
+        E1 --> E2B["Tree-based feature_importances_\n→ 每個特徵對分裂增益的貢獻"]
+        E2A --> E3["SelectFromModel(\n    estimator=Lasso(alpha=0.01)\n).fit_transform(X_train, y_train)"]
+        E2B --> E3
+        E3 --> E4["✅ 優點：訓練與選擇整合\n⚠️ 注意：依賴特定模型"]
+    end
+
+    F3 --> RESULT
+    W4 --> RESULT
+    E3 --> RESULT
+
+    RESULT["✅ 降維後特徵集\nX_train_selected / X_test_selected\n→ model.fit(X_train_selected, y_train)"]
+
+    style FILTER_BOX fill:#fff9c4,stroke:#f9a825
+    style WRAPPER_BOX fill:#e3f2fd,stroke:#1565c0
+    style EMBEDDED_BOX fill:#f3e5f5,stroke:#6a1b9a
+    style RESULT fill:#e8f5e9,stroke:#2e7d32

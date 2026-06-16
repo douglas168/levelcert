@@ -1,0 +1,37 @@
+flowchart LR
+    subgraph SD["Step Decay（步進衰減）"]
+        direction TB
+        s1["lr=0.1"] --> s2["lr=0.01"] --> s3["lr=0.001"]
+        s1 -.->|"每30 epoch\n× 0.1"| s2
+        s2 -.->|"每30 epoch\n× 0.1"| s3
+    end
+
+    subgraph ED["Exponential Decay（指數衰減）"]
+        direction TB
+        e1["lr=0.1 → 0.095 → 0.090 → ... 連續平滑衰減"]
+    end
+
+    subgraph CA["Cosine Annealing（餘弦退火）"]
+        direction TB
+        c1["lr高"] --> c2["lr低"] --> c3["lr高（重啟）"] --> c4["lr低"]
+        c1 -.->|餘弦曲線| c2
+        c2 -.->|週期重啟| c3
+        c3 -.->|餘弦曲線| c4
+    end
+
+    subgraph WU["Warmup + Decay（預熱衰減）"]
+        direction TB
+        w0["lr極小"] --> w1["lr漸升"] --> w2["lr目標值"] --> w3["lr下降"]
+        w0 -.->|"Warmup\n線性升高"| w2
+        w2 -.->|"Cosine/Step\n衰減"| w3
+    end
+
+    SD -.->|"適合: 傳統CNN"| CA
+    ED -.->|"適合: 一般深度學習"| CA
+    WU -.->|"適合: 預訓練fine-tuning\n⭐ 常考場景"| CA
+
+    note1["🔥 考試重點\nWarmup → fine-tuning場景\nCosine Annealing → 大模型長訓練\nReduceLROnPlateau → 驗證集停滯時自動降低"]
+
+    style WU fill:#FF9800,color:#fff
+    style CA fill:#9C27B0,color:#fff
+    style note1 fill:#FFF3E0

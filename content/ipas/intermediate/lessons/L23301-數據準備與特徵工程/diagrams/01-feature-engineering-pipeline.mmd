@@ -1,0 +1,30 @@
+flowchart TD
+    A[("🗂️ 已清洗乾淨的 DataFrame\nClean Input DataFrame")] --> B
+
+    B["🔪 train_test_split\n先切分資料\n（stratify=y for imbalance）"]
+    B --> C["X_train / y_train"]
+    B --> D["X_val / X_test"]
+
+    C --> E["⚙️ Preprocessing — FIT on train only"]
+    E --> E1["StandardScaler\n.fit_transform(X_train)"]
+    E --> E2["OneHotEncoder / OrdinalEncoder\n.fit_transform(X_train_cat)"]
+    E --> E3["FeatureSelector (SelectKBest / RFE)\n.fit_transform(X_train, y_train)"]
+    E --> E4["SMOTE (if imbalanced)\n.fit_resample(X_train, y_train)"]
+
+    D --> F["⚠️ Preprocessing — TRANSFORM only\n（절대 fit 不能用 val/test）"]
+    F --> F1["scaler.transform(X_val)\nscaler.transform(X_test)"]
+    F --> F2["encoder.transform(X_test_cat)"]
+    F --> F3["selector.transform(X_test)"]
+
+    E1 --> G["🤖 Model Training\nmodel.fit(X_train_processed, y_train)"]
+    E4 --> G
+
+    F1 --> H["📊 Evaluation\nmodel.predict(X_test_processed)\nF1 / Recall / Accuracy"]
+    G --> H
+
+    style A fill:#e8f5e9,stroke:#388e3c
+    style B fill:#fff9c4,stroke:#f57f17
+    style E fill:#e3f2fd,stroke:#1565c0
+    style F fill:#fce4ec,stroke:#c62828
+    style G fill:#f3e5f5,stroke:#6a1b9a
+    style H fill:#e0f2f1,stroke:#00695c

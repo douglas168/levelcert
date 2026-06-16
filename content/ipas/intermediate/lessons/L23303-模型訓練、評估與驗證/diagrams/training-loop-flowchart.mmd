@@ -1,0 +1,22 @@
+flowchart TD
+    A([🚀 開始訓練]) --> B[載入訓練資料]
+    B --> C{還有更多 Epoch?}
+    C -- 否 --> Z([✅ 訓練完成])
+    C -- 是 --> D[開始新 Epoch]
+    D --> E{還有更多 Batch?}
+    E -- 否 --> C
+    E -- 是 --> F[取出一個 Batch\nbatch_size 筆資料]
+    F --> G[前向傳播\nForward Pass\n輸入 → 模型 → 預測 ŷ]
+    G --> H[計算損失\nLoss = criterion&#40;ŷ, y&#41;\n分類用 Cross-Entropy\n回歸用 MSE]
+    H --> I[清空梯度\noptimizer.zero_grad&#40;&#41;\n避免梯度累積]
+    I --> J[反向傳播\nBackpropagation\nloss.backward&#40;&#41;\n計算各參數梯度]
+    J --> K[更新權重\noptimizer.step&#40;&#41;\nw = w - α × 梯度]
+    K --> E
+
+    style A fill:#4CAF50,color:#fff
+    style Z fill:#4CAF50,color:#fff
+    style G fill:#2196F3,color:#fff
+    style H fill:#FF9800,color:#fff
+    style J fill:#9C27B0,color:#fff
+    style K fill:#F44336,color:#fff
+    style I fill:#607D8B,color:#fff

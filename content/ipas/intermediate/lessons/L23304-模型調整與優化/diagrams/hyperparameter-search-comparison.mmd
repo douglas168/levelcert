@@ -1,0 +1,23 @@
+flowchart TD
+    Start([開始超參數搜尋]) --> Q1{超參數維度多嗎？}
+
+    Q1 -->|少 2-3個| GS[Grid Search\n網格搜尋]
+    Q1 -->|多 4個以上| Q2{評估成本高嗎？}
+
+    Q2 -->|成本中等| RS[Random Search\n隨機搜尋]
+    Q2 -->|評估成本高\n想最大化效率| BO[Bayesian Optimization\n貝葉斯優化]
+
+    GS --> GSd["✅ 窮舉所有組合\n✅ 保證網格內最優\n❌ 組合數爆炸\nAPI: GridSearchCV"]
+    RS --> RSd["✅ 隨機採樣 n_iter 次\n✅ 高維更有效率\n✅ 可用連續分布\nAPI: RandomizedSearchCV"]
+    BO --> BOd["✅ 代理模型指導搜尋\n✅ 利用歷史評估結果\n✅ 每次更聰明\nAPI: Optuna / Hyperopt"]
+
+    GSd --> R1[取得 best_params_\n& best_estimator_]
+    RSd --> R1
+    BOd --> R1
+
+    R1 --> End([✅ 最佳超參數組合])
+
+    style GS fill:#4CAF50,color:#fff
+    style RS fill:#2196F3,color:#fff
+    style BO fill:#9C27B0,color:#fff
+    style End fill:#FF9800,color:#fff

@@ -1,0 +1,30 @@
+---
+title: L23302 損失函數選擇指南（Loss Function Selection Guide）
+---
+flowchart TD
+    A([🎯 定義任務輸出]) --> B{輸出類型？}
+
+    B -->|連續數值 回歸| C{對離群值敏感？}
+    B -->|類別標籤 分類| D{類別數量？}
+    B -->|機率排序| E[AUC / Ranking Loss\n特殊任務用]
+
+    C -->|敏感 → 想懲罰大誤差| F["📉 MSE — 均方誤差\nMean Squared Error\n= (y - ŷ)²"]
+    C -->|不敏感 → 想穩健估計| G["📏 MAE — 平均絕對誤差\nMean Absolute Error\n= |y - ŷ|"]
+
+    D -->|2 類別 二元分類| H["📊 Binary Cross-Entropy\n二元交叉熵\n搭配 Sigmoid 輸出層"]
+    D -->|多類別 整數標籤| I["📊 Sparse Categorical\nCross-Entropy\n搭配 Softmax＋整數 label"]
+    D -->|多類別 One-Hot 標籤| J["📊 Categorical Cross-Entropy\n搭配 Softmax＋one-hot label"]
+
+    F --> K["🔑 考試快判\n回歸 → MSE / MAE\n分類 → Cross-Entropy"]
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+
+    style A fill:#4CAF50,color:#fff
+    style K fill:#FF9800,color:#fff
+    style F fill:#2196F3,color:#fff
+    style G fill:#2196F3,color:#fff
+    style H fill:#9C27B0,color:#fff
+    style I fill:#9C27B0,color:#fff
+    style J fill:#9C27B0,color:#fff

@@ -1,0 +1,29 @@
+flowchart TD
+    Start([模型出現問題]) --> Q1{問題類型？}
+
+    Q1 -->|過擬合\n訓練好測試差| OV[過擬合 Overfitting]
+    Q1 -->|欠擬合\n訓練測試都差| UV[欠擬合 Underfitting\n→ 增加模型複雜度]
+
+    OV --> Q2{模型類型？}
+
+    Q2 -->|線性模型\nLogReg / Linear| LM[線性正則化]
+    Q2 -->|神經網路| NN[深度學習正則化]
+
+    LM --> Q3{需要特徵選擇？}
+    Q3 -->|是\n多無關特徵| L1["L1 正則化 Lasso\n✅ 稀疏解\n部分 w → 0\n等同特徵選擇"]
+    Q3 -->|否\n特徵都重要| L2["L2 正則化 Ridge\n✅ 平滑縮小\n所有 w 縮小但≠0\n防多重共線性"]
+
+    NN --> Q4{想防什麼？}
+    Q4 -->|神經元過度依賴\n共同訓練| DO["Dropout\n訓練時隨機關閉神經元\n推論時 model.eval() 關閉"]
+    Q4 -->|不知何時停止\n避免訓練過久| ES["Early Stopping\n監控 validation loss\npatience 個 epoch 無改善→停止"]
+
+    L1 --> OK([✅ 過擬合解決])
+    L2 --> OK
+    DO --> OK
+    ES --> OK
+
+    style L1 fill:#E91E63,color:#fff
+    style L2 fill:#2196F3,color:#fff
+    style DO fill:#FF9800,color:#fff
+    style ES fill:#4CAF50,color:#fff
+    style UV fill:#9E9E9E,color:#fff

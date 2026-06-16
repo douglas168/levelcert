@@ -1,0 +1,35 @@
+---
+title: L23302 模型選擇決策樹（Model Family Selection Decision Tree）
+---
+flowchart TD
+    A([🎯 定義問題類型]) --> B{資料型態？}
+
+    B -->|表格／結構化資料| C{任務類型？}
+    B -->|影像／空間資料| D[📷 CNN\n卷積神經網路]
+    B -->|序列／時間序列| E{序列長度與依賴？}
+    B -->|文字／NLP| F{依賴距離？}
+
+    C -->|分類| G{資料量？}
+    C -->|回歸| H{資料量？}
+    C -->|分群| I[📊 K-Means / DBSCAN\n非監督式方法]
+
+    G -->|小到中| J[🌳 決策樹 / SVM\n邏輯迴歸 / 集成]
+    G -->|大| K[🧠 MLP\n多層全連接網路]
+
+    H -->|小到中| L[📉 線性迴歸 / SVM\n隨機森林]
+    H -->|大| M[🧠 MLP 迴歸\n多層全連接網路]
+
+    E -->|短距依賴可| N[🔄 RNN\n遞迴神經網路]
+    E -->|長距依賴需| O[⏱️ LSTM / GRU\n長短期記憶]
+
+    F -->|局部依賴| P[🔄 RNN / LSTM]
+    F -->|長距依賴| Q[🤖 Transformer\nBERT / GPT 類]
+
+    D --> R{資料量}
+    R -->|小| S[遷移學習\nTransfer Learning]
+    R -->|大| T[訓練 CNN\n從頭開始]
+
+    style A fill:#4CAF50,color:#fff
+    style D fill:#2196F3,color:#fff
+    style O fill:#FF9800,color:#fff
+    style Q fill:#9C27B0,color:#fff

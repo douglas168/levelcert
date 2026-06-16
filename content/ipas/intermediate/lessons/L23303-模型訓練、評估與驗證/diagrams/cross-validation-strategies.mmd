@@ -1,0 +1,23 @@
+flowchart TD
+    A([資料集 100 筆]) --> B{資料集特性?}
+
+    B -- 一般分類/回歸 --> C[k-Fold CV\nk=5 或 10]
+    B -- 類別不平衡 --> D[Stratified k-Fold\n保持每折類別比例]
+    B -- 資料量極少 < 50筆 --> E[Leave-One-Out\nLOO-CV]
+
+    C --> C1["Fold 1: [驗證][訓練][訓練][訓練][訓練]"]
+    C --> C2["Fold 2: [訓練][驗證][訓練][訓練][訓練]"]
+    C --> C3["Fold 3~5: 依此類推..."]
+    C --> C4[最終分數 = 5 折平均\ncross_val_score 回傳 array!]
+
+    D --> D1["每折保持相同類別比例\n例如：正例 10%、負例 90%\n每折都維持此比例"]
+    D --> D2["sklearn: StratifiedKFold\nn_splits=5"]
+
+    E --> E1["每次用 1 筆當驗證\n其餘 n-1 筆訓練\n共執行 n 次"]
+    E --> E2["計算成本高\n但訓練資料最大化"]
+
+    style A fill:#4CAF50,color:#fff
+    style C fill:#2196F3,color:#fff
+    style D fill:#FF9800,color:#fff
+    style E fill:#9C27B0,color:#fff
+    style C4 fill:#F44336,color:#fff

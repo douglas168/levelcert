@@ -1,0 +1,31 @@
+flowchart TD
+    START[("🤔 你的演算法需要特徵縮放嗎？\nDoes your algorithm need Feature Scaling?")] --> Q1{{"演算法類型？"}}
+
+    Q1 -->|"距離型模型\nDistance-based"| DIST["🎯 高度需要 Scaling\n⚠️ 特徵尺度直接影響距離計算"]
+    Q1 -->|"線性模型 / 梯度下降\nLinear / Gradient-based"| LINEAR["🎯 通常需要 Scaling\n⚠️ 梯度更新與正則化對尺度敏感"]
+    Q1 -->|"樹狀模型\nTree-based"| TREE["✅ 通常不需要 Scaling\n樹依門檻切分，不依賴特徵大小"]
+
+    DIST --> DIST_EX["代表演算法：\n• KNN（K-Nearest Neighbors）\n• SVM（Support Vector Machine）\n• K-Means（聚類）"]
+    LINEAR --> LINEAR_EX["代表演算法：\n• Logistic Regression\n• Linear Regression\n• Neural Network\n• Gradient Descent 優化"]
+    TREE --> TREE_EX["代表演算法：\n• Decision Tree（決策樹）\n• Random Forest（隨機森林）\n• XGBoost / LightGBM"]
+
+    DIST_EX --> SCALE_Q{{"哪種 Scaler？"}}
+    LINEAR_EX --> SCALE_Q
+
+    SCALE_Q -->|"題目問 mean=0, std=1\n或 z-score\n或一般 SVM/LogReg"| SS["StandardScaler（標準化）\n\nz = (x - mean) / std\n\n輸出：mean ≈ 0, std ≈ 1\n📌 考試最常考的縮放器"]
+
+    SCALE_Q -->|"題目要求輸出在固定範圍\n[0, 1] 或 [a, b]"| MMS["MinMaxScaler（最小最大縮放）\n\nx_scaled = (x - min) / (max - min)\n\n輸出：feature_range 通常 [0, 1]\n⚠️ outlier 仍影響 min/max"]
+
+    TREE_EX --> NO_SCALE["不需要縮放\n但 Pipeline 中放入 StandardScaler\n不影響 tree model 結果\n（樹對單調縮放不敏感）"]
+
+    SS --> RULE["📋 考試快判規則\n\n看到 mean=0 / std=1 / z-score → StandardScaler\n看到 [0,1] / feature_range → MinMaxScaler\n看到 SVM / KNN → 優先想 StandardScaler\n看到 XGBoost / Random Forest → 通常不需要"]
+    MMS --> RULE
+    NO_SCALE --> RULE
+
+    style DIST fill:#fff3e0,stroke:#e65100
+    style LINEAR fill:#e3f2fd,stroke:#1565c0
+    style TREE fill:#e8f5e9,stroke:#2e7d32
+    style SS fill:#f3e5f5,stroke:#6a1b9a
+    style MMS fill:#fce4ec,stroke:#ad1457
+    style NO_SCALE fill:#e8f5e9,stroke:#2e7d32
+    style RULE fill:#fff9c4,stroke:#f57f17

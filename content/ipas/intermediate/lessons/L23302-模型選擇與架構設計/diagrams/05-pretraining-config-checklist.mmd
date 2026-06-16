@@ -1,0 +1,49 @@
+---
+title: L23302 訓練前配置清單流程圖（Pre-Training Configuration Checklist）
+---
+flowchart TD
+    A([🚀 開始模型配置]) --> B
+
+    subgraph 步驟1 模型家族選擇
+        B["1️⃣ 選模型家族\n表格→MLP/樹模型\n影像→CNN\n序列→LSTM/GRU\n長文→Transformer"]
+    end
+
+    B --> C
+
+    subgraph 步驟2 架構定義
+        C["2️⃣ 定義網路架構\n層數（Depth）: 隱藏層幾層？\n寬度（Width）: 每層幾個神經元？\n激活函數（Activation）:\n  隱藏層 → ReLU\n  輸出層 → 依任務選"]
+    end
+
+    C --> D
+
+    subgraph 步驟3 激活函數輸出層確認
+        D{"3️⃣ 確認輸出層激活函數"}
+        D -->|回歸| D1[無激活函數\nLinear Output]
+        D -->|二元分類| D2[Sigmoid\np ∈ 0,1]
+        D -->|多類別分類| D3[Softmax\n∑pᵢ = 1]
+    end
+
+    D1 & D2 & D3 --> E
+
+    subgraph 步驟4 損失函數選擇
+        E["4️⃣ 選損失函數\n回歸 → MSE / MAE\n二元分類 → Binary Cross-Entropy\n多類別 → Categorical Cross-Entropy"]
+    end
+
+    E --> F
+
+    subgraph 步驟5 優化器選擇
+        F["5️⃣ 選優化器\nSGD — 最基本，學習率固定\nRMSprop — 自適應學習率\nAdam — RMSprop + Momentum（推薦首選）"]
+    end
+
+    F --> G
+
+    subgraph 步驟6 權重初始化
+        G["6️⃣ 選初始化策略\nXavier/Glorot — Sigmoid/Tanh 激活\nHe Normal — ReLU 激活\n零初始化 ❌ 禁止（對稱性問題）"]
+    end
+
+    G --> H["model.compile(optimizer, loss, metrics)\n✅ 訓練前配置完成"]
+    H --> I(["▶️ model.fit() → L23303 訓練執行"])
+
+    style A fill:#4CAF50,color:#fff
+    style H fill:#2196F3,color:#fff
+    style I fill:#9E9E9E,color:#fff
