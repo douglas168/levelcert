@@ -89,6 +89,9 @@ Tracks open items across all lessons that need resolution before publishing.
 ### L23201 — 機器學習原理與技術
 - **Diagram rendering:** 5 Mermaid diagrams (`.md` source) under `lessons/L23201-機器學習原理與技術/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
 
+### L23202 — 常見機器學習演算法
+- **Diagram rendering:** 5 diagrams (`.md` source) under `lessons/L23202-常見機器學習演算法/diagrams/` — render to PNG via Gemini downstream (not blocking publish).
+
 ---
 
 ## Lesson Progress
@@ -121,7 +124,7 @@ Tracks open items across all lessons that need resolution before publishing.
 | 24 | L23102 | 線性代數之機器學習基礎應用 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 25 | L23103 | 數值優化技術與方法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 26 | L23201 | 機器學習原理與技術 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
-| 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | Not started | — |
+| 27 | L23202 | 常見機器學習演算法 | L23 | elective_b (機器學習組) | 2 | ✅ Done | 1 |
 | 28 | L23203 | 深度學習原理與框架 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 29 | L23301 | 數據準備與特徵工程 | L23 | elective_b (機器學習組) | 2 | Not started | — |
 | 30 | L23302 | 模型選擇與架構設計 | L23 | elective_b (機器學習組) | 2 | Not started | — |
@@ -136,9 +139,9 @@ Tracks open items across all lessons that need resolution before publishing.
 
 **🎉 資料分析組 (L21 + L22) content complete!** All 22 priority-1 lessons done.
 
-**Next:** `/course-generate-lesson L23202` to continue 機器學習組 SKU.
+**Next:** `/course-generate-lesson L23203` to continue 機器學習組 SKU (in progress).
 
-**Remaining lessons:** 8 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
+**Remaining lessons:** 7 of 34 topics left (all for 機器學習組 SKU; 資料分析組 fully done)
 
 ### Priority 1 — 資料分析組 sprint (founder 2026-05-23 exam)
 
@@ -179,7 +182,7 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 | ~~24~~ | ~~L23102~~ | ~~線性代數之機器學習基礎應用~~ | ✅ Done (1,107-line study guide, 5 diagrams, 3 important fixes applied) |
 | ~~25~~ | ~~L23103~~ | ~~數值優化技術與方法~~ | ✅ Done (787-line study guide, 5 diagrams, 4 review fixes applied) |
 | ~~26~~ | ~~L23201~~ | ~~機器學習原理與技術~~ | ✅ Done (763-line study guide, 5 diagrams, 1 minor fix applied) |
-| 27 | L23202 | 常見機器學習演算法 | Deep, includes code |
+| ~~27~~ | ~~L23202~~ | ~~常見機器學習演算法~~ | ✅ Done (872-line study guide, 5 diagrams, 1 minor fix applied) |
 | 28 | L23203 | 深度學習原理與框架 | Deep, includes code |
 | 29 | L23301 | 數據準備與特徵工程 | Deep, includes code, keywords inferred |
 | 30 | L23302 | 模型選擇與架構設計 | Deep, includes code |
@@ -217,3 +220,4 @@ Order from `syllabus/dependencies.md` §4 (L21 items already covered above).
 - **L22403** — 大數據在生成式AI中的應用 (2026-04-21). 40-question pool (deep, includes code), 877-line study guide, 5 Mermaid diagrams (三大典範資料需求金字塔, 語料清理管線, RAG資料管線, 分散式訓練三大策略比較, 分詞器技術比較). 2-reviewer pipeline (Claude adversarial: 0 critical/3 important/2 minor; Gemini: CLI empty/skipped; Codex auditor: 11 findings) resolved 13 total (1 critical [CROSS] + 5 important + 6 minor): C1 [CROSS] Dolma token count contradiction study-guide 1.715T vs Q40 3T reconciled, I1 ROOTS language count corrected (Q40 46→59: 46 natural + 13 programming languages), I2 LLaMA tokenizer classification corrected to SentencePiece-BPE (LLaMA 1/2) / tiktoken (LLaMA 3). **L22 sprint: 2 topics remaining.**
 - **L23103** — 數值優化技術與方法 (2026-06-16). 787-line study guide, 5 Mermaid diagrams (損失曲面GD路徑, GD/SGD/Mini-batch收斂比較, Adam四步驟更新分解, 學習率診斷圖, 批次大小可擴展性矩陣). 1-reviewer pipeline (Claude adversarial: 0 critical/2 important/1 minor) resolved 4 total: saddle point definition corrected from "梯度可能接近0" to "梯度恰好等於0 (∇L=0)" in 3 locations (body §3.4, Scenario Bank, Exam Trap), large-batch generalization-gap downside added. **L23 機器學習組 sprint: 9 topics remaining.**
 - **L23201** — 機器學習原理與技術 (2026-06-16). 763-line study guide, 5 Mermaid diagrams (偏差-變異數權衡曲線, 訓練/驗證/測試分割流程, K折交叉驗證輪轉圖, 損失函數比較圖, 過擬合診斷學習曲線). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/1 minor) resolved 1 total: LOO threshold standardized to n < 50 (was n < 100 in one location). **L23 機器學習組 sprint: 8 topics remaining.**
+- **L23202** — 常見機器學習演算法 (2026-06-16). 872-line study guide, 5 diagrams (algorithm-selection-flowchart, bias-variance-positioning, split-criteria-comparison, bagging-vs-boosting, svm-margin-geometry). 1-reviewer pipeline (Claude adversarial: 0 critical/0 important/2 minor) resolved 1 total: removed outdated RF `n_features/3` regression default (sklearn 1.x changed to 1.0). **L23 機器學習組 sprint: 7 topics remaining.**
