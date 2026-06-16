@@ -1,68 +1,76 @@
 # Handoff — 2026-06-16
 
-## Session summary
+## Session Summary
 
-Systematic format audit of the `course-generate-lesson` skill via `/grill-me`, closing the gap between the prompt template and the L21 gold standard study guide. 17 interview questions, 14 resulting template changes. All changes are committed.
+Completed the final two lessons of the IPAS 中級 機器學習組 curriculum, bringing total lesson count to **34/34**. Both SKUs are now content-complete and ready for mock exam assembly.
 
-## What was done
+## What Was Done
 
-### `study-guide-writer.md` — major format overhaul
-- **Opening scoped intro paragraph** added (required before Section 1): states exam subject/cluster + names ≥1 out-of-scope topic with lesson code
-- **Section 1 expanded** from 1 line → 6 sub-components: 1a 對應評鑑範圍 / 1b How to Study (numbered reading order) / 1c 標記說明 (3-tier table) / 1d 學習目標 (4–6 observable skills) / 1e 考點權重 table / 1f 先備知識
-- **🔥 markers** corrected to 3-tier: `🔥 = 能認出名詞` / `🔥🔥 = 要能解釋差異` / `🔥🔥🔥 = 要能在情境題中快速判斷`
-- **Visual Diagrams table** added (required between Section 1 and Section 2): `## 📊 視覺化圖表`, 3–5 planned diagrams with placeholder links
-- **Section 2 reading guide** added: "這張圖不是要一次背完。先抓 N 層就好：" before the ASCII tree
-- **Section 3 subsection structure** now requires in strict order per `### 3.N`:
-  1. `**先懂一句話：**` (single sentence mental model, required)
-  2. `**它在流程中的位置：**` (→ chain showing context, required)
-  3. Teaching content
-  4. `#### 情境題 Scenario Bank` (≥3 rows)
-  5. `#### Code Pattern 認識就夠` — subsection-level judgment: only when `includes_code: true` AND natural sklearn/Python pattern exists; else `> 此小節無對應程式 pattern`
-- **Section 4** now requires pulling from `高頻比較題型` in `L23-sample-questions-11409.md` for confirmed exam pairs; `> 考試快判：` line after each table
-- **Section 7** rules added: triggers ≤5 words, no repeating full Scenario Bank sentences
-- **Line target** raised: 500–650 → 600–800 lines
+### Lessons completed (parallel agents, no approval gates)
 
-### `researcher.md` — math depth ceiling
-Added rule: for mathematical concepts, research at exam-test level (recognition, formula ID, scenario judgment) — not derivation/proof/implementation. Deeper sources go to Scope Notes.
+**L23401 — 數據隱私、安全與合規**
+- 843-line study guide covering ML lifecycle compliance: model cards, datasheets, GDPR Art.22 right-to-explanation, 個資法 mapping, inference audit logging, consent propagation, model retirement/deletion
+- 5 diagrams: ML lifecycle compliance flow, model card structure, GDPR Art.22 decision tree, 個資法 vs GDPR comparison table, audit logging architecture (ASCII+SQL)
+- Claude adversarial review: 0 critical / 2 important / 4 minor → 6 fixes applied
+- Key fixes: GDPR Art.22(2) exception branches added, NIST attribution corrected to AI RMF Manage 2.4, 個資法 2025-11-11 amendment noted
 
-### `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — created
-L23 exam intelligence reference: community exam reports (2026-05-23 sitting), confirmed question types (code step-ordering, confusion-matrix calculation), high-frequency comparison pairs, known errata (Recall formula, `cross_val_score()` return type), sklearn code patterns.
+**L23402 — 演算法偏見與公平性** (機器學習組 capstone)
+- 856-line study guide covering bias detection + mitigation: fairness metric formulas (demographic parity, equal opportunity, equalized odds, disparate impact ratio), four-fifths rule, pre/in/post-processing strategies, IBM AIF360
+- 5 diagrams: bias source taxonomy, fairness metrics comparison with formulas, three-stage mitigation pipeline, four-fifths rule worked example with per-group confusion matrix, bias audit workflow
+- Claude adversarial review: 0 critical / 2 important / 1 minor → 3 fixes applied
+- Key fixes: aggregation bias boundary clarified (exam trap note added), reweighting locked to pre-processing only
 
-## What's next
+### Commits this session
+- `2d24a4c` — feat(content): complete L23401–L23402 機器學習治理 lessons, 2 study guides, 10 diagrams
 
-**Immediate:** Generate L23 study guides in sequential order:
+### TODO.md updated
+- Both rows marked ✅ Done in Lesson Progress table
+- What's Next updated: "🎉 ALL 34 LESSONS COMPLETE — run `/course-generate-exam`"
+- Resolved items added for both lessons
 
-```
-/course-generate-lesson L23101
-```
+## What's Next
 
-L23101 = 機率/統計之機器學習基礎應用 (Deep, includes code). Sequence: L23101 → L23102 → L23103 → L23201 → L23202 → L23203 → L23301 → L23302 → L23303 → L23304 → L23401 → L23402.
+**Both SKUs are now content-ready:**
+- `ipas-ai-intermediate-data` (L21 + L22) — 22 lessons
+- `ipas-ai-intermediate-ml` (L21 + L23) — 20 lessons (9 L21 shared + 11 L23)
 
-**Known errata to watch in L23303 (建模與參數調校):**
-- Recall = TP/(TP+FN) — NOT TP/(TP+FP) (official IPAS guide has wrong formula)
-- `cross_val_score()` returns array, not scalar
+**Immediate next action:** Run `/course-generate-exam` to assemble mock exams for both tracks.
 
-## Key files touched
-
-- `.claude/skills/course-generate-lesson/prompts/study-guide-writer.md` — complete format overhaul
-- `.claude/skills/course-generate-lesson/prompts/researcher.md` — math depth ceiling added
-- `.claude/skills/course-generate-lesson/SKILL.md` — pipeline updates (prior session)
-- `.claude/skills/course-generate-lesson/prompts/claude-adversarial-reviewer.md` — known errata section (prior session)
-- `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — new
-
-## Open items carried forward
-
-- **Landing page**: `web/app/(marketing)/page.tsx` has fake-claim 92% 通過率 badge + sampleTestimonials — must fix before sending traffic
-- **Mermaid diagrams**: PNG rendering pending across all L21/L22 lessons (non-blocking)
+**Pending open items (non-blocking):**
+- Diagram rendering: all 34 lessons have `.md`-source diagrams; render to PNG via Gemini when ready (not blocking publish)
+- Gemini cross-review skipped on several L22 lessons (rate limit during build); can re-run before exam assembly if desired
+- **Landing page**: `web/app/(marketing)/page.tsx` has fake-claim 92% 通過率 badge + `sampleTestimonials` — must fix before sending traffic
 - **Taiwan AI Basic Law dates** in L21203 — flagged for verification against Presidential Office gazette
 - **ISO/IEC 27701:2025 standalone claim** in L22404 — standalone status unconfirmed
-- **L21102** coverage gaps: image-matching and Precision/Recall/F1 each have only 1 question in practice pool
+- **L21102** practice pool: image-matching and Precision/Recall/F1 each have only 1 question
 
-## Before next session
+## Key Files Touched
 
-Re-read before implementing L23 content:
-- `content/ipas/intermediate/syllabus/boundary-map.md` — L23 boundary rules
-- `content/ipas/intermediate/syllabus/analysis.md` — L23 exam patterns
-- `content/ipas/intermediate/exams/L23-sample-questions-11409.md` — confirmed exam intelligence
-- `.claude/skills/course-generate-lesson/SKILL.md` — pipeline flow
-- `.claude/skills/course-generate-lesson/prompts/study-guide-writer.md` — updated format requirements
+```
+content/ipas/intermediate/TODO.md
+content/ipas/intermediate/lessons/L23401-數據隱私、安全與合規/
+  study-guide.md
+  research-notes.md
+  diagrams/01-ml-lifecycle-compliance.md
+  diagrams/02-model-card-structure.md
+  diagrams/03-gdpr-art22-decision-tree.md
+  diagrams/04-pdpa-vs-gdpr.md
+  diagrams/05-audit-logging-architecture.md
+content/ipas/intermediate/lessons/L23402-演算法偏見與公平性/
+  study-guide.md
+  research-notes.md
+  diagrams/01-bias-source-taxonomy.md
+  diagrams/02-fairness-metrics-comparison.md
+  diagrams/03-mitigation-strategies-by-stage.md
+  diagrams/04-four-fifths-rule-worked-example.md
+  diagrams/05-bias-audit-workflow.md
+```
+
+## Before Next Session
+
+Re-read before implementing:
+- `docs/webDev-architecture/ARCHITECTURE.md` — RLS, content protection, architecture invariants
+- `content/ipas/intermediate/syllabus/dependencies.md` — lesson ordering + dependency rules
+- `content/ipas/intermediate/TODO.md` — current status of all 34 lessons + open items
+- `CLAUDE.md` — training-data overrides (Next.js 16.2, Vercel), pricing table, known traps
+- `.claude/skills/course-generate-lesson/prompts/study-guide-writer.md` — format requirements for study guides
